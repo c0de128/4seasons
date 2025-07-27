@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import logoPath from "@/assets/images/logo_sm.png";
 import { 
   Menu, 
   X, 
@@ -103,9 +104,7 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white text-lg">⚛️</span>
-              </div>
+              <img src={logoPath} alt="Logo" className="w-8 h-8" />
               <span className="font-bold text-xl text-slate-900">NextJS Template</span>
             </div>
             
@@ -151,7 +150,7 @@ export default function Home() {
           <div className="text-center">
             <div className="flex justify-center mb-8">
               <div className="flex items-center space-x-4 bg-white rounded-full px-6 py-3 shadow-sm border border-slate-200">
-                <span className="text-blue-500 text-2xl">⚛️</span>
+                <img src={logoPath} alt="Logo" className="w-8 h-8" />
                 <span className="text-slate-400">+</span>
                 <span className="text-blue-600 text-2xl">JS</span>
                 <span className="text-slate-400">+</span>
