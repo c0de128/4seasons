@@ -105,7 +105,6 @@ export default function Home() {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <img src={logoPath} alt="Logo" className="w-8 h-8" />
-              <span className="font-bold text-xl text-slate-900">NextJS Template</span>
             </div>
             
             {/* Desktop Navigation */}
