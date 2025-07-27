@@ -155,10 +155,6 @@ export default function Home() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              
-              <Button className="bg-primary text-white hover:bg-blue-600">
-                Get Started
-              </Button>
             </div>
             
             {/* Mobile menu button */}
@@ -192,10 +188,6 @@ export default function Home() {
                   <a href="#contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
                 </div>
               </div>
-              
-              <Button className="w-full bg-primary text-white hover:bg-blue-600 mt-4">
-                Get Started
-              </Button>
             </div>
           </div>
         )}
