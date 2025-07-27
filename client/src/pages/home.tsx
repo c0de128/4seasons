@@ -5,6 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logoPath from "@/assets/images/logo_sm.png";
 import { 
   Menu, 
@@ -20,7 +27,8 @@ import {
   CheckCircle,
   Github,
   Twitter,
-  MessageSquare
+  MessageSquare,
+  ChevronDown
 } from "lucide-react";
 
 export default function Home() {
@@ -109,10 +117,45 @@ export default function Home() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-slate-600 hover:text-primary transition-colors duration-200">Features</a>
-              <a href="#components" className="text-slate-600 hover:text-primary transition-colors duration-200">Components</a>
-              <a href="#examples" className="text-slate-600 hover:text-primary transition-colors duration-200">Examples</a>
-              <a href="#docs" className="text-slate-600 hover:text-primary transition-colors duration-200">Documentation</a>
+              <a href="#buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Buy</a>
+              <a href="#sell" className="text-slate-600 hover:text-primary transition-colors duration-200">Sell</a>
+              <a href="#property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
+              
+              {/* Resources Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-slate-600 hover:text-primary transition-colors duration-200">
+                  Resources
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem>
+                    <a href="#home-valuation" className="w-full">Home Valuation</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#city-guides" className="w-full">City Guides</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#school-districts" className="w-full">School Districts</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#property-investment" className="w-full">Property Investment</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <a href="#blog" className="w-full">Blog</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#faq" className="w-full">FAQ</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#terms" className="w-full">Terms & Conditions</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#contact" className="w-full">Contact Us</a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
               <Button className="bg-primary text-white hover:bg-blue-600">
                 Get Started
               </Button>
@@ -131,11 +174,26 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-slate-200 bg-white">
             <div className="px-4 py-4 space-y-3">
-              <a href="#features" className="block text-slate-600 hover:text-primary">Features</a>
-              <a href="#components" className="block text-slate-600 hover:text-primary">Components</a>
-              <a href="#examples" className="block text-slate-600 hover:text-primary">Examples</a>
-              <a href="#docs" className="block text-slate-600 hover:text-primary">Documentation</a>
-              <Button className="w-full bg-primary text-white hover:bg-blue-600">
+              <a href="#buy" className="block text-slate-600 hover:text-primary">Buy</a>
+              <a href="#sell" className="block text-slate-600 hover:text-primary">Sell</a>
+              <a href="#property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
+              
+              {/* Resources - Mobile Expanded */}
+              <div className="border-t border-slate-100 pt-3 mt-3">
+                <p className="text-sm font-medium text-slate-500 mb-2">Resources</p>
+                <div className="pl-4 space-y-2">
+                  <a href="#home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
+                  <a href="#city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
+                  <a href="#school-districts" className="block text-slate-600 hover:text-primary text-sm">School Districts</a>
+                  <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
+                  <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
+                  <a href="#faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
+                  <a href="#terms" className="block text-slate-600 hover:text-primary text-sm">Terms & Conditions</a>
+                  <a href="#contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
+                </div>
+              </div>
+              
+              <Button className="w-full bg-primary text-white hover:bg-blue-600 mt-4">
                 Get Started
               </Button>
             </div>
