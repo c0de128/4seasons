@@ -112,7 +112,7 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <img src={logoPath} alt="Logo" className="w-8 h-8" />
+              <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
             </div>
             
             {/* Desktop Navigation */}
@@ -199,7 +199,7 @@ export default function Home() {
           <div className="text-center">
             <div className="flex justify-center mb-8">
               <div className="flex items-center space-x-4 bg-white rounded-full px-6 py-3 shadow-sm border border-slate-200">
-                <img src={logoPath} alt="Logo" className="w-8 h-8" />
+                <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
                 <span className="text-slate-400">+</span>
                 <span className="text-blue-600 text-2xl">JS</span>
                 <span className="text-slate-400">+</span>
