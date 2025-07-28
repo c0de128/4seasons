@@ -26,6 +26,7 @@ import {
   ArrowRight,
   CheckCircle
 } from "lucide-react";
+import allenHeroImage from "@/assets/docs/city-guides/allen.jpg";
 
 export default function AllenCityGuide() {
   const demographics = [
@@ -115,14 +116,22 @@ export default function AllenCityGuide() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${allenHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Allen, Texas
-              <span className="text-primary block">City Guide</span>
+              <span className="text-yellow-400 block">City Guide</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
               Discover why Allen is one of North Texas's most desirable communities. 
               From top-rated schools to championship sports and vibrant community life, 
               Allen offers the perfect blend of suburban comfort and urban convenience.
