@@ -39,7 +39,7 @@ export default function Buy() {
           <div style={{ width: '80vw' }}>
             <iframe 
               src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
-              style={{ minHeight: '80vh', width: '100%' }} 
+              style={{ minHeight: '88vh', width: '100%' }} 
               frameBorder={0} 
               marginWidth={0} 
               marginHeight={0}
