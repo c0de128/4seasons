@@ -450,14 +450,16 @@ export default function Home() {
                 <div className="flex items-center space-x-4">
                   <a
                     href="#"
-                    className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="LinkedIn Profile"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
                     href="mailto:amy@4seasonsrealestate.com"
-                    className="inline-flex items-center justify-center w-10 h-10 bg-slate-600 text-white rounded-full hover:bg-slate-700 transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="Email Amy"
                   >
                     <Mail className="w-5 h-5" />
@@ -517,14 +519,16 @@ export default function Home() {
                 <div className="flex items-center space-x-4">
                   <a
                     href="#"
-                    className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="LinkedIn Profile"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
                     href="mailto:tim@4seasonsrealestate.com"
-                    className="inline-flex items-center justify-center w-10 h-10 bg-slate-600 text-white rounded-full hover:bg-slate-700 transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="Email Tim"
                   >
                     <Mail className="w-5 h-5" />
@@ -657,28 +661,32 @@ export default function Home() {
                 <div className="flex space-x-4">
                   <a
                     href="#"
-                    className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="Facebook"
                   >
                     <span className="font-bold text-lg">f</span>
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors"
+                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="Twitter"
                   >
                     <Twitter className="w-6 h-6" />
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors"
+                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="Instagram"
                   >
                     <Instagram className="w-6 h-6" />
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-6 h-6" />
