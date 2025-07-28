@@ -144,8 +144,9 @@ export default function AllenCityGuide() {
       {/* Overview Section */}
       <section className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 Welcome to Allen
               </h2>
@@ -162,34 +163,57 @@ export default function AllenCityGuide() {
                   Allen Event Center, Watters Creek development, and some of the highest-rated schools in Texas.
                 </p>
               </div>
-              
-              <div className="grid grid-cols-2 gap-6">
-                {demographics.map((item, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-primary mb-1">{item.value}</div>
-                    <div className="font-semibold text-slate-900 mb-1">{item.label}</div>
-                    <div className="text-sm text-slate-600">{item.description}</div>
-                  </div>
-                ))}
-              </div>
             </div>
             
-            <div className="bg-white p-8 rounded-lg shadow-lg">
+            {/* Allen at a Glance Sidebar */}
+            <div className="bg-white p-6 rounded-lg shadow-lg h-fit">
               <h3 className="text-xl font-semibold text-slate-900 mb-6">Allen at a Glance</h3>
               <div className="space-y-4">
-                {[
-                  { icon: MapPin, text: "Located in Collin County, 28 miles north of downtown Dallas" },
-                  { icon: Calendar, text: "Incorporated in 1953, celebrating 70+ years of community" },
-                  { icon: Star, text: "Home to the Allen Eagles and 18,000-seat football stadium" },
-                  { icon: Building2, text: "Major employers include Allen ISD, Watters Creek, and corporate offices" },
-                  { icon: TreePine, text: "Over 300 acres of parks and recreational facilities" }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <item.icon className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-slate-700">{item.text}</span>
-                  </div>
-                ))}
+                <div className="flex items-start">
+                  <MapPin className="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                  <span className="text-slate-700">Located in Collin County, 28 miles north of downtown Dallas</span>
+                </div>
+                <div className="flex items-start">
+                  <Calendar className="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                  <span className="text-slate-700">Incorporated in 1953, celebrating 70+ years of community</span>
+                </div>
+                <div className="flex items-start">
+                  <Star className="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                  <span className="text-slate-700">Home to the Allen Eagles and 18,000-seat football stadium</span>
+                </div>
+                <div className="flex items-start">
+                  <Building2 className="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                  <span className="text-slate-700">Major employers include Allen ISD, Watters Creek, and corporate offices</span>
+                </div>
+                <div className="flex items-start">
+                  <TreePine className="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                  <span className="text-slate-700">Over 300 acres of parks and recreational facilities</span>
+                </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Demographics Section */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-500 mb-2">105,623</div>
+              <div className="font-semibold text-slate-900 mb-1">Population</div>
+              <div className="text-sm text-slate-600">Growing steadily since 2010</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-500 mb-2">37.2 years</div>
+              <div className="font-semibold text-slate-900 mb-1">Median Age</div>
+              <div className="text-sm text-slate-600">Young professional families</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-500 mb-2">$89,547</div>
+              <div className="font-semibold text-slate-900 mb-1">Median Income</div>
+              <div className="text-sm text-slate-600">Above Texas average</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-500 mb-2">78%</div>
+              <div className="font-semibold text-slate-900 mb-1">Family Households</div>
+              <div className="text-sm text-slate-600">Strong family community</div>
             </div>
           </div>
         </div>
