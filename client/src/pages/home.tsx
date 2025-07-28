@@ -52,6 +52,7 @@ export default function Home() {
     satisfaction: 0,
     years: 0
   });
+  const [isPaused, setIsPaused] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -83,6 +84,18 @@ export default function Home() {
     setTimeout(() => animateValue(0, 98, 2000, 'satisfaction'), 900);
     setTimeout(() => animateValue(0, 25, 2000, 'years'), 1100);
   }, []);
+
+  // Testimonials data
+  const testimonials = [
+    { name: "Michael S.", location: "Plano", quote: "Honestly, I was dreading selling, but 4 Seasons made it feel almost easy. Their team was sharp and really knew their stuff, got us a great deal way faster than we expected!" },
+    { name: "Sarah C.", location: "Frisco", quote: "From our first call, we just knew we were in good hands. They helped us snag our dream house even in this wild market. Seriously impressed with their hustle!" },
+    { name: "Jessica R.", location: "Allen", quote: "So glad we went with them. They were always a step ahead, totally on top of everything. It felt like they genuinely cared about getting us exactly what we wanted!" },
+    { name: "David L.", location: "McKinney", quote: "Couldn't recommend 4 Seasons enough. They were super professional but also just really nice people to work with. Made the whole buying process way less stressful!" },
+    { name: "Emily K.", location: "Richardson", quote: "Absolutely fantastic service from start to finish! They handled everything seamlessly, and we closed much faster than we anticipated. Highly recommend for anyone looking to sell!" },
+    { name: "Kevin P.", location: "Garland", quote: "We thought we'd be house hunting forever, but 4 Seasons pulled it off. They somehow made the tricky parts feel smooth. Huge thanks to the whole crew!" },
+    { name: "Linda W.", location: "Little Elm", quote: "After several frustrating attempts with other agents, 4 Seasons came in and got our tricky property sold. Their market insight was spot on, and their communication was excellent throughout!" },
+    { name: "Maria G.", location: "The Colony", quote: "We'd heard horror stories about first-time home buying, but our experience with 4 Seasons was anything but. They walked us through every single step with patience and expertise." }
+  ];
 
   const features = [
     {
@@ -767,43 +780,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Build Something Amazing?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-            Start your next project with our modern, production-ready template. 
-            Save hours of setup time and focus on what matters most - building your application.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-white text-primary px-8 py-4 text-lg font-semibold hover:bg-slate-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
-              <Code className="mr-2 h-5 w-5" />
-              Start Building Now
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-primary">
-              <Book className="mr-2 h-5 w-5" />
-              View Documentation
-            </Button>
+      {/* Customer Testimonials */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Don't just take our word for it. Here's what families across North Texas say about their experience with 4Seasons Real Estate.
+            </p>
           </div>
           
-          <div className="mt-12 flex justify-center items-center space-x-8 text-blue-100">
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>Free & Open Source</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>MIT License</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>Active Community</span>
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div 
+              className={`flex space-x-6 ${isPaused ? '' : 'animate-scroll'}`}
+              style={{
+                animation: isPaused ? 'none' : 'scroll 60s linear infinite'
+              }}
+            >
+              {/* Duplicate testimonials for seamless loop */}
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <Card key={index} className="min-w-[400px] max-w-[400px] bg-slate-50 border border-slate-200 flex-shrink-0">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-yellow-400 text-lg">★</span>
+                      ))}
+                    </div>
+                    <blockquote className="text-slate-700 italic leading-relaxed mb-4">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <div className="border-t border-slate-200 pt-4">
+                      <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                      <div className="text-slate-600 text-sm">{testimonial.location}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
+
+
       </section>
 
       {/* Footer */}
