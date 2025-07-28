@@ -255,6 +255,7 @@ export default function CityGuides() {
                             community === "Plano" ? "/plano-city-guide" :
                             community === "Frisco" ? "/frisco-city-guide" :
                             community === "McKinney" ? "/mckinney-city-guide" :
+                            community === "Prosper" ? "/prosper-city-guide" :
                             "/city-guides"
                           }
                           className="text-slate-700 hover:text-primary flex-1"
@@ -367,6 +368,8 @@ export default function CityGuides() {
                           window.location.href = "/frisco-city-guide";
                         } else if (community.name === "McKinney") {
                           window.location.href = "/mckinney-city-guide";
+                        } else if (community.name === "Prosper") {
+                          window.location.href = "/prosper-city-guide";
                         } else {
                           window.location.href = "#";
                         }
