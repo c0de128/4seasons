@@ -244,6 +244,7 @@ export default function CityGuides() {
                           href={
                             community === "Allen" ? "/allen-city-guide" :
                             community === "Plano" ? "/plano-city-guide" :
+                            community === "Frisco" ? "/frisco-city-guide" :
                             "/city-guides"
                           }
                           className="text-slate-700 hover:text-primary flex-1"
@@ -346,6 +347,8 @@ export default function CityGuides() {
                           window.location.href = "/allen-city-guide";
                         } else if (community.name === "Plano") {
                           window.location.href = "/plano-city-guide";
+                        } else if (community.name === "Frisco") {
+                          window.location.href = "/frisco-city-guide";
                         } else {
                           window.location.href = "#";
                         }

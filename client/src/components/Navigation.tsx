@@ -50,6 +50,9 @@ export function Navigation() {
                   <a href="/plano-city-guide" className="w-full">Plano City Guide</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
+                  <a href="/frisco-city-guide" className="w-full">Frisco City Guide</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
                   <a href="#school-districts" className="w-full">School Districts</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
@@ -97,6 +100,7 @@ export function Navigation() {
                 <a href="/city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides Overview</a>
                 <a href="/allen-city-guide" className="block text-slate-600 hover:text-primary text-sm">Allen City Guide</a>
                 <a href="/plano-city-guide" className="block text-slate-600 hover:text-primary text-sm">Plano City Guide</a>
+                <a href="/frisco-city-guide" className="block text-slate-600 hover:text-primary text-sm">Frisco City Guide</a>
                 <a href="#school-districts" className="block text-slate-600 hover:text-primary text-sm">School Districts</a>
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
                 <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>

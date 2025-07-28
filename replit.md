@@ -126,10 +126,12 @@ Preferred communication style: Simple, everyday language.
 # Recent Changes
 
 ## January 2025
+- **Frisco City Guide Creation**: Developed comprehensive Frisco city guide page with sports-focused content highlighting The Star, championship venues, and master-planned communities
+- **Complete Navigation Updates**: Enhanced all navigation systems (desktop dropdown, mobile menu, footer, county exploration, city cards) to include Frisco city guide links
 - **Plano City Guide Creation**: Developed comprehensive Plano city guide page following Allen template structure with detailed content
-- **Enhanced Navigation Integration**: Added Plano guide to main navigation and city guides page routing system  
-- **Content Optimization**: Created engaging Plano-specific content including demographics, schools, neighborhoods, amenities, and economic data
-- **Image Integration**: Successfully integrated hero background images for both Allen and Plano city guide pages
+- **Enhanced Navigation Integration**: Added Plano and Frisco guides to main navigation and city guides page routing system  
+- **Content Optimization**: Created engaging city-specific content including demographics, schools, neighborhoods, amenities, and economic data for Plano and Frisco
+- **Image Integration**: Successfully integrated hero background images for Allen, Plano, and Frisco city guide pages using WebP format
 - **Page Structure Standardization**: Established consistent city guide template with hero sections, demographics, schools, neighborhoods, and amenities
 
 ## December 2024

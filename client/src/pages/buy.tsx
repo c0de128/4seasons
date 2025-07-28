@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import planoImage from "@/assets/images/plano.jpg";
-import friscoImage from "@/assets/images/frisco.jpg";
+import friscoImage from "@/assets/images/frisco.webp";
 import allenImage from "@/assets/images/allen.webp";
 import mckinneyImage from "@/assets/images/mckinney.jpeg";
 import richardsonImage from "@/assets/images/richardson.jpg";
