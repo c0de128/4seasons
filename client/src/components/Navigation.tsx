@@ -14,41 +14,34 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const megaMenuRef = useRef<HTMLDivElement>(null);
-  const [menuPosition, setMenuPosition] = useState({ transform: '', left: '', right: '' });
+  const [menuPosition, setMenuPosition] = useState('center');
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (megaMenuOpen && megaMenuRef.current) {
-      const rect = megaMenuRef.current.getBoundingClientRect();
-      const viewportWidth = window.innerWidth;
-      const menuWidth = 600; // Width of mega menu
-      const padding = 16; // Padding from edges
-      
-      // Calculate if menu would go off-screen
-      const wouldOverflowRight = rect.left + menuWidth > viewportWidth - padding;
-      const wouldOverflowLeft = rect.left < padding;
-      
-      if (wouldOverflowRight) {
-        // Position from right edge
-        setMenuPosition({
-          transform: '',
-          left: 'auto',
-          right: '0'
-        });
-      } else if (wouldOverflowLeft) {
-        // Position from left edge
-        setMenuPosition({
-          transform: '',
-          left: '0',
-          right: 'auto'
-        });
-      } else {
-        // Center the menu
-        setMenuPosition({
-          transform: 'translateX(-50%)',
-          left: '50%',
-          right: 'auto'
-        });
+    const calculatePosition = () => {
+      if (buttonRef.current) {
+        const buttonRect = buttonRef.current.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const menuWidth = 600;
+        const padding = 16;
+        
+        // Calculate center position
+        const centerLeft = buttonRect.left + buttonRect.width / 2 - menuWidth / 2;
+        
+        if (centerLeft < padding) {
+          setMenuPosition('left');
+        } else if (centerLeft + menuWidth > viewportWidth - padding) {
+          setMenuPosition('right');
+        } else {
+          setMenuPosition('center');
+        }
       }
+    };
+
+    if (megaMenuOpen) {
+      calculatePosition();
+      window.addEventListener('resize', calculatePosition);
+      return () => window.removeEventListener('resize', calculatePosition);
     }
   }, [megaMenuOpen]);
 
@@ -70,10 +63,13 @@ export function Navigation() {
             <a href="/property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
             
             {/* Resources Mega Menu */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseLeave={() => setMegaMenuOpen(false)}
+            >
               <button 
+                ref={buttonRef}
                 onMouseEnter={() => setMegaMenuOpen(true)}
-                onMouseLeave={() => setMegaMenuOpen(false)}
                 className="flex items-center text-slate-600 hover:text-primary transition-colors duration-200"
               >
                 Resources
@@ -85,12 +81,11 @@ export function Navigation() {
                   ref={megaMenuRef}
                   onMouseEnter={() => setMegaMenuOpen(true)}
                   onMouseLeave={() => setMegaMenuOpen(false)}
-                  className="absolute top-full mt-2 w-[600px] max-w-[calc(100vw-2rem)] bg-white rounded-lg shadow-xl border border-slate-200 p-4 md:p-6 z-50"
-                  style={{
-                    transform: menuPosition.transform,
-                    left: menuPosition.left,
-                    right: menuPosition.right
-                  }}
+                  className={`absolute top-full mt-2 w-[600px] max-w-[calc(100vw-2rem)] bg-white rounded-lg shadow-xl border border-slate-200 p-4 md:p-6 z-50 ${
+                    menuPosition === 'left' ? 'left-0' :
+                    menuPosition === 'right' ? 'right-0' :
+                    'left-1/2 -translate-x-1/2'
+                  }`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                     {/* Tools & Calculators */}
