@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -58,12 +58,14 @@ export default function Home() {
     years: 0
   });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const statsRef = useRef<HTMLElement>(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Animate stats when component mounts
+  // Animate stats when section comes into view
   useEffect(() => {
     const animateValue = (start: number, end: number, duration: number, key: string) => {
       const startTime = Date.now();
@@ -83,12 +85,41 @@ export default function Home() {
       requestAnimationFrame(animate);
     };
 
-    // Start animations with staggered delays
-    setTimeout(() => animateValue(0, 300, 2000, 'properties'), 500);
-    setTimeout(() => animateValue(0, 90, 2000, 'sales'), 700);
-    setTimeout(() => animateValue(0, 98, 2000, 'satisfaction'), 900);
-    setTimeout(() => animateValue(0, 25, 2000, 'years'), 1100);
-  }, []);
+    const startAnimations = () => {
+      if (!hasAnimated) {
+        setHasAnimated(true);
+        // Start animations with staggered delays
+        setTimeout(() => animateValue(0, 300, 2000, 'properties'), 200);
+        setTimeout(() => animateValue(0, 90, 2000, 'sales'), 400);
+        setTimeout(() => animateValue(0, 98, 2000, 'satisfaction'), 600);
+        setTimeout(() => animateValue(0, 25, 2000, 'years'), 800);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px 0px -100px 0px' // Start animation slightly before element is fully visible
+      }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   // Testimonials data
   const testimonials = [
@@ -568,7 +599,7 @@ export default function Home() {
       </section>
 
       {/* Success Stats Banner */}
-      <section className="py-20" style={{ backgroundColor: '#1f2937' }}>
+      <section ref={statsRef} className="py-20" style={{ backgroundColor: '#1f2937' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -582,7 +613,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {/* Properties Sold */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 {animatedStats.properties}+
               </div>
               <div className="text-lg font-medium text-white">
@@ -592,7 +623,7 @@ export default function Home() {
 
             {/* Sales Volume */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 ${animatedStats.sales}M+
               </div>
               <div className="text-lg font-medium text-white">
@@ -602,7 +633,7 @@ export default function Home() {
 
             {/* Client Satisfaction */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 {animatedStats.satisfaction}%
               </div>
               <div className="text-lg font-medium text-white">
@@ -612,7 +643,7 @@ export default function Home() {
 
             {/* Years of Excellence */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 {animatedStats.years}+
               </div>
               <div className="text-lg font-medium text-white">
