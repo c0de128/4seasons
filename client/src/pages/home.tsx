@@ -201,6 +201,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Background pattern for nav transparency visibility */}
+      <div className="fixed top-0 left-0 w-full h-20 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 z-0"></div>
+      
       {/* Navigation */}
       <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30 sticky top-0 z-50" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
