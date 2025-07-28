@@ -104,10 +104,11 @@ export function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <Card className="bg-white shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
+          {/* Contact Form Section */}
+          <div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-8">
               <form className="space-y-6">
                 <div>
                   <Label htmlFor="fullName" className="text-sm font-medium text-slate-700 mb-2">Full Name</Label>
@@ -171,7 +172,8 @@ export function Contact() {
                 </p>
               </form>
             </CardContent>
-          </Card>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
