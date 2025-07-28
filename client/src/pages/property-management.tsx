@@ -325,8 +325,10 @@ export default function PropertyManagement() {
             {/* Standard Management */}
             <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20 flex flex-col">
               <CardContent className="p-8 text-center flex flex-col flex-1">
-                <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
-                  Budget Friendly
+                <div className="flex justify-center mb-4">
+                  <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold inline-block">
+                    Budget Friendly
+                  </div>
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Standard Management</h3>
                 <ul className="text-left space-y-3 mb-8">
@@ -362,8 +364,10 @@ export default function PropertyManagement() {
             {/* Premium Management */}
             <Card className="bg-white hover:shadow-lg transition-all duration-300 border-2 border-primary flex flex-col">
               <CardContent className="p-8 text-center flex flex-col flex-1">
-                <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
-                  Most Popular
+                <div className="flex justify-center mb-4">
+                  <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold inline-block">
+                    Most Popular
+                  </div>
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Premium Management</h3>
                 <ul className="text-left space-y-3 mb-8">
