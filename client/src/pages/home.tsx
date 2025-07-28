@@ -873,7 +873,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             {/* Brand */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-1 flex flex-col items-center">
               <div className="mb-6">
                 <img src={logoFooter} alt="4Seasons Real Estate" className="mb-4" style={{ width: '200px', height: '145px' }} />
               </div>
