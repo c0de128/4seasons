@@ -556,7 +556,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {/* Properties Sold */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 {animatedStats.properties}+
               </div>
               <div className="text-lg font-medium text-white">
@@ -566,7 +566,7 @@ export default function Home() {
 
             {/* Sales Volume */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 ${animatedStats.sales}M+
               </div>
               <div className="text-lg font-medium text-white">
@@ -576,7 +576,7 @@ export default function Home() {
 
             {/* Client Satisfaction */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 {animatedStats.satisfaction}%
               </div>
               <div className="text-lg font-medium text-white">
@@ -586,7 +586,7 @@ export default function Home() {
 
             {/* Years of Excellence */}
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                 {animatedStats.years}+
               </div>
               <div className="text-lg font-medium text-white">
