@@ -944,7 +944,7 @@ export default function Home() {
               <h3 className="font-semibold text-white mb-4">Recent Blog Posts</h3>
               <div className="space-y-4">
                 <div className="flex space-x-3">
-                  <div className="w-15 h-15 bg-slate-600 rounded flex-shrink-0 overflow-hidden">
+                  <div style={{ width: '50px', height: '50px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                     <img 
                       src={texasBlog} 
                       alt="North Texas Real Estate" 
@@ -962,7 +962,7 @@ export default function Home() {
                 </div>
                 
                 <div className="flex space-x-3">
-                  <div className="w-15 h-15 bg-slate-600 rounded flex-shrink-0 overflow-hidden">
+                  <div style={{ width: '50px', height: '50px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                     <img 
                       src={marketAnalysisBlog} 
                       alt="Market Analysis Report" 
