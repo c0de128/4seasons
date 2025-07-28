@@ -9,107 +9,113 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 bg-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Contact Us
-          </h2>
-          <p className="text-xl text-slate-600 max-w-2xl">
-            4Seasons Real Estate is here to help you with all your real estate needs. Reach out to us through any of the channels below or fill out the contact form.
-          </p>
-        </div>
-        
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Office Locations */}
-            <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Office Locations</h3>
-              <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: '#0d0d33' }} />
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-1">Allen Texas</h4>
-                  <p className="text-slate-600">1333 W. McDermott Dr #200, Allen, TX, 75013</p>
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left Half - Contact Us Content */}
+          <div>
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Contact Us
+              </h2>
+              <p className="text-xl text-slate-600">
+                4Seasons Real Estate is here to help you with all your real estate needs. Reach out to us through any of the channels below or fill out the contact form.
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              {/* Office Locations */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Office Locations</h3>
+                <div className="flex items-start space-x-4">
+                  <MapPin className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: '#0d0d33' }} />
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-1">Allen Texas</h4>
+                    <p className="text-slate-600">1333 W. McDermott Dr #200, Allen, TX, 75013</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Contact Information */}
-            <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <Phone className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
-                  <a href="tel:2742743873" className="text-slate-600 hover:text-primary transition-colors">
-                    (214) 274-3873
-                  </a>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Mail className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
-                  <a href="mailto:aharwood23@yahoo.com" className="text-slate-600 hover:text-primary transition-colors">
-                    aharwood23@yahoo.com
-                  </a>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Clock className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
-                  <span className="text-slate-600">Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</span>
+              {/* Contact Information */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <Phone className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
+                    <a href="tel:2742743873" className="text-slate-600 hover:text-primary transition-colors">
+                      (214) 274-3873
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Mail className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
+                    <a href="mailto:aharwood23@yahoo.com" className="text-slate-600 hover:text-primary transition-colors">
+                      aharwood23@yahoo.com
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Clock className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
+                    <span className="text-slate-600">Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Follow Us */}
-            <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Follow Us</h3>
-              <div className="flex space-x-3">
-                <a
-                  href="#"
-                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1f2937' }}
-                  aria-label="Facebook"
-                >
-                  <span className="font-bold text-sm">f</span>
-                </a>
-                <a
-                  href="#"
-                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1f2937' }}
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-4 h-4" />
-                </a>
-                <a
-                  href="#"
-                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1f2937' }}
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-                <a
-                  href="#"
-                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1f2937' }}
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a
-                  href="mailto:aharwood23@yahoo.com"
-                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1f2937' }}
-                  aria-label="Email"
-                >
-                  <Mail className="w-4 h-4" />
-                </a>
+              {/* Follow Us */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Follow Us</h3>
+                <div className="flex space-x-3">
+                  <a
+                    href="#"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
+                    aria-label="Facebook"
+                  >
+                    <span className="font-bold text-sm">f</span>
+                  </a>
+                  <a
+                    href="#"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="mailto:aharwood23@yahoo.com"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
+                    aria-label="Email"
+                  >
+                    <Mail className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form Section */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
-              <Card className="bg-white shadow-lg">
-                <CardContent className="p-8">
+          {/* Right Half - Send Us a Message Section */}
+          <div>
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Send Us a Message
+              </h2>
+            </div>
+            
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-8">
               <form className="space-y-6">
                 <div>
                   <Label htmlFor="fullName" className="text-sm font-medium text-slate-700 mb-2">Full Name</Label>
@@ -172,9 +178,8 @@ export function Contact() {
                   <strong>SMS Opt-in:</strong> By submitting this form, you consent to receive SMS notifications from 4Seasons Real Estate regarding your inquiry. Standard message and data rates may apply. You can opt out at any time by replying STOP. Message frequency varies.
                 </p>
               </form>
-                </CardContent>
-              </Card>
-            </div>
+            </CardContent>
+            </Card>
           </div>
         </div>
       </div>
