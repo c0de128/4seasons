@@ -349,7 +349,7 @@ export default function Home() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Selling Your Property</h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  Maximize your property's value with our strategic marketing approach and expert pricing guidance. We handle everything from professional photography to negotiations, ensuring a smooth and profitable sale in today's competitive market. Our proven marketing strategies and extensive network help you reach qualified buyers quickly and efficiently, providing you with comprehensive market analysis and pricing recommendations.
+                  Maximize your property's value with our strategic marketing approach and expert pricing guidance. We handle everything from professional photography to negotiations, ensuring a smooth and profitable sale in today's competitive market. Our proven marketing strategies and extensive network help you reach qualified buyers quickly and efficiently. We provide detailed market analysis to position your property competitively.
                 </p>
                 <Button 
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
