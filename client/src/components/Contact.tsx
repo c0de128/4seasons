@@ -18,7 +18,7 @@ export function Contact() {
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Office Locations */}
@@ -105,10 +105,11 @@ export function Contact() {
           </div>
 
           {/* Contact Form Section */}
-          <div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
-            <Card className="bg-white shadow-lg">
-              <CardContent className="p-8">
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
+              <Card className="bg-white shadow-lg">
+                <CardContent className="p-8">
               <form className="space-y-6">
                 <div>
                   <Label htmlFor="fullName" className="text-sm font-medium text-slate-700 mb-2">Full Name</Label>
@@ -171,8 +172,9 @@ export function Contact() {
                   <strong>SMS Opt-in:</strong> By submitting this form, you consent to receive SMS notifications from 4Seasons Real Estate regarding your inquiry. Standard message and data rates may apply. You can opt out at any time by replying STOP. Message frequency varies.
                 </p>
               </form>
-            </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
