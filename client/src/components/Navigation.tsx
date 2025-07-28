@@ -102,10 +102,9 @@ export function Navigation() {
                 >
                   <div className="bg-white rounded-lg shadow-xl border border-slate-200 p-4 md:p-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                      {/* Tools & Calculators */}
+                      {/* Column 1 */}
                       <div>
-                        <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Tools & Calculators</h3>
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                           <a href="/home-valuation" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                             <h4 className="font-medium text-slate-900">Home Valuation</h4>
                             <p className="text-sm text-slate-600">Get an accurate estimate of your property's current market value.</p>
@@ -116,29 +115,28 @@ export function Navigation() {
                             <p className="text-sm text-slate-600">Explore neighborhoods, schools, and amenities across North Texas.</p>
                           </a>
                           
-                          <a href="#property-investment" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900">Investment Calculator</h4>
-                            <p className="text-sm text-slate-600">Analyze potential returns and investment opportunities.</p>
+                          <a href="#blog" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
+                            <h4 className="font-medium text-slate-900">Blog Posts</h4>
+                            <p className="text-sm text-slate-600">Latest real estate market insights and industry updates.</p>
                           </a>
                         </div>
                       </div>
                       
-                      {/* Resources & Support */}
+                      {/* Column 2 */}
                       <div>
-                        <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Resources & Support</h3>
-                        <div className="space-y-4">
-                          <a href="#blog" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900">Market Insights</h4>
-                            <p className="text-sm text-slate-600">Latest real estate trends, market updates, and expert analysis.</p>
-                          </a>
-                          
+                        <div className="space-y-3">
                           <a href="#faq" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900">FAQ</h4>
+                            <h4 className="font-medium text-slate-900">FAQ's</h4>
                             <p className="text-sm text-slate-600">Common questions about buying, selling, and real estate process.</p>
                           </a>
                           
+                          <a href="#about" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
+                            <h4 className="font-medium text-slate-900">About Us</h4>
+                            <p className="text-sm text-slate-600">Learn about our experienced team and company mission.</p>
+                          </a>
+                          
                           <a href="/#contact" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900">Contact Support</h4>
+                            <h4 className="font-medium text-slate-900">Contact Us</h4>
                             <p className="text-sm text-slate-600">Get in touch with our expert real estate team.</p>
                           </a>
                         </div>
