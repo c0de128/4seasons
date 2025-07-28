@@ -54,7 +54,7 @@ export default function Sell() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="/" className="text-slate-600 hover:text-primary transition-colors duration-200">Home</a>
-              <a href="/#buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Buy</a>
+              <a href="/buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Buy</a>
               <a href="/sell" className="text-primary font-medium transition-colors duration-200">Sell</a>
               <a href="/#property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
               
@@ -108,7 +108,7 @@ export default function Sell() {
           <div className="md:hidden border-t border-slate-200 bg-white">
             <div className="px-4 py-4 space-y-3">
               <a href="/" className="block text-slate-600 hover:text-primary">Home</a>
-              <a href="#buy" className="block text-slate-600 hover:text-primary">Buy</a>
+              <a href="/buy" className="block text-slate-600 hover:text-primary">Buy</a>
               <a href="/sell" className="block text-primary font-medium">Sell</a>
               <a href="#property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
               
