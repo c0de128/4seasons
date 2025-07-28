@@ -261,6 +261,7 @@ export default function CityGuides() {
                             community === "Highland Park" ? "/highland-park-city-guide" :
                             community === "University Park" ? "/university-park-city-guide" :
                             community === "Addison" ? "/addison-city-guide" :
+                            community === "Richardson" ? "/richardson-city-guide" :
                             "/city-guides"
                           }
                           className="text-slate-700 hover:text-primary flex-1"
@@ -385,6 +386,8 @@ export default function CityGuides() {
                           window.location.href = "/university-park-city-guide";
                         } else if (community.name === "Addison") {
                           window.location.href = "/addison-city-guide";
+                        } else if (community.name === "Richardson") {
+                          window.location.href = "/richardson-city-guide";
                         } else {
                           window.location.href = "#";
                         }

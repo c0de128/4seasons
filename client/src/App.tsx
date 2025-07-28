@@ -19,6 +19,7 @@ import WylieCityGuide from "@/pages/wylie-city-guide";
 import HighlandParkCityGuide from "@/pages/highland-park-city-guide";
 import UniversityParkCityGuide from "@/pages/university-park-city-guide";
 import AddisonCityGuide from "@/pages/addison-city-guide";
+import RichardsonCityGuide from "@/pages/richardson-city-guide";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/highland-park-city-guide" component={HighlandParkCityGuide} />
       <Route path="/university-park-city-guide" component={UniversityParkCityGuide} />
       <Route path="/addison-city-guide" component={AddisonCityGuide} />
+      <Route path="/richardson-city-guide" component={RichardsonCityGuide} />
       <Route component={NotFound} />
     </Switch>
   );
