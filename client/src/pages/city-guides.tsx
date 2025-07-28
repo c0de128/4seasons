@@ -259,6 +259,7 @@ export default function CityGuides() {
                             community === "Celina" ? "/celina-city-guide" :
                             community === "Wylie" ? "/wylie-city-guide" :
                             community === "Highland Park" ? "/highland-park-city-guide" :
+                            community === "University Park" ? "/university-park-city-guide" :
                             "/city-guides"
                           }
                           className="text-slate-700 hover:text-primary flex-1"
@@ -379,6 +380,8 @@ export default function CityGuides() {
                           window.location.href = "/wylie-city-guide";
                         } else if (community.name === "Highland Park") {
                           window.location.href = "/highland-park-city-guide";
+                        } else if (community.name === "University Park") {
+                          window.location.href = "/university-park-city-guide";
                         } else {
                           window.location.href = "#";
                         }
