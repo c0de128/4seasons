@@ -860,71 +860,116 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-300 py-16">
+      <footer style={{ backgroundColor: '#2c3e50' }} className="text-slate-300 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="md:col-span-1">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white text-lg">⚛️</span>
-                </div>
-                <span className="font-bold text-xl text-white">NextJS Template</span>
+              <div className="mb-6">
+                <img src={logoLarge} alt="4Seasons Real Estate" className="h-20 w-auto mb-4" />
               </div>
-              <p className="text-slate-400 leading-relaxed">
-                A modern starter template for building scalable web applications with Next.js, TypeScript, and Tailwind CSS.
-              </p>
+              <div className="flex space-x-3">
+                <a
+                  href="#"
+                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                  style={{ backgroundColor: '#1f2937' }}
+                  aria-label="Facebook"
+                >
+                  <span className="font-bold text-sm">f</span>
+                </a>
+                <a
+                  href="#"
+                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                  style={{ backgroundColor: '#1f2937' }}
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-4 h-4" />
+                </a>
+                <a
+                  href="#"
+                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                  style={{ backgroundColor: '#1f2937' }}
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a
+                  href="#"
+                  className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                  style={{ backgroundColor: '#1f2937' }}
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
             </div>
             
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li><a href="#features" className="hover:text-primary transition-colors">Features</a></li>
-                <li><a href="#components" className="hover:text-primary transition-colors">Components</a></li>
-                <li><a href="#examples" className="hover:text-primary transition-colors">Examples</a></li>
-                <li><a href="#docs" className="hover:text-primary transition-colors">Documentation</a></li>
+            {/* Quick Links - Column 1 */}
+            <div className="md:col-span-1">
+              <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Buy</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Property Management</a></li>
+                <li><a href="#contact" className="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Home Valuation</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">School Districts</a></li>
               </ul>
             </div>
             
-            {/* Resources */}
-            <div>
-              <h3 className="text-white font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-primary transition-colors">Getting Started</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">API Reference</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Tutorials</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Best Practices</a></li>
+            {/* Quick Links - Column 2 */}
+            <div className="md:col-span-1">
+              <h3 className="font-semibold text-white mb-4 opacity-0">Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Sell</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">FAQs</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Neighborhoods</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Blog Posts</a></li>
               </ul>
             </div>
             
-            {/* Community */}
-            <div>
-              <h3 className="text-white font-semibold mb-4">Community</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-primary transition-colors">GitHub</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Discord</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Discussions</a></li>
-              </ul>
+            {/* Recent Blog Posts */}
+            <div className="md:col-span-1">
+              <h3 className="font-semibold text-white mb-4">Recent Blog Posts</h3>
+              <div className="space-y-4">
+                <div className="flex space-x-3">
+                  <div className="w-12 h-12 bg-slate-600 rounded flex-shrink-0 flex items-center justify-center">
+                    <span className="text-xs text-white">📈</span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-white leading-tight mb-1">
+                      The Great Rebalancing: North Texas Real Estate Predictions for 2025
+                    </h4>
+                    <p className="text-xs text-slate-400">
+                      The DFW market has shifted from frenched seller's market to a balanced landscape.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-3">
+                  <div className="w-12 h-12 bg-slate-600 rounded flex-shrink-0 flex items-center justify-center">
+                    <span className="text-xs text-white">🏘️</span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-white leading-tight mb-1">
+                      Collin County Real Estate Check-In: Q1 2025 Market Report
+                    </h4>
+                    <p className="text-xs text-slate-400">
+                      Market analysis of the first quarter 2025 real estate trends.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
-          <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
+          <div className="border-t border-slate-600 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
             <p className="text-slate-400">
-              © 2024 NextJS Template. All rights reserved.
+              © 2025 4Seasons Real Estate. All rights reserved.
             </p>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-slate-400 hover:text-primary transition-colors">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-slate-400 hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-slate-400 hover:text-primary transition-colors">
-                <MessageSquare className="h-5 w-5" />
-              </a>
-            </div>
+            <p className="text-slate-400 mt-2 md:mt-0">
+              Website Designed by DFW WEB GUY
+            </p>
           </div>
         </div>
       </footer>
