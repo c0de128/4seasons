@@ -360,7 +360,6 @@ export default function PropertyManagement() {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Premium Management</h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-primary">10%</span>
                 </div>
                 <ul className="text-left space-y-3 mb-8">
                   <li className="flex items-start">
