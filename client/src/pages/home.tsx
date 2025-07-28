@@ -674,38 +674,46 @@ export default function Home() {
               {/* Follow Us */}
               <div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">Follow Us</h3>
-                <div className="flex space-x-4">
+                <div className="flex space-x-3">
                   <a
                     href="#"
-                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="Facebook"
                   >
-                    <span className="font-bold text-lg">f</span>
+                    <span className="font-bold text-sm">f</span>
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="Twitter"
                   >
-                    <Twitter className="w-6 h-6" />
+                    <Twitter className="w-4 h-4" />
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="Instagram"
                   >
-                    <Instagram className="w-6 h-6" />
+                    <Instagram className="w-4 h-4" />
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="LinkedIn"
                   >
-                    <Linkedin className="w-6 h-6" />
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="mailto:aharwood23@yahoo.com"
+                    className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+                    style={{ backgroundColor: '#1f2937' }}
+                    aria-label="Email"
+                  >
+                    <Mail className="w-4 h-4" />
                   </a>
                 </div>
               </div>
