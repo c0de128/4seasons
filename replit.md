@@ -126,15 +126,16 @@ Preferred communication style: Simple, everyday language.
 # Recent Changes
 
 ## January 2025
+- **Wylie City Guide Creation**: Developed comprehensive Wylie city guide page featuring community spirit, Lake Lavon recreation, and family-friendly neighborhoods
 - **Celina City Guide Creation**: Developed comprehensive Celina city guide page featuring rural heritage, lake living, and small-town charm with modern convenience
 - **Prosper City Guide Creation**: Developed comprehensive Prosper city guide page featuring the unique Crystal Lagoon, luxury communities, and fastest growth in North Texas
 - **McKinney City Guide Creation**: Developed comprehensive McKinney city guide page emphasizing historic charm, award-winning town square, and #1 Best Place to Live recognition
 - **Frisco City Guide Creation**: Developed comprehensive Frisco city guide page with sports-focused content highlighting The Star, championship venues, and master-planned communities
 - **Complete Navigation Updates**: Enhanced all navigation systems (desktop dropdown, mobile menu, footer, county exploration, city cards) to include all city guide links
 - **Plano City Guide Creation**: Developed comprehensive Plano city guide page following Allen template structure with detailed content
-- **Enhanced Navigation Integration**: Added Plano, Frisco, McKinney, Prosper, and Celina guides to main navigation and city guides page routing system  
+- **Enhanced Navigation Integration**: Added Plano, Frisco, McKinney, Prosper, Celina, and Wylie guides to main navigation and city guides page routing system  
 - **Content Optimization**: Created engaging city-specific content including demographics, schools, neighborhoods, amenities, and economic data for all city guides
-- **Image Integration**: Successfully integrated hero background images for Allen, Plano, Frisco, McKinney, Prosper, and Celina city guide pages using WebP format
+- **Image Integration**: Successfully integrated hero background images for Allen, Plano, Frisco, McKinney, Prosper, Celina, and Wylie city guide pages using WebP/PNG format
 - **Page Structure Standardization**: Established consistent city guide template with hero sections, demographics, schools, neighborhoods, and amenities
 - **Expandable County Cards**: Added interactive functionality to county exploration allowing users to expand and view all communities
 
