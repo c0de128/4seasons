@@ -40,18 +40,7 @@ export function Navigation() {
                 <DropdownMenuItem>
                   <a href="/home-valuation" className="w-full">Home Valuation</a>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/city-guides" className="w-full">City Guides Overview</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/allen-city-guide" className="w-full">Allen City Guide</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/plano-city-guide" className="w-full">Plano City Guide</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/frisco-city-guide" className="w-full">Frisco City Guide</a>
-                </DropdownMenuItem>
+
                 <DropdownMenuItem>
                   <a href="#school-districts" className="w-full">School Districts</a>
                 </DropdownMenuItem>
@@ -97,10 +86,6 @@ export function Navigation() {
               <p className="text-sm font-medium text-slate-500 mb-2">Resources</p>
               <div className="pl-4 space-y-2">
                 <a href="/home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
-                <a href="/city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides Overview</a>
-                <a href="/allen-city-guide" className="block text-slate-600 hover:text-primary text-sm">Allen City Guide</a>
-                <a href="/plano-city-guide" className="block text-slate-600 hover:text-primary text-sm">Plano City Guide</a>
-                <a href="/frisco-city-guide" className="block text-slate-600 hover:text-primary text-sm">Frisco City Guide</a>
                 <a href="#school-districts" className="block text-slate-600 hover:text-primary text-sm">School Districts</a>
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
                 <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
