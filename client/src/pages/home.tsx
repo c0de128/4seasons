@@ -309,8 +309,8 @@ export default function Home() {
           <div className="grid lg:grid-cols-4 gap-12 mb-16">
             {/* Company Introduction - 75% width */}
             <div className="lg:col-span-3">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">About 4Seasons Real Estate</h3>
-              <div className="space-y-4 text-slate-600 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">About 4Seasons Real Estate</h2>
+              <div className="space-y-4 text-xl text-slate-600 leading-relaxed">
                 <p>
                   Welcome to 4Seasons Real Estate, your trusted partner for all your real estate needs in North Texas! We are a dedicated team of local experts passionate about helping you navigate the dynamic North Texas property market with ease and confidence.
                 </p>
