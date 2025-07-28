@@ -109,13 +109,13 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Office Hours */}
-            <div>
+            <div className="flex flex-col">
               <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
                 <Clock className="w-6 h-6 mr-3" style={{ color: '#0d0d33' }} />
                 Office Hours
               </h2>
-              <div className="bg-slate-50 rounded-lg p-6">
-                <div className="space-y-4">
+              <div className="bg-slate-50 rounded-lg p-6 flex-1 flex flex-col">
+                <div className="space-y-4 flex-1">
                   {officeHours.map((schedule, index) => (
                     <div key={index} className="flex justify-between items-center py-3 border-b border-slate-200 last:border-0">
                       <span className="font-medium text-slate-900">{schedule.day}</span>
@@ -133,16 +133,16 @@ export default function ContactPage() {
             </div>
 
             {/* Service Areas */}
-            <div>
+            <div className="flex flex-col">
               <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
                 <MapPin className="w-6 h-6 mr-3" style={{ color: '#0d0d33' }} />
                 Service Areas
               </h2>
-              <div className="bg-slate-50 rounded-lg p-6">
+              <div className="bg-slate-50 rounded-lg p-6 flex-1 flex flex-col">
                 <p className="text-slate-700 mb-4">
                   We proudly serve the following North Texas communities:
                 </p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2 flex-1">
                   {serviceAreas.map((area, index) => (
                     <div key={index} className="flex items-center">
                       <div className="w-2 h-2 rounded-full mr-2" style={{ backgroundColor: '#0d0d33' }}></div>
