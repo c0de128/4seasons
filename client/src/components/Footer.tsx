@@ -66,10 +66,10 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4 opacity-0">Links</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="/sell" className="text-slate-300 hover:text-white transition-colors">Sell</a></li>
-              <li><a href="#" className="text-slate-300 hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="#" className="text-slate-300 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/faq" className="text-slate-300 hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="/about" className="text-slate-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="/city-guides" className="text-slate-300 hover:text-white transition-colors">City Guides</a></li>
-              <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Blog Posts</a></li>
+              <li><a href="/blog" className="text-slate-300 hover:text-white transition-colors">Blog Posts</a></li>
             </ul>
           </div>
           
