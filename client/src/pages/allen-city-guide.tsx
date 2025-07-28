@@ -120,8 +120,8 @@ export default function AllenCityGuide() {
         className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${allenHeroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '100% auto',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat'
         }}
       >
