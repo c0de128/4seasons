@@ -27,14 +27,13 @@ export default function Buy() {
             </p>
             
             {/* Property Search iframe */}
-            <div className="mx-auto" style={{ width: '80vw' }}>
+            <div className="mx-auto flex justify-center" style={{ width: '80vw' }}>
               <iframe 
                 src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
-                style={{ minHeight: '80vh' }} 
-                width="100%" 
-                frameBorder="0" 
-                marginWidth="0" 
-                marginHeight="0"
+                style={{ minHeight: '80vh', width: '100%' }} 
+                frameBorder={0} 
+                marginWidth={0} 
+                marginHeight={0}
                 title="Property Search"
               />
             </div>
