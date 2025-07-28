@@ -108,7 +108,7 @@ export function Contact() {
 
           {/* Right Half - Send Us a Message Section */}
           <div>
-            <div className="mb-8">
+            <div className="mb-8 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                 Send Us a Message
               </h2>
