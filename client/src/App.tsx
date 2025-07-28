@@ -8,6 +8,7 @@ import Buy from "@/pages/buy";
 import Sell from "@/pages/sell";
 import PropertyManagement from "@/pages/property-management";
 import HomeValuation from "@/pages/home-valuation";
+import CityGuides from "@/pages/city-guides";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/sell" component={Sell} />
       <Route path="/property-management" component={PropertyManagement} />
       <Route path="/home-valuation" component={HomeValuation} />
+      <Route path="/city-guides" component={CityGuides} />
       <Route component={NotFound} />
     </Switch>
   );
