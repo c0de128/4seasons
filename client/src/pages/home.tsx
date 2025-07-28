@@ -398,11 +398,11 @@ export default function Home() {
       {/* Meet Our Team */}
       <section id="team" className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-2xl">
               Our dedicated team of real estate professionals brings years of experience and local market expertise to help you achieve your property goals
             </p>
           </div>
