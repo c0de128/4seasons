@@ -143,6 +143,46 @@ export default function About() {
                   <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
                   <span className="text-slate-700">Personalized service tailored to your unique needs</span>
                 </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Expert negotiation skills to maximize your investment</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Comprehensive property management services</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Professional photography and virtual tour capabilities</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Extensive network of trusted contractors and vendors</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Available 7 days a week for client support</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Free market analysis and home valuation services</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Multi-platform marketing across all major real estate sites</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Transparent communication throughout the entire process</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">First-time buyer programs and financing assistance</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
+                  <span className="text-slate-700">Post-closing support and ongoing client relationships</span>
+                </li>
               </ul>
             </div>
           </div>
