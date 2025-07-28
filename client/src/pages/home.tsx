@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -42,10 +42,43 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMoreTeam, setShowMoreTeam] = useState(false);
   const [showMoreTim, setShowMoreTim] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState({
+    properties: 0,
+    sales: 0,
+    satisfaction: 0,
+    years: 0
+  });
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  // Animate stats when component mounts
+  useEffect(() => {
+    const animateValue = (start: number, end: number, duration: number, key: string) => {
+      const startTime = Date.now();
+      const animate = () => {
+        const now = Date.now();
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + (end - start) * easeOutQuart);
+        
+        setAnimatedStats(prev => ({ ...prev, [key]: current }));
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      requestAnimationFrame(animate);
+    };
+
+    // Start animations with staggered delays
+    setTimeout(() => animateValue(0, 300, 2000, 'properties'), 500);
+    setTimeout(() => animateValue(0, 90, 2000, 'sales'), 700);
+    setTimeout(() => animateValue(0, 98, 2000, 'satisfaction'), 900);
+    setTimeout(() => animateValue(0, 25, 2000, 'years'), 1100);
+  }, []);
 
   const features = [
     {
@@ -508,28 +541,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className="py-20 bg-white">
+      {/* Success Stats Banner */}
+      <section className="py-20" style={{ backgroundColor: '#1f2937' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Modern Tech Stack
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Our Success by the Numbers
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Built with industry-leading technologies for performance and developer experience
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Trusted by hundreds of families across North Texas, our track record speaks for itself.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {techStack.map((tech, index) => (
-              <div key={index} className="text-center group">
-                <div className={`w-20 h-20 ${tech.bgColor} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <span className="text-white text-2xl font-bold">{tech.icon}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">{tech.name}</h3>
-                <p className="text-slate-600 text-sm">{tech.description}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            {/* Properties Sold */}
+            <div className="group">
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                {animatedStats.properties}+
               </div>
-            ))}
+              <div className="text-lg font-medium text-white">
+                Properties Sold
+              </div>
+            </div>
+
+            {/* Sales Volume */}
+            <div className="group">
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                ${animatedStats.sales}M+
+              </div>
+              <div className="text-lg font-medium text-white">
+                in Sales
+              </div>
+            </div>
+
+            {/* Client Satisfaction */}
+            <div className="group">
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                {animatedStats.satisfaction}%
+              </div>
+              <div className="text-lg font-medium text-white">
+                Client Satisfaction
+              </div>
+            </div>
+
+            {/* Years of Excellence */}
+            <div className="group">
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                {animatedStats.years}+
+              </div>
+              <div className="text-lg font-medium text-white">
+                Years of Excellence
+              </div>
+            </div>
           </div>
         </div>
       </section>
