@@ -44,9 +44,6 @@ export function Navigation() {
                   <a href="/city-guides" className="w-full">City Guides</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a href="#school-districts" className="w-full">School Districts</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
                   <a href="#property-investment" className="w-full">Property Investment</a>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -89,7 +86,6 @@ export function Navigation() {
               <div className="pl-4 space-y-2">
                 <a href="/home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
                 <a href="/city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
-                <a href="#school-districts" className="block text-slate-600 hover:text-primary text-sm">School Districts</a>
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
                 <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
                 <a href="#faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
