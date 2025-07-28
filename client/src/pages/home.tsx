@@ -39,7 +39,9 @@ import {
   MapPin,
   Phone,
   Clock,
-  Instagram
+  Instagram,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 export default function Home() {
@@ -52,7 +54,7 @@ export default function Home() {
     satisfaction: 0,
     years: 0
   });
-  const [isPaused, setIsPaused] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -781,7 +783,7 @@ export default function Home() {
       </section>
 
       {/* Customer Testimonials */}
-      <section className="py-20 bg-white overflow-hidden">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -792,41 +794,69 @@ export default function Home() {
             </p>
           </div>
           
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            <div 
-              className={`flex space-x-6 ${isPaused ? '' : 'animate-scroll'}`}
-              style={{
-                animation: isPaused ? 'none' : 'scroll 60s linear infinite'
-              }}
+          <div className="relative">
+            {/* Navigation Buttons */}
+            <button
+              onClick={() => setCurrentTestimonial(Math.max(0, currentTestimonial - 1))}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-600 hover:text-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={currentTestimonial === 0}
             >
-              {/* Duplicate testimonials for seamless loop */}
-              {[...testimonials, ...testimonials].map((testimonial, index) => (
-                <Card key={index} className="min-w-[400px] max-w-[400px] bg-slate-50 border border-slate-200 flex-shrink-0">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-1 mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <span key={i} className="text-yellow-400 text-lg">★</span>
-                      ))}
-                    </div>
-                    <blockquote className="text-slate-700 italic leading-relaxed mb-4">
-                      "{testimonial.quote}"
-                    </blockquote>
-                    <div className="border-t border-slate-200 pt-4">
-                      <div className="font-semibold text-slate-900">{testimonial.name}</div>
-                      <div className="text-slate-600 text-sm">{testimonial.location}</div>
-                    </div>
-                  </CardContent>
-                </Card>
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            
+            <button
+              onClick={() => setCurrentTestimonial(Math.min(testimonials.length - 3, currentTestimonial + 1))}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-600 hover:text-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={currentTestimonial >= testimonials.length - 3}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Testimonials Container */}
+            <div className="overflow-hidden mx-16">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out gap-6"
+                style={{
+                  transform: `translateX(-${currentTestimonial * (100 / 3)}%)`
+                }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <Card key={index} className="flex-shrink-0 w-1/3 bg-slate-50 border border-slate-200">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-1 mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <span key={i} className="text-yellow-400 text-lg">★</span>
+                        ))}
+                      </div>
+                      <blockquote className="text-slate-700 italic leading-relaxed mb-4">
+                        "{testimonial.quote}"
+                      </blockquote>
+                      <div className="border-t border-slate-200 pt-4">
+                        <div className="font-semibold text-slate-900">{testimonial.name}</div>
+                        <div className="text-slate-600 text-sm">{testimonial.location}</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {Array.from({ length: testimonials.length - 2 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentTestimonial 
+                      ? 'bg-primary' 
+                      : 'bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
               ))}
             </div>
           </div>
         </div>
-
-
       </section>
 
       {/* Footer */}
