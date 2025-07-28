@@ -16,6 +16,7 @@ import logoPath from "@/assets/images/logo_sm.png";
 import logoLarge from "@/assets/images/logo.png";
 import heroVideo from "@/assets/videos/hero.mp4";
 import amyPhoto from "@/assets/images/amy.jpg";
+import timPhoto from "@/assets/images/tim.jpg";
 import { 
   Menu, 
   X, 
@@ -40,6 +41,7 @@ import {
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMoreTeam, setShowMoreTeam] = useState(false);
+  const [showMoreTim, setShowMoreTim] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -424,6 +426,82 @@ export default function Home() {
                     <Mail className="w-5 h-5" />
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Tim Harwood Profile - Reversed Layout */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mt-12">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Team Member Details - Left Side */}
+              <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Harwood</h3>
+                <p className="text-primary text-lg font-medium mb-4">Finance and Property Management Professional</p>
+                
+                <div className="text-slate-600 leading-relaxed mb-6">
+                  <p className="mb-4">
+                    Tim Harwood is a highly skilled Underwriter and Property Management professional, with a deep understanding of the mortgage lending and real estate industries. Located in Allen, Texas, Tim's career is marked by a proven ability to excel in various aspects of financial and estate transactions.
+                  </p>
+                  
+                  {showMoreTim && (
+                    <div className="space-y-4">
+                      <p>
+                        Tim's extensive background includes significant roles as a Prefund Underwriter Auditor at MetaSource and a Pre-Underwriter at INDECOMM, where he honed his expertise in mortgage lending and underwriting. His seven years as an Underwriter at Bank of America further solidified his proficiency in this critical area.
+                      </p>
+                      <p>
+                        Beyond his underwriting capabilities, Tim also possesses a strong foundation in property management, cultivated during his nearly 20 years as a Real Estate Agent with 4Seasons Realty in Allen, Texas. This dual expertise in underwriting and property management provides him with a unique perspective and a well-rounded understanding of the entire property transaction lifecycle.
+                      </p>
+                      <p>
+                        Tim is passionate about leveraging his analytical skills and client-focused approach to contribute to successful outcomes. His dedication to understanding the intricacies of both underwriting and property management makes him a valuable asset to any team seeking a results-driven professional in the mortgage and real estate sectors.
+                      </p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Show More/Less Button */}
+                <button
+                  onClick={() => setShowMoreTim(!showMoreTim)}
+                  className="flex items-center text-primary hover:text-blue-600 font-medium mb-6 transition-colors"
+                >
+                  {showMoreTim ? (
+                    <>
+                      <span>Show Less</span>
+                      <ChevronUp className="ml-1 h-4 w-4" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Show More</span>
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </>
+                  )}
+                </button>
+                
+                {/* Social Media Links */}
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:tim@4seasonsrealestate.com"
+                    className="inline-flex items-center justify-center w-10 h-10 bg-slate-600 text-white rounded-full hover:bg-slate-700 transition-colors"
+                    aria-label="Email Tim"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Team Member Photo - Right Side */}
+              <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <img 
+                  src={timPhoto} 
+                  alt="Tim Harwood - Finance and Property Management Professional"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
