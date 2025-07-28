@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import planoImage from "@/assets/images/plano.jpg";
 import friscoImage from "@/assets/images/frisco.jpg";
@@ -183,109 +184,7 @@ export default function Buy() {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Ready to Start Your Home Search?
-              </h2>
-              <p className="text-lg text-slate-600 mb-8">
-                Let our experienced team help you find the perfect home in North Texas. 
-                Contact us today for a personalized consultation.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">Call Us</h3>
-                    <p className="text-slate-600">(972) 555-0123</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">Email Us</h3>
-                    <p className="text-slate-600">info@4seasonsrealestate.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">Visit Us</h3>
-                    <p className="text-slate-600">123 Main Street, Plano, TX 75023</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-slate-50 rounded-2xl p-8">
-              <h3 className="text-xl font-semibold text-slate-900 mb-6">Get Started Today</h3>
-              
-              <form className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">First Name</label>
-                    <Input placeholder="Your first name" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
-                    <Input placeholder="Your last name" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                  <Input type="email" placeholder="your.email@example.com" />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Phone</label>
-                  <Input type="tel" placeholder="(972) 555-0123" />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Budget Range</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select your budget range" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="under-300k">Under $300K</SelectItem>
-                      <SelectItem value="300k-500k">$300K - $500K</SelectItem>
-                      <SelectItem value="500k-750k">$500K - $750K</SelectItem>
-                      <SelectItem value="750k-1m">$750K - $1M</SelectItem>
-                      <SelectItem value="over-1m">Over $1M</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
-                  <Textarea 
-                    placeholder="Tell us about your ideal home and any specific requirements..."
-                    rows={4}
-                  />
-                </div>
-                
-                <Button className="w-full bg-primary hover:bg-blue-600 text-white">
-                  Send Message
-                </Button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Contact />
 
       <Footer />
       

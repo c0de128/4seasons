@@ -117,3 +117,13 @@ Preferred communication style: Simple, everyday language.
 - PostgreSQL-based session storage
 - Session configuration ready for connect-pg-simple
 - Secure session handling with proper cookie settings
+
+# Recent Changes
+
+## December 2024
+- **Shared Contact Component Creation**: Created reusable Contact component extracted from home page contact section
+- **Consistent Contact Integration**: Applied Contact component across all pages (home, buy, sell) for consistency
+- **Code Deduplication**: Removed duplicate contact forms and sections, centralizing contact functionality
+- **Shared Component Architecture**: Extended shared component system to include Navigation, Footer, and Contact components
+- **Real Estate Page Enhancements**: Added real city images to buy page location cards (Plano, Frisco, Allen, McKinney, Richardson, Carrollton)
+- **UI Improvements**: Centered iframe on buy page and adjusted height to 88vh for better user experience

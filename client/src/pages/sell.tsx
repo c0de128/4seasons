@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { 
   Home,
@@ -143,81 +144,7 @@ export default function Sell() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Ready to Sell Your Property?
-            </h2>
-            <p className="text-xl text-slate-600">
-              Get started with a free consultation and property valuation.
-            </p>
-          </div>
-
-          <Card className="shadow-lg">
-            <CardContent className="p-8">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
-                  </div>
-                  <div>
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Enter your email" />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" placeholder="Enter your phone number" />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="address">Property Address</Label>
-                  <Input id="address" placeholder="Enter the property address you want to sell" />
-                </div>
-
-                <div>
-                  <Label htmlFor="timeline">Selling Timeline</Label>
-                  <select className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="">Select timeline</option>
-                    <option value="immediately">Immediately</option>
-                    <option value="1-3months">1-3 months</option>
-                    <option value="3-6months">3-6 months</option>
-                    <option value="6+months">6+ months</option>
-                    <option value="exploring">Just exploring options</option>
-                  </select>
-                </div>
-
-                <div>
-                  <Label htmlFor="message">Additional Information</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us more about your property or any questions you have..."
-                    className="min-h-[120px]"
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full py-3 text-lg font-semibold text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: '#1f2937' }}
-                >
-                  Request Free Consultation
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      <Contact />
 
       <Footer />
       
