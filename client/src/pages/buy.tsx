@@ -7,6 +7,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/ui/back-to-top";
+import planoImage from "@/assets/images/plano.jpg";
+import friscoImage from "@/assets/images/frisco.jpg";
+import allenImage from "@/assets/images/allen.jpg";
+import mckinneyImage from "@/assets/images/mckinney.jpeg";
+import richardsonImage from "@/assets/images/richardson.jpg";
+import carrolltonImage from "@/assets/images/Carrollton.webp";
 
 export default function Buy() {
   return (
@@ -103,7 +109,7 @@ export default function Buy() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600"></div>
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${planoImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Plano</h3>
                 <p className="text-slate-600 mb-4">Excellent schools, family-friendly communities, and convenient shopping centers.</p>
@@ -115,7 +121,7 @@ export default function Buy() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${friscoImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Frisco</h3>
                 <p className="text-slate-600 mb-4">Rapidly growing city with modern amenities and top-rated schools.</p>
@@ -127,7 +133,7 @@ export default function Buy() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-purple-400 to-purple-600"></div>
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${allenImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Allen</h3>
                 <p className="text-slate-600 mb-4">Strong community feel with excellent recreational facilities and schools.</p>
@@ -139,7 +145,7 @@ export default function Buy() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-orange-400 to-orange-600"></div>
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${mckinneyImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">McKinney</h3>
                 <p className="text-slate-600 mb-4">Historic charm meets modern convenience in this fast-growing city.</p>
@@ -151,7 +157,7 @@ export default function Buy() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-red-400 to-red-600"></div>
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${richardsonImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Richardson</h3>
                 <p className="text-slate-600 mb-4">Diverse community with great dining, shopping, and cultural attractions.</p>
@@ -163,7 +169,7 @@ export default function Buy() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-teal-400 to-teal-600"></div>
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${carrolltonImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Carrollton</h3>
                 <p className="text-slate-600 mb-4">Affordable family homes with easy access to Dallas and surrounding areas.</p>
