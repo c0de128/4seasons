@@ -23,6 +23,8 @@ import RichardsonCityGuide from "@/pages/richardson-city-guide";
 import GarlandCityGuide from "@/pages/garland-city-guide";
 import CarrolltonCityGuide from "@/pages/carrollton-city-guide";
 import { FAQPage } from "@/pages/faq";
+import About from "@/pages/about";
+import ContactPage from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -48,6 +50,8 @@ function Router() {
       <Route path="/garland-city-guide" component={GarlandCityGuide} />
       <Route path="/carrollton-city-guide" component={CarrolltonCityGuide} />
       <Route path="/faq" component={FAQPage} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );

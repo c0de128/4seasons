@@ -130,12 +130,12 @@ export function Navigation() {
                             <p className="text-sm text-slate-600">Common questions about buying, selling, and real estate process.</p>
                           </a>
                           
-                          <a href="#about" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <a href="/about" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                             <h4 className="font-medium text-slate-900">About Us</h4>
                             <p className="text-sm text-slate-600">Learn about our experienced team and company mission.</p>
                           </a>
                           
-                          <a href="/#contact" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <a href="/contact" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                             <h4 className="font-medium text-slate-900">Contact Us</h4>
                             <p className="text-sm text-slate-600">Get in touch with our expert real estate team.</p>
                           </a>
@@ -187,8 +187,8 @@ export function Navigation() {
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
                 <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
                 <a href="/faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
-                <a href="#terms" className="block text-slate-600 hover:text-primary text-sm">Terms & Conditions</a>
-                <a href="/#contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
+                <a href="/about" className="block text-slate-600 hover:text-primary text-sm">About Us</a>
+                <a href="/contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
               </div>
             </div>
           </div>
