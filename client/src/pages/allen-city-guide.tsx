@@ -26,7 +26,7 @@ import {
   ArrowRight,
   CheckCircle
 } from "lucide-react";
-import allenHeroImage from "@/assets/docs/city-guides/allen.jpg";
+import allenHeroImage from "@/assets/docs/city-guides/allen.jpeg";
 
 export default function AllenCityGuide() {
   const demographics = [
