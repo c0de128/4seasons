@@ -346,10 +346,16 @@ export default function PropertyManagement() {
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-slate-600">Monthly financial reporting</span>
                   </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-600">Access to Buildium Online Platform</span>
+                  </li>
                 </ul>
-                <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
-                  Get Started
-                </Button>
+                <div className="mt-16">
+                  <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                    Get Started
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
