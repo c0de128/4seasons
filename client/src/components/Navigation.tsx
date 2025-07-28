@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, Calculator, Map, Building2, DollarSign, FileText, HelpCircle, Shield, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +13,44 @@ import logoPath from "@/assets/images/logo_sm.png";
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const megaMenuRef = useRef<HTMLDivElement>(null);
+  const [menuPosition, setMenuPosition] = useState({ transform: '', left: '', right: '' });
+
+  useEffect(() => {
+    if (megaMenuOpen && megaMenuRef.current) {
+      const rect = megaMenuRef.current.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const menuWidth = 600; // Width of mega menu
+      const padding = 16; // Padding from edges
+      
+      // Calculate if menu would go off-screen
+      const wouldOverflowRight = rect.left + menuWidth > viewportWidth - padding;
+      const wouldOverflowLeft = rect.left < padding;
+      
+      if (wouldOverflowRight) {
+        // Position from right edge
+        setMenuPosition({
+          transform: '',
+          left: 'auto',
+          right: '0'
+        });
+      } else if (wouldOverflowLeft) {
+        // Position from left edge
+        setMenuPosition({
+          transform: '',
+          left: '0',
+          right: 'auto'
+        });
+      } else {
+        // Center the menu
+        setMenuPosition({
+          transform: 'translateX(-50%)',
+          left: '50%',
+          right: 'auto'
+        });
+      }
+    }
+  }, [megaMenuOpen]);
 
   return (
     <nav className="absolute top-0 left-0 right-0 backdrop-blur-md shadow-sm border-b border-slate-200/30 z-50" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
@@ -44,11 +82,17 @@ export function Navigation() {
               
               {megaMenuOpen && (
                 <div 
+                  ref={megaMenuRef}
                   onMouseEnter={() => setMegaMenuOpen(true)}
                   onMouseLeave={() => setMegaMenuOpen(false)}
-                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-white rounded-lg shadow-xl border border-slate-200 p-6 z-50"
+                  className="absolute top-full mt-2 w-[600px] max-w-[calc(100vw-2rem)] bg-white rounded-lg shadow-xl border border-slate-200 p-4 md:p-6 z-50"
+                  style={{
+                    transform: menuPosition.transform,
+                    left: menuPosition.left,
+                    right: menuPosition.right
+                  }}
                 >
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                     {/* Tools & Calculators */}
                     <div>
                       <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Tools & Calculators</h3>
@@ -124,12 +168,12 @@ export function Navigation() {
                   
                   {/* Bottom CTA */}
                   <div className="border-t border-slate-200 mt-6 pt-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
                       <div>
                         <h4 className="font-medium text-slate-900">Need personalized assistance?</h4>
                         <p className="text-sm text-slate-600">Our experts are here to help with your real estate needs.</p>
                       </div>
-                      <a href="/#contact" className="px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#0d0d33' }}>
+                      <a href="/#contact" className="px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity text-center lg:text-left" style={{ backgroundColor: '#0d0d33' }}>
                         Get Started
                       </a>
                     </div>
