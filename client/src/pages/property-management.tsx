@@ -323,8 +323,8 @@ export default function PropertyManagement() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Standard Management */}
-            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
-              <CardContent className="p-8 text-center">
+            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20 flex flex-col">
+              <CardContent className="p-8 text-center flex flex-col flex-1">
                 <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
                   Budget Friendly
                 </div>
@@ -351,7 +351,7 @@ export default function PropertyManagement() {
                     <span className="text-slate-600">Access to Buildium Online Platform</span>
                   </li>
                 </ul>
-                <div style={{ marginTop: '108px' }}>
+                <div className="mt-auto">
                   <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
                     Get Started
                   </Button>
@@ -360,8 +360,8 @@ export default function PropertyManagement() {
             </Card>
 
             {/* Premium Management */}
-            <Card className="bg-white hover:shadow-lg transition-all duration-300 border-2 border-primary">
-              <CardContent className="p-8 text-center">
+            <Card className="bg-white hover:shadow-lg transition-all duration-300 border-2 border-primary flex flex-col">
+              <CardContent className="p-8 text-center flex flex-col flex-1">
                 <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
                   Most Popular
                 </div>
@@ -400,9 +400,11 @@ export default function PropertyManagement() {
                     <span className="text-slate-600">Quarterly owner consultations</span>
                   </li>
                 </ul>
-                <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
-                  Get Started
-                </Button>
+                <div className="mt-auto">
+                  <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                    Get Started
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
