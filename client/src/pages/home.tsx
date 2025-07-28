@@ -229,8 +229,7 @@ export default function Home() {
               <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#1f2937' }}>
                 Explore Properties
               </Button>
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 backdrop-blur-sm">
-                <Github className="mr-2 h-5 w-5" />
+              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-transparent">
                 Contact Us
               </Button>
             </div>
