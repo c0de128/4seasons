@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { BackToTop } from "@/components/ui/back-to-top";
 import logoPath from "@/assets/images/logo.png";
 import logoFooterPath from "@/assets/images/logo_footer.png";
@@ -16,44 +23,63 @@ export default function Buy() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md border-b border-slate-200/20">
+      {/* Navigation - positioned absolutely over hero for immediate transparency */}
+      <nav className="absolute top-0 left-0 right-0 backdrop-blur-md shadow-sm border-b border-slate-200/30 z-50" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+          <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <a href="/">
-                <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
-              </a>
+              <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="/" className="text-slate-600 hover:text-primary transition-colors duration-200">Home</a>
-              <a href="/buy" className="text-primary font-medium transition-colors duration-200">Buy</a>
+              <a href="/buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Buy</a>
               <a href="/sell" className="text-slate-600 hover:text-primary transition-colors duration-200">Sell</a>
               <a href="/#property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
-              <a href="/#contact" className="text-slate-600 hover:text-primary transition-colors duration-200">Contact</a>
+              
+              {/* Resources Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-slate-600 hover:text-primary transition-colors duration-200">
+                  Resources
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem>
+                    <a href="#home-valuation" className="w-full">Home Valuation</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#city-guides" className="w-full">City Guides</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#school-districts" className="w-full">School Districts</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#property-investment" className="w-full">Property Investment</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <a href="#blog" className="w-full">Blog</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#faq" className="w-full">FAQ</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="#terms" className="w-full">Terms & Conditions</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/#contact" className="w-full">Contact Us</a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
-
-            {/* Contact Info */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <div className="flex items-center space-x-2 text-slate-600">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">(972) 555-0123</span>
-              </div>
-              <Button className="bg-primary hover:bg-primary/90 text-white">
-                Schedule Tour
+            
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
-
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
         
@@ -61,25 +87,28 @@ export default function Buy() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-slate-200 bg-white">
             <div className="px-4 py-4 space-y-3">
-              <a href="/" className="block text-slate-600 hover:text-primary">Home</a>
-              <a href="/buy" className="block text-primary font-medium">Buy</a>
+              <a href="/buy" className="block text-slate-600 hover:text-primary">Buy</a>
               <a href="/sell" className="block text-slate-600 hover:text-primary">Sell</a>
               <a href="/#property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
-              <a href="/#contact" className="block text-slate-600 hover:text-primary">Contact</a>
               
-              <div className="pt-4 border-t border-slate-200">
-                <div className="flex items-center space-x-2 text-slate-600 mb-3">
-                  <Phone className="w-4 h-4" />
-                  <span className="text-sm">(972) 555-0123</span>
+              {/* Resources - Mobile Expanded */}
+              <div className="border-t border-slate-100 pt-3 mt-3">
+                <p className="text-sm font-medium text-slate-500 mb-2">Resources</p>
+                <div className="pl-4 space-y-2">
+                  <a href="#home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
+                  <a href="#city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
+                  <a href="#school-districts" className="block text-slate-600 hover:text-primary text-sm">School Districts</a>
+                  <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
+                  <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
+                  <a href="#faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
+                  <a href="#terms" className="block text-slate-600 hover:text-primary text-sm">Terms & Conditions</a>
+                  <a href="/#contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
                 </div>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                  Schedule Tour
-                </Button>
               </div>
             </div>
           </div>
         )}
-      </header>
+      </nav>
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
@@ -393,28 +422,27 @@ export default function Buy() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-white py-16">
+      <footer style={{ backgroundColor: '#2c3e50' }} className="text-slate-300 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            {/* Company Info */}
-            <div className="md:col-span-1">
-              <img src={logoFooterPath} alt="4Seasons Real Estate" className="h-12 mb-4" />
-              <p className="text-slate-300 text-sm mb-4">
-                Your trusted partner in North Texas real estate. We make buying, selling, and managing properties simple and successful.
-              </p>
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Brand */}
+            <div className="md:col-span-1 flex flex-col items-center">
+              <div className="mb-6">
+                <img src={logoFooterPath} alt="4Seasons Real Estate" className="mb-4" style={{ width: '200px', height: '145px' }} />
+              </div>
               <div className="flex space-x-3">
                 <a
                   href="#"
                   className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1877F2' }}
+                  style={{ backgroundColor: '#1f2937' }}
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <span className="font-bold text-sm">f</span>
                 </a>
                 <a
                   href="#"
                   className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#1DA1F2' }}
+                  style={{ backgroundColor: '#1f2937' }}
                   aria-label="Twitter"
                 >
                   <Twitter className="w-4 h-4" />
@@ -422,7 +450,7 @@ export default function Buy() {
                 <a
                   href="#"
                   className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#E4405F' }}
+                  style={{ backgroundColor: '#1f2937' }}
                   aria-label="Instagram"
                 >
                   <Instagram className="w-4 h-4" />
@@ -438,28 +466,28 @@ export default function Buy() {
               </div>
             </div>
             
-            {/* Quick Links */}
+            {/* Quick Links - Column 1 */}
             <div className="md:col-span-1">
               <h3 className="font-semibold text-white mb-4">Quick Links</h3>
-              <div className="space-y-2">
-                <a href="/" className="block text-slate-300 hover:text-white text-sm transition-colors">Home</a>
-                <a href="/buy" className="block text-slate-300 hover:text-white text-sm transition-colors">Buy</a>
-                <a href="/sell" className="block text-slate-300 hover:text-white text-sm transition-colors">Sell</a>
-                <a href="/#property-management" className="block text-slate-300 hover:text-white text-sm transition-colors">Property Management</a>
-                <a href="/#home-valuation" className="block text-slate-300 hover:text-white text-sm transition-colors">Home Valuation</a>
-                <a href="#contact" className="block text-slate-300 hover:text-white text-sm transition-colors">Contact Us</a>
-              </div>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/buy" className="text-slate-300 hover:text-white transition-colors">Buy</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Property Management</a></li>
+                <li><a href="#contact" className="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Home Valuation</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">School Districts</a></li>
+              </ul>
             </div>
-
-            {/* Additional Links */}
+            
+            {/* Quick Links - Column 2 */}
             <div className="md:col-span-1">
               <h3 className="font-semibold text-white mb-4 opacity-0">Links</h3>
-              <div className="space-y-2">
-                <a href="#" className="block text-slate-300 hover:text-white text-sm transition-colors">FAQs</a>
-                <a href="#" className="block text-slate-300 hover:text-white text-sm transition-colors">About Us</a>
-                <a href="#" className="block text-slate-300 hover:text-white text-sm transition-colors">Neighborhoods</a>
-                <a href="#" className="block text-slate-300 hover:text-white text-sm transition-colors">Blog Posts</a>
-              </div>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/sell" className="text-slate-300 hover:text-white transition-colors">Sell</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">FAQs</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Neighborhoods</a></li>
+                <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Blog Posts</a></li>
+              </ul>
             </div>
             
             {/* Recent Blog Posts */}
