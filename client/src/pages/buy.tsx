@@ -383,7 +383,7 @@ export default function Buy() {
                   />
                 </div>
                 
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                <Button className="w-full bg-primary hover:bg-blue-600 text-white">
                   Send Message
                 </Button>
               </form>
