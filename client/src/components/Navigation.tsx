@@ -38,7 +38,7 @@ export function Navigation() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem>
-                  <a href="#home-valuation" className="w-full">Home Valuation</a>
+                  <a href="/home-valuation" className="w-full">Home Valuation</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <a href="#city-guides" className="w-full">City Guides</a>
@@ -87,7 +87,7 @@ export function Navigation() {
             <div className="border-t border-slate-100 pt-3 mt-3">
               <p className="text-sm font-medium text-slate-500 mb-2">Resources</p>
               <div className="pl-4 space-y-2">
-                <a href="#home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
+                <a href="/home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
                 <a href="#city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
                 <a href="#school-districts" className="block text-slate-600 hover:text-primary text-sm">School Districts</a>
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
