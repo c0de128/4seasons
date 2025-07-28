@@ -35,7 +35,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: "Visit Our Office",
-      primary: "123 Main Street, Plano, TX 75023",
+      primary: "123 Main Street, Allen, TX 75013",
       secondary: "Monday - Saturday: 9AM - 6PM",
       action: "https://maps.google.com"
     }
@@ -250,13 +250,13 @@ export default function ContactPage() {
               Visit Our Office
             </h2>
             <p className="text-xl text-slate-600">
-              Located in the heart of Plano, we're easily accessible from anywhere in North Texas.
+              Located in the heart of Allen, we're easily accessible from anywhere in North Texas.
             </p>
           </div>
           
           <div className="rounded-lg overflow-hidden shadow-lg h-96">
             <MapContainer 
-              center={[33.0198, -96.6989]} // Plano, TX coordinates
+              center={[33.1031, -96.6706]} // Allen, TX coordinates
               zoom={13} 
               style={{ height: '100%', width: '100%' }}
               className="z-0"
@@ -265,14 +265,14 @@ export default function ContactPage() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={[33.0198, -96.6989]}>
+              <Marker position={[33.1031, -96.6706]}>
                 <Popup>
                   <div className="text-center p-2">
                     <h3 className="font-semibold text-slate-900 mb-2">4Seasons Real Estate</h3>
-                    <p className="text-slate-600 mb-2">123 Main Street<br />Plano, TX 75023</p>
+                    <p className="text-slate-600 mb-2">123 Main Street<br />Allen, TX 75013</p>
                     <p className="text-sm text-slate-500 mb-3">Phone: (972) 555-0123</p>
                     <a
-                      href="https://maps.google.com/?q=33.0198,-96.6989"
+                      href="https://maps.google.com/?q=33.1031,-96.6706"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-xs font-medium text-white rounded hover:opacity-90 transition-opacity"
@@ -292,7 +292,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://maps.google.com/?q=33.0198,-96.6989"
+                href="https://maps.google.com/?q=33.1031,-96.6706"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity"
@@ -302,7 +302,7 @@ export default function ContactPage() {
                 Google Maps
               </a>
               <a
-                href="https://maps.apple.com/?q=33.0198,-96.6989"
+                href="https://maps.apple.com/?q=33.1031,-96.6706"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 text-sm font-medium border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
