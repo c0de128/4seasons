@@ -32,7 +32,10 @@ export function BackToTop() {
   return (
     <Button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-primary hover:bg-blue-600 text-white shadow-lg transition-all duration-300 hover:scale-110"
+      className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full text-white shadow-lg transition-all duration-300 hover:scale-110"
+      style={{ backgroundColor: '#0d0d33' }}
+      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1a1a4d'}
+      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0d0d33'}
       size="icon"
       aria-label="Back to top"
     >
