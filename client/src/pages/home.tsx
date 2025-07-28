@@ -273,7 +273,7 @@ export default function Home() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Buying a Home</h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  Our expert team will guide you through every step of the home buying process. From initial property search to final closing, we provide personalized support to ensure you find your dream home at the perfect price. Our comprehensive market knowledge ensures you make informed decisions.
+                  Our expert team will guide you through every step of the home buying process. From initial property search to final closing, we provide personalized support to ensure you find your dream home at the perfect price. Our comprehensive market knowledge ensures you make informed decisions. We assist with financing options, inspections, and negotiations to secure the best deal possible.
                 </p>
                 <Button 
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
@@ -305,7 +305,7 @@ export default function Home() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Property Management</h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  Let us handle the day-to-day management of your investment properties. From tenant screening to maintenance coordination, we provide comprehensive property management services that protect your investment and maximize your returns.
+                  Let us handle the day-to-day management of your investment properties. From tenant screening to maintenance coordination, we provide comprehensive property management services that protect your investment and maximize your returns. Our services include rent collection, maintenance requests, financial reporting, and ensuring compliance with local regulations for stress-free ownership.
                 </p>
                 <Button 
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
@@ -321,7 +321,7 @@ export default function Home() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Market Analysis</h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  Stay informed with our detailed market analysis and property valuations. We provide comprehensive reports on market trends, comparable sales, and investment opportunities to help you make strategic real estate decisions.
+                  Stay informed with our detailed market analysis and property valuations. We provide comprehensive reports on market trends, comparable sales, and investment opportunities to help you make strategic real estate decisions. Our data-driven approach includes neighborhood analysis, price forecasting, and investment ROI calculations to guide your property choices.
                 </p>
                 <Button 
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
