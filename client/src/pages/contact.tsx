@@ -2,8 +2,21 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar } from "lucide-react";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import { useEffect } from 'react';
 
 export default function ContactPage() {
+  // Fix for Leaflet default icon issues with Webpack
+  useEffect(() => {
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+      iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    });
+  }, []);
+
   const contactMethods = [
     {
       icon: Phone,
@@ -241,19 +254,61 @@ export default function ContactPage() {
             </p>
           </div>
           
-          <div className="bg-slate-100 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Interactive Map</h3>
-              <p className="text-slate-600 mb-4">123 Main Street, Plano, TX 75023</p>
+          <div className="rounded-lg overflow-hidden shadow-lg h-96">
+            <MapContainer 
+              center={[33.0198, -96.6989]} // Plano, TX coordinates
+              zoom={13} 
+              style={{ height: '100%', width: '100%' }}
+              className="z-0"
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[33.0198, -96.6989]}>
+                <Popup>
+                  <div className="text-center p-2">
+                    <h3 className="font-semibold text-slate-900 mb-2">4Seasons Real Estate</h3>
+                    <p className="text-slate-600 mb-2">123 Main Street<br />Plano, TX 75023</p>
+                    <p className="text-sm text-slate-500 mb-3">Phone: (972) 555-0123</p>
+                    <a
+                      href="https://maps.google.com/?q=33.0198,-96.6989"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-3 py-1 text-xs font-medium text-white rounded hover:opacity-90 transition-opacity"
+                      style={{ backgroundColor: '#0d0d33' }}
+                    >
+                      Get Directions
+                    </a>
+                  </div>
+                </Popup>
+              </Marker>
+            </MapContainer>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="text-slate-600 mb-4">
+              Can't find us? Call (972) 555-0123 for detailed directions.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://maps.google.com"
+                href="https://maps.google.com/?q=33.0198,-96.6989"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: '#0d0d33' }}
               >
-                Get Directions
+                <MapPin className="w-4 h-4 mr-2" />
+                Google Maps
+              </a>
+              <a
+                href="https://maps.apple.com/?q=33.0198,-96.6989"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
+              >
+                <MapPin className="w-4 h-4 mr-2" />
+                Apple Maps
               </a>
             </div>
           </div>
