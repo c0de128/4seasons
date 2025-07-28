@@ -54,9 +54,9 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="/buy" className="text-slate-300 hover:text-white transition-colors">Buy</a></li>
-              <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Property Management</a></li>
+              <li><a href="/property-management" className="text-slate-300 hover:text-white transition-colors">Property Management</a></li>
               <li><a href="#contact" className="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Home Valuation</a></li>
+              <li><a href="/home-valuation" className="text-slate-300 hover:text-white transition-colors">Home Valuation</a></li>
               <li><a href="#" className="text-slate-300 hover:text-white transition-colors">School Districts</a></li>
             </ul>
           </div>
@@ -68,7 +68,7 @@ export function Footer() {
               <li><a href="/sell" className="text-slate-300 hover:text-white transition-colors">Sell</a></li>
               <li><a href="#" className="text-slate-300 hover:text-white transition-colors">FAQs</a></li>
               <li><a href="#" className="text-slate-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Neighborhoods</a></li>
+              <li><a href="/city-guides" className="text-slate-300 hover:text-white transition-colors">City Guides</a></li>
               <li><a href="#" className="text-slate-300 hover:text-white transition-colors">Blog Posts</a></li>
             </ul>
           </div>
