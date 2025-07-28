@@ -333,7 +333,7 @@ export default function Home() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Buying a Home</h3>
                 <p className="text-slate-600 leading-relaxed mb-6">
-                  Our expert team will guide you through every step of the home buying process. From initial property search to final closing, we provide personalized support to ensure you find your dream home at the perfect price. Our comprehensive market knowledge ensures you make informed decisions. We assist with financing options, inspections, and negotiations to secure the best deal possible.
+                  Our expert team will guide you through every step of the home buying process. From initial property search to final closing, we provide personalized support to ensure you find your dream home at the perfect price. Our comprehensive market knowledge ensures you make informed decisions. We assist with financing options, inspections, and negotiations to secure the best deal possible. We provide detailed neighborhood analysis to help you choose the perfect location for your family.
                 </p>
                 <Button 
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
