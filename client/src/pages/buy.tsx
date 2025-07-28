@@ -16,7 +16,7 @@ export default function Buy() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
               Find Your Perfect
               <span className="text-primary block">North Texas Home</span>
@@ -25,18 +25,20 @@ export default function Buy() {
               Discover exceptional properties in the DFW metroplex with expert guidance 
               from North Texas's most trusted real estate professionals.
             </p>
-            
-            {/* Property Search iframe */}
-            <div className="mx-auto flex justify-center" style={{ width: '80vw' }}>
-              <iframe 
-                src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
-                style={{ minHeight: '80vh', width: '100%' }} 
-                frameBorder={0} 
-                marginWidth={0} 
-                marginHeight={0}
-                title="Property Search"
-              />
-            </div>
+          </div>
+        </div>
+        
+        {/* Property Search iframe - Full width container */}
+        <div className="w-full flex justify-center">
+          <div style={{ width: '80vw' }}>
+            <iframe 
+              src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
+              style={{ minHeight: '80vh', width: '100%' }} 
+              frameBorder={0} 
+              marginWidth={0} 
+              marginHeight={0}
+              title="Property Search"
+            />
           </div>
         </div>
       </section>
