@@ -52,7 +52,7 @@ Remember, selling a home is a major financial and emotional decision. Consider f
     readTime: "6 min read",
     category: "sellers",
     tags: ["Market Timing", "Home Selling", "North Texas"],
-    views: 1247,
+    views: 2834,
     featured: true
   },
   {
@@ -97,7 +97,7 @@ Review all documents carefully before closing day. Ensure you have adequate home
     readTime: "8 min read",
     category: "buyers",
     tags: ["First-Time Buyers", "Home Buying", "DFW Market"],
-    views: 2156,
+    views: 4721,
     featured: true
   },
   {
@@ -155,7 +155,7 @@ Maintain detailed financial records for tax purposes and investment analysis. Tr
     readTime: "7 min read",
     category: "property-management",
     tags: ["Property Management", "Rental Investment", "Cash Flow"],
-    views: 892,
+    views: 1563,
     featured: false
   },
   {
@@ -207,7 +207,7 @@ North Texas continues to attract major employers and experience population growt
     readTime: "5 min read",
     category: "market-insights",
     tags: ["Market Predictions", "2025 Trends", "North Texas"],
-    views: 1543,
+    views: 3892,
     featured: true
   },
   {
@@ -268,7 +268,7 @@ Consider professional staging if your home has been on the market for more than 
     readTime: "6 min read",
     category: "sellers",
     tags: ["Home Staging", "Selling Tips", "Market Appeal"],
-    views: 1891,
+    views: 2197,
     featured: false
   },
   {
@@ -328,7 +328,7 @@ Property tax consultants can help with complex situations or valuable properties
     readTime: "7 min read",
     category: "buyers",
     tags: ["Property Taxes", "Texas Homeowners", "Exemptions"],
-    views: 1205,
+    views: 856,
     featured: false
   }
 ];
