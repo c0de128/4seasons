@@ -290,6 +290,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Colored background behind video for nav transparency effect */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-900 via-slate-800 to-gray-900"></div>
+        
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full">
           <video
