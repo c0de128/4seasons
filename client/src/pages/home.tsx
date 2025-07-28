@@ -218,26 +218,7 @@ export default function Home() {
               </Button>
             </div>
             
-            <div className="mt-12 flex justify-center">
-              <Card className="max-w-4xl w-full shadow-xl">
-                <CardContent className="p-4">
-                  <div className="bg-slate-900 rounded-lg p-6 text-left overflow-x-auto">
-                    <div className="flex items-center space-x-2 mb-4">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      <span className="text-slate-400 text-sm ml-4">terminal</span>
-                    </div>
-                    <div className="text-green-400 text-sm font-mono space-y-1">
-                      <div>$ npx create-next-app@latest my-app --typescript --tailwind</div>
-                      <div className="text-slate-400">$ cd my-app</div>
-                      <div className="text-slate-400">$ npm run dev</div>
-                      <div className="text-accent mt-2">✨ Ready in 3.2s</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            
           </div>
         </div>
       </section>
