@@ -329,7 +329,11 @@ export default function CityGuides() {
                       </div>
                     </div>
                     
-                    <Button className="w-full text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                    <Button 
+                      className="w-full text-white hover:opacity-90" 
+                      style={{ backgroundColor: '#0d0d33' }}
+                      onClick={() => window.location.href = community.name === "Allen" ? "/allen-city-guide" : "#"}
+                    >
                       Explore {community.name}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>

@@ -139,3 +139,5 @@ Preferred communication style: Simple, everyday language.
 - **Interactive Forms**: Added advanced form handling with controlled components and comprehensive property data collection
 - **City Guides Page**: Created comprehensive DFW neighborhoods guide following detailed outline specification with county organization, featured communities, search functionality, and market insights
 - **Community Directory**: Implemented structured neighborhood browsing with filtering by county, search capabilities, and detailed community profiles
+- **Allen City Guide**: Created detailed individual city guide page for Allen, Texas with comprehensive sections covering demographics, real estate, schools, amenities, transportation, and future developments
+- **City Guide Template**: Established reusable template structure for individual city guide pages following the outline specification
