@@ -16,6 +16,7 @@ import McKinneyCityGuide from "@/pages/mckinney-city-guide";
 import ProsperCityGuide from "@/pages/prosper-city-guide";
 import CelinaCityGuide from "@/pages/celina-city-guide";
 import WylieCityGuide from "@/pages/wylie-city-guide";
+import HighlandParkCityGuide from "@/pages/highland-park-city-guide";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/prosper-city-guide" component={ProsperCityGuide} />
       <Route path="/celina-city-guide" component={CelinaCityGuide} />
       <Route path="/wylie-city-guide" component={WylieCityGuide} />
+      <Route path="/highland-park-city-guide" component={HighlandParkCityGuide} />
       <Route component={NotFound} />
     </Switch>
   );
