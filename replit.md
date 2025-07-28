@@ -6,6 +6,11 @@ This is a full-stack TypeScript application built with React frontend and Expres
 
 Preferred communication style: Simple, everyday language.
 
+## Design Standards
+- **Primary Brand Color**: Dark blue #0d0d33 (use for all buttons, icons, and interactive elements)
+- **Button Styling**: Use #0d0d33 background with white text and hover effects
+- **Icon Backgrounds**: Use #0d0d33 background with white icons for consistent branding
+
 # System Architecture
 
 ## Frontend Architecture
