@@ -125,7 +125,7 @@ export function Navigation() {
                       {/* Column 2 */}
                       <div>
                         <div className="space-y-3">
-                          <a href="#faq" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <a href="/faq" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                             <h4 className="font-medium text-slate-900">FAQ's</h4>
                             <p className="text-sm text-slate-600">Common questions about buying, selling, and real estate process.</p>
                           </a>
@@ -186,7 +186,7 @@ export function Navigation() {
                 <a href="/city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
                 <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
-                <a href="#faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
+                <a href="/faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
                 <a href="#terms" className="block text-slate-600 hover:text-primary text-sm">Terms & Conditions</a>
                 <a href="/#contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
               </div>
