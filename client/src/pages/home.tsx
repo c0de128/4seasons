@@ -15,6 +15,7 @@ import {
 import logoPath from "@/assets/images/logo_sm.png";
 import logoLarge from "@/assets/images/logo.png";
 import heroVideo from "@/assets/videos/hero.mp4";
+import amyPhoto from "@/assets/images/amy.jpg";
 import { 
   Menu, 
   X, 
@@ -355,15 +356,12 @@ export default function Home() {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Team Member Photo */}
-              <div className="bg-slate-200 aspect-square lg:aspect-auto flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-slate-300 to-slate-400 flex items-center justify-center">
-                  <div className="text-center text-slate-600">
-                    <div className="w-32 h-32 bg-slate-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-2xl font-bold">AH</span>
-                    </div>
-                    <p className="text-sm">Professional Photo</p>
-                  </div>
-                </div>
+              <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                <img 
+                  src={amyPhoto} 
+                  alt="Amy Harwood - Agency Owner & Real Estate Specialist"
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Team Member Details */}
