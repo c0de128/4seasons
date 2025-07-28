@@ -266,18 +266,71 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
-                <CardContent className="p-8">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                    <feature.icon className={`h-6 w-6 ${feature.color}`} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{feature.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Services Cards */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Buying a Home */}
+            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Buying a Home</h3>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Our expert team will guide you through every step of the home buying process. From initial property search to final closing, we provide personalized support to ensure you find your dream home at the perfect price. Our comprehensive market knowledge ensures you make informed decisions.
+                </p>
+                <Button 
+                  className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
+                  style={{ backgroundColor: '#1f2937' }}
+                >
+                  <a href="#buy" className="text-white no-underline">Learn More</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Selling Your Property */}
+            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Selling Your Property</h3>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Maximize your property's value with our strategic marketing approach and expert pricing guidance. We handle everything from professional photography to negotiations, ensuring a smooth and profitable sale in today's competitive market.
+                </p>
+                <Button 
+                  className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
+                  style={{ backgroundColor: '#1f2937' }}
+                >
+                  <a href="#sell" className="text-white no-underline">Learn More</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Property Management */}
+            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Property Management</h3>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Let us handle the day-to-day management of your investment properties. From tenant screening to maintenance coordination, we provide comprehensive property management services that protect your investment and maximize your returns.
+                </p>
+                <Button 
+                  className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
+                  style={{ backgroundColor: '#1f2937' }}
+                >
+                  <a href="#property-management" className="text-white no-underline">Learn More</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Market Analysis */}
+            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Market Analysis</h3>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Stay informed with our detailed market analysis and property valuations. We provide comprehensive reports on market trends, comparable sales, and investment opportunities to help you make strategic real estate decisions.
+                </p>
+                <Button 
+                  className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
+                  style={{ backgroundColor: '#1f2937' }}
+                >
+                  <a href="#home-valuation" className="text-white no-underline">Learn More</a>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
