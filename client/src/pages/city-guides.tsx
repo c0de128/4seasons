@@ -263,6 +263,7 @@ export default function CityGuides() {
                             community === "Addison" ? "/addison-city-guide" :
                             community === "Richardson" ? "/richardson-city-guide" :
                             community === "Garland" ? "/garland-city-guide" :
+                            community === "Carrollton" ? "/carrollton-city-guide" :
                             "/city-guides"
                           }
                           className="text-slate-700 hover:text-primary flex-1"
@@ -391,6 +392,8 @@ export default function CityGuides() {
                           window.location.href = "/richardson-city-guide";
                         } else if (community.name === "Garland") {
                           window.location.href = "/garland-city-guide";
+                        } else if (community.name === "Carrollton") {
+                          window.location.href = "/carrollton-city-guide";
                         } else {
                           window.location.href = "#";
                         }

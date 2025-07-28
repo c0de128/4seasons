@@ -21,6 +21,7 @@ import UniversityParkCityGuide from "@/pages/university-park-city-guide";
 import AddisonCityGuide from "@/pages/addison-city-guide";
 import RichardsonCityGuide from "@/pages/richardson-city-guide";
 import GarlandCityGuide from "@/pages/garland-city-guide";
+import CarrolltonCityGuide from "@/pages/carrollton-city-guide";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -44,6 +45,7 @@ function Router() {
       <Route path="/addison-city-guide" component={AddisonCityGuide} />
       <Route path="/richardson-city-guide" component={RichardsonCityGuide} />
       <Route path="/garland-city-guide" component={GarlandCityGuide} />
+      <Route path="/carrollton-city-guide" component={CarrolltonCityGuide} />
       <Route component={NotFound} />
     </Switch>
   );

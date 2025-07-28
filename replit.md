@@ -126,6 +126,7 @@ Preferred communication style: Simple, everyday language.
 # Recent Changes
 
 ## January 2025
+- **Carrollton City Guide Creation**: Developed comprehensive Carrollton city guide page featuring historic character, transportation connectivity, and community spirit
 - **Garland City Guide Creation**: Developed comprehensive Garland city guide page featuring diverse community, strategic Dallas location, and family-friendly amenities
 - **Richardson City Guide Creation**: Developed comprehensive Richardson city guide page featuring technology innovation, educational excellence, and cultural diversity
 - **Addison City Guide Creation**: Developed comprehensive Addison city guide page featuring business excellence, culinary destination, and urban convenience
@@ -138,9 +139,9 @@ Preferred communication style: Simple, everyday language.
 - **Frisco City Guide Creation**: Developed comprehensive Frisco city guide page with sports-focused content highlighting The Star, championship venues, and master-planned communities
 - **Complete Navigation Updates**: Enhanced all navigation systems (desktop dropdown, mobile menu, footer, county exploration, city cards) to include all city guide links
 - **Plano City Guide Creation**: Developed comprehensive Plano city guide page following Allen template structure with detailed content
-- **Enhanced Navigation Integration**: Added Plano, Frisco, McKinney, Prosper, Celina, Wylie, Highland Park, University Park, Addison, Richardson, and Garland guides to main navigation and city guides page routing system  
+- **Enhanced Navigation Integration**: Added Plano, Frisco, McKinney, Prosper, Celina, Wylie, Highland Park, University Park, Addison, Richardson, Garland, and Carrollton guides to main navigation and city guides page routing system  
 - **Content Optimization**: Created engaging city-specific content including demographics, schools, neighborhoods, amenities, and economic data for all city guides
-- **Image Integration**: Successfully integrated hero background images for Allen, Plano, Frisco, McKinney, Prosper, Celina, Wylie, Highland Park, University Park, Addison, Richardson, and Garland city guide pages using WebP/PNG/JPG format
+- **Image Integration**: Successfully integrated hero background images for Allen, Plano, Frisco, McKinney, Prosper, Celina, Wylie, Highland Park, University Park, Addison, Richardson, Garland, and Carrollton city guide pages using WebP/PNG/JPG format
 - **Page Structure Standardization**: Established consistent city guide template with hero sections, demographics, schools, neighborhoods, and amenities
 - **Expandable County Cards**: Added interactive functionality to county exploration allowing users to expand and view all communities
 
