@@ -216,11 +216,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
-            <div className="mb-8">
-              <div className="flex items-center space-x-4 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20 w-fit">
-                <img src={logoPath} alt="4Seasons Real Estate Logo" className="w-[90px] h-[56px]" />
-              </div>
-            </div>
+            
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
               It's Good to be <span className="text-primary">Home!</span>
