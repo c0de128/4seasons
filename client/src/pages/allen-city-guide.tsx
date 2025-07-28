@@ -142,7 +142,7 @@ export default function AllenCityGuide() {
                 <Home className="w-5 h-5 mr-2" />
                 View Allen Homes
               </Button>
-              <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
+              <Button variant="outline" className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 text-lg font-semibold hover:bg-yellow-400 hover:text-slate-900 bg-transparent">
                 Schedule Allen Tour
               </Button>
             </div>
