@@ -239,8 +239,17 @@ export default function CityGuides() {
                 <CardContent>
                   <div className="space-y-2">
                     {county.communities.slice(0, 4).map((community, communityIndex) => (
-                      <div key={communityIndex} className="flex items-center justify-between">
-                        <span className="text-slate-700">{community}</span>
+                      <div key={communityIndex} className="flex items-center justify-between hover:bg-slate-50 p-2 rounded cursor-pointer transition-colors">
+                        <a 
+                          href={
+                            community === "Allen" ? "/allen-city-guide" :
+                            community === "Plano" ? "/plano-city-guide" :
+                            "/city-guides"
+                          }
+                          className="text-slate-700 hover:text-primary flex-1"
+                        >
+                          {community}
+                        </a>
                         <ChevronRight className="w-4 h-4 text-slate-400" />
                       </div>
                     ))}
