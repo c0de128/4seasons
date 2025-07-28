@@ -144,9 +144,9 @@ export default function AllenCityGuide() {
       {/* Overview Section */}
       <section className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 Welcome to Allen
               </h2>
@@ -166,7 +166,7 @@ export default function AllenCityGuide() {
             </div>
             
             {/* Allen at a Glance Sidebar */}
-            <div className="bg-white p-6 rounded-lg shadow-lg h-fit">
+            <div className="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg h-fit">
               <h3 className="text-xl font-semibold text-slate-900 mb-6">Allen at a Glance</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
