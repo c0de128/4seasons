@@ -13,32 +13,18 @@ export default function About() {
 
   const teamMembers = [
     {
-      name: "Sarah Johnson",
-      title: "Principal Broker & Owner",
+      name: "Amy Harwood",
+      title: "Agency Owner & Real Estate Specialist",
       experience: "15+ years in North Texas real estate",
-      specialties: ["Luxury Homes", "Investment Properties", "First-Time Buyers"],
-      bio: "Sarah founded 4Seasons Real Estate with a vision to provide personalized, professional service to every client. Her deep knowledge of North Texas markets and commitment to excellence has made her a trusted advisor to hundreds of families."
+      specialties: ["Residential Buying", "Residential Selling", "Market Analysis"],
+      bio: "With over 15 years of dedicated experience, Amy Harwood is a seasoned Real Estate Broker and a trusted expert in the North Texas residential market. As the proud owner of 4Seasons Real Estate Svcs, LLC in Allen, Texas, Amy has built her business on a foundation of proven customer satisfaction and an in-depth understanding of every facet of real estate. Amy's approach combines meticulous attention to detail with a deep commitment to her clients' success, bringing comprehensive market knowledge and strategic insights to every transaction."
     },
     {
-      name: "Michael Chen",
-      title: "Senior Real Estate Agent",
-      experience: "12+ years serving DFW area",
-      specialties: ["New Construction", "Relocation Services", "Commercial Properties"],
-      bio: "Michael brings extensive experience in both residential and commercial real estate. His analytical approach and attention to detail ensure clients make informed decisions throughout their real estate journey."
-    },
-    {
-      name: "Jennifer Martinez",
-      title: "Property Management Director",
-      experience: "10+ years in property management",
-      specialties: ["Rental Properties", "HOA Management", "Investment Analysis"],
-      bio: "Jennifer leads our property management division with a focus on maximizing returns for investors while maintaining excellent tenant relationships. Her proactive approach keeps properties well-maintained and profitable."
-    },
-    {
-      name: "David Thompson",
-      title: "Market Research Specialist",
-      experience: "8+ years in real estate analytics",
-      specialties: ["Market Analysis", "Pricing Strategy", "Investment Consulting"],
-      bio: "David provides crucial market insights that help our team price properties competitively and identify emerging opportunities. His research drives our strategic recommendations for both buyers and sellers."
+      name: "Tim Harwood",
+      title: "Finance and Property Management Professional",
+      experience: "20+ years in real estate and finance",
+      specialties: ["Underwriting", "Property Management", "Mortgage Lending"],
+      bio: "Tim Harwood is a highly skilled Underwriter and Property Management professional, with a deep understanding of the mortgage lending and real estate industries. Located in Allen, Texas, Tim's career is marked by a proven ability to excel in various aspects of financial and estate transactions. His extensive background includes significant roles as a Prefund Underwriter Auditor and Pre-Underwriter, with seven years as an Underwriter at Bank of America. Beyond his underwriting capabilities, Tim possesses a strong foundation in property management, cultivated during his nearly 20 years as a Real Estate Agent with 4Seasons Realty."
     }
   ];
 
