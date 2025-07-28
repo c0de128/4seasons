@@ -325,6 +325,9 @@ export default function PropertyManagement() {
             {/* Standard Management */}
             <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
               <CardContent className="p-8 text-center">
+                <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
+                  Budget Friendly
+                </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Standard Management</h3>
                 <ul className="text-left space-y-3 mb-8">
                   <li className="flex items-start">
