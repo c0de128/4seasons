@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { BackToTop } from "@/components/ui/back-to-top";
 import logoPath from "@/assets/images/logo_sm.png";
 import logoLarge from "@/assets/images/logo.png";
 import logoFooter from "@/assets/images/logo_footer.png";
@@ -1026,6 +1027,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { BackToTop } from "@/components/ui/back-to-top";
 import logoPath from "@/assets/images/logo.png";
 import logoFooterPath from "@/assets/images/logo_footer.png";
 import texasBlog from "@/assets/images/texas-blog.jpg";
@@ -514,6 +515,9 @@ export default function Buy() {
           </div>
         </div>
       </footer>
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }

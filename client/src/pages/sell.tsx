@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { BackToTop } from "@/components/ui/back-to-top";
 import logoPath from "@/assets/images/logo_sm.png";
 import logoFooter from "@/assets/images/logo_footer.png";
 import marketAnalysisBlog from "@/assets/images/market-analysis-blog.jpg";
@@ -470,6 +471,9 @@ export default function Sell() {
           </div>
         </div>
       </footer>
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }
