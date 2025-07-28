@@ -25,7 +25,7 @@ export function Contact() {
             <div>
               <h3 className="text-2xl font-bold text-slate-900 mb-6">Office Locations</h3>
               <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                <MapPin className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: '#0d0d33' }} />
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Allen Texas</h4>
                   <p className="text-slate-600">1333 W. McDermott Dr #200, Allen, TX, 75013</p>
@@ -38,19 +38,19 @@ export function Contact() {
               <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Phone className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
                   <a href="tel:2742743873" className="text-slate-600 hover:text-primary transition-colors">
                     (214) 274-3873
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Mail className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Mail className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
                   <a href="mailto:aharwood23@yahoo.com" className="text-slate-600 hover:text-primary transition-colors">
                     aharwood23@yahoo.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Clock className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Clock className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
                   <span className="text-slate-600">Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</span>
                 </div>
               </div>
