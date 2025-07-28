@@ -326,8 +326,6 @@ export default function PropertyManagement() {
             <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Standard Management</h3>
-                <div className="mb-6">
-                </div>
                 <ul className="text-left space-y-3 mb-8">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -359,8 +357,6 @@ export default function PropertyManagement() {
                   Most Popular
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Premium Management</h3>
-                <div className="mb-6">
-                </div>
                 <ul className="text-left space-y-3 mb-8">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -377,6 +373,22 @@ export default function PropertyManagement() {
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-slate-600">Dedicated property manager</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-600">Property improvement recommendations</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-600">Advanced market analysis reports</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-600">Tenant retention programs</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-600">Quarterly owner consultations</span>
                   </li>
                 </ul>
                 <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
