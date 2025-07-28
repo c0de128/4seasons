@@ -30,11 +30,15 @@ import {
   Github,
   Twitter,
   MessageSquare,
-  ChevronDown
+  ChevronDown,
+  Linkedin,
+  Mail,
+  ChevronUp
 } from "lucide-react";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showMoreTeam, setShowMoreTeam] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -335,98 +339,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Component Showcase */}
-      <section id="components" className="py-20 bg-slate-100">
+      {/* Meet Our Team */}
+      <section id="team" className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Component Library
+              Meet Our Team
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Pre-built, customizable components ready for your application
+              Our dedicated team of real estate professionals brings years of experience and local market expertise to help you achieve your property goals
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Buttons Component */}
-            <Card className="shadow-sm border border-slate-200">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Buttons</h3>
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-3">
-                    <Button className="bg-primary text-white hover:bg-blue-600">Primary</Button>
-                    <Button className="bg-secondary text-white hover:bg-violet-600">Secondary</Button>
-                    <Button variant="outline">Outline</Button>
-                    <Button variant="ghost" className="text-primary hover:text-blue-600">Ghost</Button>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <Button size="lg" className="bg-primary text-white hover:bg-blue-600">Large</Button>
-                    <Button size="sm" className="bg-primary text-white hover:bg-blue-600">Small</Button>
+          {/* Amy Harwood Profile */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Team Member Photo */}
+              <div className="bg-slate-200 aspect-square lg:aspect-auto flex items-center justify-center">
+                <div className="w-full h-full bg-gradient-to-br from-slate-300 to-slate-400 flex items-center justify-center">
+                  <div className="text-center text-slate-600">
+                    <div className="w-32 h-32 bg-slate-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <span className="text-white text-2xl font-bold">AH</span>
+                    </div>
+                    <p className="text-sm">Professional Photo</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-            
-            {/* Forms Component */}
-            <Card className="shadow-sm border border-slate-200">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Form Elements</h3>
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="email" className="text-sm font-medium text-slate-700 mb-2">Email Address</Label>
-                    <Input id="email" type="email" placeholder="Enter your email" />
-                  </div>
-                  <div>
-                    <Label htmlFor="message" className="text-sm font-medium text-slate-700 mb-2">Message</Label>
-                    <Textarea id="message" placeholder="Your message here..." rows={3} />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="terms" />
-                    <Label htmlFor="terms" className="text-sm text-slate-700">I agree to the terms and conditions</Label>
-                  </div>
+              </div>
+              
+              {/* Team Member Details */}
+              <div className="p-8 lg:p-12">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Amy Harwood</h3>
+                <p className="text-primary text-lg font-medium mb-4">Agency Owner & Real Estate Specialist</p>
+                
+                <div className="text-slate-600 leading-relaxed mb-6">
+                  <p className="mb-4">
+                    With over 15 years of dedicated experience, Amy Harwood is a seasoned Real Estate Broker and a trusted expert in the North Texas residential market. As the proud owner of 4Seasons Real Estate Svcs, LLC in Allen, Texas, Amy has built her business on a foundation of proven customer satisfaction and an in-depth understanding of every facet of real estate.
+                  </p>
+                  
+                  {showMoreTeam && (
+                    <div className="space-y-4">
+                      <p>
+                        Amy's approach combines meticulous attention to detail with a deep commitment to her clients' success. She specializes in both residential buying and selling, bringing comprehensive market knowledge and strategic insights to every transaction.
+                      </p>
+                      <p>
+                        Her extensive experience in the North Texas market, particularly in Allen and surrounding communities, allows her to provide invaluable guidance on market trends, neighborhood dynamics, and investment opportunities.
+                      </p>
+                      <p>
+                        Amy believes in building lasting relationships with her clients, ensuring they feel supported and informed throughout their real estate journey. Her dedication to excellence and personalized service has earned her a reputation as one of the most trusted real estate professionals in the area.
+                      </p>
+                    </div>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
-            
-            {/* Cards Component */}
-            <Card className="shadow-sm border border-slate-200">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Cards</h3>
-                <div className="space-y-4">
-                  <Card className="border border-slate-200">
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold text-slate-900 mb-2">Basic Card</h4>
-                      <p className="text-slate-600 text-sm">This is a basic card component with header and content.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-gradient-to-r from-primary to-secondary text-white">
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold mb-2">Gradient Card</h4>
-                      <p className="text-blue-100 text-sm">A card with gradient background and white text.</p>
-                    </CardContent>
-                  </Card>
+                
+                {/* Show More/Less Button */}
+                <button
+                  onClick={() => setShowMoreTeam(!showMoreTeam)}
+                  className="flex items-center text-primary hover:text-blue-600 font-medium mb-6 transition-colors"
+                >
+                  {showMoreTeam ? (
+                    <>
+                      <span>Show Less</span>
+                      <ChevronUp className="ml-1 h-4 w-4" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Show More</span>
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </>
+                  )}
+                </button>
+                
+                {/* Social Media Links */}
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:amy@4seasonsrealestate.com"
+                    className="inline-flex items-center justify-center w-10 h-10 bg-slate-600 text-white rounded-full hover:bg-slate-700 transition-colors"
+                    aria-label="Email Amy"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
                 </div>
-              </CardContent>
-            </Card>
-            
-            {/* Navigation Component */}
-            <Card className="shadow-sm border border-slate-200">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Navigation</h3>
-                <div className="space-y-4">
-                  <nav className="flex space-x-6">
-                    <a href="#" className="text-primary border-b-2 border-primary pb-1">Active</a>
-                    <a href="#" className="text-slate-600 hover:text-primary transition-colors">Inactive</a>
-                    <a href="#" className="text-slate-600 hover:text-primary transition-colors">Another</a>
-                  </nav>
-                  <div className="flex items-center space-x-2 bg-slate-100 rounded-lg p-1">
-                    <Button size="sm" variant="default" className="bg-white text-slate-900 shadow-sm">Tab 1</Button>
-                    <Button size="sm" variant="ghost" className="text-slate-600 hover:bg-white">Tab 2</Button>
-                    <Button size="sm" variant="ghost" className="text-slate-600 hover:bg-white">Tab 3</Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
