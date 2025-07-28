@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Calculator, Map, Building2, DollarSign, FileText, HelpCircle, Shield, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,6 +12,7 @@ import logoPath from "@/assets/images/logo_sm.png";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
 
   return (
     <nav className="absolute top-0 left-0 right-0 backdrop-blur-md shadow-sm border-b border-slate-200/30 z-50" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
@@ -30,37 +31,112 @@ export function Navigation() {
             <a href="/sell" className="text-slate-600 hover:text-primary transition-colors duration-200">Sell</a>
             <a href="/property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
             
-            {/* Resources Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-slate-600 hover:text-primary transition-colors duration-200">
+            {/* Resources Mega Menu */}
+            <div className="relative">
+              <button 
+                onMouseEnter={() => setMegaMenuOpen(true)}
+                onMouseLeave={() => setMegaMenuOpen(false)}
+                className="flex items-center text-slate-600 hover:text-primary transition-colors duration-200"
+              >
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem>
-                  <a href="/home-valuation" className="w-full">Home Valuation</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/city-guides" className="w-full">City Guides</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#property-investment" className="w-full">Property Investment</a>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <a href="#blog" className="w-full">Blog</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#faq" className="w-full">FAQ</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#terms" className="w-full">Terms & Conditions</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/#contact" className="w-full">Contact Us</a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </button>
+              
+              {megaMenuOpen && (
+                <div 
+                  onMouseEnter={() => setMegaMenuOpen(true)}
+                  onMouseLeave={() => setMegaMenuOpen(false)}
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-white rounded-lg shadow-xl border border-slate-200 p-6 z-50"
+                >
+                  <div className="grid grid-cols-2 gap-8">
+                    {/* Tools & Calculators */}
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Tools & Calculators</h3>
+                      <div className="space-y-4">
+                        <a href="/home-valuation" className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <div className="p-2 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-colors">
+                            <Calculator className="w-5 h-5 text-blue-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Home Valuation</h4>
+                            <p className="text-sm text-slate-600">Get an accurate estimate of your property's current market value.</p>
+                          </div>
+                        </a>
+                        
+                        <a href="/city-guides" className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <div className="p-2 rounded-lg bg-green-100 group-hover:bg-green-200 transition-colors">
+                            <Map className="w-5 h-5 text-green-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-slate-900 group-hover:text-primary">City Guides</h4>
+                            <p className="text-sm text-slate-600">Explore neighborhoods, schools, and amenities across North Texas.</p>
+                          </div>
+                        </a>
+                        
+                        <a href="#property-investment" className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <div className="p-2 rounded-lg bg-yellow-100 group-hover:bg-yellow-200 transition-colors">
+                            <DollarSign className="w-5 h-5 text-yellow-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Investment Calculator</h4>
+                            <p className="text-sm text-slate-600">Analyze potential returns and investment opportunities.</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    
+                    {/* Resources & Support */}
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Resources & Support</h3>
+                      <div className="space-y-4">
+                        <a href="#blog" className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <div className="p-2 rounded-lg bg-purple-100 group-hover:bg-purple-200 transition-colors">
+                            <FileText className="w-5 h-5 text-purple-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Market Insights</h4>
+                            <p className="text-sm text-slate-600">Latest real estate trends, market updates, and expert analysis.</p>
+                          </div>
+                        </a>
+                        
+                        <a href="#faq" className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <div className="p-2 rounded-lg bg-orange-100 group-hover:bg-orange-200 transition-colors">
+                            <HelpCircle className="w-5 h-5 text-orange-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-slate-900 group-hover:text-primary">FAQ</h4>
+                            <p className="text-sm text-slate-600">Common questions about buying, selling, and real estate process.</p>
+                          </div>
+                        </a>
+                        
+                        <a href="/#contact" className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <div className="p-2 rounded-lg bg-red-100 group-hover:bg-red-200 transition-colors">
+                            <Phone className="w-5 h-5 text-red-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Contact Support</h4>
+                            <p className="text-sm text-slate-600">Get in touch with our expert real estate team.</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Bottom CTA */}
+                  <div className="border-t border-slate-200 mt-6 pt-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-medium text-slate-900">Need personalized assistance?</h4>
+                        <p className="text-sm text-slate-600">Our experts are here to help with your real estate needs.</p>
+                      </div>
+                      <a href="/#contact" className="px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#0d0d33' }}>
+                        Get Started
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           
           {/* Mobile menu button */}
