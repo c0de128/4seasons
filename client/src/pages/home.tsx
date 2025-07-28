@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import logoPath from "@/assets/images/logo_sm.png";
 import logoLarge from "@/assets/images/logo.png";
+import logoFooter from "@/assets/images/logo_footer.png";
 import heroVideo from "@/assets/videos/hero.mp4";
 import amyPhoto from "@/assets/images/amy.jpg";
 import timPhoto from "@/assets/images/tim.jpg";
@@ -866,7 +867,7 @@ export default function Home() {
             {/* Brand */}
             <div className="md:col-span-1">
               <div className="mb-6">
-                <img src={logoLarge} alt="4Seasons Real Estate" className="h-20 w-auto mb-4" />
+                <img src={logoFooter} alt="4Seasons Real Estate" className="mb-4" style={{ width: '200px', height: '145px' }} />
               </div>
               <div className="flex space-x-3">
                 <a
