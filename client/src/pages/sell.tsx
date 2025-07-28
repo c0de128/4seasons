@@ -20,24 +20,25 @@ export default function Sell() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Sell Your <span className="text-primary">Property</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Get top dollar for your property with our expert marketing strategies and proven track record in North Texas real estate.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#1f2937' }}>
-              Get Free Home Valuation
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-transparent">
-              Schedule Consultation
-            </Button>
+      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+              Sell Your Property for
+              <span className="text-primary block">Maximum Value</span>
+            </h1>
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+              Get top dollar for your property with our expert marketing strategies and proven track record in North Texas real estate.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                Get Free Home Valuation
+              </Button>
+              <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
+                Schedule Consultation
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -58,7 +59,7 @@ export default function Sell() {
             {/* Expert Marketing */}
             <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#1f2937' }}>
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Expert Marketing</h3>
@@ -71,7 +72,7 @@ export default function Sell() {
             {/* Local Market Knowledge */}
             <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#1f2937' }}>
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
                   <Home className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Local Market Expertise</h3>
@@ -84,7 +85,7 @@ export default function Sell() {
             {/* Dedicated Support */}
             <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#1f2937' }}>
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">Dedicated Support</h3>
