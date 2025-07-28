@@ -127,7 +127,7 @@ export default function Buy() {
             <div className="w-full max-w-7xl mx-auto">
               <iframe 
                 src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
-                style={{ minHeight: '98vh' }} 
+                style={{ minHeight: '80vh' }} 
                 width="100%" 
                 frameBorder="0" 
                 marginWidth="0" 
