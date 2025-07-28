@@ -35,7 +35,11 @@ import {
   ChevronDown,
   Linkedin,
   Mail,
-  ChevronUp
+  ChevronUp,
+  MapPin,
+  Phone,
+  Clock,
+  Instagram
 } from "lucide-react";
 
 export default function Home() {
@@ -597,83 +601,158 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Start Guide */}
-      <section id="examples" className="py-20 bg-slate-900">
+      {/* Contact Us */}
+      <section id="contact" className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Quick Start Guide
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Contact Us
             </h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Get your development environment up and running in minutes
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              4Seasons Real Estate is here to help you with all your real estate needs. Reach out to us through any of the channels below or fill out the contact form.
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
             <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white text-sm font-bold">1</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Create New Project</h3>
-                  <p className="text-slate-300 mb-3">Initialize a new Next.js project with TypeScript and Tailwind CSS configured.</p>
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <code className="text-green-400 text-sm">npx create-next-app@latest my-app --typescript --tailwind</code>
+              {/* Office Locations */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Office Locations</h3>
+                <div className="flex items-start space-x-4">
+                  <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-1">Allen Texas</h4>
+                    <p className="text-slate-600">1333 W. McDermott Dr #200, Allen, TX, 75013</p>
                   </div>
                 </div>
               </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white text-sm font-bold">2</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Install Dependencies</h3>
-                  <p className="text-slate-300 mb-3">Navigate to your project directory and install all required packages.</p>
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <code className="text-green-400 text-sm">cd my-app && npm install</code>
+
+              {/* Contact Information */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                    <a href="tel:2742743873" className="text-slate-600 hover:text-primary transition-colors">
+                      (214) 274-3873
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Mail className="w-6 h-6 text-primary flex-shrink-0" />
+                    <a href="mailto:aharwood23@yahoo.com" className="text-slate-600 hover:text-primary transition-colors">
+                      aharwood23@yahoo.com
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Clock className="w-6 h-6 text-primary flex-shrink-0" />
+                    <span className="text-slate-600">Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</span>
                   </div>
                 </div>
               </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white text-sm font-bold">3</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Start Development</h3>
-                  <p className="text-slate-300 mb-3">Launch the development server and start building your application.</p>
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <code className="text-green-400 text-sm">npm run dev</code>
-                  </div>
+
+              {/* Follow Us */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <span className="font-bold text-lg">f</span>
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
                 </div>
               </div>
             </div>
-            
-            <Card className="bg-slate-800 border-slate-700">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-400 text-sm ml-4">project structure</span>
-                </div>
-                <div className="text-slate-300 text-sm font-mono space-y-1">
-                  <div>📁 my-app/</div>
-                  <div className="ml-4">📁 app/</div>
-                  <div className="ml-8">📄 layout.tsx</div>
-                  <div className="ml-8">📄 page.tsx</div>
-                  <div className="ml-8">📄 globals.css</div>
-                  <div className="ml-4">📁 components/</div>
-                  <div className="ml-8">📁 ui/</div>
-                  <div className="ml-4">📁 lib/</div>
-                  <div className="ml-4">📁 public/</div>
-                  <div className="ml-4">📄 package.json</div>
-                  <div className="ml-4">📄 tailwind.config.js</div>
-                  <div className="ml-4">📄 tsconfig.json</div>
-                  <div className="text-accent mt-2">✨ Ready to customize!</div>
-                </div>
+
+            {/* Contact Form */}
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
+                <form className="space-y-6">
+                  <div>
+                    <Label htmlFor="fullName" className="text-sm font-medium text-slate-700 mb-2">Full Name</Label>
+                    <Input 
+                      id="fullName" 
+                      type="text" 
+                      placeholder="Your name" 
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="email" className="text-sm font-medium text-slate-700 mb-2">Email Address</Label>
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="Your email" 
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="phone" className="text-sm font-medium text-slate-700 mb-2">Phone Number</Label>
+                    <Input 
+                      id="phone" 
+                      type="tel" 
+                      placeholder="Your phone" 
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="subject" className="text-sm font-medium text-slate-700 mb-2">Subject</Label>
+                    <Input 
+                      id="subject" 
+                      type="text" 
+                      placeholder="Select a subject" 
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="message" className="text-sm font-medium text-slate-700 mb-2">Message</Label>
+                    <Textarea 
+                      id="message" 
+                      placeholder="Your message..." 
+                      rows={4} 
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-primary text-white py-3 text-lg font-medium hover:bg-blue-600 transition-colors"
+                  >
+                    Submit Message
+                  </Button>
+                  
+                  <p className="text-xs text-slate-500 mt-4">
+                    <strong>SMS Opt-in:</strong> By submitting this form, you consent to receive SMS notifications from 4Seasons Real Estate regarding your inquiry. Standard message and data rates may apply. You can opt out at any time by replying STOP. Message frequency varies.
+                  </p>
+                </form>
               </CardContent>
             </Card>
           </div>
