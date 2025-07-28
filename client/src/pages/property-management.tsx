@@ -351,7 +351,7 @@ export default function PropertyManagement() {
                     <span className="text-slate-600">Access to Buildium Online Platform</span>
                   </li>
                 </ul>
-                <div className="mt-16">
+                <div style={{ marginTop: '108px' }}>
                   <Button className="w-full py-3 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
                     Get Started
                   </Button>
