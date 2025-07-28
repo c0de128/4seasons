@@ -25,6 +25,7 @@ import CarrolltonCityGuide from "@/pages/carrollton-city-guide";
 import { FAQPage } from "@/pages/faq";
 import About from "@/pages/about";
 import ContactPage from "@/pages/contact";
+import BlogPage from "@/pages/blog";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -52,6 +53,7 @@ function Router() {
       <Route path="/faq" component={FAQPage} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/blog" component={BlogPage} />
       <Route component={NotFound} />
     </Switch>
   );

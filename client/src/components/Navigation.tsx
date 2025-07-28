@@ -115,7 +115,7 @@ export function Navigation() {
                             <p className="text-sm text-slate-600">Explore neighborhoods, schools, and amenities across North Texas.</p>
                           </a>
                           
-                          <a href="#blog" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
+                          <a href="/blog" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                             <h4 className="font-medium text-slate-900">Blog Posts</h4>
                             <p className="text-sm text-slate-600">Latest real estate market insights and industry updates.</p>
                           </a>
@@ -185,7 +185,7 @@ export function Navigation() {
                 <a href="/home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
                 <a href="/city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
                 <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
-                <a href="#blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
+                <a href="/blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>
                 <a href="/faq" className="block text-slate-600 hover:text-primary text-sm">FAQ</a>
                 <a href="/about" className="block text-slate-600 hover:text-primary text-sm">About Us</a>
                 <a href="/contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
