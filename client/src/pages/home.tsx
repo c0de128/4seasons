@@ -197,17 +197,7 @@ export default function Home() {
       <section className="bg-gradient-to-b from-white to-slate-100 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="flex items-center space-x-4 bg-white rounded-full px-6 py-3 shadow-sm border border-slate-200">
-                <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
-                <span className="text-slate-400">+</span>
-                <span className="text-blue-600 text-2xl">JS</span>
-                <span className="text-slate-400">+</span>
-                <div className="w-6 h-6 bg-cyan-500 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">T</span>
-                </div>
-              </div>
-            </div>
+            
             
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
               Modern <span className="text-primary">Next.js</span> Template
