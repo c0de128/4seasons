@@ -27,7 +27,7 @@ export default function Buy() {
             </p>
             
             {/* Property Search iframe */}
-            <div className="w-full max-w-7xl mx-auto">
+            <div className="mx-auto" style={{ width: '80vw' }}>
               <iframe 
                 src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
                 style={{ minHeight: '80vh' }} 
