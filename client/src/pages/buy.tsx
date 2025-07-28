@@ -123,61 +123,17 @@ export default function Buy() {
               from North Texas's most trusted real estate professionals.
             </p>
             
-            {/* Property Search Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Location</label>
-                  <Input placeholder="City, Neighborhood, ZIP" className="w-full" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Property Type</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Any Type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="single-family">Single Family</SelectItem>
-                      <SelectItem value="townhouse">Townhouse</SelectItem>
-                      <SelectItem value="condo">Condo</SelectItem>
-                      <SelectItem value="land">Land</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Price Range</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Any Price" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="under-300k">Under $300K</SelectItem>
-                      <SelectItem value="300k-500k">$300K - $500K</SelectItem>
-                      <SelectItem value="500k-750k">$500K - $750K</SelectItem>
-                      <SelectItem value="750k-1m">$750K - $1M</SelectItem>
-                      <SelectItem value="over-1m">Over $1M</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Bedrooms</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Any" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1+</SelectItem>
-                      <SelectItem value="2">2+</SelectItem>
-                      <SelectItem value="3">3+</SelectItem>
-                      <SelectItem value="4">4+</SelectItem>
-                      <SelectItem value="5">5+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-              <Button className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg">
-                Search Properties
-              </Button>
+            {/* Property Search iframe */}
+            <div className="w-full max-w-7xl mx-auto">
+              <iframe 
+                src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
+                style={{ minHeight: '98vh' }} 
+                width="100%" 
+                frameBorder="0" 
+                marginWidth="0" 
+                marginHeight="0"
+                title="Property Search"
+              />
             </div>
           </div>
         </div>
