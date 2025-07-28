@@ -249,44 +249,24 @@ export default function Home() {
             </h2>
           </div>
           
-          {/* Company Introduction and Location */}
+          {/* Company Introduction and Logo */}
           <div className="grid lg:grid-cols-4 gap-12 mb-16">
             {/* Company Introduction - 75% width */}
             <div className="lg:col-span-3">
-              <div className="flex items-start space-x-6">
-                <div className="flex-shrink-0">
-                  <img src={logoLarge} alt="4Seasons Real Estate" className="w-24 h-24 object-contain" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">About 4Seasons Real Estate</h3>
-                  <div className="space-y-4 text-slate-600 leading-relaxed">
-                    <p>
-                      Welcome to 4Seasons Real Estate, your trusted partner for all your real estate needs in North Texas! We are a dedicated team of local experts passionate about helping you navigate the dynamic North Texas property market with ease and confidence.
-                    </p>
-                    <p>
-                      At 4Seasons Real Estate we meticulously manage every aspect of your Real Estate transaction, ensuring no detail is overlooked. We pride ourselves on diving into the complexities, handling all the logistics and nuances so you don't have to. You'll breathe easy and savor the journey, knowing our expert team is diligently working hard for you.
-                    </p>
-                  </div>
-                </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">About 4Seasons Real Estate</h3>
+              <div className="space-y-4 text-slate-600 leading-relaxed">
+                <p>
+                  Welcome to 4Seasons Real Estate, your trusted partner for all your real estate needs in North Texas! We are a dedicated team of local experts passionate about helping you navigate the dynamic North Texas property market with ease and confidence.
+                </p>
+                <p>
+                  At 4Seasons Real Estate we meticulously manage every aspect of your Real Estate transaction, ensuring no detail is overlooked. We pride ourselves on diving into the complexities, handling all the logistics and nuances so you don't have to. You'll breathe easy and savor the journey, knowing our expert team is diligently working hard for you.
+                </p>
               </div>
             </div>
             
-            {/* Company Location - 25% width */}
-            <div className="lg:col-span-1">
-              <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
-                <h4 className="text-lg font-semibold text-slate-900 mb-4">Our Location</h4>
-                <div className="space-y-3 text-slate-600">
-                  <div>
-                    <p className="font-medium text-slate-900">4Seasons Real Estate</p>
-                    <p className="text-sm">North Texas</p>
-                  </div>
-                  <div className="pt-3 border-t border-slate-200">
-                    <p className="text-sm font-medium text-slate-900">Serving Areas:</p>
-                    <p className="text-sm">Dallas-Fort Worth Metroplex</p>
-                    <p className="text-sm">North Texas Region</p>
-                  </div>
-                </div>
-              </div>
+            {/* Company Logo - 25% width */}
+            <div className="lg:col-span-1 flex justify-center items-center">
+              <img src={logoLarge} alt="4Seasons Real Estate" className="w-full max-w-sm object-contain" />
             </div>
           </div>
           
