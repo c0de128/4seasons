@@ -14,6 +14,7 @@ import PlanoCityGuide from "@/pages/plano-city-guide";
 import FriscoCityGuide from "@/pages/frisco-city-guide";
 import McKinneyCityGuide from "@/pages/mckinney-city-guide";
 import ProsperCityGuide from "@/pages/prosper-city-guide";
+import CelinaCityGuide from "@/pages/celina-city-guide";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/frisco-city-guide" component={FriscoCityGuide} />
       <Route path="/mckinney-city-guide" component={McKinneyCityGuide} />
       <Route path="/prosper-city-guide" component={ProsperCityGuide} />
+      <Route path="/celina-city-guide" component={CelinaCityGuide} />
       <Route component={NotFound} />
     </Switch>
   );
