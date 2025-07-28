@@ -28,7 +28,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <a href="/buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Buy</a>
             <a href="/sell" className="text-slate-600 hover:text-primary transition-colors duration-200">Sell</a>
-            <a href="/#property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
+            <a href="/property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
             
             {/* Resources Dropdown */}
             <DropdownMenu>
@@ -81,7 +81,7 @@ export function Navigation() {
           <div className="px-4 py-4 space-y-3">
             <a href="/buy" className="block text-slate-600 hover:text-primary">Buy</a>
             <a href="/sell" className="block text-slate-600 hover:text-primary">Sell</a>
-            <a href="/#property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
+            <a href="/property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
             
             {/* Resources - Mobile Expanded */}
             <div className="border-t border-slate-100 pt-3 mt-3">
