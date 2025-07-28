@@ -18,6 +18,8 @@ import logoFooter from "@/assets/images/logo_footer.png";
 import heroVideo from "@/assets/videos/hero.mp4";
 import amyPhoto from "@/assets/images/amy.jpg";
 import timPhoto from "@/assets/images/tim.jpg";
+import marketAnalysisBlog from "@/assets/images/market-analysis-blog.jpg";
+import texasBlog from "@/assets/images/texas-blog.jpg";
 import { 
   Menu, 
   X, 
@@ -942,8 +944,12 @@ export default function Home() {
               <h3 className="font-semibold text-white mb-4">Recent Blog Posts</h3>
               <div className="space-y-4">
                 <div className="flex space-x-3">
-                  <div className="w-12 h-12 bg-slate-600 rounded flex-shrink-0 flex items-center justify-center">
-                    <span className="text-xs text-white">📈</span>
+                  <div className="w-12 h-12 bg-slate-600 rounded flex-shrink-0 overflow-hidden">
+                    <img 
+                      src={texasBlog} 
+                      alt="North Texas Real Estate" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-white leading-tight mb-1">
@@ -956,8 +962,12 @@ export default function Home() {
                 </div>
                 
                 <div className="flex space-x-3">
-                  <div className="w-12 h-12 bg-slate-600 rounded flex-shrink-0 flex items-center justify-center">
-                    <span className="text-xs text-white">🏘️</span>
+                  <div className="w-12 h-12 bg-slate-600 rounded flex-shrink-0 overflow-hidden">
+                    <img 
+                      src={marketAnalysisBlog} 
+                      alt="Market Analysis Report" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-white leading-tight mb-1">
