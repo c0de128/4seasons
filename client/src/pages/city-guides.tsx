@@ -26,6 +26,15 @@ import {
 export default function CityGuides() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCounty, setSelectedCounty] = useState("");
+  const [expandedCounties, setExpandedCounties] = useState<string[]>([]);
+
+  const toggleCountyExpansion = (countyName: string) => {
+    setExpandedCounties(prev => 
+      prev.includes(countyName) 
+        ? prev.filter(name => name !== countyName)
+        : [...prev, countyName]
+    );
+  };
 
   const counties = [
     {
@@ -238,7 +247,7 @@ export default function CityGuides() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    {county.communities.slice(0, 4).map((community, communityIndex) => (
+                    {(expandedCounties.includes(county.name) ? county.communities : county.communities.slice(0, 4)).map((community, communityIndex) => (
                       <div key={communityIndex} className="flex items-center justify-between hover:bg-slate-50 p-2 rounded cursor-pointer transition-colors">
                         <a 
                           href={
@@ -256,9 +265,15 @@ export default function CityGuides() {
                       </div>
                     ))}
                     {county.communities.length > 4 && (
-                      <div className="text-sm text-slate-500 font-medium">
-                        +{county.communities.length - 4} more
-                      </div>
+                      <button
+                        onClick={() => toggleCountyExpansion(county.name)}
+                        className="text-sm text-primary font-medium hover:text-primary/80 transition-colors cursor-pointer"
+                      >
+                        {expandedCounties.includes(county.name) 
+                          ? "Show less" 
+                          : `+${county.communities.length - 4} more`
+                        }
+                      </button>
                     )}
                   </div>
                 </CardContent>
