@@ -214,30 +214,31 @@ export default function Home() {
         </div>
         
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-8">
-            <div className="flex items-center space-x-4 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20">
-              <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <div className="mb-8">
+              <div className="flex items-center space-x-4 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20 w-fit">
+                <img src={logoPath} alt="4Seasons Real Estate Logo" className="w-[90px] h-[56px]" />
+              </div>
             </div>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Find Your Dream <span className="text-primary">Home</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Discover exceptional properties with expert guidance. 
-            Your journey to the perfect home starts here.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-primary text-white px-8 py-4 text-lg font-semibold hover:bg-blue-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
-              <Code className="mr-2 h-5 w-5" />
-              Browse Properties
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 backdrop-blur-sm">
-              <Github className="mr-2 h-5 w-5" />
-              Get Home Value
-            </Button>
+            
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+              It's Good to be <span className="text-primary">Home!</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-4xl leading-relaxed text-shadow" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+              At 4Seasons Real Estate, we offer expert guidance for all your property needs—whether you're buying, selling, or renting—complemented by our reliable property management services. Your goals, our priority, every season of the year.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <Button className="bg-primary text-white px-8 py-4 text-lg font-semibold hover:bg-blue-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                <Code className="mr-2 h-5 w-5" />
+                Explore Properties
+              </Button>
+              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 backdrop-blur-sm">
+                <Github className="mr-2 h-5 w-5" />
+                Contact Us
+              </Button>
+            </div>
           </div>
           
           {/* Scroll indicator */}
