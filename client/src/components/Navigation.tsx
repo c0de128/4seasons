@@ -107,17 +107,17 @@ export function Navigation() {
                         <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Tools & Calculators</h3>
                         <div className="space-y-4">
                           <a href="/home-valuation" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Home Valuation</h4>
+                            <h4 className="font-medium text-slate-900">Home Valuation</h4>
                             <p className="text-sm text-slate-600">Get an accurate estimate of your property's current market value.</p>
                           </a>
                           
                           <a href="/city-guides" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900 group-hover:text-primary">City Guides</h4>
+                            <h4 className="font-medium text-slate-900">City Guides</h4>
                             <p className="text-sm text-slate-600">Explore neighborhoods, schools, and amenities across North Texas.</p>
                           </a>
                           
                           <a href="#property-investment" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Investment Calculator</h4>
+                            <h4 className="font-medium text-slate-900">Investment Calculator</h4>
                             <p className="text-sm text-slate-600">Analyze potential returns and investment opportunities.</p>
                           </a>
                         </div>
@@ -128,17 +128,17 @@ export function Navigation() {
                         <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">Resources & Support</h3>
                         <div className="space-y-4">
                           <a href="#blog" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Market Insights</h4>
+                            <h4 className="font-medium text-slate-900">Market Insights</h4>
                             <p className="text-sm text-slate-600">Latest real estate trends, market updates, and expert analysis.</p>
                           </a>
                           
                           <a href="#faq" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900 group-hover:text-primary">FAQ</h4>
+                            <h4 className="font-medium text-slate-900">FAQ</h4>
                             <p className="text-sm text-slate-600">Common questions about buying, selling, and real estate process.</p>
                           </a>
                           
                           <a href="/#contact" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <h4 className="font-medium text-slate-900 group-hover:text-primary">Contact Support</h4>
+                            <h4 className="font-medium text-slate-900">Contact Support</h4>
                             <p className="text-sm text-slate-600">Get in touch with our expert real estate team.</p>
                           </a>
                         </div>
