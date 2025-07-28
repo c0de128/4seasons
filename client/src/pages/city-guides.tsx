@@ -332,7 +332,15 @@ export default function CityGuides() {
                     <Button 
                       className="w-full text-white hover:opacity-90" 
                       style={{ backgroundColor: '#0d0d33' }}
-                      onClick={() => window.location.href = community.name === "Allen" ? "/allen-city-guide" : "#"}
+                      onClick={() => {
+                        if (community.name === "Allen") {
+                          window.location.href = "/allen-city-guide";
+                        } else if (community.name === "Plano") {
+                          window.location.href = "/plano-city-guide";
+                        } else {
+                          window.location.href = "#";
+                        }
+                      }}
                     >
                       Explore {community.name}
                       <ArrowRight className="w-4 h-4 ml-2" />

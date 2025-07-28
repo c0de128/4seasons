@@ -10,6 +10,7 @@ import PropertyManagement from "@/pages/property-management";
 import HomeValuation from "@/pages/home-valuation";
 import CityGuides from "@/pages/city-guides";
 import AllenCityGuide from "@/pages/allen-city-guide";
+import PlanoCityGuide from "@/pages/plano-city-guide";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/home-valuation" component={HomeValuation} />
       <Route path="/city-guides" component={CityGuides} />
       <Route path="/allen-city-guide" component={AllenCityGuide} />
+      <Route path="/plano-city-guide" component={PlanoCityGuide} />
       <Route component={NotFound} />
     </Switch>
   );
