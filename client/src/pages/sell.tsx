@@ -90,71 +90,98 @@ export default function Sell() {
           </div>
 
           <div className="space-y-12">
-            {/* Expert Marketing */}
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="md:w-1/3">
-                <div className="h-64 bg-gradient-to-br from-blue-100 to-slate-100 flex items-center justify-center">
-                  <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
-                  </svg>
+            {/* Targeted Real Estate Marketing */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <div className="md:w-2/3 p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Targeted Real Estate Marketing</h3>
-                <p className="text-slate-600 text-lg leading-relaxed mb-4">
-                  We specialize in real estate marketing strategies that connect your property with the right buyers. Using proven methods, we craft compelling campaigns that highlight your home's best features. Our full-service approach includes:
-                </p>
-                <ul className="text-slate-600 text-lg leading-relaxed mb-4 space-y-2">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
-                    High-quality professional photography to capture attention
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
-                    Immersive virtual tours that let buyers explore from anywhere
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
-                    Strategic online advertising across top real estate platforms and social media
-                  </li>
-                </ul>
-                <p className="text-slate-600 text-lg leading-relaxed font-medium">
-                  The result? Maximum exposure, faster sales, and better offers.
-                </p>
+                
+                {/* Content */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Targeted Real Estate Marketing</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Strategic Marketing Solutions</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p className="mb-4">
+                      We specialize in real estate marketing strategies that connect your property with the right buyers. Using proven methods, we craft compelling campaigns that highlight your home's best features. Our full-service approach includes:
+                    </p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-start">
+                        <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
+                        High-quality professional photography to capture attention
+                      </li>
+                      <li className="flex items-start">
+                        <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
+                        Immersive virtual tours that let buyers explore from anywhere
+                      </li>
+                      <li className="flex items-start">
+                        <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
+                        Strategic online advertising across top real estate platforms and social media
+                      </li>
+                    </ul>
+                    <p className="font-medium">
+                      The result? Maximum exposure, faster sales, and better offers.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Local Market Expertise */}
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="md:w-1/3">
-                <div className="h-64 bg-gradient-to-br from-green-100 to-slate-100 flex items-center justify-center">
-                  <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
+            {/* North Texas Market Expertise - Reversed Layout */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">North Texas Market Expertise</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Hyper-Local Market Knowledge</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      With deep roots in North Texas, we leverage proven strategies alongside hyper-local market knowledge to give your property a competitive edge. From neighborhood dynamics and pricing trends to buyer behavior and demand shifts, we provide real-time insights that help you price, position, and promote your home effectively—maximizing both visibility and value.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="md:w-2/3 p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">North Texas Market Expertise</h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  With deep roots in North Texas, we leverage Rodante's proven strategies alongside hyper-local market knowledge to give your property a competitive edge. From neighborhood dynamics and pricing trends to buyer behavior and demand shifts, we provide real-time insights that help you price, position, and promote your home effectively—maximizing both visibility and value.
-                </p>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                  <div className="w-full h-full bg-gradient-to-br from-green-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Dedicated Support */}
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="md:w-1/3">
-                <div className="h-64 bg-gradient-to-br from-purple-100 to-slate-100 flex items-center justify-center">
-                  <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v-4c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v4h3v6H4z"/>
-                  </svg>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v-4c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v4h3v6H4z"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <div className="md:w-2/3 p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Dedicated Support</h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  We use proven Rodante strategies designed to reach your target audience and provide personal attention from our experienced team throughout the entire selling process. From initial consultation to closing and beyond, we ensure no detail is overlooked in your real estate journey.
-                </p>
+                
+                {/* Content */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Dedicated Support</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Personalized Client Experience</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      We provide personal attention from our experienced team throughout the entire selling process. From initial consultation to closing and beyond, we ensure no detail is overlooked in your real estate journey. Our dedicated approach means you have a trusted partner every step of the way.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
