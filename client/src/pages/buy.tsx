@@ -35,19 +35,6 @@ export default function Buy() {
           </div>
         </div>
         
-        {/* Property Search iframe - Full width container */}
-        <div className="w-full flex justify-center">
-          <div style={{ width: '80vw' }}>
-            <iframe 
-              src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
-              style={{ minHeight: '122vh', width: '100%' }} 
-              frameBorder={0} 
-              marginWidth={0} 
-              marginHeight={0}
-              title="Property Search"
-            />
-          </div>
-        </div>
       </section>
 
       {/* Why Choose Us for Buying */}
@@ -92,6 +79,34 @@ export default function Buy() {
                 Proven track record of securing the best deals for our buyers with strategic negotiation and market insights.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Property Search Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Search Available Properties
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Browse our comprehensive database of homes for sale in North Texas.
+            </p>
+          </div>
+        </div>
+        
+        {/* Property Search iframe - Full width container */}
+        <div className="w-full flex justify-center">
+          <div style={{ width: '80vw' }}>
+            <iframe 
+              src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
+              style={{ minHeight: '122vh', width: '100%' }} 
+              frameBorder={0} 
+              marginWidth={0} 
+              marginHeight={0}
+              title="Property Search"
+            />
           </div>
         </div>
       </section>
