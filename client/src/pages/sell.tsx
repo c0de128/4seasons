@@ -80,11 +80,11 @@ export default function Sell() {
       {/* Why Sell With Us Section */}
       <section className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Why Sell With 4Seasons Real Estate?
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-4xl">
               At 4Seasons Real Estate, we don't just list your property—we position it to sell quickly and for top dollar. Our proven, data-driven approach combines local market expertise, innovative marketing, and personalized service to deliver real results.
             </p>
           </div>
