@@ -66,7 +66,7 @@ export default function Buy() {
                 </div>
                 
                 {/* Content - Right Side */}
-                <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-12 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Local Market Expertise</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -82,7 +82,7 @@ export default function Buy() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Personalized Service</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -122,7 +122,7 @@ export default function Buy() {
                 </div>
                 
                 {/* Content - Right Side */}
-                <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-12 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Negotiation Excellence</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -138,7 +138,7 @@ export default function Buy() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Trusted Network of Professionals</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -178,7 +178,7 @@ export default function Buy() {
                 </div>
                 
                 {/* Content - Right Side */}
-                <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-12 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">First-Time Buyer Support</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -194,7 +194,7 @@ export default function Buy() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Relocation Assistance</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">

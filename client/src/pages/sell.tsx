@@ -100,7 +100,7 @@ export default function Sell() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">North Texas Market Expertise</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -134,7 +134,7 @@ export default function Sell() {
                 </div>
                 
                 {/* Content */}
-                <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-12 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Dedicated Support</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -150,7 +150,7 @@ export default function Sell() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Strategic Pricing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -184,7 +184,7 @@ export default function Sell() {
                 </div>
                 
                 {/* Content */}
-                <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-12 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">High-Impact Marketing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -200,7 +200,7 @@ export default function Sell() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Expert Negotiation</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
