@@ -77,7 +77,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <h3 className="font-semibold text-white mb-4">Recent Blog Posts</h3>
             <div className="space-y-4">
-              <div className="flex space-x-3">
+              <a href="/blog" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
                 <div style={{ width: '50px', height: '50px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                   <img 
                     src={texasBlog} 
@@ -87,15 +87,15 @@ export function Footer() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-white leading-tight mb-1">
-                    The Great Rebalancing: North Texas Real Estate Predictions for 2025
+                    2025 North Texas Housing Market Predictions
                   </h4>
                   <p className="text-xs text-slate-400">
-                    The DFW market has shifted from frenched seller's market to a balanced landscape.
+                    Expert analysis of market trends, interest rates, and what buyers and sellers can expect.
                   </p>
                 </div>
-              </div>
+              </a>
               
-              <div className="flex space-x-3">
+              <a href="/blog" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
                 <div style={{ width: '50px', height: '50px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                   <img 
                     src={marketAnalysisBlog} 
@@ -105,13 +105,13 @@ export function Footer() {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-white leading-tight mb-1">
-                    Collin County Real Estate Check-In: Q1 2025 Market Report
+                    5 Signs It's Time to Sell Your Home in North Texas
                   </h4>
                   <p className="text-xs text-slate-400">
-                    Market analysis of the first quarter 2025 real estate trends.
+                    Market conditions, life changes, and financial factors that indicate perfect timing.
                   </p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
