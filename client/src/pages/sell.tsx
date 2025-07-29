@@ -84,29 +84,9 @@ export default function Sell() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Why Sell With 4Seasons Real Estate?
             </h2>
-            <div className="max-w-4xl mx-auto text-left">
-              <p className="text-xl text-slate-600 mb-6">
-                At 4Seasons Real Estate, we don't just list your property—we position it to sell quickly and for top dollar. Our proven, data-driven approach combines local market expertise, innovative marketing, and personalized service to deliver real results. Here's what sets us apart:
-              </p>
-              <div className="grid md:grid-cols-2 gap-6 text-lg text-slate-600">
-                <div>
-                  <p className="mb-4">
-                    <span className="font-semibold text-slate-900">Strategic Pricing:</span> We use real-time market data and neighborhood insights to price your home competitively—attracting serious buyers while maximizing your return.
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">High-Impact Marketing:</span> From professional photography and virtual tours to targeted digital campaigns, we ensure your property stands out across all major platforms.
-                  </p>
-                </div>
-                <div>
-                  <p className="mb-4">
-                    <span className="font-semibold text-slate-900">Expert Negotiation:</span> Our experienced agents advocate for your best interests, helping you navigate offers and close with confidence.
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">Local Knowledge:</span> With deep roots in North Texas, we understand what buyers are looking for and how to highlight your home's unique value.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              At 4Seasons Real Estate, we don't just list your property—we position it to sell quickly and for top dollar. Our proven, data-driven approach combines local market expertise, innovative marketing, and personalized service to deliver real results.
+            </p>
           </div>
 
           <div className="space-y-12">
