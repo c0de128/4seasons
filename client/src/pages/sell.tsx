@@ -104,8 +104,7 @@ export default function Sell() {
                 
                 {/* Content */}
                 <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Targeted Real Estate Marketing</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Strategic Marketing Solutions</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Targeted Real Estate Marketing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p className="mb-4">
@@ -138,8 +137,7 @@ export default function Sell() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-8 lg:p-12 order-2 lg:order-1">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">North Texas Market Expertise</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Hyper-Local Market Knowledge</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">North Texas Market Expertise</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p>
@@ -173,8 +171,7 @@ export default function Sell() {
                 
                 {/* Content */}
                 <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Dedicated Support</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Personalized Client Experience</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Dedicated Support</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p>
@@ -190,8 +187,7 @@ export default function Sell() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-8 lg:p-12 order-2 lg:order-1">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Strategic Pricing</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Data-Driven Market Analysis</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Strategic Pricing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p>
@@ -225,8 +221,7 @@ export default function Sell() {
                 
                 {/* Content */}
                 <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">High-Impact Marketing</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Multi-Platform Digital Campaigns</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">High-Impact Marketing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p>
@@ -242,8 +237,7 @@ export default function Sell() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-8 lg:p-12 order-2 lg:order-1">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Expert Negotiation</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Professional Advocacy & Support</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Expert Negotiation</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p>
@@ -277,8 +271,7 @@ export default function Sell() {
                 
                 {/* Content */}
                 <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Local Knowledge</h3>
-                  <p className="text-primary text-lg font-medium mb-4">Deep North Texas Expertise</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Local Knowledge</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
                     <p>
