@@ -134,9 +134,9 @@ export default function Sell() {
                 </div>
               </div>
               <div className="md:w-2/3 p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Local Market Expertise</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">North Texas Market Expertise</h3>
                 <p className="text-slate-600 text-lg leading-relaxed">
-                  We use proven Rodante strategies designed to reach your target audience and provide deep knowledge of North Texas neighborhoods, pricing trends, and buyer preferences. Our expertise helps position your property competitively in the market based on real-time analysis and insights.
+                  With deep roots in North Texas, we leverage Rodante's proven strategies alongside hyper-local market knowledge to give your property a competitive edge. From neighborhood dynamics and pricing trends to buyer behavior and demand shifts, we provide real-time insights that help you price, position, and promote your home effectively—maximizing both visibility and value.
                 </p>
               </div>
             </div>
