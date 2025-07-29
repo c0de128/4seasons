@@ -100,9 +100,26 @@ export default function Sell() {
                 </div>
               </div>
               <div className="md:w-2/3 p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Expert Marketing</h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  We use proven Rodante strategies designed to reach your target audience and attract qualified buyers. Our comprehensive approach includes professional photography, virtual tours, and strategic online marketing to showcase your property across multiple platforms and maximize exposure.
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Targeted Real Estate Marketing</h3>
+                <p className="text-slate-600 text-lg leading-relaxed mb-4">
+                  We specialize in real estate marketing strategies that connect your property with the right buyers. Using Rodante's proven methods, we craft compelling campaigns that highlight your home's best features. Our full-service approach includes:
+                </p>
+                <ul className="text-slate-600 text-lg leading-relaxed mb-4 space-y-2">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
+                    High-quality professional photography to capture attention
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
+                    Immersive virtual tours that let buyers explore from anywhere
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
+                    Strategic online advertising across top real estate platforms and social media
+                  </li>
+                </ul>
+                <p className="text-slate-600 text-lg leading-relaxed font-medium">
+                  The result? Maximum exposure, faster sales, and better offers.
                 </p>
               </div>
             </div>
