@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoPath from "@/assets/images/logo_sm.png";
+import logoPath from "@/assets/images/4seasons_nav_logo-.png";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,7 +67,7 @@ export function Navigation() {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <a href="/">
-              <img src={logoPath} alt="Logo" className="w-[90px] h-[56px]" />
+              <img src={logoPath} alt="4Seasons Real Estate" className="h-12 w-auto" />
             </a>
           </div>
           
