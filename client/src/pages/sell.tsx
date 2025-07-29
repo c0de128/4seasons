@@ -21,6 +21,7 @@ import {
 import mapImage from "../assets/images/map.png";
 import dedicatedSupportImage from "../assets/images/dedicated-support.jpg";
 import marketPricingImage from "../assets/images/market-pricing.jpg";
+import marketingImage from "../assets/images/marketing.jpg";
 import negotiationImage from "../assets/images/negotiation.jpg";
 
 export default function Sell() {
@@ -176,7 +177,7 @@ export default function Sell() {
                 {/* Image */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto">
                   <img 
-                    src={marketPricingImage} 
+                    src={marketingImage} 
                     alt="High-Impact Marketing Campaigns"
                     className="w-full h-full object-cover"
                   />
