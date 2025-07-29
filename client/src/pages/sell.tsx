@@ -102,7 +102,7 @@ export default function Sell() {
               <div className="md:w-2/3 p-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Targeted Real Estate Marketing</h3>
                 <p className="text-slate-600 text-lg leading-relaxed mb-4">
-                  We specialize in real estate marketing strategies that connect your property with the right buyers. Using Rodante's proven methods, we craft compelling campaigns that highlight your home's best features. Our full-service approach includes:
+                  We specialize in real estate marketing strategies that connect your property with the right buyers. Using proven methods, we craft compelling campaigns that highlight your home's best features. Our full-service approach includes:
                 </p>
                 <ul className="text-slate-600 text-lg leading-relaxed mb-4 space-y-2">
                   <li className="flex items-start">
