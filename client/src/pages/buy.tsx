@@ -51,9 +51,6 @@ export default function Buy() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center p-6">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#0d0d33' }}>
-                <MapPin className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Local Market Expertise</h3>
               <p className="text-slate-600">
                 Deep knowledge of North Texas neighborhoods, schools, amenities, and market trends to guide your decision.
@@ -61,9 +58,6 @@ export default function Buy() {
             </div>
 
             <div className="text-center p-6">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#0d0d33' }}>
-                <Phone className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Personalized Service</h3>
               <p className="text-slate-600">
                 Dedicated support throughout your journey with 24/7 availability and customized property recommendations.
@@ -71,9 +65,6 @@ export default function Buy() {
             </div>
 
             <div className="text-center p-6">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#0d0d33' }}>
-                <Mail className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Negotiation Excellence</h3>
               <p className="text-slate-600">
                 Proven track record of securing the best deals for our buyers with strategic negotiation and market insights.
