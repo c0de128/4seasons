@@ -89,45 +89,57 @@ export default function Sell() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-12">
             {/* Expert Marketing */}
-            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                  <TrendingUp className="w-8 h-8 text-white" />
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="md:w-1/3">
+                <div className="h-64 bg-gradient-to-br from-blue-100 to-slate-100 flex items-center justify-center">
+                  <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">Expert Marketing</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Professional photography, virtual tours, and strategic online marketing to showcase your property to qualified buyers across multiple platforms.
+              </div>
+              <div className="md:w-2/3 p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Expert Marketing</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  We use proven Rodante strategies designed to reach your target audience and attract qualified buyers. Our comprehensive approach includes professional photography, virtual tours, and strategic online marketing to showcase your property across multiple platforms and maximize exposure.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            {/* Local Market Knowledge */}
-            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                  <Home className="w-8 h-8 text-white" />
+            {/* Local Market Expertise */}
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="md:w-1/3">
+                <div className="h-64 bg-gradient-to-br from-green-100 to-slate-100 flex items-center justify-center">
+                  <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">Local Market Expertise</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Deep knowledge of North Texas neighborhoods, pricing trends, and buyer preferences to position your property competitively in the market.
+              </div>
+              <div className="md:w-2/3 p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Local Market Expertise</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  We use proven Rodante strategies designed to reach your target audience and provide deep knowledge of North Texas neighborhoods, pricing trends, and buyer preferences. Our expertise helps position your property competitively in the market based on real-time analysis and insights.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Dedicated Support */}
-            <Card className="bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-primary/20">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                  <Users className="w-8 h-8 text-white" />
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="md:w-1/3">
+                <div className="h-64 bg-gradient-to-br from-purple-100 to-slate-100 flex items-center justify-center">
+                  <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v-4c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v4h3v6H4z"/>
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">Dedicated Support</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Personal attention from our experienced team throughout the entire selling process, from listing to closing and beyond.
+              </div>
+              <div className="md:w-2/3 p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Dedicated Support</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  We use proven Rodante strategies designed to reach your target audience and provide personal attention from our experienced team throughout the entire selling process. From initial consultation to closing and beyond, we ensure no detail is overlooked in your real estate journey.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
