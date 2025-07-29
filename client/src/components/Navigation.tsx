@@ -73,7 +73,7 @@ export function Navigation() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Buy</a>
+            <a href="/buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Search Properties</a>
             <a href="/sell" className="text-slate-600 hover:text-primary transition-colors duration-200">Sell</a>
             <a href="/property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
             
@@ -174,7 +174,7 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-slate-200 bg-white">
           <div className="px-4 py-4 space-y-3">
-            <a href="/buy" className="block text-slate-600 hover:text-primary">Buy</a>
+            <a href="/buy" className="block text-slate-600 hover:text-primary">Search Properties</a>
             <a href="/sell" className="block text-slate-600 hover:text-primary">Sell</a>
             <a href="/property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
             
