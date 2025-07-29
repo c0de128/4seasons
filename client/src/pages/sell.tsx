@@ -204,6 +204,110 @@ export default function Sell() {
                 </div>
               </div>
             </div>
+
+            {/* Strategic Pricing - Reversed Layout */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Strategic Pricing</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Data-Driven Market Analysis</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      We use real-time market data and neighborhood insights to price your home competitively—attracting serious buyers while maximizing your return. Our comprehensive pricing strategy combines current market trends, comparable sales analysis, and local demand patterns to position your property at the optimal price point.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.25L12 15.5l-7.5 3.75L6 5h12l1.5 14.25z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* High-Impact Marketing */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-red-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2V8c0-1.11.89-2 2-2h16z"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">High-Impact Marketing</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Multi-Platform Digital Campaigns</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      From professional photography and virtual tours to targeted digital campaigns, we ensure your property stands out across all major platforms. Our comprehensive marketing approach maximizes exposure through strategic online advertising, social media promotion, and premium listing placements to reach qualified buyers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Expert Negotiation - Reversed Layout */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Expert Negotiation</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Professional Advocacy & Support</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      Our experienced agents advocate for your best interests, helping you navigate offers and close with confidence. We leverage our negotiation expertise and market knowledge to secure the best possible terms, handle counteroffers strategically, and guide you through complex contract details to ensure a successful transaction.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                  <div className="w-full h-full bg-gradient-to-br from-indigo-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Local Knowledge */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-teal-100 to-slate-100 flex items-center justify-center">
+                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Local Knowledge</h3>
+                  <p className="text-primary text-lg font-medium mb-4">Deep North Texas Expertise</p>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      With deep roots in North Texas, we understand what buyers are looking for and how to highlight your home's unique value. Our intimate knowledge of local neighborhoods, schools, amenities, and market dynamics allows us to position your property effectively and connect with buyers who appreciate what your area has to offer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
