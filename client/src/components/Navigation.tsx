@@ -73,9 +73,9 @@ export function Navigation() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/buy" className="text-slate-600 hover:text-primary transition-colors duration-200">Search Properties</a>
-            <a href="/sell" className="text-slate-600 hover:text-primary transition-colors duration-200">Sell Your Home</a>
-            <a href="/property-management" className="text-slate-600 hover:text-primary transition-colors duration-200">Property Management</a>
+            <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Search Properties</a>
+            <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Sell Your Home</a>
+            <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Property Management</a>
             
             {/* Resources Mega Menu */}
             <div 
@@ -85,7 +85,7 @@ export function Navigation() {
             >
               <button 
                 ref={buttonRef}
-                className="flex items-center text-slate-600 hover:text-primary transition-colors duration-200"
+                className="flex items-center font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200"
               >
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -174,9 +174,9 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-slate-200 bg-white">
           <div className="px-4 py-4 space-y-3">
-            <a href="/buy" className="block text-slate-600 hover:text-primary">Search Properties</a>
-            <a href="/sell" className="block text-slate-600 hover:text-primary">Sell Your Home</a>
-            <a href="/property-management" className="block text-slate-600 hover:text-primary">Property Management</a>
+            <a href="/buy" className="block font-bold text-slate-600 hover:text-slate-800">Search Properties</a>
+            <a href="/sell" className="block font-bold text-slate-600 hover:text-slate-800">Sell Your Home</a>
+            <a href="/property-management" className="block font-bold text-slate-600 hover:text-slate-800">Property Management</a>
             
             {/* Resources - Mobile Expanded */}
             <div className="border-t border-slate-100 pt-3 mt-3">
