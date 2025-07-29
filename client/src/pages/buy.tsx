@@ -44,32 +44,180 @@ export default function Buy() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Why Buy with 4Seasons Real Estate?
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl">
-              Our comprehensive approach ensures you find the perfect home with confidence and peace of mind.
+            <p className="text-xl text-slate-600 max-w-4xl">
+              At 4Seasons Real Estate, we believe buying a home should be exciting—not overwhelming. Our comprehensive approach is designed to give you clarity, confidence, and peace of mind throughout your journey. Whether you're a first-time buyer, relocating, or upgrading to your dream home, we're here to guide you every step of the way.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Local Market Expertise</h3>
-              <p className="text-slate-600">
-                Deep knowledge of North Texas neighborhoods, schools, amenities, and market trends to guide your decision.
-              </p>
+          <div className="space-y-12">
+            {/* Local Market Expertise */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image - Left Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-100 to-slate-200 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
+                        <MapPin className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold text-slate-700">North Texas Market Intelligence</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content - Right Side */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Local Market Expertise</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      We know North Texas inside and out. From the best school districts and commute routes to hidden neighborhood gems and upcoming developments, our agents provide hyper-local insights that help you make informed decisions. We stay ahead of market trends, so you'll know when and where to buy for the best value and long-term growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Personalized Service</h3>
-              <p className="text-slate-600">
-                Dedicated support throughout your journey with 24/7 availability and customized property recommendations.
-              </p>
+            {/* Personalized Service - Reversed Layout */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Personalized Service</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      No two buyers are alike—and we treat your goals as uniquely as you are. Our team offers 24/7 availability, listens closely to your preferences, and delivers curated property recommendations that match your lifestyle, budget, and future plans. We're not just helping you find a house—we're helping you find your home.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                  <div className="w-full h-full bg-gradient-to-br from-green-100 to-slate-200 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
+                        <Phone className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold text-slate-700">24/7 Dedicated Support</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Negotiation Excellence</h3>
-              <p className="text-slate-600">
-                Proven track record of securing the best deals for our buyers with strategic negotiation and market insights.
-              </p>
+            {/* Negotiation Excellence */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image - Left Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-slate-200 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
+                        <Mail className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold text-slate-700">Expert Negotiations</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content - Right Side */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Negotiation Excellence</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      Buying a home is one of the biggest financial decisions you'll make. Our skilled negotiators use market data, timing strategies, and experience to secure the best possible deal for you. Whether it's price, closing costs, or repairs, we advocate fiercely on your behalf to protect your investment.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* Trusted Network - Reversed Layout */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Trusted Network of Professionals</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      We've built strong relationships with top-tier lenders, inspectors, title companies, and contractors across North Texas. This means you'll have access to reliable professionals who help streamline the process, avoid delays, and ensure every detail is handled with care and integrity.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                  <div className="w-full h-full bg-gradient-to-br from-orange-100 to-slate-200 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
+                        <Phone className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold text-slate-700">Professional Network</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* First-Time Buyer Support */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image - Left Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                  <div className="w-full h-full bg-gradient-to-br from-teal-100 to-slate-200 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
+                        <MapPin className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold text-slate-700">First-Time Buyer Guidance</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content - Right Side */}
+                <div className="p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">First-Time Buyer Support</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      If you're new to homeownership, we make the process simple and stress-free. We'll walk you through financing options, explain each step clearly, and provide resources to help you feel confident in your decisions. Our goal is to empower you—not overwhelm you.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Relocation Assistance - Reversed Layout */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-8 lg:p-12 order-2 lg:order-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Relocation Assistance</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      Moving to North Texas? We'll help you get oriented quickly. From neighborhood tours and school comparisons to local lifestyle tips, we make your transition smooth and enjoyable. Whether you're relocating for work, family, or a fresh start, we'll help you feel at home from day one.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                  <div className="w-full h-full bg-gradient-to-br from-rose-100 to-slate-200 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
+                        <Mail className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold text-slate-700">Relocation Support</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
