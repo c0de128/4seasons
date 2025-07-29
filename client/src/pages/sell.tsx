@@ -18,6 +18,10 @@ import {
   MapPin,
   Calendar
 } from "lucide-react";
+import mapImage from "../assets/images/map.png";
+import dedicatedSupportImage from "../assets/images/dedicated-support.jpg";
+import marketPricingImage from "../assets/images/market-pricing.jpg";
+import negotiationImage from "../assets/images/negotiation.jpg";
 
 export default function Sell() {
   const [formData, setFormData] = useState({
@@ -107,11 +111,11 @@ export default function Sell() {
 
                 {/* Image - Right Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
-                  <div className="w-full h-full bg-gradient-to-br from-green-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                  </div>
+                  <img 
+                    src={mapImage} 
+                    alt="North Texas Market Map"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -121,11 +125,11 @@ export default function Sell() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v-4c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v4h3v6H4z"/>
-                    </svg>
-                  </div>
+                  <img 
+                    src={dedicatedSupportImage} 
+                    alt="Dedicated Support Team"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Content */}
@@ -157,11 +161,11 @@ export default function Sell() {
 
                 {/* Image - Right Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
-                  <div className="w-full h-full bg-gradient-to-br from-yellow-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.25L12 15.5l-7.5 3.75L6 5h12l1.5 14.25z"/>
-                    </svg>
-                  </div>
+                  <img 
+                    src={marketPricingImage} 
+                    alt="Strategic Market Pricing"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -171,11 +175,11 @@ export default function Sell() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-red-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2V8c0-1.11.89-2 2-2h16z"/>
-                    </svg>
-                  </div>
+                  <img 
+                    src={marketPricingImage} 
+                    alt="High-Impact Marketing Campaigns"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Content */}
@@ -207,11 +211,11 @@ export default function Sell() {
 
                 {/* Image - Right Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
-                  <div className="w-full h-full bg-gradient-to-br from-indigo-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
-                    </svg>
-                  </div>
+                  <img 
+                    src={negotiationImage} 
+                    alt="Expert Negotiation Services"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
