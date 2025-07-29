@@ -90,47 +90,6 @@ export default function Sell() {
           </div>
 
           <div className="space-y-12">
-            {/* Targeted Real Estate Marketing */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Targeted Real Estate Marketing</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p className="mb-4">
-                      We specialize in real estate marketing strategies that connect your property with the right buyers. Using proven methods, we craft compelling campaigns that highlight your home's best features. Our full-service approach includes:
-                    </p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
-                        High-quality professional photography to capture attention
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
-                        Immersive virtual tours that let buyers explore from anywhere
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 rounded-full bg-primary mt-3 mr-3 flex-shrink-0"></span>
-                        Strategic online advertising across top real estate platforms and social media
-                      </li>
-                    </ul>
-                    <p className="font-medium">
-                      The result? Maximum exposure, faster sales, and better offers.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* North Texas Market Expertise - Reversed Layout */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -257,30 +216,6 @@ export default function Sell() {
               </div>
             </div>
 
-            {/* Local Knowledge */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-teal-100 to-slate-100 flex items-center justify-center">
-                    <svg className="w-32 h-32 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Local Knowledge</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      With deep roots in North Texas, we understand what buyers are looking for and how to highlight your home's unique value. Our intimate knowledge of local neighborhoods, schools, amenities, and market dynamics allows us to position your property effectively and connect with buyers who appreciate what your area has to offer.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
