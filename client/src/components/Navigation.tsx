@@ -62,35 +62,20 @@ export function Navigation() {
 
   return (
     <div className="absolute top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
-      {/* Upper Contact Bar */}
-      <div className="text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end items-center space-x-6 py-3">
-            <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-              <Phone className="w-4 h-4" />
-              <span>(214) 555-0123</span>
+      {/* Main Navigation Container */}
+      <nav className="h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="grid grid-cols-3 items-center h-full">
+            
+            {/* Left Section - Logo */}
+            <div className="flex items-center">
+              <a href="/">
+                <img src={logoPath} alt="4Seasons Real Estate" className="h-16 w-auto" />
+              </a>
             </div>
-            <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-              <Mail className="w-4 h-4" />
-              <span>info@4seasonsrealestate.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Main Navigation */}
-      <nav>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <a href="/">
-              <img src={logoPath} alt="4Seasons Real Estate" className="h-16 w-auto" />
-            </a>
-          </div>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+            
+            {/* Center Section - Navigation Items */}
+            <div className="hidden md:flex items-center justify-center space-x-6">
             <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Search Properties</a>
             <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Sell Your Home</a>
             <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Property Management</a>
@@ -177,26 +162,40 @@ export function Navigation() {
                 </div>
               )}
             </div>
-
-            {/* Login Button */}
-            <a href="/login">
-              <Button 
-                className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: '#0d0d33' }}
-              >
-                Login
-              </Button>
-            </a>
-          </div>
-          
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            </div>
+            
+            {/* Right Section - Contact Info & Login */}
+            <div className="flex items-center justify-end space-x-6">
+              <div className="hidden lg:flex items-center space-x-4 text-sm">
+                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
+                  <Phone className="w-4 h-4" />
+                  <span>(214) 555-0123</span>
+                </div>
+                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
+                  <Mail className="w-4 h-4" />
+                  <span>info@4seasonsrealestate.com</span>
+                </div>
+              </div>
+              
+              <a href="/login">
+                <Button 
+                  className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: '#0d0d33' }}
+                >
+                  Login
+                </Button>
+              </a>
+              
+              {/* Mobile menu button */}
+              <div className="md:hidden">
+                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </Button>
+              </div>
+            </div>
+            
           </div>
         </div>
-      </div>
       
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
