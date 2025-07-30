@@ -63,14 +63,14 @@ export function Navigation() {
   return (
     <div className="absolute top-0 left-0 right-0 z-50">
       {/* Upper Contact Bar */}
-      <div className="bg-slate-800 text-white py-2 text-sm">
+      <div className="backdrop-blur-md py-2 text-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-end items-center space-x-6">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
               <Phone className="w-4 h-4" />
               <span>(214) 555-0123</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
               <Mail className="w-4 h-4" />
               <span>info@4seasonsrealestate.com</span>
             </div>
