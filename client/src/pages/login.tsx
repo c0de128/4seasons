@@ -17,7 +17,7 @@ export default function Login() {
       title: "Administrative Login",
       description: "For 4Seasons Real Estate staff and administrators",
       icon: Shield,
-      bgColor: "from-blue-50 to-indigo-50",
+      bgColor: "bg-slate-50",
       iconColor: "#0d0d33"
     },
     {
@@ -25,7 +25,7 @@ export default function Login() {
       title: "Property Management Login",
       description: "For property managers and landlords",
       icon: Building,
-      bgColor: "from-green-50 to-emerald-50",
+      bgColor: "bg-slate-50",
       iconColor: "#0d0d33"
     },
     {
@@ -33,7 +33,7 @@ export default function Login() {
       title: "Tenant Login",
       description: "For tenants and residents",
       icon: Home,
-      bgColor: "from-purple-50 to-violet-50",
+      bgColor: "bg-slate-50",
       iconColor: "#0d0d33"
     }
   ];
@@ -140,7 +140,7 @@ export default function Login() {
                     className="shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
                     onClick={() => handleLoginTypeSelect(type.id)}
                   >
-                    <CardContent className={`p-8 text-center bg-gradient-to-br ${type.bgColor} rounded-lg`}>
+                    <CardContent className={`p-8 text-center ${type.bgColor} rounded-lg`}>
                       <div className="flex justify-center mb-6">
                         <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: type.iconColor }}>
                           <type.icon className="w-5 h-5 text-white" />
