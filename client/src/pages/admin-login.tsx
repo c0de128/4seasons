@@ -32,11 +32,11 @@ export default function AdminLogin() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-3 bg-gradient-to-br from-slate-50 to-white">
+      <section className="pt-32 bg-gradient-to-br from-slate-50 to-white">
       </section>
 
       {/* Login Form Section */}
-      <section className="py-6 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="shadow-xl border border-slate-200">
             <CardHeader className="text-center pb-6">
