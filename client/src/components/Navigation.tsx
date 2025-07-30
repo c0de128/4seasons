@@ -159,6 +159,16 @@ export function Navigation() {
                 </div>
               )}
             </div>
+
+            {/* Login Button */}
+            <a href="/login">
+              <Button 
+                className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: '#0d0d33' }}
+              >
+                Login
+              </Button>
+            </a>
           </div>
           
           {/* Mobile menu button */}
@@ -190,6 +200,18 @@ export function Navigation() {
                 <a href="/about" className="block text-slate-600 hover:text-primary text-sm">About Us</a>
                 <a href="/contact" className="block text-slate-600 hover:text-primary text-sm">Contact Us</a>
               </div>
+            </div>
+
+            {/* Mobile Login Button */}
+            <div className="border-t border-slate-100 pt-3 mt-3">
+              <a href="/login">
+                <Button 
+                  className="w-full px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: '#0d0d33' }}
+                >
+                  Login
+                </Button>
+              </a>
             </div>
           </div>
         </div>
