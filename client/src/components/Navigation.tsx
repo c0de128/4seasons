@@ -61,9 +61,27 @@ export function Navigation() {
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+    <div className="absolute top-0 left-0 right-0 z-50">
+      {/* Contact Banner */}
+      <div className="bg-slate-100 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end items-center py-2 text-sm">
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
+                <Phone className="w-4 h-4" />
+                <span>(214) 555-0123</span>
+              </div>
+              <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
+                <Mail className="w-4 h-4" />
+                <span>info@4seasonsrealestate.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       {/* Main Navigation Container */}
-      <nav className="h-20">
+      <nav className="h-20 backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center h-full">
             
@@ -164,37 +182,22 @@ export function Navigation() {
             </div>
             </div>
             
-            {/* Right Section - Contact & Login */}
-            <div className="flex flex-col items-end flex-shrink-0 ml-auto">
-              {/* Top Row - Contact Info */}
-              <div className="hidden lg:flex items-center space-x-4 text-sm">
-                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-                  <Phone className="w-4 h-4" />
-                  <span>(214) 555-0123</span>
-                </div>
-                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-                  <Mail className="w-4 h-4" />
-                  <span>info@4seasonsrealestate.com</span>
-                </div>
-              </div>
+            {/* Right Section - Login */}
+            <div className="flex items-center flex-shrink-0 ml-auto space-x-4">
+              <a href="/login" className="hidden md:block">
+                <Button 
+                  className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: '#0d0d33' }}
+                >
+                  Login
+                </Button>
+              </a>
               
-              {/* Bottom Row - Login Button aligned with nav */}
-              <div className="flex items-center mt-1">
-                <a href="/login">
-                  <Button 
-                    className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
-                    style={{ backgroundColor: '#0d0d33' }}
-                  >
-                    Login
-                  </Button>
-                </a>
-                
-                {/* Mobile menu button */}
-                <div className="md:hidden ml-4">
-                  <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                    {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                  </Button>
-                </div>
+              {/* Mobile menu button */}
+              <div className="md:hidden">
+                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </Button>
               </div>
             </div>
             
