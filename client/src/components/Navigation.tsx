@@ -65,17 +65,17 @@ export function Navigation() {
       {/* Main Navigation Container */}
       <nav className="h-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex items-center justify-between h-full">
+          <div className="flex items-center h-full">
             
             {/* Left Section - Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center flex-shrink-0">
               <a href="/">
                 <img src={logoPath} alt="4Seasons Real Estate" className="h-16 w-auto" />
               </a>
             </div>
             
             {/* Center Section - Navigation Items */}
-            <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
+            <div className="hidden md:flex items-center space-x-6 flex-grow justify-center mx-8">
             <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Search Properties</a>
             <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Sell Your Home</a>
             <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Property Management</a>
@@ -165,7 +165,7 @@ export function Navigation() {
             </div>
             
             {/* Right Section - Contact & Login */}
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-end flex-shrink-0 ml-auto">
               {/* Top Row - Contact Info */}
               <div className="hidden lg:flex items-center space-x-4 text-sm">
                 <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
@@ -188,13 +188,13 @@ export function Navigation() {
                     Login
                   </Button>
                 </a>
-              </div>
-              
-              {/* Mobile menu button */}
-              <div className="md:hidden absolute right-4">
-                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </Button>
+                
+                {/* Mobile menu button */}
+                <div className="md:hidden ml-4">
+                  <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  </Button>
+                </div>
               </div>
             </div>
             
