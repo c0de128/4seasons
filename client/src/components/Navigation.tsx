@@ -167,7 +167,7 @@ export function Navigation() {
             {/* Right Section - Contact & Login */}
             <div className="flex flex-col items-end">
               {/* Top Row - Contact Info */}
-              <div className="hidden lg:flex items-center space-x-4 text-sm mb-1">
+              <div className="hidden lg:flex items-center space-x-4 text-sm">
                 <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
                   <Phone className="w-4 h-4" />
                   <span>(214) 555-0123</span>
@@ -178,8 +178,8 @@ export function Navigation() {
                 </div>
               </div>
               
-              {/* Bottom Row - Login Button */}
-              <div className="flex items-center space-x-4">
+              {/* Bottom Row - Login Button aligned with nav */}
+              <div className="flex items-center mt-1">
                 <a href="/login">
                   <Button 
                     className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
@@ -188,13 +188,13 @@ export function Navigation() {
                     Login
                   </Button>
                 </a>
-                
-                {/* Mobile menu button */}
-                <div className="md:hidden">
-                  <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                    {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                  </Button>
-                </div>
+              </div>
+              
+              {/* Mobile menu button */}
+              <div className="md:hidden absolute right-4">
+                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </Button>
               </div>
             </div>
             
