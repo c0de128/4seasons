@@ -142,8 +142,8 @@ export default function Login() {
                   >
                     <CardContent className={`p-8 text-center bg-gradient-to-br ${type.bgColor} rounded-lg`}>
                       <div className="flex justify-center mb-6">
-                        <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: type.iconColor }}>
-                          <type.icon className="w-10 h-10 text-white" />
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: type.iconColor }}>
+                          <type.icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
                       <h3 className="text-xl font-bold text-slate-900 mb-3">{type.title}</h3>
