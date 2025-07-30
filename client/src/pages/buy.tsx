@@ -14,6 +14,12 @@ import allenImage from "@/assets/images/allen.webp";
 import mckinneyImage from "@/assets/images/mckinney.jpeg";
 import richardsonImage from "@/assets/images/richardson.jpg";
 import carrolltonImage from "@/assets/images/Carrollton.webp";
+import northTexasImage from "@/assets/images/north-texas.jpg";
+import personalizedServiceImage from "@/assets/images/personalized-service.webp";
+import negotiationExcellenceImage from "@/assets/images/negotiation-excellence.jpg";
+import professionalsImage from "@/assets/images/professionals.jpg";
+import firstHouseImage from "@/assets/images/first-house.jpg";
+import relocationAssistanceImage from "@/assets/images/relocation-assistance.jpg";
 
 export default function Buy() {
   return (
@@ -55,14 +61,11 @@ export default function Buy() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-100 to-slate-200 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                        <MapPin className="w-12 h-12 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold text-slate-700">North Texas Market Intelligence</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={northTexasImage} 
+                    alt="North Texas Market Expertise"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Content - Right Side */}
@@ -94,14 +97,11 @@ export default function Buy() {
 
                 {/* Image - Right Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
-                  <div className="w-full h-full bg-gradient-to-br from-green-100 to-slate-200 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                        <Phone className="w-12 h-12 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold text-slate-700">24/7 Dedicated Support</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={personalizedServiceImage} 
+                    alt="Personalized Service"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -111,14 +111,11 @@ export default function Buy() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-slate-200 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                        <Mail className="w-12 h-12 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold text-slate-700">Expert Negotiations</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={negotiationExcellenceImage} 
+                    alt="Negotiation Excellence"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Content - Right Side */}
@@ -150,14 +147,11 @@ export default function Buy() {
 
                 {/* Image - Right Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
-                  <div className="w-full h-full bg-gradient-to-br from-orange-100 to-slate-200 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                        <Phone className="w-12 h-12 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold text-slate-700">Professional Network</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={professionalsImage} 
+                    alt="Trusted Network of Professionals"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -167,14 +161,11 @@ export default function Buy() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto">
-                  <div className="w-full h-full bg-gradient-to-br from-teal-100 to-slate-200 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                        <MapPin className="w-12 h-12 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold text-slate-700">First-Time Buyer Guidance</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={firstHouseImage} 
+                    alt="First-Time Buyer Support"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Content - Right Side */}
@@ -206,14 +197,11 @@ export default function Buy() {
 
                 {/* Image - Right Side */}
                 <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
-                  <div className="w-full h-full bg-gradient-to-br from-rose-100 to-slate-200 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#0d0d33' }}>
-                        <Mail className="w-12 h-12 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold text-slate-700">Relocation Support</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={relocationAssistanceImage} 
+                    alt="Relocation Assistance"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
