@@ -33,21 +33,6 @@ export default function AdminLogin() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-6 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: "#0d0d33" }}>
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Administrative Login
-            </h1>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Sign in to access the 4Seasons Real Estate administrative dashboard
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* Login Form Section */}
