@@ -137,19 +137,19 @@ export default function Login() {
                 {loginTypes.map((type) => (
                   <Card 
                     key={type.id}
-                    className="shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+                    className="shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 h-full"
                     onClick={() => handleLoginTypeSelect(type.id)}
                   >
-                    <CardContent className={`p-8 text-center ${type.bgColor} rounded-lg`}>
+                    <CardContent className={`p-8 text-center ${type.bgColor} rounded-lg h-full flex flex-col`}>
                       <div className="flex justify-center mb-6">
                         <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: type.iconColor }}>
                           <type.icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
                       <h3 className="text-xl font-bold text-slate-900 mb-3">{type.title}</h3>
-                      <p className="text-slate-600 mb-6 leading-relaxed">{type.description}</p>
+                      <p className="text-slate-600 mb-6 leading-relaxed flex-grow">{type.description}</p>
                       <Button 
-                        className="w-full py-3 text-lg font-semibold text-white hover:opacity-90"
+                        className="w-full py-3 text-lg font-semibold text-white hover:opacity-90 mt-auto"
                         style={{ backgroundColor: '#0d0d33' }}
                       >
                         Continue
