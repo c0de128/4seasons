@@ -41,6 +41,8 @@ export default function Login() {
   const handleLoginTypeSelect = (type: string) => {
     if (type === 'tenant' || type === 'property') {
       window.open('https://signin.managebuilding.com/manager/public/authentication/login', '_blank');
+    } else if (type === 'admin') {
+      window.location.href = '/admin-login';
     } else {
       setSelectedLoginType(type);
     }
