@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, Calculator, Map, Building2, DollarSign, FileText, HelpCircle, Shield, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Calculator, Map, Building2, DollarSign, FileText, HelpCircle, Shield, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -61,8 +61,26 @@ export function Navigation() {
   };
 
   return (
-    <nav className="absolute top-0 left-0 right-0 backdrop-blur-md shadow-sm border-b border-slate-200/30 z-50" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="absolute top-0 left-0 right-0 z-50">
+      {/* Upper Contact Bar */}
+      <div className="bg-slate-800 text-white py-2 text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end items-center space-x-6">
+            <div className="flex items-center space-x-2">
+              <Phone className="w-4 h-4" />
+              <span>(214) 555-0123</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Mail className="w-4 h-4" />
+              <span>info@4seasonsrealestate.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Navigation */}
+      <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
@@ -216,6 +234,7 @@ export function Navigation() {
           </div>
         </div>
       )}
-    </nav>
+      </nav>
+    </div>
   );
 }
