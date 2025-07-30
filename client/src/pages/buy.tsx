@@ -150,7 +150,7 @@ export default function Buy() {
                   <img 
                     src={professionalsImage} 
                     alt="Trusted Network of Professionals"
-                    className="w-full h-full object-cover"
+                    className="w-3/4 h-3/4 object-cover mx-auto my-auto"
                   />
                 </div>
               </div>
