@@ -127,7 +127,7 @@ export default function AdminLogin() {
 
                 <Button 
                   type="submit"
-                  className="w-full py-3 text-lg font-semibold text-white hover:opacity-90"
+                  className="w-full py-2 text-lg font-semibold text-white hover:opacity-90"
                   style={{ backgroundColor: '#0d0d33' }}
                 >
                   Sign In
