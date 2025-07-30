@@ -61,9 +61,9 @@ export function Navigation() {
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-50">
+    <div className="absolute top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
       {/* Upper Contact Bar */}
-      <div className="backdrop-blur-md py-2 text-sm" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+      <div className="py-2 text-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-end items-center space-x-6">
             <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
@@ -79,7 +79,7 @@ export function Navigation() {
       </div>
       
       {/* Main Navigation */}
-      <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+      <nav>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
