@@ -39,8 +39,8 @@ export default function Login() {
   ];
 
   const handleLoginTypeSelect = (type: string) => {
-    if (type === 'tenant') {
-      window.open('https://signin.managebuilding.com/Resident/portal/global-login', '_blank');
+    if (type === 'tenant' || type === 'property') {
+      window.open('https://signin.managebuilding.com/manager/public/authentication/login', '_blank');
     } else {
       setSelectedLoginType(type);
     }
