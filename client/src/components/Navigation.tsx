@@ -65,7 +65,7 @@ export function Navigation() {
       {/* Main Navigation Container */}
       <nav className="h-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="grid grid-cols-3 items-center h-full">
+          <div className="flex items-center justify-between h-full">
             
             {/* Left Section - Logo */}
             <div className="flex items-center">
@@ -75,7 +75,7 @@ export function Navigation() {
             </div>
             
             {/* Center Section - Navigation Items */}
-            <div className="hidden md:flex items-center justify-center space-x-6">
+            <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Search Properties</a>
             <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Sell Your Home</a>
             <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200">Property Management</a>
@@ -164,9 +164,10 @@ export function Navigation() {
             </div>
             </div>
             
-            {/* Right Section - Contact Info & Login */}
-            <div className="flex items-center justify-end space-x-6">
-              <div className="hidden lg:flex items-center space-x-4 text-sm">
+            {/* Right Section - Contact & Login */}
+            <div className="flex flex-col items-end">
+              {/* Top Row - Contact Info */}
+              <div className="hidden lg:flex items-center space-x-4 text-sm mb-1">
                 <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
                   <Phone className="w-4 h-4" />
                   <span>(214) 555-0123</span>
@@ -177,20 +178,23 @@ export function Navigation() {
                 </div>
               </div>
               
-              <a href="/login">
-                <Button 
-                  className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: '#0d0d33' }}
-                >
-                  Login
-                </Button>
-              </a>
-              
-              {/* Mobile menu button */}
-              <div className="md:hidden">
-                <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </Button>
+              {/* Bottom Row - Login Button */}
+              <div className="flex items-center space-x-4">
+                <a href="/login">
+                  <Button 
+                    className="px-4 py-2 font-semibold text-white hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#0d0d33' }}
+                  >
+                    Login
+                  </Button>
+                </a>
+                
+                {/* Mobile menu button */}
+                <div className="md:hidden">
+                  <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  </Button>
+                </div>
               </div>
             </div>
             
