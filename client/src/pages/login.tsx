@@ -39,7 +39,11 @@ export default function Login() {
   ];
 
   const handleLoginTypeSelect = (type: string) => {
-    setSelectedLoginType(type);
+    if (type === 'tenant') {
+      window.open('https://signin.managebuilding.com/Resident/portal/global-login', '_blank');
+    } else {
+      setSelectedLoginType(type);
+    }
   };
 
   const handleBackToSelection = () => {
