@@ -69,7 +69,7 @@ export function Navigation() {
             
             {/* DIV-1: Logo Section */}
             <div 
-              className="flex items-center justify-center flex-shrink-0 border-2 border-slate-800 backdrop-blur-md shadow-sm" 
+              className="flex items-center justify-center flex-shrink-0 backdrop-blur-md shadow-sm" 
               style={{ 
                 backgroundColor: 'rgba(255, 255, 255, 0.5)',
                 width: '160px',
@@ -86,7 +86,7 @@ export function Navigation() {
               
               {/* DIV-2: Contact Information Section */}
               <div 
-                className="flex items-center justify-end border-2 border-slate-800 backdrop-blur-md shadow-sm px-4 py-2" 
+                className="flex items-center justify-end backdrop-blur-md shadow-sm px-4 py-2" 
                 style={{ 
                   backgroundColor: 'rgba(255, 255, 255, 0.5)',
                   height: '40px'
@@ -106,7 +106,7 @@ export function Navigation() {
               
               {/* DIV-3: Navigation Links Section */}
               <div 
-                className="flex items-center justify-between border-2 border-slate-800 backdrop-blur-md shadow-sm px-4 py-2 mt-1" 
+                className="flex items-center justify-between backdrop-blur-md shadow-sm px-4 py-2 mt-1" 
                 style={{ 
                   backgroundColor: 'rgba(255, 255, 255, 0.5)',
                   height: '40px'
