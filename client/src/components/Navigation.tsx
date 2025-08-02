@@ -90,9 +90,10 @@ export function Navigation() {
             
             {/* DIV-2: Contact Information Section - Moved to top right */}
             <div 
-              className="flex items-center justify-end px-4 py-2 absolute top-2 right-4" 
+              className="flex items-center justify-end py-2 absolute top-2" 
               style={{ 
-                height: '32px'
+                height: '32px',
+                right: '32px'
               }}
             >
               <div className="hidden md:flex items-center space-x-6 text-xs">
