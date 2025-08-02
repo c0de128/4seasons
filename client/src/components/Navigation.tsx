@@ -79,10 +79,10 @@ export function Navigation() {
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
-                  className="w-auto object-contain max-w-full max-h-full"
+                  className="w-auto object-contain"
                   style={{ 
-                    height: '70px',
-                    minHeight: '70px'
+                    height: '90%',
+                    maxWidth: '90%'
                   }}
                 />
               </a>
