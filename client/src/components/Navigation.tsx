@@ -71,12 +71,20 @@ export function Navigation() {
             <div 
               className="flex items-center justify-center flex-shrink-0" 
               style={{ 
-                width: '160px',
+                width: '184px',
                 height: '80px'
               }}
             >
               <a href="/" className="flex items-center justify-center w-full h-full">
-                <img src={logoPath} alt="4Seasons Real Estate" className="h-12 w-auto" />
+                <img 
+                  src={logoPath} 
+                  alt="4Seasons Real Estate" 
+                  className="w-auto object-contain"
+                  style={{ 
+                    height: '55.2px',
+                    maxWidth: '100%'
+                  }}
+                />
               </a>
             </div>
             
