@@ -243,12 +243,12 @@ export function FAQPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-r from-slate-50 to-blue-50">
+      <section className="pt-32 pb-20 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Find answers to common questions about buying, selling, and managing real estate in North Texas.
           </p>
         </div>
