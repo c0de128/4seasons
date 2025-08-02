@@ -69,13 +69,13 @@ export function Navigation() {
             
             {/* DIV-1: Logo Section */}
             <div 
-              className="flex items-center justify-center flex-shrink-0" 
+              className="flex items-center justify-end flex-shrink-0" 
               style={{ 
-                width: '320px',
+                width: '420px',
                 height: '96px'
               }}
             >
-              <a href="/" className="flex items-center justify-center w-full h-full p-4">
+              <a href="/" className="flex items-center justify-center h-full p-4" style={{ width: '280px' }}>
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
