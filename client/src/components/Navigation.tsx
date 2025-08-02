@@ -65,37 +65,37 @@ export function Navigation() {
       {/* Navigation Container with 3 Distinct Sections */}
       <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-stretch min-h-[80px]">
+          <div className="flex items-stretch min-h-[96px]">
             
             {/* DIV-1: Logo Section */}
             <div 
               className="flex items-center justify-center flex-shrink-0" 
               style={{ 
-                width: '200px',
-                height: '80px'
+                width: '220px',
+                height: '96px'
               }}
             >
-              <a href="/" className="flex items-center justify-center w-full h-full">
+              <a href="/" className="flex items-center justify-center w-full h-full p-2">
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
-                  className="w-auto object-contain"
+                  className="w-auto object-contain max-w-full max-h-full"
                   style={{ 
-                    height: '57.6px',
-                    maxWidth: '100%'
+                    height: '70px',
+                    minHeight: '70px'
                   }}
                 />
               </a>
             </div>
             
             {/* DIV-2 & DIV-3: Right Side Container */}
-            <div className="flex-1 flex flex-col ml-4">
+            <div className="flex-1 flex flex-col ml-4 justify-center">
               
               {/* DIV-2: Contact Information Section */}
               <div 
-                className="flex items-center justify-end px-4 py-2" 
+                className="flex items-center justify-end px-4 py-3" 
                 style={{ 
-                  height: '40px'
+                  height: '46px'
                 }}
               >
                 <div className="hidden md:flex items-center space-x-6 text-sm">
@@ -112,9 +112,9 @@ export function Navigation() {
               
               {/* DIV-3: Navigation Links Section */}
               <div 
-                className="flex items-center justify-between px-4 py-2 mt-1" 
+                className="flex items-center justify-between px-4 py-3 mt-1" 
                 style={{ 
-                  height: '40px'
+                  height: '46px'
                 }}
               >
                 {/* Navigation Items */}
