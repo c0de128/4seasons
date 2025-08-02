@@ -46,8 +46,8 @@ export function Contact() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <Mail className="w-6 h-6 flex-shrink-0" style={{ color: '#0d0d33' }} />
-                    <a href="mailto:aharwood23@yahoo.com" className="text-slate-600 hover:text-primary transition-colors">
-                      aharwood23@yahoo.com
+                    <a href="mailto:info@4seasonsrealestate.com" className="text-slate-600 hover:text-primary transition-colors">
+                      info@4seasonsrealestate.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -94,7 +94,7 @@ export function Contact() {
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a
-                    href="mailto:aharwood23@yahoo.com"
+                    href="mailto:info@4seasonsrealestate.com"
                     className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="Email"
