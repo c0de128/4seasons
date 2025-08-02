@@ -63,16 +63,34 @@ export function Navigation() {
   return (
     <div className="absolute top-0 left-0 right-0 z-50">
       {/* Navigation Container with 3 Distinct Sections */}
-      <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+      <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30 relative" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+        {/* DIV-2: Contact Information Section - Positioned at top right */}
+        <div className="absolute top-2 right-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-end">
+              <div className="hidden md:flex items-center space-x-6 text-xs" style={{ color: '#0d0d33' }}>
+                <div className="flex items-center space-x-2">
+                  <Phone className="w-3 h-3" />
+                  <span>(214) 555-0123</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-3 h-3" />
+                  <span>info@4seasonsrealestate.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-stretch min-h-[96px]">
+          <div className="flex items-stretch min-h-[96px] pt-8">
             
             {/* DIV-1: Logo Section */}
             <div 
               className="flex items-center justify-end flex-shrink-0" 
               style={{ 
                 width: '420px',
-                height: '96px'
+                height: '88px'
               }}
             >
               <a href="/" className="flex items-center justify-center h-full p-4" style={{ width: '280px' }}>
@@ -86,26 +104,6 @@ export function Navigation() {
                   }}
                 />
               </a>
-            </div>
-            
-            {/* DIV-2: Contact Information Section - Moved to top right */}
-            <div 
-              className="flex items-center justify-end py-2 absolute top-2" 
-              style={{ 
-                height: '32px',
-                right: '32px'
-              }}
-            >
-              <div className="hidden md:flex items-center space-x-6 text-xs">
-                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-                  <Phone className="w-3 h-3" />
-                  <span>(214) 555-0123</span>
-                </div>
-                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-                  <Mail className="w-3 h-3" />
-                  <span>info@4seasonsrealestate.com</span>
-                </div>
-              </div>
             </div>
 
             {/* DIV-3: Navigation Links Section */}
