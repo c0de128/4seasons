@@ -65,23 +65,23 @@ export function Navigation() {
       {/* Navigation Container with 3 Distinct Sections */}
       <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-stretch min-h-[96px]">
+          <div className="flex items-start min-h-[96px]">
             
             {/* DIV-1: Logo Section */}
             <div 
-              className="flex items-center justify-center flex-shrink-0" 
+              className="flex items-start justify-center flex-shrink-0 pt-2" 
               style={{ 
                 width: '320px',
                 height: '96px'
               }}
             >
-              <a href="/" className="flex items-center justify-center w-full h-full p-4">
+              <a href="/" className="flex items-center justify-center p-4">
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
                   className="w-auto object-contain"
                   style={{ 
-                    height: '90%',
+                    height: '80px',
                     maxWidth: '90%'
                   }}
                 />
@@ -89,11 +89,11 @@ export function Navigation() {
             </div>
             
             {/* DIV-2 & DIV-3: Right Side Container */}
-            <div className="flex-1 flex flex-col ml-6 justify-center">
+            <div className="flex-1 flex flex-col ml-6">
               
               {/* DIV-2: Contact Information Section */}
               <div 
-                className="flex items-center justify-end px-4 py-3" 
+                className="flex items-center justify-end px-4 py-2" 
                 style={{ 
                   height: '46px'
                 }}
@@ -112,9 +112,9 @@ export function Navigation() {
               
               {/* DIV-3: Navigation Links Section */}
               <div 
-                className="flex items-center justify-between px-4 py-3 mt-1" 
+                className="flex items-center justify-between px-4 py-2" 
                 style={{ 
-                  height: '46px'
+                  height: '50px'
                 }}
               >
                 {/* Navigation Items */}
