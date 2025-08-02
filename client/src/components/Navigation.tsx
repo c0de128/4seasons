@@ -71,11 +71,11 @@ export function Navigation() {
             <div 
               className="flex items-center justify-center flex-shrink-0" 
               style={{ 
-                width: '220px',
+                width: '320px',
                 height: '96px'
               }}
             >
-              <a href="/" className="flex items-center justify-center w-full h-full p-2">
+              <a href="/" className="flex items-center justify-center w-full h-full p-4">
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
@@ -89,7 +89,7 @@ export function Navigation() {
             </div>
             
             {/* DIV-2 & DIV-3: Right Side Container */}
-            <div className="flex-1 flex flex-col ml-4 justify-center">
+            <div className="flex-1 flex flex-col ml-6 justify-center">
               
               {/* DIV-2: Contact Information Section */}
               <div 
