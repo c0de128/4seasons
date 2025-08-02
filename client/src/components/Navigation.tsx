@@ -71,7 +71,7 @@ export function Navigation() {
             <div 
               className="flex items-center justify-center flex-shrink-0" 
               style={{ 
-                width: '184px',
+                width: '200px',
                 height: '80px'
               }}
             >
@@ -81,7 +81,7 @@ export function Navigation() {
                   alt="4Seasons Real Estate" 
                   className="w-auto object-contain"
                   style={{ 
-                    height: '55.2px',
+                    height: '57.6px',
                     maxWidth: '100%'
                   }}
                 />
