@@ -88,33 +88,32 @@ export function Navigation() {
               </a>
             </div>
             
-            {/* DIV-2 & DIV-3: Right Side Container */}
-            <div className="flex-1 flex flex-col ml-6 justify-center">
-              
-              {/* DIV-2: Contact Information Section */}
-              <div 
-                className="flex items-center justify-end px-4 py-3" 
-                style={{ 
-                  height: '46px'
-                }}
-              >
-                <div className="hidden md:flex items-center space-x-6 text-sm">
-                  <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-                    <Phone className="w-4 h-4" />
-                    <span>(214) 555-0123</span>
-                  </div>
-                  <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
-                    <Mail className="w-4 h-4" />
-                    <span>info@4seasonsrealestate.com</span>
-                  </div>
+            {/* DIV-2: Contact Information Section - Moved to top right */}
+            <div 
+              className="flex items-center justify-end px-4 py-2 absolute top-2 right-4" 
+              style={{ 
+                height: '32px'
+              }}
+            >
+              <div className="hidden md:flex items-center space-x-6 text-xs">
+                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
+                  <Phone className="w-3 h-3" />
+                  <span>(214) 555-0123</span>
+                </div>
+                <div className="flex items-center space-x-2" style={{ color: '#0d0d33' }}>
+                  <Mail className="w-3 h-3" />
+                  <span>info@4seasonsrealestate.com</span>
                 </div>
               </div>
-              
-              {/* DIV-3: Navigation Links Section */}
+            </div>
+
+            {/* DIV-3: Navigation Links Section */}
+            <div className="flex-1 flex items-center justify-end ml-6">
               <div 
-                className="flex items-center justify-between px-4 py-3 mt-1" 
+                className="flex items-center justify-between px-4 py-3" 
                 style={{ 
-                  height: '46px'
+                  height: '46px',
+                  width: '100%'
                 }}
               >
                 {/* Navigation Items */}
