@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Search, Calendar, User, ArrowRight, Tag, Clock, Eye } from "lucide-react";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 
 interface BlogPost {
   id: number;
@@ -361,6 +362,16 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <SEO 
+        title="Real Estate Blog - Dallas-Fort Worth Market Insights & Tips | 4Seasons Real Estate"
+        description="Expert real estate advice, market insights, and practical tips for buying, selling, and managing property in North Texas. Stay informed with our DFW real estate blog."
+        keywords="Dallas real estate blog, DFW market insights, North Texas real estate tips, home buying advice Dallas, selling home tips Texas, property management blog, real estate trends DFW"
+        canonicalUrl={`${seoConfig.siteUrl}/blog`}
+        ogTitle="Real Estate Insights & Tips - North Texas Market Blog"
+        ogDescription="Expert advice, market insights, and practical tips for buying, selling, and managing real estate in North Texas."
+        ogImage={`${seoConfig.siteUrl}/images/dfw-real-estate-blog.jpg`}
+        structuredData={generateStructuredData.article("Real Estate Insights & Tips", "Expert advice and market insights for North Texas real estate", "4Seasons Real Estate Team", new Date().toISOString())}
+      />
       <Navigation />
       
       {/* Hero Section */}

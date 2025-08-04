@@ -8,6 +8,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import planoImage from "@/assets/images/plano.jpg";
 import friscoImage from "@/assets/images/frisco.webp";
 import allenImage from "@/assets/images/allen.webp";
@@ -24,6 +25,16 @@ import relocationAssistanceImage from "@/assets/images/relocation-assistance.jpg
 export default function Buy() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Search Properties - Find Your Dream Home in Dallas-Fort Worth | 4Seasons Real Estate"
+        description="Discover exceptional homes for sale in Allen, Plano, Frisco, McKinney, Richardson, and throughout the DFW metroplex. Expert buyer representation and local market knowledge."
+        keywords="buy home Dallas, DFW homes for sale, Allen TX homes, Plano real estate, Frisco homes for sale, McKinney properties, Richardson homes, home buyer agent, first time home buyer DFW, luxury homes Dallas"
+        canonicalUrl={`${seoConfig.siteUrl}/buy`}
+        ogTitle="Find Your Perfect North Texas Home - 4Seasons Real Estate"
+        ogDescription="Discover exceptional properties in the DFW metroplex with expert guidance from North Texas's most trusted real estate professionals."
+        ogImage={`${seoConfig.siteUrl}/images/buy-homes-dfw.jpg`}
+        structuredData={generateStructuredData.service("Home Buying Services", "Expert home buying assistance in Dallas-Fort Worth metroplex including property search, market analysis, and buyer representation.")}
+      />
       <Navigation />
 
       {/* Hero Section */}

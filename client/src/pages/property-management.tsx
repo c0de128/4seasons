@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { 
   Shield,
   DollarSign,
@@ -19,6 +20,16 @@ import {
 export default function PropertyManagement() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Professional Property Management Services - Dallas-Fort Worth | 4Seasons Real Estate"
+        description="Maximize rental income and protect your investment with comprehensive property management in North Texas. Tenant screening, maintenance, rent collection, and more."
+        keywords="property management Dallas, DFW rental management, Allen property managers, investment property management Texas, rental income optimization, tenant screening Dallas"
+        canonicalUrl={`${seoConfig.siteUrl}/property-management`}
+        ogTitle="Professional Property Management Services - North Texas"
+        ogDescription="Maximize your rental income and protect your investment with our comprehensive property management solutions in North Texas."
+        ogImage={`${seoConfig.siteUrl}/images/property-management-dfw.jpg`}
+        structuredData={generateStructuredData.service("Property Management Services", "Comprehensive property management services including tenant screening, rent collection, maintenance coordination, and investment property optimization in Dallas-Fort Worth area.")}
+      />
       <Navigation />
 
       {/* Hero Section */}

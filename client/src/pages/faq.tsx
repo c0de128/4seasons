@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 
 interface FAQItem {
   id: number;
@@ -240,6 +241,16 @@ export function FAQPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <SEO 
+        title="Real Estate FAQ - Dallas-Fort Worth Home Buying & Selling Questions | 4Seasons Real Estate"
+        description="Get answers to common questions about buying, selling, and managing real estate in North Texas. Expert advice from experienced DFW real estate professionals."
+        keywords="real estate FAQ, Dallas home buying questions, DFW real estate guide, first time home buyer Texas, selling home tips Dallas, property management FAQ, real estate process Texas"
+        canonicalUrl={`${seoConfig.siteUrl}/faq`}
+        ogTitle="Real Estate FAQ - Your DFW Home Buying & Selling Questions Answered"
+        ogDescription="Find answers to common questions about buying, selling, and managing real estate in North Texas with expert guidance from 4Seasons Real Estate."
+        ogImage={`${seoConfig.siteUrl}/images/faq-dfw-real-estate.jpg`}
+        structuredData={generateStructuredData.faqPage(faqData.map(faq => ({ question: faq.question, answer: faq.answer })))}
+      />
       <Navigation />
       
       {/* Hero Section */}

@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { 
   MapPin,
   Users,
@@ -113,6 +114,16 @@ export default function AllenCityGuide() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Allen, Texas City Guide - Real Estate, Schools & Neighborhoods | 4Seasons Real Estate"
+        description="Complete guide to Allen, Texas real estate. Discover top-rated schools, championship sports, luxury homes, and family-friendly neighborhoods in this premier North Texas community."
+        keywords="Allen Texas real estate, Allen TX homes for sale, Allen ISD schools, Allen High School football, Allen neighborhoods, Allen Texas homes, Eagle Stadium Allen, Watters Creek Allen"
+        canonicalUrl={`${seoConfig.siteUrl}/allen-city-guide`}
+        ogTitle="Allen, Texas City Guide - Premier North Texas Community"
+        ogDescription="Discover why Allen is one of North Texas's most desirable communities. From top-rated schools to championship sports and vibrant community life."
+        ogImage={`${seoConfig.siteUrl}/images/allen-texas-city-guide.jpg`}
+        structuredData={generateStructuredData.cityGuide("Allen", "Texas")}
+      />
       <Navigation />
 
       {/* Hero Section */}

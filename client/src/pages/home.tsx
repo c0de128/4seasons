@@ -9,6 +9,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import logoPath from "@/assets/images/logo_sm.png";
 import logoLarge from "@/assets/images/logo.png";
 import logoFooter from "@/assets/images/logo_footer.png";
@@ -191,6 +192,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="4Seasons Real Estate - Premier Dallas-Fort Worth Real Estate Services"
+        description="Expert real estate services in Dallas-Fort Worth metroplex. Buy, sell, and manage properties in Allen, Plano, Frisco, McKinney, and surrounding areas with trusted local experts."
+        keywords="Dallas real estate, Fort Worth real estate, DFW homes, Allen TX real estate, Plano homes, Frisco properties, McKinney real estate agent, Richardson homes, Garland real estate, Carrollton properties, real estate agent Dallas, home buying DFW, home selling Texas"
+        canonicalUrl={`${seoConfig.siteUrl}/`}
+        ogTitle="4Seasons Real Estate - Your Trusted DFW Real Estate Partner"
+        ogDescription="Discover exceptional properties in Dallas-Fort Worth with expert guidance from North Texas's most trusted real estate professionals. Buying, selling, and property management services."
+        ogImage={`${seoConfig.siteUrl}/images/4seasons-home-og.jpg`}
+        structuredData={generateStructuredData.localBusiness()}
+      />
       <Navigation />
 
       {/* Hero Section */}

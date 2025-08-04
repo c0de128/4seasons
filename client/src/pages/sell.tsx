@@ -9,6 +9,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { 
   Home,
   TrendingUp,
@@ -56,6 +57,16 @@ export default function Sell() {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Sell Your Home for Maximum Value - Dallas-Fort Worth | 4Seasons Real Estate"
+        description="Get top dollar for your property with expert marketing strategies and proven track record in North Texas. Free home valuation and comprehensive selling services."
+        keywords="sell home Dallas, DFW home selling, home valuation Allen, sell house Plano, Frisco real estate agent, McKinney home values, Richardson property selling, home selling tips Texas, real estate market analysis"
+        canonicalUrl={`${seoConfig.siteUrl}/sell`}
+        ogTitle="Sell Your Property for Maximum Value - 4Seasons Real Estate"
+        ogDescription="Get top dollar for your property with our expert marketing strategies and proven track record in North Texas real estate."
+        ogImage={`${seoConfig.siteUrl}/images/sell-home-dfw.jpg`}
+        structuredData={generateStructuredData.service("Home Selling Services", "Professional home selling services including market analysis, pricing strategy, marketing, and negotiation in Dallas-Fort Worth area.")}
+      />
       <Navigation />
 
       {/* Hero Section */}

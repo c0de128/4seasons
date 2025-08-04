@@ -7,6 +7,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { 
   MapPin,
   Search,
@@ -144,6 +145,16 @@ export default function CityGuides() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Dallas-Fort Worth City Guides - Complete DFW Neighborhood Directory | 4Seasons Real Estate"
+        description="Comprehensive guides to Dallas-Fort Worth communities. Explore neighborhoods, schools, amenities, and real estate in Allen, Plano, Frisco, McKinney, and across the DFW metroplex."
+        keywords="DFW city guides, Dallas neighborhood guide, Fort Worth communities, Allen Texas guide, Plano neighborhood, Frisco real estate, McKinney homes, North Texas communities, DFW schools ratings"
+        canonicalUrl={`${seoConfig.siteUrl}/city-guides`}
+        ogTitle="Discover North Texas Communities - Complete DFW City Guides"
+        ogDescription="Your comprehensive guide to the Dallas-Fort Worth metroplex neighborhoods. Explore diverse communities across 12 counties, from urban sophistication to suburban comfort."
+        ogImage={`${seoConfig.siteUrl}/images/dfw-city-guides.jpg`}
+        structuredData={generateStructuredData.cityGuide("Dallas-Fort Worth Metroplex", "Texas")}
+      />
       <Navigation />
 
       {/* Hero Section */}

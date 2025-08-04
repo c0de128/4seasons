@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar } from "lucide-react";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { useEffect } from 'react';
@@ -55,6 +56,16 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <SEO 
+        title="Contact 4Seasons Real Estate - Dallas-Fort Worth Real Estate Experts"
+        description="Contact our experienced real estate team in Allen, Texas. Serving Dallas-Fort Worth metroplex with expert home buying, selling, and property management services."
+        keywords="contact real estate agent Dallas, Allen TX real estate office, DFW property experts contact, real estate consultation Texas, home buying help Dallas"
+        canonicalUrl={`${seoConfig.siteUrl}/contact`}
+        ogTitle="Contact 4Seasons Real Estate - Your DFW Real Estate Experts"
+        ogDescription="Ready to start your real estate journey? Our experienced team is here to help with buying, selling, or managing your property in North Texas."
+        ogImage={`${seoConfig.siteUrl}/images/contact-4seasons-team.jpg`}
+        structuredData={generateStructuredData.localBusiness()}
+      />
       <Navigation />
       
       {/* Hero Section */}

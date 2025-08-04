@@ -9,6 +9,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { 
   Calculator,
   TrendingUp,
@@ -53,6 +54,16 @@ export default function HomeValuation() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Free Home Valuation - Discover Your Property's Market Value | 4Seasons Real Estate"
+        description="Get an accurate, professional home valuation in Dallas-Fort Worth. Free property analysis from experienced North Texas real estate experts. Know your home's worth today."
+        keywords="free home valuation Dallas, property value estimate DFW, home worth calculator Texas, real estate appraisal Allen, house value assessment Plano, market analysis North Texas"
+        canonicalUrl={`${seoConfig.siteUrl}/home-valuation`}
+        ogTitle="Free Home Valuation - Discover Your Property's True Market Value"
+        ogDescription="Get an accurate, professional home valuation from North Texas real estate experts. Know your property's worth in today's competitive market."
+        ogImage={`${seoConfig.siteUrl}/images/home-valuation-dfw.jpg`}
+        structuredData={generateStructuredData.service("Home Valuation Services", "Professional home valuation and market analysis services for properties in Dallas-Fort Worth metroplex including comprehensive market reports and pricing strategies.")}
+      />
       <Navigation />
 
       {/* Hero Section */}
