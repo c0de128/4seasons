@@ -65,57 +65,58 @@ export function Navigation() {
       {/* Navigation Container with 3 Distinct Sections */}
       <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* DIV-2: Contact Information Section - Positioned at top right */}
-          <div className="absolute top-2 right-0 z-10">
-            <div className="hidden md:flex items-center space-x-6 text-xs justify-end" style={{ color: '#0d0d33' }}>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-3 h-3" />
-                <span>(214) 555-0123</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-3 h-3" />
-                <span>info@4seasonsrealestate.com</span>
+          <div className="flex flex-col">
+            {/* DIV-2: Contact Information Section - Top row */}
+            <div className="flex justify-end pt-2 pb-2">
+              <div className="hidden md:flex items-center space-x-6 text-xs" style={{ color: '#0d0d33' }}>
+                <div className="flex items-center space-x-2">
+                  <Phone className="w-3 h-3" />
+                  <span>(214) 555-0123</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-3 h-3" />
+                  <span>info@4seasonsrealestate.com</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex items-stretch min-h-[96px]">
-            
-            {/* DIV-1: Logo Section */}
-            <div 
-              className="flex items-center justify-end flex-shrink-0" 
-              style={{ 
-                width: '420px',
-                height: '96px'
-              }}
-            >
-              <a href="/" className="flex items-center justify-center h-full p-4" style={{ width: '280px' }}>
-                <img 
-                  src={logoPath} 
-                  alt="4Seasons Real Estate" 
-                  className="w-auto object-contain"
-                  style={{ 
-                    height: '90%',
-                    maxWidth: '90%'
-                  }}
-                />
-              </a>
-            </div>
-
-            {/* DIV-3: Navigation Links Section */}
-            <div className="flex-1 flex items-center justify-end ml-6">
+            {/* Main navigation row */}
+            <div className="flex items-stretch min-h-[96px]">
+              
+              {/* DIV-1: Logo Section */}
               <div 
-                className="flex items-center justify-between px-4 py-3" 
+                className="flex items-center justify-end flex-shrink-0" 
                 style={{ 
-                  height: '46px',
-                  width: '100%'
+                  width: '420px',
+                  height: '96px'
                 }}
               >
-                {/* Navigation Items */}
-                <div className="hidden md:flex items-center space-x-6 ml-auto mr-4">
-                  <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Search Properties</a>
-                  <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Sell Your Home</a>
-                  <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Property Management</a>
+                <a href="/" className="flex items-center justify-center h-full p-4" style={{ width: '280px' }}>
+                  <img 
+                    src={logoPath} 
+                    alt="4Seasons Real Estate" 
+                    className="w-auto object-contain"
+                    style={{ 
+                      height: '90%',
+                      maxWidth: '90%'
+                    }}
+                  />
+                </a>
+              </div>
+
+              {/* DIV-3: Navigation Links Section */}
+              <div className="flex-1 flex items-center justify-end ml-6">
+                <div 
+                  className="flex items-center justify-end w-full py-3" 
+                  style={{ 
+                    height: '46px'
+                  }}
+                >
+                  {/* Navigation Items */}
+                  <div className="hidden md:flex items-center space-x-6 mr-4">
+                    <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Search Properties</a>
+                    <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Sell Your Home</a>
+                    <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Property Management</a>
                   
                   {/* Resources Mega Menu */}
                   <div 
@@ -199,24 +200,25 @@ export function Navigation() {
                       </div>
                     )}
                   </div>
-                </div>
-                
-                {/* Login Button */}
-                <div className="flex items-center">
-                  <a href="/login" className="hidden md:block">
-                    <Button 
-                      className="px-3 py-0 text-sm font-semibold text-white hover:opacity-90 transition-opacity h-7"
-                      style={{ backgroundColor: '#0d0d33' }}
-                    >
-                      Login
-                    </Button>
-                  </a>
+                  </div>
                   
-                  {/* Mobile menu button */}
-                  <div className="md:hidden">
-                    <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                      {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                    </Button>
+                  {/* Login Button */}
+                  <div className="flex items-center">
+                    <a href="/login" className="hidden md:block">
+                      <Button 
+                        className="px-3 py-0 text-sm font-semibold text-white hover:opacity-90 transition-opacity h-7"
+                        style={{ backgroundColor: '#0d0d33' }}
+                      >
+                        Login
+                      </Button>
+                    </a>
+                    
+                    {/* Mobile menu button */}
+                    <div className="md:hidden">
+                      <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                        {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
