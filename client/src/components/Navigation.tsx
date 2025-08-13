@@ -66,7 +66,7 @@ export function Navigation() {
       <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* DIV-2: Contact Information Section - Positioned at top right */}
-          <div className="absolute top-2 z-10" style={{ right: '12px' }}>
+          <div className="absolute top-2 right-0 z-10">
             <div className="hidden md:flex items-center space-x-6 text-xs justify-end" style={{ color: '#0d0d33' }}>
               <div className="flex items-center space-x-2">
                 <Phone className="w-3 h-3" />
@@ -112,7 +112,7 @@ export function Navigation() {
                 }}
               >
                 {/* Navigation Items */}
-                <div className="hidden md:flex items-center space-x-6 ml-auto mr-8">
+                <div className="hidden md:flex items-center space-x-6 ml-auto mr-4">
                   <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Search Properties</a>
                   <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Sell Your Home</a>
                   <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Property Management</a>
@@ -202,7 +202,7 @@ export function Navigation() {
                 </div>
                 
                 {/* Login Button */}
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center">
                   <a href="/login" className="hidden md:block">
                     <Button 
                       className="px-3 py-0 text-sm font-semibold text-white hover:opacity-90 transition-opacity h-7"
