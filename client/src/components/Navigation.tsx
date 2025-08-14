@@ -81,7 +81,7 @@ export function Navigation() {
           </div>
 
           {/* Logo - Positioned to align with hero H1 text exactly */}
-          <div className="absolute top-0" style={{ zIndex: 10, left: 'calc(50vw - 576px)' }}>
+          <div className="absolute top-0" style={{ zIndex: 10, left: 'calc(50vw - 768px)' }}>
             <a href="/" className="flex items-center">
               <img 
                 src={logoPath} 
