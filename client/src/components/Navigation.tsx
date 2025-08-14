@@ -83,8 +83,8 @@ export function Navigation() {
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
           <div className="flex items-center justify-between pb-2 h-12">
             
-            {/* Left: Logo - Positioned to align with hero content */}
-            <div className="absolute left-4 sm:left-6 lg:left-8 -top-6" style={{ zIndex: 10 }}>
+            {/* Left: Logo - Positioned to align with hero H1 */}
+            <div className="absolute -top-6" style={{ zIndex: 10, left: 'max(1rem, calc((100vw - 1280px) / 2 + 1rem))' }}>
               <a href="/" className="flex items-center">
                 <img 
                   src={logoPath} 
