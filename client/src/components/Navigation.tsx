@@ -67,7 +67,7 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
           {/* TOP ROW - Contact Information Only */}
-          <div className="flex justify-between py-1">
+          <div className="flex justify-between">
             {/* Left spacer to match logo positioning */}
             <div className="flex-shrink-0" style={{ width: '280px' }}></div>
             
@@ -101,7 +101,7 @@ export function Navigation() {
           </div>
 
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
-          <div className="flex items-start justify-between pb-1">
+          <div className="flex items-start justify-between">
             
             {/* Invisible spacer to maintain layout */}
             <div className="flex-shrink-0" style={{ width: '280px' }}></div>
