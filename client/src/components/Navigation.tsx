@@ -84,7 +84,7 @@ export function Navigation() {
           <div className="absolute top-0" style={{ zIndex: 10 }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl">
-                <a href="/" className="flex items-center">
+                <a href="/" className="flex items-center" style={{ marginLeft: '8px' }}>
                   <img 
                     src={logoPath} 
                     alt="4Seasons Real Estate" 
