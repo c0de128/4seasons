@@ -81,24 +81,24 @@ export function Navigation() {
             </div>
 
             {/* Main navigation row */}
-            <div className="flex items-stretch" style={{ minHeight: '50px' }}>
+            <div className="flex items-stretch" style={{ minHeight: '70px' }}>
               
               {/* DIV-1: Logo Section */}
               <div 
                 className="flex items-center justify-end flex-shrink-0" 
                 style={{ 
                   width: '420px',
-                  height: '50px'
+                  height: '70px'
                 }}
               >
-                <a href="/" className="flex items-center justify-center h-full p-4" style={{ width: '280px' }}>
+                <a href="/" className="flex items-center justify-center h-full p-3" style={{ width: '280px' }}>
                   <img 
                     src={logoPath} 
                     alt="4Seasons Real Estate" 
                     className="w-auto object-contain"
                     style={{ 
-                      height: '90%',
-                      maxWidth: '90%'
+                      height: '85%',
+                      maxWidth: '85%'
                     }}
                   />
                 </a>
@@ -109,7 +109,7 @@ export function Navigation() {
                 <div 
                   className="flex items-center justify-end w-full" 
                   style={{ 
-                    height: '30px'
+                    height: '40px'
                   }}
                 >
                   {/* Navigation Items */}
