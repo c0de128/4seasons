@@ -101,7 +101,7 @@ export function Navigation() {
           </div>
 
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
-          <div className="flex items-center justify-between pb-1 h-12">
+          <div className="flex items-start justify-between pb-1">
             
             {/* Invisible spacer to maintain layout */}
             <div className="flex-shrink-0" style={{ width: '280px' }}></div>
