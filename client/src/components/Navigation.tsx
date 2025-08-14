@@ -80,20 +80,20 @@ export function Navigation() {
             </div>
           </div>
 
+          {/* Logo - Positioned absolutely to align with hero H1 */}
+          <div className="absolute -top-6" style={{ zIndex: 10, left: '0' }}>
+            <a href="/" className="flex items-center">
+              <img 
+                src={logoPath} 
+                alt="4Seasons Real Estate" 
+                className="w-auto object-contain"
+                style={{ height: '80px' }}
+              />
+            </a>
+          </div>
+
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
           <div className="flex items-center justify-between pb-2 h-12">
-            
-            {/* Left: Logo - Positioned to align with hero H1 */}
-            <div className="absolute -top-6" style={{ zIndex: 10, left: 'max(1rem, calc((100vw - 1280px) / 2 + 1rem))' }}>
-              <a href="/" className="flex items-center">
-                <img 
-                  src={logoPath} 
-                  alt="4Seasons Real Estate" 
-                  className="w-auto object-contain"
-                  style={{ height: '80px' }}
-                />
-              </a>
-            </div>
             
             {/* Invisible spacer to maintain layout */}
             <div className="flex-shrink-0" style={{ width: '280px' }}></div>
