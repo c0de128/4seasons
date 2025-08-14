@@ -81,18 +81,20 @@ export function Navigation() {
           </div>
 
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
-          <div className="flex items-center justify-between pb-2 relative">
+          <div className="flex items-center justify-between pb-2 h-12">
             
-            {/* Left: Logo - Takes full height */}
+            {/* Left: Logo - Absolute positioned to extend full height */}
             <div className="flex-shrink-0 relative">
-              <a href="/" className="flex items-center">
+              <a href="/" className="absolute -top-6 flex items-center" style={{ zIndex: 10 }}>
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
-                  className="h-20 w-auto object-contain"
+                  className="w-auto object-contain"
                   style={{ height: '80px' }}
                 />
               </a>
+              {/* Invisible spacer to maintain layout width */}
+              <div style={{ width: '280px', height: '48px' }}></div>
             </div>
 
             {/* Right Side: Navigation Links + Login Button */}
