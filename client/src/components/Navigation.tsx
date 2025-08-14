@@ -64,7 +64,7 @@ export function Navigation() {
     <div className="absolute top-0 left-0 right-0 z-50">
       {/* Two Row Navigation Layout */}
       <nav className="backdrop-blur-md shadow-sm border-b border-slate-200/30" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
           {/* TOP ROW - Contact Information Only */}
           <div className="flex justify-end py-2">
@@ -80,8 +80,8 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Logo - Positioned absolutely to align with hero H1 */}
-          <div className="absolute -top-6" style={{ zIndex: 10, left: '0' }}>
+          {/* Logo - Positioned absolutely within container to align with hero H1 */}
+          <div className="absolute top-2" style={{ zIndex: 10, left: '16px' }}>
             <a href="/" className="flex items-center">
               <img 
                 src={logoPath} 
