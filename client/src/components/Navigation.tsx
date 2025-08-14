@@ -81,17 +81,19 @@ export function Navigation() {
           </div>
 
           {/* Logo - Positioned to align with hero H1 text exactly */}
-          <div className="absolute top-0" style={{ zIndex: 10 }}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-4xl">
-                <a href="/" className="flex items-center" style={{ marginLeft: '8px' }}>
-                  <img 
-                    src={logoPath} 
-                    alt="4Seasons Real Estate" 
-                    className="w-auto object-contain"
-                    style={{ height: '80px' }}
-                  />
-                </a>
+          <div className="absolute top-0 left-0 right-0" style={{ zIndex: 10 }}>
+            <div className="flex items-center justify-center min-h-[80px]">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="max-w-4xl">
+                  <a href="/" className="flex items-center">
+                    <img 
+                      src={logoPath} 
+                      alt="4Seasons Real Estate" 
+                      className="w-auto object-contain"
+                      style={{ height: '80px' }}
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
