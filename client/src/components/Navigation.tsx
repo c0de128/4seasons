@@ -67,16 +67,24 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
           {/* TOP ROW - Contact Information Only */}
-          <div className="flex justify-end py-2">
-            <div className="hidden lg:flex items-center space-x-4 text-xs" style={{ color: '#0d0d33' }}>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-3 h-3" />
-                <span>(214) 555-0123</span>
+          <div className="flex justify-between py-2">
+            {/* Left spacer to match logo positioning */}
+            <div className="flex-shrink-0" style={{ width: '280px' }}></div>
+            
+            {/* Right side contact info - positioned to align with resources dropdown */}
+            <div className="flex items-center space-x-8">
+              <div className="hidden lg:flex items-center space-x-4 text-xs" style={{ color: '#0d0d33' }}>
+                <div className="flex items-center space-x-2">
+                  <Phone className="w-3 h-3" />
+                  <span>(214) 555-0123</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-3 h-3" />
+                  <span>info@4seasonsrealestate.com</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-3 h-3" />
-                <span>info@4seasonsrealestate.com</span>
-              </div>
+              {/* Spacer to align email end with resources dropdown right edge */}
+              <div className="w-16"></div>
             </div>
           </div>
 
