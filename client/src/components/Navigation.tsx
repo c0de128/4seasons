@@ -83,9 +83,9 @@ export function Navigation() {
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
           <div className="flex items-center justify-between pb-2 h-12">
             
-            {/* Left: Logo - Absolute positioned to extend full height */}
+            {/* Left: Logo - Absolute positioned to align with hero H1 */}
             <div className="flex-shrink-0 relative">
-              <a href="/" className="absolute -top-6 flex items-center" style={{ zIndex: 10 }}>
+              <a href="/" className="absolute -top-6 flex items-center" style={{ zIndex: 10, left: '-16px' }}>
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
