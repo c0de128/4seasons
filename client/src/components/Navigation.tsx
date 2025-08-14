@@ -81,15 +81,16 @@ export function Navigation() {
           </div>
 
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
-          <div className="flex items-center justify-between pb-2">
+          <div className="flex items-center justify-between pb-2 relative">
             
-            {/* Left: Logo */}
-            <div className="flex-shrink-0">
+            {/* Left: Logo - Takes full height */}
+            <div className="flex-shrink-0 relative">
               <a href="/" className="flex items-center">
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
-                  className="h-12 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
+                  style={{ height: '80px' }}
                 />
               </a>
             </div>
