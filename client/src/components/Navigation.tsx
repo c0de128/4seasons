@@ -83,9 +83,9 @@ export function Navigation() {
           {/* BOTTOM ROW - Logo, Navigation Links, Login Button */}
           <div className="flex items-center justify-between pb-2 h-12">
             
-            {/* Left: Logo - Absolute positioned to align with hero H1 */}
-            <div className="flex-shrink-0 relative">
-              <a href="/" className="absolute -top-6 flex items-center" style={{ zIndex: 10, left: '-16px' }}>
+            {/* Left: Logo - Positioned to align with hero content */}
+            <div className="absolute left-4 sm:left-6 lg:left-8 -top-6" style={{ zIndex: 10 }}>
+              <a href="/" className="flex items-center">
                 <img 
                   src={logoPath} 
                   alt="4Seasons Real Estate" 
@@ -93,9 +93,10 @@ export function Navigation() {
                   style={{ height: '80px' }}
                 />
               </a>
-              {/* Invisible spacer to maintain layout width */}
-              <div style={{ width: '280px', height: '48px' }}></div>
             </div>
+            
+            {/* Invisible spacer to maintain layout */}
+            <div className="flex-shrink-0" style={{ width: '280px' }}></div>
 
             {/* Right Side: Navigation Links + Login Button */}
             <div className="flex items-center space-x-8">
