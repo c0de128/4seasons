@@ -67,7 +67,7 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="flex flex-col">
             {/* DIV-2: Contact Information Section - Top row */}
-            <div className="flex justify-end pt-2 pb-2">
+            <div className="flex justify-end pt-2 pb-1">
               <div className="hidden md:flex items-center space-x-6 text-xs" style={{ color: '#0d0d33' }}>
                 <div className="flex items-center space-x-2">
                   <Phone className="w-3 h-3" />
@@ -81,14 +81,14 @@ export function Navigation() {
             </div>
 
             {/* Main navigation row */}
-            <div className="flex items-stretch min-h-[96px]">
+            <div className="flex items-stretch min-h-[80px]">
               
               {/* DIV-1: Logo Section */}
               <div 
                 className="flex items-center justify-end flex-shrink-0" 
                 style={{ 
                   width: '420px',
-                  height: '96px'
+                  height: '80px'
                 }}
               >
                 <a href="/" className="flex items-center justify-center h-full p-4" style={{ width: '280px' }}>
@@ -107,9 +107,9 @@ export function Navigation() {
               {/* DIV-3: Navigation Links Section */}
               <div className="flex-1 flex items-center justify-end ml-6">
                 <div 
-                  className="flex items-center justify-end w-full py-3" 
+                  className="flex items-center justify-end w-full py-1" 
                   style={{ 
-                    height: '46px'
+                    height: '36px'
                   }}
                 >
                   {/* Navigation Items */}
