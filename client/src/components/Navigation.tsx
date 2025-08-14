@@ -95,7 +95,7 @@ export function Navigation() {
                 src={logoPath} 
                 alt="4Seasons Real Estate" 
                 className="w-auto object-contain"
-                style={{ height: '80px' }}
+                style={{ height: '64px' }}
               />
             </a>
           </div>
