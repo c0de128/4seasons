@@ -68,7 +68,7 @@ export default function Buy() {
 
           <div className="space-y-12">
             {/* Local Market Expertise */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
                 <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
@@ -93,7 +93,7 @@ export default function Buy() {
             </div>
 
             {/* Personalized Service - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
@@ -118,7 +118,7 @@ export default function Buy() {
             </div>
 
             {/* Negotiation Excellence */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
                 <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
@@ -143,7 +143,7 @@ export default function Buy() {
             </div>
 
             {/* Trusted Network - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
@@ -168,7 +168,7 @@ export default function Buy() {
             </div>
 
             {/* First-Time Buyer Support */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
                 <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
@@ -193,7 +193,7 @@ export default function Buy() {
             </div>
 
             {/* Relocation Assistance - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
