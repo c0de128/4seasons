@@ -291,7 +291,7 @@ export default function Home() {
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
                   style={{ backgroundColor: '#1f2937' }}
                 >
-                  <a href="#buy" className="text-white no-underline">Learn More</a>
+                  <a href="/buy" className="text-white no-underline">Learn More</a>
                 </Button>
               </CardContent>
             </Card>
@@ -307,7 +307,7 @@ export default function Home() {
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
                   style={{ backgroundColor: '#1f2937' }}
                 >
-                  <a href="#sell" className="text-white no-underline">Learn More</a>
+                  <a href="/sell" className="text-white no-underline">Learn More</a>
                 </Button>
               </CardContent>
             </Card>
@@ -323,7 +323,7 @@ export default function Home() {
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
                   style={{ backgroundColor: '#1f2937' }}
                 >
-                  <a href="#property-management" className="text-white no-underline">Learn More</a>
+                  <a href="/property-management" className="text-white no-underline">Learn More</a>
                 </Button>
               </CardContent>
             </Card>
@@ -339,7 +339,7 @@ export default function Home() {
                   className="px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity" 
                   style={{ backgroundColor: '#1f2937' }}
                 >
-                  <a href="#home-valuation" className="text-white no-underline">Learn More</a>
+                  <a href="/home-valuation" className="text-white no-underline">Learn More</a>
                 </Button>
               </CardContent>
             </Card>
