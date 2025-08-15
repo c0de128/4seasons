@@ -203,7 +203,7 @@ export function Navigation() {
               <div className="flex items-center">
                 <a href="/login" className="hidden md:block">
                   <Button 
-                    className="px-4 h-[1.65rem] text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    className="px-4 h-[1.75rem] text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                     style={{ backgroundColor: '#0d0d33' }}
                   >
                     Login
