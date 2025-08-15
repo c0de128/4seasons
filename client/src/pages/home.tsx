@@ -360,10 +360,10 @@ export default function Home() {
           </div>
           
           {/* Amy Harwood Profile */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Team Member Photo */}
-              <div className="bg-slate-200 aspect-square lg:aspect-auto">
+              <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
                 <img 
                   src={amyPhoto} 
                   alt="Amy Harwood - Agency Owner & Real Estate Specialist"
@@ -372,7 +372,7 @@ export default function Home() {
               </div>
               
               {/* Team Member Details */}
-              <div className="p-8 lg:p-12">
+              <div className="p-4 lg:p-6">
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Amy Harwood</h3>
                 <p className="text-primary text-lg font-medium mb-4">Agency Owner & Real Estate Specialist</p>
                 
@@ -438,10 +438,10 @@ export default function Home() {
           </div>
 
           {/* Tim Harwood Profile - Reversed Layout */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden mt-12">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mt-8 max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Team Member Details - Left Side */}
-              <div className="p-8 lg:p-12 order-2 lg:order-1">
+              <div className="p-4 lg:p-6 order-2 lg:order-1">
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Harwood</h3>
                 <p className="text-primary text-lg font-medium mb-4">Finance and Property Management Professional</p>
                 
@@ -505,7 +505,7 @@ export default function Home() {
               </div>
 
               {/* Team Member Photo - Right Side */}
-              <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+              <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                 <img 
                   src={timPhoto} 
                   alt="Tim Harwood - Finance and Property Management Professional"
