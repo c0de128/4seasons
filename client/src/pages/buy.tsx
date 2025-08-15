@@ -68,10 +68,10 @@ export default function Buy() {
 
           <div className="space-y-12">
             {/* Local Market Expertise */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
                   <img 
                     src={northTexasImage} 
                     alt="North Texas Market Expertise"
@@ -80,7 +80,7 @@ export default function Buy() {
                 </div>
                 
                 {/* Content - Right Side */}
-                <div className="p-8 lg:p-12 bg-slate-100">
+                <div className="p-4 lg:p-6 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Local Market Expertise</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -93,10 +93,10 @@ export default function Buy() {
             </div>
 
             {/* Personalized Service - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Personalized Service</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -107,7 +107,7 @@ export default function Buy() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                   <img 
                     src={personalizedServiceImage} 
                     alt="Personalized Service"
@@ -118,10 +118,10 @@ export default function Buy() {
             </div>
 
             {/* Negotiation Excellence */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
                   <img 
                     src={negotiationExcellenceImage} 
                     alt="Negotiation Excellence"
@@ -130,7 +130,7 @@ export default function Buy() {
                 </div>
                 
                 {/* Content - Right Side */}
-                <div className="p-8 lg:p-12 bg-slate-100">
+                <div className="p-4 lg:p-6 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Negotiation Excellence</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -143,10 +143,10 @@ export default function Buy() {
             </div>
 
             {/* Trusted Network - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Trusted Network of Professionals</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -157,7 +157,7 @@ export default function Buy() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                   <img 
                     src={professionalsImage} 
                     alt="Trusted Network of Professionals"
@@ -168,10 +168,10 @@ export default function Buy() {
             </div>
 
             {/* First-Time Buyer Support */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image - Left Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
                   <img 
                     src={firstHouseImage} 
                     alt="First-Time Buyer Support"
@@ -180,7 +180,7 @@ export default function Buy() {
                 </div>
                 
                 {/* Content - Right Side */}
-                <div className="p-8 lg:p-12 bg-slate-100">
+                <div className="p-4 lg:p-6 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">First-Time Buyer Support</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -193,10 +193,10 @@ export default function Buy() {
             </div>
 
             {/* Relocation Assistance - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Relocation Assistance</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -207,7 +207,7 @@ export default function Buy() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                   <img 
                     src={relocationAssistanceImage} 
                     alt="Relocation Assistance"
