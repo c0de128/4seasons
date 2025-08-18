@@ -245,9 +245,11 @@ export default function Home() {
                   Explore Properties
                 </Button>
               </Link>
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-transparent">
-                Contact Us
-              </Button>
+              <Link href="/contact">
+                <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-transparent">
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
           
