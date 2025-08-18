@@ -111,7 +111,7 @@ export function Navigation() {
               
               {/* Navigation Links */}
               <div className="hidden md:flex items-center space-x-6">
-                <a href="/buy" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Search Properties</a>
+                <a href="/buy#search-properties" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Search Properties</a>
                 <a href="/sell" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Sell Your Home</a>
                 <a href="/property-management" className="font-bold text-slate-600 hover:text-slate-800 transition-colors duration-200 text-sm">Property Management</a>
                 

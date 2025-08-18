@@ -53,7 +53,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="/buy" className="text-slate-300 hover:text-white transition-colors">Search Properties</a></li>
+              <li><a href="/buy#search-properties" className="text-slate-300 hover:text-white transition-colors">Search Properties</a></li>
               <li><a href="/property-management" className="text-slate-300 hover:text-white transition-colors">Property Management</a></li>
               <li><a href="#contact" className="text-slate-300 hover:text-white transition-colors">Contact Us</a></li>
               <li><a href="/home-valuation" className="text-slate-300 hover:text-white transition-colors">Home Valuation</a></li>
