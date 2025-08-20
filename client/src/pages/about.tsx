@@ -3,7 +3,6 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { Award, Users, Home, Star, MapPin, Clock, CheckCircle } from "lucide-react";
-import logoPath from "@assets/images/logo.png";
 
 export default function About() {
   const [animatedStats, setAnimatedStats] = useState({
@@ -169,9 +168,7 @@ export default function About() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6">
               Our Story
             </h2>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="prose prose-lg text-slate-700 space-y-6">
+            <div className="prose prose-lg text-slate-700 space-y-6 max-w-4xl mx-auto">
               <p>
                 Founded in 2009, 4Seasons Real Estate was born from a simple belief: that every client 
                 deserves personalized, professional service throughout their real estate journey. What 
@@ -191,13 +188,6 @@ export default function About() {
                 These values have guided us through changing markets and evolving client needs, always 
                 keeping our focus on what matters most - helping people achieve their real estate goals.
               </p>
-            </div>
-            <div className="flex justify-center lg:justify-end">
-              <img 
-                src={logoPath} 
-                alt="4Seasons Real Estate Logo" 
-                className="max-w-md w-full h-auto"
-              />
             </div>
           </div>
         </div>
