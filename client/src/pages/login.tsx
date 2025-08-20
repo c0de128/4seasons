@@ -111,7 +111,11 @@ export default function Login() {
                       </SelectTrigger>
                       <SelectContent>
                         {loginTypes.map((type) => (
-                          <SelectItem key={type.id} value={type.id}>
+                          <SelectItem 
+                            key={type.id} 
+                            value={type.id}
+                            className="focus:bg-[#0d0d33] focus:text-white hover:bg-[#0d0d33] hover:text-white data-[highlighted]:bg-[#0d0d33] data-[highlighted]:text-white"
+                          >
                             <div className="flex items-center space-x-2">
                               <type.icon className="w-4 h-4" />
                               <span>{type.title}</span>
