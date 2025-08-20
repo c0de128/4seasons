@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -82,12 +83,16 @@ export default function Sell() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
-                Get Free Home Valuation
-              </Button>
-              <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
-                Schedule Consultation
-              </Button>
+              <Link href="/home-valuation">
+                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                  Get Free Home Valuation
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
+                  Schedule Consultation
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
