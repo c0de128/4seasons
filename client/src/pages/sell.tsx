@@ -113,10 +113,10 @@ export default function Sell() {
           <div className="space-y-12">
 
             {/* North Texas Market Expertise - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">North Texas Market Expertise</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -127,7 +127,7 @@ export default function Sell() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                   <img 
                     src={mapImage} 
                     alt="North Texas Market Map"
@@ -138,10 +138,10 @@ export default function Sell() {
             </div>
 
             {/* Dedicated Support */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
                   <img 
                     src={dedicatedSupportImage} 
                     alt="Dedicated Support Team"
@@ -150,7 +150,7 @@ export default function Sell() {
                 </div>
                 
                 {/* Content */}
-                <div className="p-8 lg:p-12 bg-slate-100">
+                <div className="p-4 lg:p-6 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Dedicated Support</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -163,10 +163,10 @@ export default function Sell() {
             </div>
 
             {/* Strategic Pricing - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Strategic Pricing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -177,7 +177,7 @@ export default function Sell() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                   <img 
                     src={marketPricingImage} 
                     alt="Strategic Market Pricing"
@@ -188,10 +188,10 @@ export default function Sell() {
             </div>
 
             {/* High-Impact Marketing */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
                   <img 
                     src={marketingImage} 
                     alt="High-Impact Marketing Campaigns"
@@ -200,7 +200,7 @@ export default function Sell() {
                 </div>
                 
                 {/* Content */}
-                <div className="p-8 lg:p-12 bg-slate-100">
+                <div className="p-4 lg:p-6 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">High-Impact Marketing</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -213,10 +213,10 @@ export default function Sell() {
             </div>
 
             {/* Expert Negotiation - Reversed Layout */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
-                <div className="p-8 lg:p-12 order-2 lg:order-1 bg-slate-100">
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6">Expert Negotiation</h3>
                   
                   <div className="text-slate-600 leading-relaxed mb-6">
@@ -227,7 +227,7 @@ export default function Sell() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-square lg:aspect-auto order-1 lg:order-2">
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
                   <img 
                     src={negotiationImage} 
                     alt="Expert Negotiation Services"
