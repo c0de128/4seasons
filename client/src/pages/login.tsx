@@ -73,9 +73,6 @@ export default function Login() {
             <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Sign In to Your Account
             </h1>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Enter your credentials and select your login type to access your dashboard.
-            </p>
           </div>
         </div>
       </section>
