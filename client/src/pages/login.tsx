@@ -8,6 +8,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { Shield, Building, Home } from "lucide-react";
+import logoPath from "@/assets/images/logo.png";
 
 export default function Login() {
   const [selectedLoginType, setSelectedLoginType] = useState<string>("");
@@ -83,21 +84,30 @@ export default function Login() {
           <div className="max-w-md mx-auto">
             <Card className="shadow-xl border border-slate-200">
               <CardHeader className="text-center pb-6">
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src={logoPath} 
+                    alt="4Seasons Real Estate Logo" 
+                    className="h-16 w-auto object-contain"
+                  />
+                </div>
                 {selectedLoginType && getSelectedLoginInfo() && (
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: getSelectedLoginInfo()?.iconColor }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: getSelectedLoginInfo()?.iconColor }}>
                       {(() => {
                         const IconComponent = getSelectedLoginInfo()!.icon;
-                        return <IconComponent className="w-8 h-8 text-white" />;
+                        return <IconComponent className="w-6 h-6 text-white" />;
                       })()}
                     </div>
                   </div>
                 )}
-                <CardTitle className="text-2xl font-bold text-slate-900">
-                  {selectedLoginType ? getSelectedLoginInfo()?.title : "Login"}
-                </CardTitle>
                 {selectedLoginType && (
-                  <p className="text-slate-600 mt-2">{getSelectedLoginInfo()?.description}</p>
+                  <>
+                    <CardTitle className="text-xl font-bold text-slate-900 mb-2">
+                      {getSelectedLoginInfo()?.title}
+                    </CardTitle>
+                    <p className="text-slate-600 text-sm">{getSelectedLoginInfo()?.description}</p>
+                  </>
                 )}
               </CardHeader>
               <CardContent className="p-8">
