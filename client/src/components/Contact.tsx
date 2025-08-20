@@ -88,7 +88,9 @@ export function Contact() {
                     <Instagram className="w-4 h-4" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/amy-harwood-28209b179/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="LinkedIn"
