@@ -111,7 +111,7 @@ export default function Login() {
                     </Label>
                     <Select value={selectedLoginType} onValueChange={setSelectedLoginType}>
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select your login type" />
+                        <SelectValue placeholder="Choose Login Type" />
                       </SelectTrigger>
                       <SelectContent>
                         {loginTypes.map((type) => (
