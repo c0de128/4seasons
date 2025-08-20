@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { Award, Users, Home, Star, MapPin, Clock, CheckCircle } from "lucide-react";
+import logoPath from "@/assets/images/logo.png";
 
 export default function About() {
   const [animatedStats, setAnimatedStats] = useState({
@@ -164,30 +165,39 @@ export default function About() {
       {/* Our Story Section */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">
-              Our Story
-            </h2>
-            <div className="prose prose-lg text-slate-700 space-y-6 max-w-4xl mx-auto">
-              <p>
-                Founded in 2009, 4Seasons Real Estate was born from a simple belief: that every client 
-                deserves personalized, professional service throughout their real estate journey. What 
-                started as a small team with big dreams has grown into one of North Texas's most trusted 
-                real estate brokerages.
-              </p>
-              <p>
-                Our name reflects our commitment to being there for clients through every season of their 
-                lives - whether they're first-time homebuyers in the spring of their careers, growing 
-                families needing more space, or empty nesters looking to downsize. We understand that 
-                real estate decisions are deeply personal and often represent life's most significant 
-                financial transactions.
-              </p>
-              <p>
-                Over the years, we've built our reputation on three core principles: unmatched local 
-                expertise, innovative marketing strategies, and unwavering commitment to client success. 
-                These values have guided us through changing markets and evolving client needs, always 
-                keeping our focus on what matters most - helping people achieve their real estate goals.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Our Story
+              </h2>
+              <div className="prose prose-lg text-slate-700 space-y-6">
+                <p>
+                  Founded in 2009, 4Seasons Real Estate was born from a simple belief: that every client 
+                  deserves personalized, professional service throughout their real estate journey. What 
+                  started as a small team with big dreams has grown into one of North Texas's most trusted 
+                  real estate brokerages.
+                </p>
+                <p>
+                  Our name reflects our commitment to being there for clients through every season of their 
+                  lives - whether they're first-time homebuyers in the spring of their careers, growing 
+                  families needing more space, or empty nesters looking to downsize. We understand that 
+                  real estate decisions are deeply personal and often represent life's most significant 
+                  financial transactions.
+                </p>
+                <p>
+                  Over the years, we've built our reputation on three core principles: unmatched local 
+                  expertise, innovative marketing strategies, and unwavering commitment to client success. 
+                  These values have guided us through changing markets and evolving client needs, always 
+                  keeping our focus on what matters most - helping people achieve their real estate goals.
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-center items-center">
+              <img 
+                src={logoPath} 
+                alt="4Seasons Real Estate Logo" 
+                className="w-full max-w-sm h-auto object-contain"
+              />
             </div>
           </div>
         </div>
