@@ -1,15 +1,81 @@
+import { useState, useEffect, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { Award, Users, Home, Star, MapPin, Clock } from "lucide-react";
 
 export default function About() {
+  const [animatedStats, setAnimatedStats] = useState({
+    homesSold: 0,
+    yearsExperience: 0,
+    clientSatisfaction: 0,
+    communitiesServed: 0
+  });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const statsRef = useRef<HTMLElement>(null);
+
   const stats = [
-    { number: "500+", label: "Homes Sold", icon: Home },
-    { number: "15+", label: "Years Experience", icon: Clock },
-    { number: "98%", label: "Client Satisfaction", icon: Star },
-    { number: "50+", label: "Communities Served", icon: MapPin }
+    { number: "500+", label: "Homes Sold", icon: Home, animatedKey: "homesSold", targetValue: 500 },
+    { number: "15+", label: "Years Experience", icon: Clock, animatedKey: "yearsExperience", targetValue: 15 },
+    { number: "98%", label: "Client Satisfaction", icon: Star, animatedKey: "clientSatisfaction", targetValue: 98 },
+    { number: "50+", label: "Communities Served", icon: MapPin, animatedKey: "communitiesServed", targetValue: 50 }
   ];
+
+  // Animate stats when section comes into view
+  useEffect(() => {
+    const animateValue = (start: number, end: number, duration: number, key: string) => {
+      const startTime = Date.now();
+      const animate = () => {
+        const now = Date.now();
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + (end - start) * easeOutQuart);
+        
+        setAnimatedStats(prev => ({ ...prev, [key]: current }));
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      requestAnimationFrame(animate);
+    };
+
+    const startAnimations = () => {
+      if (!hasAnimated) {
+        setHasAnimated(true);
+        // Start animations with staggered delays
+        setTimeout(() => animateValue(0, 500, 2000, 'homesSold'), 200);
+        setTimeout(() => animateValue(0, 15, 2000, 'yearsExperience'), 400);
+        setTimeout(() => animateValue(0, 98, 2000, 'clientSatisfaction'), 600);
+        setTimeout(() => animateValue(0, 50, 2000, 'communitiesServed'), 800);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px 0px -100px 0px' // Start animation slightly before element is fully visible
+      }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   const teamMembers = [
     {
@@ -71,17 +137,22 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section ref={statsRef} className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
+              const animatedValue = animatedStats[stat.animatedKey as keyof typeof animatedStats];
+              const displayValue = stat.animatedKey === 'clientSatisfaction' 
+                ? `${animatedValue}%` 
+                : `${animatedValue}+`;
+              
               return (
                 <div key={index} className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#0d0d33' }}>
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-slate-900 mb-2">{stat.number}</div>
+                  <div className="text-3xl font-bold text-slate-900 mb-2">{displayValue}</div>
                   <div className="text-slate-600">{stat.label}</div>
                 </div>
               );
