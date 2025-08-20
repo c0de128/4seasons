@@ -38,6 +38,12 @@ export default function Login() {
     }
   ];
 
+  const handleContinue = () => {
+    if (selectedLoginType === 'tenant' || selectedLoginType === 'property') {
+      window.open('https://signin.managebuilding.com/Resident/portal/global-login', '_blank');
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -46,10 +52,8 @@ export default function Login() {
       return;
     }
 
-    // Route based on selected login type
-    if (selectedLoginType === 'tenant' || selectedLoginType === 'property') {
-      window.open('https://signin.managebuilding.com/manager/public/authentication/login', '_blank');
-    } else if (selectedLoginType === 'admin') {
+    // Route to admin login
+    if (selectedLoginType === 'admin') {
       window.location.href = '/admin-login';
     }
   };
@@ -100,7 +104,7 @@ export default function Login() {
                 )}
               </CardHeader>
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-6">
                   <div>
                     <Label htmlFor="loginType" className="text-sm font-medium text-slate-700 mb-2 block">
                       Login Type
@@ -126,45 +130,60 @@ export default function Login() {
                     </Select>
                   </div>
                   
-                  <div>
-                    <Label htmlFor="email" className="text-sm font-medium text-slate-700 mb-2 block">
-                      Email Address
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full"
-                      required
-                    />
-                  </div>
+                  {/* Show Continue button for tenant/property management */}
+                  {(selectedLoginType === 'tenant' || selectedLoginType === 'property') && (
+                    <Button 
+                      onClick={handleContinue}
+                      className="w-full py-3 text-lg font-semibold text-white hover:opacity-90"
+                      style={{ backgroundColor: '#0d0d33' }}
+                    >
+                      Continue
+                    </Button>
+                  )}
                   
-                  <div>
-                    <Label htmlFor="password" className="text-sm font-medium text-slate-700 mb-2 block">
-                      Password
-                    </Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      placeholder="Enter your password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit"
-                    className="w-full py-3 text-lg font-semibold text-white hover:opacity-90"
-                    style={{ backgroundColor: '#0d0d33' }}
-                    disabled={!selectedLoginType}
-                  >
-                    Sign In
-                  </Button>
-                </form>
+                  {/* Show admin login form */}
+                  {selectedLoginType === 'admin' && (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div>
+                        <Label htmlFor="email" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Email Address
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="Enter your email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      
+                      <div>
+                        <Label htmlFor="password" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Password
+                        </Label>
+                        <Input
+                          id="password"
+                          type="password"
+                          placeholder="Enter your password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      
+                      <Button 
+                        type="submit"
+                        className="w-full py-3 text-lg font-semibold text-white hover:opacity-90"
+                        style={{ backgroundColor: '#0d0d33' }}
+                      >
+                        Sign In
+                      </Button>
+                    </form>
+                  )}
+                </div>
               </CardContent>
             </Card>
           </div>
