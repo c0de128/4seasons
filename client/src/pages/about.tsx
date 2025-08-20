@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
-import { Award, Users, Home, Star, MapPin, Clock } from "lucide-react";
+import { Award, Users, Home, Star, MapPin, Clock, CheckCircle } from "lucide-react";
 
 export default function About() {
   const [animatedStats, setAnimatedStats] = useState({
@@ -164,97 +164,85 @@ export default function About() {
       {/* Our Story Section */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Our Story
-              </h2>
-              <div className="prose prose-lg text-slate-700 space-y-4">
-                <p>
-                  Founded in 2009, 4Seasons Real Estate was born from a simple belief: that every client 
-                  deserves personalized, professional service throughout their real estate journey. What 
-                  started as a small team with big dreams has grown into one of North Texas's most trusted 
-                  real estate brokerages.
-                </p>
-                <p>
-                  Our name reflects our commitment to being there for clients through every season of their 
-                  lives - whether they're first-time homebuyers in the spring of their careers, growing 
-                  families needing more space, or empty nesters looking to downsize. We understand that 
-                  real estate decisions are deeply personal and often represent life's most significant 
-                  financial transactions.
-                </p>
-                <p>
-                  Over the years, we've built our reputation on three core principles: unmatched local 
-                  expertise, innovative marketing strategies, and unwavering commitment to client success. 
-                  These values have guided us through changing markets and evolving client needs, always 
-                  keeping our focus on what matters most - helping people achieve their real estate goals.
-                </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">
+              Our Story
+            </h2>
+            <div className="prose prose-lg text-slate-700 space-y-6 max-w-4xl mx-auto">
+              <p>
+                Founded in 2009, 4Seasons Real Estate was born from a simple belief: that every client 
+                deserves personalized, professional service throughout their real estate journey. What 
+                started as a small team with big dreams has grown into one of North Texas's most trusted 
+                real estate brokerages.
+              </p>
+              <p>
+                Our name reflects our commitment to being there for clients through every season of their 
+                lives - whether they're first-time homebuyers in the spring of their careers, growing 
+                families needing more space, or empty nesters looking to downsize. We understand that 
+                real estate decisions are deeply personal and often represent life's most significant 
+                financial transactions.
+              </p>
+              <p>
+                Over the years, we've built our reputation on three core principles: unmatched local 
+                expertise, innovative marketing strategies, and unwavering commitment to client success. 
+                These values have guided us through changing markets and evolving client needs, always 
+                keeping our focus on what matters most - helping people achieve their real estate goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose 4Seasons Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              Why Choose 4Seasons?
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Current market value estimate</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Neighborhood market data</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Marketing recommendations</span>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Why Choose 4Seasons?</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Deep knowledge of North Texas markets and communities</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Cutting-edge technology and marketing strategies</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Full-service approach from initial consultation to closing</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Proven track record of successful transactions</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Personalized service tailored to your unique needs</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Expert negotiation skills to maximize your investment</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Comprehensive property management services</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Professional photography and virtual tour capabilities</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Extensive network of trusted contractors and vendors</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Available 7 days a week for client support</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Free market analysis and home valuation services</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Multi-platform marketing across all major real estate sites</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Transparent communication throughout the entire process</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">First-time buyer programs and financing assistance</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full mt-2 mr-3" style={{ backgroundColor: '#0d0d33' }}></div>
-                  <span className="text-slate-700">Post-closing support and ongoing client relationships</span>
-                </li>
-              </ul>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Comparable sales analysis</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Property-specific factors</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Pricing strategy guidance</span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Market trends and predictions</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Suggested improvements for value</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Market timing insights</span>
+              </div>
             </div>
           </div>
         </div>
