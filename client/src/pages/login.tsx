@@ -88,7 +88,7 @@ export default function Login() {
                   <img 
                     src={logoPath} 
                     alt="4Seasons Real Estate Logo" 
-                    className="h-16 w-auto object-contain"
+                    className="h-24 w-auto object-contain"
                   />
                 </div>
                 {selectedLoginType && getSelectedLoginInfo() && (
