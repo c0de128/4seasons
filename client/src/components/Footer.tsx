@@ -15,7 +15,9 @@ export function Footer() {
             </div>
             <div className="flex space-x-3">
               <a
-                href="#"
+                href="https://www.facebook.com/amysrealty/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                 style={{ backgroundColor: '#1f2937' }}
                 aria-label="Facebook"
