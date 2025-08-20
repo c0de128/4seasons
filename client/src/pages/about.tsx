@@ -196,7 +196,7 @@ export default function About() {
               <img 
                 src={logoPath} 
                 alt="4Seasons Real Estate Logo" 
-                className="w-full max-w-sm h-auto object-contain"
+                className="w-full max-w-xs h-auto object-contain"
               />
             </div>
           </div>
