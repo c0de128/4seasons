@@ -62,7 +62,9 @@ export function Contact() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">Follow Us</h3>
                 <div className="flex space-x-3">
                   <a
-                    href="#"
+                    href="https://www.facebook.com/amysrealty/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-8 h-8 text-white rounded flex items-center justify-center hover:opacity-80 transition-opacity"
                     style={{ backgroundColor: '#1f2937' }}
                     aria-label="Facebook"
