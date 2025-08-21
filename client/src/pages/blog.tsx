@@ -276,7 +276,7 @@ Consider professional staging if your home has been on the market for more than 
   {
     id: 6,
     title: "Understanding Property Taxes in North Texas",
-    excerpt: "A comprehensive guide to Texas property taxes, exemptions, and what homeowners need to know about assessments.",
+    excerpt: "A comprehensive guide to property tax assessment, calculation, and strategies for North Texas homeowners.",
     content: `Property taxes are a significant consideration for North Texas homeowners. Understanding how they work can help you budget effectively and potentially save money through available exemptions.
 
 **How Texas Property Taxes Work**
@@ -325,12 +325,12 @@ New homes may receive partial exemptions during the first year, but expect your 
 **Working with Professionals**
 
 Property tax consultants can help with complex situations or valuable properties where protest efforts might yield significant savings. Real estate agents familiar with local tax implications can also provide valuable guidance during home searches.`,
-    author: "Tim Harwood",
-    date: "2024-11-25",
-    readTime: "7 min read",
-    category: "buyers",
-    tags: ["Property Taxes", "Texas Homeowners", "Exemptions"],
-    views: 856,
+    author: "Tim Johnson",
+    date: "2024-12-10",
+    readTime: "9 min read",
+    category: "tax-guidance",
+    tags: ["Property Taxes", "North Texas", "Homeowner Tips", "Tax Planning"],
+    views: 1823,
     featured: false
   }
 ];
@@ -376,6 +376,9 @@ export default function BlogPage() {
     }
     if (post.id === 5) {
       return "/blog/home-staging-secrets-that-actually-work";
+    }
+    if (post.id === 6) {
+      return "/blog/understanding-property-taxes-north-texas";
     }
     // Add more individual blog post URLs as they are created
     return "/blog";

@@ -49,6 +49,7 @@ import { FirstTimeBuyerGuide } from "@/pages/blog/first-time-home-buyer-guide-no
 import { NorthTexasMarketPredictions2025 } from "@/pages/blog/2025-north-texas-housing-market-predictions";
 import { MaximizingRentalPropertyReturns } from "@/pages/blog/maximizing-rental-property-returns-property-manager-perspective";
 import { HomeStagingSecrets } from "@/pages/blog/home-staging-secrets-that-actually-work";
+import { UnderstandingPropertyTaxesNorthTexas } from "@/pages/blog/understanding-property-taxes-north-texas";
 import Login from "@/pages/login";
 import AdminLogin from "@/pages/admin-login";
 import NotFound from "@/pages/not-found";
@@ -102,6 +103,7 @@ function Router() {
       <Route path="/blog/2025-north-texas-housing-market-predictions" component={NorthTexasMarketPredictions2025} />
       <Route path="/blog/maximizing-rental-property-returns-property-manager-perspective" component={MaximizingRentalPropertyReturns} />
       <Route path="/blog/home-staging-secrets-that-actually-work" component={HomeStagingSecrets} />
+      <Route path="/blog/understanding-property-taxes-north-texas" component={UnderstandingPropertyTaxesNorthTexas} />
       <Route path="/login" component={Login} />
       <Route path="/admin-login" component={AdminLogin} />
       <Route component={NotFound} />
