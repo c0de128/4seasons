@@ -466,37 +466,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Awards & Recognition */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Awards & Recognition
-            </h2>
-            <p className="text-xl text-slate-600">
-              Our commitment to excellence has been recognized by industry leaders and clients alike.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-slate-50 rounded-lg">
-              <Award className="w-12 h-12 mx-auto mb-4" style={{ color: '#0d0d33' }} />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Top Producer Award</h3>
-              <p className="text-slate-600">Dallas Board of Realtors - 2023</p>
-            </div>
-            <div className="text-center p-6 bg-slate-50 rounded-lg">
-              <Star className="w-12 h-12 mx-auto mb-4" style={{ color: '#0d0d33' }} />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">5-Star Rating</h3>
-              <p className="text-slate-600">Google Reviews & Zillow Premier Agent</p>
-            </div>
-            <div className="text-center p-6 bg-slate-50 rounded-lg">
-              <Users className="w-12 h-12 mx-auto mb-4" style={{ color: '#0d0d33' }} />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Community Choice</h3>
-              <p className="text-slate-600">Best Real Estate Team - Plano Magazine</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact CTA */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
