@@ -371,6 +371,9 @@ export default function BlogPage() {
     if (post.id === 4) {
       return "/blog/2025-north-texas-housing-market-predictions";
     }
+    if (post.id === 3) {
+      return "/blog/maximizing-rental-property-returns-property-manager-perspective";
+    }
     // Add more individual blog post URLs as they are created
     return "/blog";
   };

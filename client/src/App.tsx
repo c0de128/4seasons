@@ -47,6 +47,7 @@ import BlogPage from "@/pages/blog";
 import FiveSignsTimeToSellBlogPost from "@/pages/blog/5-signs-time-to-sell-home-north-texas";
 import { FirstTimeBuyerGuide } from "@/pages/blog/first-time-home-buyer-guide-north-texas";
 import { NorthTexasMarketPredictions2025 } from "@/pages/blog/2025-north-texas-housing-market-predictions";
+import { MaximizingRentalPropertyReturns } from "@/pages/blog/maximizing-rental-property-returns-property-manager-perspective";
 import Login from "@/pages/login";
 import AdminLogin from "@/pages/admin-login";
 import NotFound from "@/pages/not-found";
@@ -98,6 +99,7 @@ function Router() {
       <Route path="/blog/5-signs-time-to-sell-home-north-texas" component={FiveSignsTimeToSellBlogPost} />
       <Route path="/blog/first-time-home-buyer-guide-north-texas" component={FirstTimeBuyerGuide} />
       <Route path="/blog/2025-north-texas-housing-market-predictions" component={NorthTexasMarketPredictions2025} />
+      <Route path="/blog/maximizing-rental-property-returns-property-manager-perspective" component={MaximizingRentalPropertyReturns} />
       <Route path="/login" component={Login} />
       <Route path="/admin-login" component={AdminLogin} />
       <Route component={NotFound} />
