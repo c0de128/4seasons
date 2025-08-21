@@ -163,7 +163,7 @@ Maintain detailed financial records for tax purposes and investment analysis. Tr
   {
     id: 4,
     title: "2025 North Texas Housing Market Predictions",
-    excerpt: "Expert analysis of market trends, interest rates, and what buyers and sellers can expect in the coming year.",
+    excerpt: "Expert analysis and forecasts for the DFW real estate market in 2025. Key trends, price predictions, and strategic insights for buyers and sellers.",
     content: `As we move into 2025, the North Texas real estate market continues to evolve. Based on current trends and economic indicators, here's what we expect to see in the coming year.
 
 **Interest Rate Trends**
@@ -204,12 +204,12 @@ For Sellers:
 **Economic Factors**
 
 North Texas continues to attract major employers and experience population growth. This fundamental strength supports long-term real estate demand, even if short-term fluctuations occur.`,
-    author: "Tim Harwood",
-    date: "2024-12-01",
-    readTime: "5 min read",
-    category: "market-insights",
-    tags: ["Market Predictions", "2025 Trends", "North Texas"],
-    views: 3892,
+    author: "Amy Harwood",
+    date: "2025-01-15",
+    readTime: "10 min read",
+    category: "market-trends",
+    tags: ["Market Forecast", "North Texas", "2025 Predictions", "Real Estate Trends"],
+    views: 1256,
     featured: true
   },
   {
@@ -367,6 +367,9 @@ export default function BlogPage() {
     }
     if (post.id === 2) {
       return "/blog/first-time-home-buyer-guide-north-texas";
+    }
+    if (post.id === 4) {
+      return "/blog/2025-north-texas-housing-market-predictions";
     }
     // Add more individual blog post URLs as they are created
     return "/blog";
