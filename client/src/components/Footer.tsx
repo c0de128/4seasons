@@ -81,7 +81,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <h3 className="font-semibold text-white mb-4">Recent Blog Posts</h3>
             <div className="space-y-4">
-              <a href="/blog" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
+              <a href="/blog/2025-north-texas-housing-market-predictions" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
                 <div style={{ width: '70px', height: '70px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                   <img 
                     src={texasBlog} 
@@ -99,7 +99,7 @@ export function Footer() {
                 </div>
               </a>
               
-              <a href="/blog" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
+              <a href="/blog/5-signs-time-to-sell-home-north-texas" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
                 <div style={{ width: '70px', height: '70px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                   <img 
                     src={marketAnalysisBlog} 
