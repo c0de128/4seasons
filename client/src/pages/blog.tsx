@@ -60,7 +60,7 @@ Remember, selling a home is a major financial and emotional decision. Consider f
   {
     id: 2,
     title: "First-Time Home Buyer's Guide to North Texas",
-    excerpt: "Everything you need to know about purchasing your first home in the Dallas-Fort Worth metroplex.",
+    excerpt: "Navigate the DFW real estate market with confidence. Essential tips, local insights, and step-by-step guidance for first-time home buyers in North Texas.",
     content: `Buying your first home is an exciting milestone, but it can also feel overwhelming. The North Texas market offers incredible opportunities for first-time buyers, and with proper preparation, you can navigate the process successfully.
 
 **Understanding Your Budget**
@@ -94,12 +94,12 @@ Texas offers several programs to help first-time buyers, including down payment 
 **Closing Day Preparation**
 
 Review all documents carefully before closing day. Ensure you have adequate homeowners insurance in place and conduct a final walk-through of the property. Bring a certified check for closing costs and be prepared to ask questions about anything you don't understand.`,
-    author: "Tim Harwood",
-    date: "2024-12-10",
-    readTime: "8 min read",
+    author: "Tim Johnson",
+    date: "2024-01-18",
+    readTime: "12 min read",
     category: "buyers",
-    tags: ["First-Time Buyers", "Home Buying", "DFW Market"],
-    views: 4721,
+    tags: ["First-Time Buyers", "North Texas", "Home Buying Process", "DFW Market"],
+    views: 2847,
     featured: true
   },
   {
@@ -364,6 +364,9 @@ export default function BlogPage() {
   const getBlogPostUrl = (post: BlogPost) => {
     if (post.id === 1) {
       return "/blog/5-signs-time-to-sell-home-north-texas";
+    }
+    if (post.id === 2) {
+      return "/blog/first-time-home-buyer-guide-north-texas";
     }
     // Add more individual blog post URLs as they are created
     return "/blog";
