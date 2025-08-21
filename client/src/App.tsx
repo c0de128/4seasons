@@ -44,6 +44,7 @@ import { FAQPage } from "@/pages/faq";
 import About from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import BlogPage from "@/pages/blog";
+import FiveSignsTimeToSellBlogPost from "@/pages/blog/5-signs-time-to-sell-home-north-texas";
 import Login from "@/pages/login";
 import AdminLogin from "@/pages/admin-login";
 import NotFound from "@/pages/not-found";
@@ -92,6 +93,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/5-signs-time-to-sell-home-north-texas" component={FiveSignsTimeToSellBlogPost} />
       <Route path="/login" component={Login} />
       <Route path="/admin-login" component={AdminLogin} />
       <Route component={NotFound} />

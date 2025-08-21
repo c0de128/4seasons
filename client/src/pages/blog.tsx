@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Search, Calendar, User, ArrowRight, Tag, Clock, Eye } from "lucide-react";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import { Link } from "wouter";
 
 interface BlogPost {
   id: number;
@@ -360,6 +361,14 @@ export default function BlogPage() {
     return cat ? cat.label : category;
   };
 
+  const getBlogPostUrl = (post: BlogPost) => {
+    if (post.id === 1) {
+      return "/blog/5-signs-time-to-sell-home-north-texas";
+    }
+    // Add more individual blog post URLs as they are created
+    return "/blog";
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <SEO 
@@ -544,10 +553,12 @@ export default function BlogPage() {
                           </div>
                         </div>
                         
-                        <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#0d0d33' }}>
-                          Read Full Article
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </button>
+                        <Link href={getBlogPostUrl(post)}>
+                          <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#0d0d33' }}>
+                            Read Full Article
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
