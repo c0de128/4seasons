@@ -286,13 +286,7 @@ export default function About() {
                     </div>
                     <h3 className="text-xl font-semibold text-slate-900">{value.title}</h3>
                   </div>
-                  <p className="text-slate-600 leading-relaxed mb-6">{value.description}</p>
-                  <button 
-                    className="px-6 py-2 text-sm font-medium text-white rounded-md hover:opacity-90 transition-opacity" 
-                    style={{ backgroundColor: '#0d0d33' }}
-                  >
-                    Learn More
-                  </button>
+                  <p className="text-slate-600 leading-relaxed">{value.description}</p>
                 </div>
               );
             })}
