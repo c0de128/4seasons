@@ -82,36 +82,36 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4">Recent Blog Posts</h3>
             <div className="space-y-4">
               <a href="/blog" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
-                <div style={{ width: '50px', height: '50px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
+                <div style={{ width: '70px', height: '70px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                   <img 
                     src={texasBlog} 
                     alt="North Texas Real Estate" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-sm font-medium text-white leading-tight mb-1">
                     2025 North Texas Housing Market Predictions
                   </h4>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-400 leading-relaxed">
                     Expert analysis of market trends, interest rates, and what buyers and sellers can expect.
                   </p>
                 </div>
               </a>
               
               <a href="/blog" className="flex space-x-3 hover:bg-slate-700 p-2 rounded transition-colors">
-                <div style={{ width: '50px', height: '50px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
+                <div style={{ width: '70px', height: '70px' }} className="bg-slate-600 rounded flex-shrink-0 overflow-hidden">
                   <img 
                     src={marketAnalysisBlog} 
                     alt="Market Analysis Report" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-sm font-medium text-white leading-tight mb-1">
                     5 Signs It's Time to Sell Your Home in North Texas
                   </h4>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-400 leading-relaxed">
                     Market conditions, life changes, and financial factors that indicate perfect timing.
                   </p>
                 </div>
