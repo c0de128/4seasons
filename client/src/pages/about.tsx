@@ -103,22 +103,22 @@ export default function About() {
     {
       icon: Users,
       title: "Client-Centered Service",
-      description: "Every decision we make is focused on achieving the best possible outcome for our clients. Your goals become our mission."
+      description: "Every decision we make is focused on achieving the best possible outcome for our clients. Your goals become our mission, and we tailor our approach to meet your unique needs and timeline. From first-time homebuyers to seasoned investors, we provide personalized guidance, clear communication, and unwavering support throughout your entire real estate journey. We believe in building lasting relationships based on trust, transparency, and genuine care for your success."
     },
     {
       icon: Award,
       title: "Professional Excellence",
-      description: "We maintain the highest standards of professional conduct and continuously invest in education and market knowledge."
+      description: "We maintain the highest standards of professional conduct and continuously invest in education and market knowledge. Our team stays current with industry trends, legal requirements, and innovative marketing strategies to provide you with cutting-edge service. We're committed to ongoing professional development, holding advanced certifications and memberships in prestigious real estate organizations. This dedication to excellence ensures you receive expert guidance backed by the latest industry insights."
     },
     {
       icon: Home,
       title: "Community Expertise",
-      description: "Our deep roots in North Texas give us unmatched insight into local markets, schools, and neighborhood dynamics."
+      description: "Our deep roots in North Texas give us unmatched insight into local markets, schools, and neighborhood dynamics. Having lived and worked in this area for over 15 years, we understand the unique character of each community, from Allen's family-friendly atmosphere to Plano's business districts. We know which neighborhoods are experiencing growth, which schools are top-rated, and what amenities matter most to different lifestyles. This local knowledge becomes your competitive advantage in both buying and selling."
     },
     {
       icon: Star,
       title: "Proven Results",
-      description: "Our track record speaks for itself - successful transactions, satisfied clients, and lasting relationships built on trust."
+      description: "Our track record speaks for itself - successful transactions, satisfied clients, and lasting relationships built on trust. With hundreds of homes sold and a 98% client satisfaction rate, we've consistently delivered results that exceed expectations. Our strategic marketing approach, skilled negotiation, and attention to detail have helped clients achieve their real estate goals while maximizing value. Many of our clients return to us for their next transaction and refer their friends and family, testament to the quality of our service."
     }
   ];
 
