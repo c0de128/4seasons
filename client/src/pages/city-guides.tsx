@@ -52,7 +52,7 @@ export default function CityGuides() {
     },
     {
       name: "Tarrant County",
-      communities: ["Grapevine", "Southlake", "Keller", "Trophy Club", "Westlake"]
+      communities: ["Fort Worth", "Arlington", "Grapevine", "Southlake", "Colleyville", "Mansfield", "North Richland Hills", "Keller"]
     }
   ];
 
@@ -119,6 +119,33 @@ export default function CityGuides() {
       schoolRating: "8/10",
       population: "169,000",
       image: "university-town"
+    },
+    {
+      name: "Fort Worth",
+      county: "Tarrant County",
+      description: "County seat with cowtown heritage, cultural district, and modern sophistication",
+      medianPrice: "$285,000",
+      schoolRating: "7/10",
+      population: "919,000",
+      image: "county-seat"
+    },
+    {
+      name: "Southlake",
+      county: "Tarrant County", 
+      description: "Premier luxury community with top-rated schools and upscale Town Square",
+      medianPrice: "$925,000",
+      schoolRating: "10/10",
+      population: "33,000",
+      image: "luxury-community"
+    },
+    {
+      name: "Grapevine",
+      county: "Tarrant County",
+      description: "Historic charm with wine culture, Main Street district, and DFW access",
+      medianPrice: "$385,000", 
+      schoolRating: "9/10",
+      population: "50,000",
+      image: "historic-charm"
     }
   ];
 
@@ -422,6 +449,38 @@ export default function CityGuides() {
                           window.location.href = "/garland-city-guide";
                         } else if (community.name === "Carrollton") {
                           window.location.href = "/carrollton-city-guide";
+                        } else if (community.name === "Denton") {
+                          window.location.href = "/city-guides/denton";
+                        } else if (community.name === "Lewisville") {
+                          window.location.href = "/city-guides/lewisville";
+                        } else if (community.name === "Flower Mound") {
+                          window.location.href = "/city-guides/flower-mound";
+                        } else if (community.name === "Highland Village") {
+                          window.location.href = "/city-guides/highland-village";
+                        } else if (community.name === "Little Elm") {
+                          window.location.href = "/city-guides/little-elm";
+                        } else if (community.name === "Argyle") {
+                          window.location.href = "/city-guides/argyle";
+                        } else if (community.name === "Corinth") {
+                          window.location.href = "/city-guides/corinth";
+                        } else if (community.name === "Aubrey") {
+                          window.location.href = "/city-guides/aubrey";
+                        } else if (community.name === "Fort Worth") {
+                          window.location.href = "/city-guides/fort-worth";
+                        } else if (community.name === "Arlington") {
+                          window.location.href = "/city-guides/arlington";
+                        } else if (community.name === "Grapevine") {
+                          window.location.href = "/city-guides/grapevine";
+                        } else if (community.name === "Southlake") {
+                          window.location.href = "/city-guides/southlake";
+                        } else if (community.name === "Colleyville") {
+                          window.location.href = "/city-guides/colleyville";
+                        } else if (community.name === "Mansfield") {
+                          window.location.href = "/city-guides/mansfield";
+                        } else if (community.name === "North Richland Hills") {
+                          window.location.href = "/city-guides/north-richland-hills";
+                        } else if (community.name === "Keller") {
+                          window.location.href = "/city-guides/keller";
                         } else {
                           window.location.href = "#";
                         }

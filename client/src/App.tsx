@@ -30,6 +30,14 @@ import LittleElmCityGuide from "@/pages/city-guides/little-elm";
 import ArgyleCityGuide from "@/pages/city-guides/argyle";
 import CorinthCityGuide from "@/pages/city-guides/corinth";
 import AubreyCityGuide from "@/pages/city-guides/aubrey";
+import FortWorthCityGuide from "@/pages/city-guides/fort-worth";
+import ArlingtonCityGuide from "@/pages/city-guides/arlington";
+import GrapevineCityGuide from "@/pages/city-guides/grapevine";
+import SouthlakeCityGuide from "@/pages/city-guides/southlake";
+import ColleyvilleCityGuide from "@/pages/city-guides/colleyville";
+import MansfieldCityGuide from "@/pages/city-guides/mansfield";
+import NorthRichlandHillsCityGuide from "@/pages/city-guides/north-richland-hills";
+import KellerCityGuide from "@/pages/city-guides/keller";
 import { FAQPage } from "@/pages/faq";
 import About from "@/pages/about";
 import ContactPage from "@/pages/contact";
@@ -68,6 +76,14 @@ function Router() {
       <Route path="/city-guides/argyle" component={ArgyleCityGuide} />
       <Route path="/city-guides/corinth" component={CorinthCityGuide} />
       <Route path="/city-guides/aubrey" component={AubreyCityGuide} />
+      <Route path="/city-guides/fort-worth" component={FortWorthCityGuide} />
+      <Route path="/city-guides/arlington" component={ArlingtonCityGuide} />
+      <Route path="/city-guides/grapevine" component={GrapevineCityGuide} />
+      <Route path="/city-guides/southlake" component={SouthlakeCityGuide} />
+      <Route path="/city-guides/colleyville" component={ColleyvilleCityGuide} />
+      <Route path="/city-guides/mansfield" component={MansfieldCityGuide} />
+      <Route path="/city-guides/north-richland-hills" component={NorthRichlandHillsCityGuide} />
+      <Route path="/city-guides/keller" component={KellerCityGuide} />
       <Route path="/faq" component={FAQPage} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={ContactPage} />
