@@ -48,7 +48,7 @@ export default function CityGuides() {
     },
     {
       name: "Denton County",
-      communities: ["Flower Mound", "Lewisville", "Coppell", "The Colony", "Little Elm"]
+      communities: ["Denton", "Lewisville", "Flower Mound", "Highland Village", "Little Elm", "Argyle", "Corinth", "Aubrey", "Coppell", "The Colony"]
     },
     {
       name: "Tarrant County",
@@ -106,10 +106,19 @@ export default function CityGuides() {
       name: "Flower Mound",
       county: "Denton County",
       description: "Master-planned community with lakes, parks, and family amenities",
-      medianPrice: "$485,000",
-      schoolRating: "8/10", 
+      medianPrice: "$525,000",
+      schoolRating: "9/10", 
       population: "78,000",
       image: "lakeside-homes"
+    },
+    {
+      name: "Denton",
+      county: "Denton County",
+      description: "University town with vibrant music scene and historic downtown square",
+      medianPrice: "$285,000",
+      schoolRating: "8/10",
+      population: "169,000",
+      image: "university-town"
     }
   ];
 
@@ -275,6 +284,14 @@ export default function CityGuides() {
                             community === "Richardson" ? "/richardson-city-guide" :
                             community === "Garland" ? "/garland-city-guide" :
                             community === "Carrollton" ? "/carrollton-city-guide" :
+                            community === "Denton" ? "/city-guides/denton" :
+                            community === "Lewisville" ? "/city-guides/lewisville" :
+                            community === "Flower Mound" ? "/city-guides/flower-mound" :
+                            community === "Highland Village" ? "/city-guides/highland-village" :
+                            community === "Little Elm" ? "/city-guides/little-elm" :
+                            community === "Argyle" ? "/city-guides/argyle" :
+                            community === "Corinth" ? "/city-guides/corinth" :
+                            community === "Aubrey" ? "/city-guides/aubrey" :
                             "/city-guides"
                           }
                           className="text-slate-700 hover:text-primary flex-1"

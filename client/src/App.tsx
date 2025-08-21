@@ -22,6 +22,14 @@ import AddisonCityGuide from "@/pages/addison-city-guide";
 import RichardsonCityGuide from "@/pages/richardson-city-guide";
 import GarlandCityGuide from "@/pages/garland-city-guide";
 import CarrolltonCityGuide from "@/pages/carrollton-city-guide";
+import DentonCityGuide from "@/pages/city-guides/denton";
+import LewisvilleCityGuide from "@/pages/city-guides/lewisville";
+import FlowerMoundCityGuide from "@/pages/city-guides/flower-mound";
+import HighlandVillageCityGuide from "@/pages/city-guides/highland-village";
+import LittleElmCityGuide from "@/pages/city-guides/little-elm";
+import ArgyleCityGuide from "@/pages/city-guides/argyle";
+import CorinthCityGuide from "@/pages/city-guides/corinth";
+import AubreyCityGuide from "@/pages/city-guides/aubrey";
 import { FAQPage } from "@/pages/faq";
 import About from "@/pages/about";
 import ContactPage from "@/pages/contact";
@@ -52,6 +60,14 @@ function Router() {
       <Route path="/richardson-city-guide" component={RichardsonCityGuide} />
       <Route path="/garland-city-guide" component={GarlandCityGuide} />
       <Route path="/carrollton-city-guide" component={CarrolltonCityGuide} />
+      <Route path="/city-guides/denton" component={DentonCityGuide} />
+      <Route path="/city-guides/lewisville" component={LewisvilleCityGuide} />
+      <Route path="/city-guides/flower-mound" component={FlowerMoundCityGuide} />
+      <Route path="/city-guides/highland-village" component={HighlandVillageCityGuide} />
+      <Route path="/city-guides/little-elm" component={LittleElmCityGuide} />
+      <Route path="/city-guides/argyle" component={ArgyleCityGuide} />
+      <Route path="/city-guides/corinth" component={CorinthCityGuide} />
+      <Route path="/city-guides/aubrey" component={AubreyCityGuide} />
       <Route path="/faq" component={FAQPage} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={ContactPage} />
