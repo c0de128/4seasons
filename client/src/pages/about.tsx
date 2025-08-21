@@ -2,10 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
-import { Award, Users, Home, Star, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Award, Users, Home, Star, MapPin, Clock, CheckCircle, ChevronUp, ChevronDown, Linkedin, Mail } from "lucide-react";
 import logoPath from "@/assets/images/logo.png";
+import amyPhoto from "@/assets/images/amy.jpg";
+import timPhoto from "@/assets/images/tim.jpg";
 
 export default function About() {
+  const [showMoreTeam, setShowMoreTeam] = useState(false);
+  const [showMoreTim, setShowMoreTim] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({
     homesSold: 0,
     yearsExperience: 0,
@@ -288,36 +292,174 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 bg-slate-50">
+      {/* Meet Our Team */}
+      <section id="team" className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Our experienced professionals bring diverse expertise and unwavering 
-              commitment to every client relationship.
+            <p className="text-xl text-slate-600 max-w-2xl">
+              Our dedicated team of real estate professionals brings years of experience and local market expertise to help you achieve your property goals
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-8">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h3>
-                  <p className="text-lg font-medium mb-1" style={{ color: '#0d0d33' }}>{member.title}</p>
-                  <p className="text-slate-600 mb-4">{member.experience}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {member.specialties.map((specialty, idx) => (
-                      <span key={idx} className="px-3 py-1 text-sm font-medium text-white rounded-full" style={{ backgroundColor: '#0d0d33' }}>
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-slate-700 leading-relaxed">{member.bio}</p>
+          
+          {/* Amy Harwood Profile */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Team Member Photo */}
+              <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
+                <img 
+                  src={amyPhoto} 
+                  alt="Amy Harwood - Agency Owner & Real Estate Specialist"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+              
+              {/* Team Member Details */}
+              <div className="p-4 lg:p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Amy Harwood</h3>
+                <p className="text-lg font-medium mb-4" style={{ color: '#0d0d33' }}>Agency Owner & Real Estate Specialist</p>
+                
+                <div className="text-slate-600 leading-relaxed mb-6">
+                  <p className="mb-4">
+                    With over 15 years of dedicated experience, Amy Harwood is a seasoned Real Estate Broker and a trusted expert in the North Texas residential market. As the proud owner of 4Seasons Real Estate Svcs, LLC in Allen, Texas, Amy has built her business on a foundation of proven customer satisfaction and an in-depth understanding of every facet of real estate.
+                  </p>
+                  
+                  {showMoreTeam && (
+                    <div className="space-y-4">
+                      <p>
+                        Amy's approach combines meticulous attention to detail with a deep commitment to her clients' success. She specializes in both residential buying and selling, bringing comprehensive market knowledge and strategic insights to every transaction.
+                      </p>
+                      <p>
+                        Her extensive experience in the North Texas market, particularly in Allen and surrounding communities, allows her to provide invaluable guidance on market trends, neighborhood dynamics, and investment opportunities.
+                      </p>
+                      <p>
+                        Amy believes in building lasting relationships with her clients, ensuring they feel supported and informed throughout their real estate journey. Her dedication to excellence and personalized service has earned her a reputation as one of the most trusted real estate professionals in the area.
+                      </p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Show More/Less Button */}
+                <button
+                  onClick={() => setShowMoreTeam(!showMoreTeam)}
+                  className="flex items-center font-medium mb-6 transition-colors hover:opacity-80"
+                  style={{ color: '#0d0d33' }}
+                >
+                  {showMoreTeam ? (
+                    <>
+                      <span>Show Less</span>
+                      <ChevronUp className="ml-1 h-4 w-4" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Show More</span>
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </>
+                  )}
+                </button>
+                
+                {/* Social Media Links */}
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#0d0d33' }}
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:amy@4seasonsrealestate.com"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#0d0d33' }}
+                    aria-label="Email Amy"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Tim Harwood Profile - Reversed Layout */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mt-8 max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Team Member Details - Left Side */}
+              <div className="p-4 lg:p-6 order-2 lg:order-1">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Harwood</h3>
+                <p className="text-lg font-medium mb-4" style={{ color: '#0d0d33' }}>Finance and Property Management Professional</p>
+                
+                <div className="text-slate-600 leading-relaxed mb-6">
+                  <p className="mb-4">
+                    Tim Harwood is a highly skilled Underwriter and Property Management professional, with a deep understanding of the mortgage lending and real estate industries. Located in Allen, Texas, Tim's career is marked by a proven ability to excel in various aspects of financial and estate transactions.
+                  </p>
+                  
+                  {showMoreTim && (
+                    <div className="space-y-4">
+                      <p>
+                        Tim's extensive background includes significant roles as a Prefund Underwriter Auditor at MetaSource and a Pre-Underwriter at INDECOMM, where he honed his expertise in mortgage lending and underwriting. His seven years as an Underwriter at Bank of America further solidified his proficiency in this critical area.
+                      </p>
+                      <p>
+                        Beyond his underwriting capabilities, Tim also possesses a strong foundation in property management, cultivated during his nearly 20 years as a Real Estate Agent with 4Seasons Realty in Allen, Texas. This dual expertise in underwriting and property management provides him with a unique perspective and a well-rounded understanding of the entire property transaction lifecycle.
+                      </p>
+                      <p>
+                        Tim is passionate about leveraging his analytical skills and client-focused approach to contribute to successful outcomes. His dedication to understanding the intricacies of both underwriting and property management makes him a valuable asset to any team seeking a results-driven professional in the mortgage and real estate sectors.
+                      </p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Show More/Less Button */}
+                <button
+                  onClick={() => setShowMoreTim(!showMoreTim)}
+                  className="flex items-center font-medium mb-6 transition-colors hover:opacity-80"
+                  style={{ color: '#0d0d33' }}
+                >
+                  {showMoreTim ? (
+                    <>
+                      <span>Show Less</span>
+                      <ChevronUp className="ml-1 h-4 w-4" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Show More</span>
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </>
+                  )}
+                </button>
+                
+                {/* Social Media Links */}
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#0d0d33' }}
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:tim@4seasonsrealestate.com"
+                    className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#0d0d33' }}
+                    aria-label="Email Tim"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Team Member Photo - Right Side */}
+              <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
+                <img 
+                  src={timPhoto} 
+                  alt="Tim Harwood - Finance and Property Management Professional"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
