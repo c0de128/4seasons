@@ -215,7 +215,7 @@ North Texas continues to attract major employers and experience population growt
   {
     id: 5,
     title: "Home Staging Secrets That Actually Work",
-    excerpt: "Proven staging techniques that help homes sell faster and for higher prices in the competitive North Texas market.",
+    excerpt: "Professional staging tips and proven strategies to help your North Texas home sell faster and for top dollar.",
     content: `Home staging isn't just about making your house look pretty – it's about creating an emotional connection with potential buyers. After staging hundreds of homes in North Texas, here are the techniques that consistently deliver results.
 
 **Start with Deep Cleaning and Decluttering**
@@ -266,11 +266,11 @@ Not everyone can hire a professional stager, but you can achieve great results o
 
 Consider professional staging if your home has been on the market for more than 30 days, if you're struggling to depersonalize effectively, or if your home is in a higher price range where staging is expected.`,
     author: "Amy Harwood",
-    date: "2024-11-28",
-    readTime: "6 min read",
-    category: "sellers",
-    tags: ["Home Staging", "Selling Tips", "Market Appeal"],
-    views: 2197,
+    date: "2024-11-20",
+    readTime: "8 min read",
+    category: "selling",
+    tags: ["Home Staging", "Selling Tips", "Interior Design", "Real Estate Marketing"],
+    views: 2234,
     featured: false
   },
   {
@@ -373,6 +373,9 @@ export default function BlogPage() {
     }
     if (post.id === 3) {
       return "/blog/maximizing-rental-property-returns-property-manager-perspective";
+    }
+    if (post.id === 5) {
+      return "/blog/home-staging-secrets-that-actually-work";
     }
     // Add more individual blog post URLs as they are created
     return "/blog";
