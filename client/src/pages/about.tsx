@@ -192,43 +192,67 @@ export default function About() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Current market value estimate</span>
+                <span className="text-slate-700">15+ years of DFW market expertise</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Neighborhood market data</span>
+                <span className="text-slate-700">Award-winning customer service</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Marketing recommendations</span>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Comparable sales analysis</span>
+                <span className="text-slate-700">Professional photography & staging</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Property-specific factors</span>
+                <span className="text-slate-700">Comprehensive market analysis</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Pricing strategy guidance</span>
+                <span className="text-slate-700">Fast response time guarantee</span>
               </div>
             </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Market trends and predictions</span>
+                <span className="text-slate-700">Innovative digital marketing</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Suggested improvements for value</span>
+                <span className="text-slate-700">Neighborhood specialization</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-slate-700">Market timing insights</span>
+                <span className="text-slate-700">Transparent communication</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Negotiation expertise</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Property management services</span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">First-time buyer programs</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Investment property guidance</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Relocation assistance</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">24/7 client support</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-slate-700">Free home valuation reports</span>
               </div>
             </div>
           </div>
