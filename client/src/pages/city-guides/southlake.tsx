@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
@@ -5,6 +6,9 @@ import { SEO } from "@/components/SEO";
 import { MapPin, Users, GraduationCap, Building, Car, Plane, School } from "lucide-react";
 
 export default function SouthlakeCityGuide() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const seoConfig = {
     title: "Southlake, Texas Real Estate Guide | Luxury Homes for Sale | 4Seasons Real Estate",
     description: "Discover Southlake, Texas - premier luxury community with top-rated schools, upscale shopping at Southlake Town Square, and prestigious neighborhoods. Find your dream home with 4Seasons Real Estate.",

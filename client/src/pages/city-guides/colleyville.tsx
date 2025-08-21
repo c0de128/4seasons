@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
@@ -5,6 +6,9 @@ import { SEO } from "@/components/SEO";
 import { MapPin, Users, GraduationCap, Building, Car, Plane, School } from "lucide-react";
 
 export default function ColleyvilleCityGuide() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const seoConfig = {
     title: "Colleyville, Texas Real Estate Guide | Luxury Homes for Sale | 4Seasons Real Estate",
     description: "Discover Colleyville, Texas - affluent community with tree-lined neighborhoods, excellent Grapevine-Colleyville ISD schools, and luxury amenities. Find your perfect home with 4Seasons Real Estate.",

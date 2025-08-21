@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
@@ -5,6 +6,9 @@ import { SEO } from "@/components/SEO";
 import { MapPin, Users, GraduationCap, Building, Car, Plane, School } from "lucide-react";
 
 export default function MansfieldCityGuide() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const seoConfig = {
     title: "Mansfield, Texas Real Estate Guide | Homes for Sale | 4Seasons Real Estate",
     description: "Discover Mansfield, Texas - thriving community with excellent Mansfield ISD schools, master-planned neighborhoods, and family-friendly amenities. Find your perfect home with 4Seasons Real Estate.",

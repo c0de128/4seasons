@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
@@ -5,6 +6,9 @@ import { SEO } from "@/components/SEO";
 import { MapPin, Users, GraduationCap, Building, Car, Plane, School } from "lucide-react";
 
 export default function NorthRichlandHillsCityGuide() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const seoConfig = {
     title: "North Richland Hills, Texas Real Estate Guide | Homes for Sale | 4Seasons Real Estate",
     description: "Discover North Richland Hills, Texas - established community with great Birdville ISD schools, convenient mid-cities location, and family neighborhoods. Find your perfect home with 4Seasons Real Estate.",

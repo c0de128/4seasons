@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
@@ -5,6 +6,9 @@ import { SEO } from "@/components/SEO";
 import { MapPin, Users, GraduationCap, Building, Car, Plane, School } from "lucide-react";
 
 export default function KellerCityGuide() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const seoConfig = {
     title: "Keller, Texas Real Estate Guide | Homes for Sale | 4Seasons Real Estate",
     description: "Discover Keller, Texas - top-rated community with excellent Keller ISD schools, family-friendly neighborhoods, and convenient northwest location. Find your perfect home with 4Seasons Real Estate.",

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
@@ -5,6 +6,9 @@ import { SEO } from "@/components/SEO";
 import { MapPin, Users, GraduationCap, Building, Car, Plane, School } from "lucide-react";
 
 export default function FortWorthCityGuide() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const seoConfig = {
     title: "Fort Worth, Texas Real Estate Guide | Homes for Sale | 4Seasons Real Estate",
     description: "Discover Fort Worth, Texas - the vibrant county seat with cowtown culture, world-class museums, thriving downtown, and diverse neighborhoods. Find your perfect home with 4Seasons Real Estate.",

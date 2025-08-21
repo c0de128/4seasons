@@ -79,3 +79,6 @@ Preferred communication style: Simple, everyday language.
 - **Comprehensive Denton County City Guides**: Created detailed city guide pages for 10 major Denton County municipalities including Denton (county seat), Lewisville, Flower Mound, Highland Village, Little Elm, Argyle, Corinth, Aubrey, and The Colony
 - **Complete Navigation Integration**: Updated all routing systems (App.tsx, city-guides navigation) to include comprehensive multi-county city guide access
 - **Structured City Guide Template**: Maintained consistent template structure across all guides featuring hero sections, demographics, schools, neighborhoods, and amenities
+- **Navigation Improvements**: Fixed county-specific city guide links using wouter Link components and getCommunityUrl helper function for proper routing
+- **Scroll-to-Top Functionality**: Added useEffect hooks to all Tarrant County city guide pages (and Coppell/The Colony) to ensure pages load at the top instead of middle sections
+- **County Organization Correction**: Moved Coppell from Denton County to Dallas County (correct geographical placement)
