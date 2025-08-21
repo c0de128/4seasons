@@ -6,6 +6,7 @@ import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { Calendar, User, Clock, Eye, ArrowLeft, Share, BookOpen, Tag, Home, Palette, Camera, Lightbulb, Star, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import AmyImage from "@/assets/images/Amy-sm.jpg";
+import { ShareButtons, FloatingShareButton } from "@/components/ShareButtons";
 
 export function HomeStagingSecrets() {
   useEffect(() => {
@@ -22,6 +23,8 @@ export function HomeStagingSecrets() {
     category: "selling",
     tags: ["Home Staging", "Selling Tips", "Interior Design", "Real Estate Marketing"]
   };
+
+  const currentUrl = `${seoConfig.siteUrl}/blog/home-staging-secrets-that-actually-work`;
 
   const structuredData = generateStructuredData.article(
     blogPost.title,
@@ -95,10 +98,12 @@ export function HomeStagingSecrets() {
                   <User className="w-5 h-5 mr-2 text-slate-600" />
                   <span className="text-slate-600">By {blogPost.author}</span>
                 </div>
-                <button className="flex items-center text-slate-600 hover:text-slate-800">
-                  <Share className="w-5 h-5 mr-2" />
-                  Share
-                </button>
+                <ShareButtons 
+                  url={currentUrl}
+                  title={blogPost.title}
+                  excerpt={blogPost.excerpt}
+                  className="hidden sm:flex"
+                />
               </div>
             </div>
           </section>
@@ -589,6 +594,13 @@ export function HomeStagingSecrets() {
 
         <Contact />
         <Footer />
+        
+        {/* Floating Share Button for Mobile */}
+        <FloatingShareButton 
+          url={currentUrl}
+          title={blogPost.title}
+          excerpt={blogPost.excerpt}
+        />
       </div>
     </>
   );

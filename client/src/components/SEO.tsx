@@ -80,6 +80,8 @@ export function SEO({
     
     if (ogImage) {
       setMetaTag('og:image', ogImage, true);
+      setMetaTag('og:image:width', '1200', true);
+      setMetaTag('og:image:height', '630', true);
       setMetaTag('og:image:alt', ogTitle || title, true);
     }
 
@@ -91,11 +93,13 @@ export function SEO({
     // Twitter Card tags
     setMetaTag('twitter:card', twitterCard);
     setMetaTag('twitter:site', twitterSite);
+    setMetaTag('twitter:creator', twitterSite);
     setMetaTag('twitter:title', ogTitle || title);
     setMetaTag('twitter:description', ogDescription || description);
     
     if (ogImage) {
       setMetaTag('twitter:image', ogImage);
+      setMetaTag('twitter:image:alt', ogTitle || title);
     }
 
     // Structured Data
