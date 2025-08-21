@@ -448,9 +448,11 @@ export default function BlogPage() {
                         {post.views.toLocaleString()}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 hover:text-blue-600 transition-colors">
-                      {post.title}
-                    </h3>
+                    <Link href={getBlogPostUrl(post)}>
+                      <h3 className="text-xl font-bold text-slate-900 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
+                        {post.title}
+                      </h3>
+                    </Link>
                     <p className="text-slate-600 mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
@@ -469,10 +471,10 @@ export default function BlogPage() {
                         <Calendar className="w-4 h-4 mr-1" />
                         {new Date(post.date).toLocaleDateString()}
                       </div>
-                      <button className="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                      <Link href={getBlogPostUrl(post)} className="text-blue-600 hover:text-blue-800 font-medium flex items-center">
                         Read More
                         <ArrowRight className="w-4 h-4 ml-1" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </article>
@@ -520,9 +522,11 @@ export default function BlogPage() {
                         </span>
                       </div>
                       
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                        {post.title}
-                      </h3>
+                      <Link href={getBlogPostUrl(post)}>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
+                          {post.title}
+                        </h3>
+                      </Link>
                       
                       <p className="text-slate-600 mb-4 leading-relaxed">
                         {post.excerpt}
