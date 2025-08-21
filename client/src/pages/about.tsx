@@ -275,16 +275,24 @@ export default function About() {
               the exceptional service they deserve.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#0d0d33' }}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                <div key={index} className="bg-white rounded-lg shadow-lg p-8 border border-slate-200">
+                  <div className="flex items-start space-x-4 mb-6">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full flex-shrink-0" style={{ backgroundColor: '#0d0d33' }}>
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-slate-900">{value.title}</h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{value.title}</h3>
-                  <p className="text-slate-600">{value.description}</p>
+                  <p className="text-slate-600 leading-relaxed mb-6">{value.description}</p>
+                  <button 
+                    className="px-6 py-2 text-sm font-medium text-white rounded-md hover:opacity-90 transition-opacity" 
+                    style={{ backgroundColor: '#0d0d33' }}
+                  >
+                    Learn More
+                  </button>
                 </div>
               );
             })}
