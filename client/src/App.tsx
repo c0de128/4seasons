@@ -38,6 +38,8 @@ import ColleyvilleCityGuide from "@/pages/city-guides/colleyville";
 import MansfieldCityGuide from "@/pages/city-guides/mansfield";
 import NorthRichlandHillsCityGuide from "@/pages/city-guides/north-richland-hills";
 import KellerCityGuide from "@/pages/city-guides/keller";
+import CoppellCityGuide from "@/pages/city-guides/coppell";
+import TheColonyCityGuide from "@/pages/city-guides/the-colony";
 import { FAQPage } from "@/pages/faq";
 import About from "@/pages/about";
 import ContactPage from "@/pages/contact";
@@ -84,6 +86,8 @@ function Router() {
       <Route path="/city-guides/mansfield" component={MansfieldCityGuide} />
       <Route path="/city-guides/north-richland-hills" component={NorthRichlandHillsCityGuide} />
       <Route path="/city-guides/keller" component={KellerCityGuide} />
+      <Route path="/city-guides/coppell" component={CoppellCityGuide} />
+      <Route path="/city-guides/the-colony" component={TheColonyCityGuide} />
       <Route path="/faq" component={FAQPage} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={ContactPage} />

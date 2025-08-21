@@ -146,6 +146,24 @@ export default function CityGuides() {
       schoolRating: "9/10",
       population: "50,000",
       image: "historic-charm"
+    },
+    {
+      name: "Coppell",
+      county: "Dallas County",
+      description: "Premier family community with top-rated schools and master-planned neighborhoods",
+      medianPrice: "$525,000",
+      schoolRating: "10/10", 
+      population: "43,000",
+      image: "premier-family"
+    },
+    {
+      name: "The Colony",
+      county: "Denton County",
+      description: "Lakefront community on Lewisville Lake with water activities and family living",
+      medianPrice: "$385,000",
+      schoolRating: "8/10",
+      population: "46,000", 
+      image: "lakefront-living"
     }
   ];
 
@@ -481,6 +499,10 @@ export default function CityGuides() {
                           window.location.href = "/city-guides/north-richland-hills";
                         } else if (community.name === "Keller") {
                           window.location.href = "/city-guides/keller";
+                        } else if (community.name === "Coppell") {
+                          window.location.href = "/city-guides/coppell";
+                        } else if (community.name === "The Colony") {
+                          window.location.href = "/city-guides/the-colony";
                         } else {
                           window.location.href = "#";
                         }

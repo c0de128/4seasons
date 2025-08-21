@@ -68,3 +68,14 @@ Preferred communication style: Simple, everyday language.
 - **clsx**: Conditional className utility.
 - **tailwind-merge**: Tailwind class merging utility.
 - **Leaflet**: JavaScript library for interactive maps (used on Contact page).
+
+# Recent Changes
+
+## January 2025
+- **Dallas County Expansion**: Added comprehensive city guides for Coppell (premier family community with top-rated Coppell ISD) and The Colony (lakefront living on Lewisville Lake)
+- **Multi-County Coverage**: Now providing complete North Texas representation across Denton County (11 communities), Tarrant County (8 major cities), and Dallas County (additional premium communities)
+- **Enhanced Featured Communities**: Added Coppell and The Colony as featured communities showcasing Dallas County's premium family-oriented and lakefront lifestyle options
+- **Complete Tarrant County City Guides**: Created comprehensive city guide pages for 8 major Tarrant County municipalities including Fort Worth (county seat), Arlington, Grapevine, Southlake, Colleyville, Mansfield, North Richland Hills, and Keller
+- **Comprehensive Denton County City Guides**: Created detailed city guide pages for 10 major Denton County municipalities including Denton (county seat), Lewisville, Flower Mound, Highland Village, Little Elm, Argyle, Corinth, Aubrey, and The Colony
+- **Complete Navigation Integration**: Updated all routing systems (App.tsx, city-guides navigation) to include comprehensive multi-county city guide access
+- **Structured City Guide Template**: Maintained consistent template structure across all guides featuring hero sections, demographics, schools, neighborhoods, and amenities
