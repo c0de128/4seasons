@@ -137,30 +137,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section ref={statsRef} className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              const animatedValue = animatedStats[stat.animatedKey as keyof typeof animatedStats];
-              const displayValue = stat.animatedKey === 'clientSatisfaction' 
-                ? `${animatedValue}%` 
-                : `${animatedValue}+`;
-              
-              return (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#0d0d33' }}>
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-3xl font-bold text-slate-900 mb-2">{displayValue}</div>
-                  <div className="text-slate-600">{stat.label}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+
 
       {/* Our Story Section */}
       <section className="py-16 bg-slate-50">
@@ -280,6 +257,31 @@ export default function About() {
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-3">{value.title}</h3>
                   <p className="text-slate-600">{value.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section ref={statsRef} className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const IconComponent = stat.icon;
+              const animatedValue = animatedStats[stat.animatedKey as keyof typeof animatedStats];
+              const displayValue = stat.animatedKey === 'clientSatisfaction' 
+                ? `${animatedValue}%` 
+                : `${animatedValue}+`;
+              
+              return (
+                <div key={index} className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#0d0d33' }}>
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-slate-900 mb-2">{displayValue}</div>
+                  <div className="text-slate-600">{stat.label}</div>
                 </div>
               );
             })}
