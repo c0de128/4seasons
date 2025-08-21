@@ -5,7 +5,7 @@ import { Contact } from "@/components/Contact";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { Calendar, User, Clock, Eye, ArrowLeft, Share, BookOpen, Tag, Home, DollarSign, Calculator, MapPin, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
-import TimImage from "@/assets/images/tim.jpg";
+import TimImage from "@/assets/images/tim-sm.jpg";
 
 export function FirstTimeBuyerGuide() {
   useEffect(() => {
