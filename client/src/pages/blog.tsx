@@ -94,7 +94,7 @@ Texas offers several programs to help first-time buyers, including down payment 
 **Closing Day Preparation**
 
 Review all documents carefully before closing day. Ensure you have adequate homeowners insurance in place and conduct a final walk-through of the property. Bring a certified check for closing costs and be prepared to ask questions about anything you don't understand.`,
-    author: "Tim Johnson",
+    author: "Tim Harwood",
     date: "2024-01-18",
     readTime: "12 min read",
     category: "buyers",
@@ -325,7 +325,7 @@ New homes may receive partial exemptions during the first year, but expect your 
 **Working with Professionals**
 
 Property tax consultants can help with complex situations or valuable properties where protest efforts might yield significant savings. Real estate agents familiar with local tax implications can also provide valuable guidance during home searches.`,
-    author: "Tim Johnson",
+    author: "Tim Harwood",
     date: "2024-12-10",
     readTime: "9 min read",
     category: "tax-guidance",

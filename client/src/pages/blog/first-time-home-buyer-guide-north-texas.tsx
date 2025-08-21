@@ -15,7 +15,7 @@ export function FirstTimeBuyerGuide() {
   const blogPost = {
     title: "First-Time Home Buyer's Guide to North Texas",
     excerpt: "Navigate the DFW real estate market with confidence. Essential tips, local insights, and step-by-step guidance for first-time home buyers in North Texas.",
-    author: "Tim Johnson",
+    author: "Tim Harwood",
     date: "2024-01-18",
     readTime: "12 min read",
     views: 2847,
@@ -373,13 +373,13 @@ export function FirstTimeBuyerGuide() {
                 <div className="flex items-start gap-6">
                   <img 
                     src={TimImage} 
-                    alt="Tim Johnson - Real Estate Expert" 
+                    alt="Tim Harwood - Real Estate Expert" 
                     className="w-20 h-20 rounded-full object-cover shadow-md"
                   />
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Johnson</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Harwood</h3>
                     <p className="text-slate-600 mb-4">
-                      Tim Johnson is a seasoned real estate professional with over 12 years of experience helping first-time buyers navigate the North Texas market. His expertise in DFW communities and commitment to client education has helped hundreds of families find their perfect homes.
+                      Tim Harwood is a seasoned real estate professional with over 12 years of experience helping first-time buyers navigate the North Texas market. His expertise in DFW communities and commitment to client education has helped hundreds of families find their perfect homes.
                     </p>
                     <div className="flex items-center text-slate-600">
                       <BookOpen className="w-4 h-4 mr-1" />

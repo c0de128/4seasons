@@ -15,7 +15,7 @@ export function UnderstandingPropertyTaxesNorthTexas() {
   const blogPost = {
     title: "Understanding Property Taxes in North Texas",
     excerpt: "A comprehensive guide to property tax assessment, calculation, and strategies for North Texas homeowners.",
-    author: "Tim Johnson",
+    author: "Tim Harwood",
     date: "2024-12-10",
     readTime: "9 min read",
     views: 1823,
@@ -517,13 +517,13 @@ export function UnderstandingPropertyTaxesNorthTexas() {
                 <div className="flex items-start gap-6">
                   <img 
                     src={TimImage} 
-                    alt="Tim Johnson - Real Estate Tax Consultant" 
+                    alt="Tim Harwood - Real Estate Tax Consultant" 
                     className="w-20 h-20 rounded-full object-cover shadow-md"
                   />
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Johnson</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Tim Harwood</h3>
                     <p className="text-slate-600 mb-4">
-                      Tim Johnson has over 20 years of experience in North Texas real estate and property tax consulting. He has helped hundreds of homeowners understand their property tax obligations and successfully appeal overassessments, saving clients thousands of dollars annually.
+                      Tim Harwood has over 20 years of experience in North Texas real estate and property tax consulting. He has helped hundreds of homeowners understand their property tax obligations and successfully appeal overassessments, saving clients thousands of dollars annually.
                     </p>
                     <div className="flex items-center text-slate-600">
                       <BookOpen className="w-4 h-4 mr-1" />
