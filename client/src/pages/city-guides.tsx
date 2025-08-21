@@ -82,11 +82,11 @@ export default function CityGuides() {
     },
     {
       name: "Dallas County", 
-      communities: ["Highland Park", "University Park", "Addison", "Richardson", "Garland", "Carrollton"]
+      communities: ["Highland Park", "University Park", "Addison", "Richardson", "Garland", "Carrollton", "Coppell"]
     },
     {
       name: "Denton County",
-      communities: ["Denton", "Lewisville", "Flower Mound", "Highland Village", "Little Elm", "Argyle", "Corinth", "Aubrey", "Coppell", "The Colony"]
+      communities: ["Denton", "Lewisville", "Flower Mound", "Highland Village", "Little Elm", "Argyle", "Corinth", "Aubrey", "The Colony"]
     },
     {
       name: "Tarrant County",
@@ -352,35 +352,12 @@ export default function CityGuides() {
                   <div className="space-y-2">
                     {(expandedCounties.includes(county.name) ? county.communities : county.communities.slice(0, 4)).map((community, communityIndex) => (
                       <div key={communityIndex} className="flex items-center justify-between hover:bg-slate-50 p-2 rounded cursor-pointer transition-colors">
-                        <a 
-                          href={
-                            community === "Allen" ? "/allen-city-guide" :
-                            community === "Plano" ? "/plano-city-guide" :
-                            community === "Frisco" ? "/frisco-city-guide" :
-                            community === "McKinney" ? "/mckinney-city-guide" :
-                            community === "Prosper" ? "/prosper-city-guide" :
-                            community === "Celina" ? "/celina-city-guide" :
-                            community === "Wylie" ? "/wylie-city-guide" :
-                            community === "Highland Park" ? "/highland-park-city-guide" :
-                            community === "University Park" ? "/university-park-city-guide" :
-                            community === "Addison" ? "/addison-city-guide" :
-                            community === "Richardson" ? "/richardson-city-guide" :
-                            community === "Garland" ? "/garland-city-guide" :
-                            community === "Carrollton" ? "/carrollton-city-guide" :
-                            community === "Denton" ? "/city-guides/denton" :
-                            community === "Lewisville" ? "/city-guides/lewisville" :
-                            community === "Flower Mound" ? "/city-guides/flower-mound" :
-                            community === "Highland Village" ? "/city-guides/highland-village" :
-                            community === "Little Elm" ? "/city-guides/little-elm" :
-                            community === "Argyle" ? "/city-guides/argyle" :
-                            community === "Corinth" ? "/city-guides/corinth" :
-                            community === "Aubrey" ? "/city-guides/aubrey" :
-                            "/city-guides"
-                          }
+                        <Link 
+                          href={getCommunityUrl(community)}
                           className="text-slate-700 hover:text-primary flex-1"
                         >
                           {community}
-                        </a>
+                        </Link>
                         <ChevronRight className="w-4 h-4 text-slate-400" />
                       </div>
                     ))}
