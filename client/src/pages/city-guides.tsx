@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,43 @@ export default function CityGuides() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCounty, setSelectedCounty] = useState("");
   const [expandedCounties, setExpandedCounties] = useState<string[]>([]);
+
+  const getCommunityUrl = (communityName: string) => {
+    const urlMap: { [key: string]: string } = {
+      "Allen": "/allen-city-guide",
+      "Plano": "/plano-city-guide", 
+      "Frisco": "/frisco-city-guide",
+      "McKinney": "/mckinney-city-guide",
+      "Prosper": "/prosper-city-guide",
+      "Celina": "/celina-city-guide",
+      "Wylie": "/wylie-city-guide",
+      "Highland Park": "/highland-park-city-guide",
+      "University Park": "/university-park-city-guide",
+      "Addison": "/addison-city-guide",
+      "Richardson": "/richardson-city-guide",
+      "Garland": "/garland-city-guide",
+      "Carrollton": "/carrollton-city-guide",
+      "Denton": "/city-guides/denton",
+      "Lewisville": "/city-guides/lewisville",
+      "Flower Mound": "/city-guides/flower-mound",
+      "Highland Village": "/city-guides/highland-village",
+      "Little Elm": "/city-guides/little-elm",
+      "Argyle": "/city-guides/argyle",
+      "Corinth": "/city-guides/corinth",
+      "Aubrey": "/city-guides/aubrey",
+      "Fort Worth": "/city-guides/fort-worth",
+      "Arlington": "/city-guides/arlington",
+      "Grapevine": "/city-guides/grapevine",
+      "Southlake": "/city-guides/southlake",
+      "Colleyville": "/city-guides/colleyville",
+      "Mansfield": "/city-guides/mansfield",
+      "North Richland Hills": "/city-guides/north-richland-hills",
+      "Keller": "/city-guides/keller",
+      "Coppell": "/city-guides/coppell",
+      "The Colony": "/city-guides/the-colony"
+    };
+    return urlMap[communityName] || "#";
+  };
 
   const toggleCountyExpansion = (countyName: string) => {
     setExpandedCounties(prev => 
@@ -437,80 +475,15 @@ export default function CityGuides() {
                       </div>
                     </div>
                     
-                    <Button 
-                      className="w-full text-white hover:opacity-90" 
-                      style={{ backgroundColor: '#0d0d33' }}
-                      onClick={() => {
-                        if (community.name === "Allen") {
-                          window.location.href = "/allen-city-guide";
-                        } else if (community.name === "Plano") {
-                          window.location.href = "/plano-city-guide";
-                        } else if (community.name === "Frisco") {
-                          window.location.href = "/frisco-city-guide";
-                        } else if (community.name === "McKinney") {
-                          window.location.href = "/mckinney-city-guide";
-                        } else if (community.name === "Prosper") {
-                          window.location.href = "/prosper-city-guide";
-                        } else if (community.name === "Celina") {
-                          window.location.href = "/celina-city-guide";
-                        } else if (community.name === "Wylie") {
-                          window.location.href = "/wylie-city-guide";
-                        } else if (community.name === "Highland Park") {
-                          window.location.href = "/highland-park-city-guide";
-                        } else if (community.name === "University Park") {
-                          window.location.href = "/university-park-city-guide";
-                        } else if (community.name === "Addison") {
-                          window.location.href = "/addison-city-guide";
-                        } else if (community.name === "Richardson") {
-                          window.location.href = "/richardson-city-guide";
-                        } else if (community.name === "Garland") {
-                          window.location.href = "/garland-city-guide";
-                        } else if (community.name === "Carrollton") {
-                          window.location.href = "/carrollton-city-guide";
-                        } else if (community.name === "Denton") {
-                          window.location.href = "/city-guides/denton";
-                        } else if (community.name === "Lewisville") {
-                          window.location.href = "/city-guides/lewisville";
-                        } else if (community.name === "Flower Mound") {
-                          window.location.href = "/city-guides/flower-mound";
-                        } else if (community.name === "Highland Village") {
-                          window.location.href = "/city-guides/highland-village";
-                        } else if (community.name === "Little Elm") {
-                          window.location.href = "/city-guides/little-elm";
-                        } else if (community.name === "Argyle") {
-                          window.location.href = "/city-guides/argyle";
-                        } else if (community.name === "Corinth") {
-                          window.location.href = "/city-guides/corinth";
-                        } else if (community.name === "Aubrey") {
-                          window.location.href = "/city-guides/aubrey";
-                        } else if (community.name === "Fort Worth") {
-                          window.location.href = "/city-guides/fort-worth";
-                        } else if (community.name === "Arlington") {
-                          window.location.href = "/city-guides/arlington";
-                        } else if (community.name === "Grapevine") {
-                          window.location.href = "/city-guides/grapevine";
-                        } else if (community.name === "Southlake") {
-                          window.location.href = "/city-guides/southlake";
-                        } else if (community.name === "Colleyville") {
-                          window.location.href = "/city-guides/colleyville";
-                        } else if (community.name === "Mansfield") {
-                          window.location.href = "/city-guides/mansfield";
-                        } else if (community.name === "North Richland Hills") {
-                          window.location.href = "/city-guides/north-richland-hills";
-                        } else if (community.name === "Keller") {
-                          window.location.href = "/city-guides/keller";
-                        } else if (community.name === "Coppell") {
-                          window.location.href = "/city-guides/coppell";
-                        } else if (community.name === "The Colony") {
-                          window.location.href = "/city-guides/the-colony";
-                        } else {
-                          window.location.href = "#";
-                        }
-                      }}
-                    >
-                      Explore {community.name}
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
+                    <Link href={getCommunityUrl(community.name)}>
+                      <Button 
+                        className="w-full text-white hover:opacity-90" 
+                        style={{ backgroundColor: '#0d0d33' }}
+                      >
+                        Explore {community.name}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
