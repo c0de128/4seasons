@@ -5,6 +5,7 @@ import { Contact } from "@/components/Contact";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { Calendar, User, Clock, Eye, ArrowLeft, Share, BookOpen, Tag } from "lucide-react";
 import { Link } from "wouter";
+import AmyImage from "@/assets/images/Amy-sm.jpg";
 
 export default function FiveSignsTimeToSellBlogPost() {
   useEffect(() => {
@@ -242,7 +243,11 @@ export default function FiveSignsTimeToSellBlogPost() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="flex items-start gap-6">
-              <div className="w-20 h-20 rounded-full" style={{ backgroundColor: '#0d0d33' }} />
+              <img 
+                src={AmyImage} 
+                alt="Amy Harwood - Real Estate Expert" 
+                className="w-20 h-20 rounded-full object-cover shadow-md"
+              />
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Amy Harwood</h3>
                 <p className="text-slate-600 mb-4">Co-Founder & Real Estate Expert at 4Seasons Real Estate</p>
