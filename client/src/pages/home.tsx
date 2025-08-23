@@ -647,7 +647,7 @@ export default function Home() {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
                     index === currentTestimonial 
-                      ? 'bg-primary' 
+                      ? 'bg-[#0d0d33]' 
                       : 'bg-slate-300 hover:bg-slate-400'
                   }`}
                 />
