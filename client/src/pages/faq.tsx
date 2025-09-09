@@ -254,7 +254,7 @@ export function FAQPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-r from-slate-50 to-blue-50">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8">
             Frequently Asked Questions

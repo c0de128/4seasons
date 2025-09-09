@@ -169,7 +169,7 @@ export default function AllenCityGuide() {
       </div>
 
       {/* Hero Section with Optimized Image */}
-      <section className="relative pt-16 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 overflow-hidden">
         <OptimizedImage
           src={allenHeroImage}
           alt="Allen, Texas cityscape featuring Eagle Stadium and modern suburban development in Dallas County"

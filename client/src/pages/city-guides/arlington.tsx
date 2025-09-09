@@ -29,7 +29,7 @@ export default function ArlingtonCityGuide() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-r from-blue-900 to-purple-800 text-white relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 to-purple-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">

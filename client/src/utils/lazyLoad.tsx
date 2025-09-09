@@ -90,17 +90,19 @@ export function createLazyRoute<T extends ComponentType<any>>(
   importFunc: () => Promise<{ default: T }>,
   retries = 3
 ): React.LazyExoticComponent<T> {
-  return React.lazy(() =>
-    importFunc().catch((error) => {
-      if (retries > 0) {
+  const retryImport = (remainingRetries: number): Promise<{ default: T }> => {
+    return importFunc().catch((error) => {
+      if (remainingRetries > 0) {
         // Retry after a short delay
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
           setTimeout(() => {
-            resolve(createLazyRoute(importFunc, retries - 1) as any);
+            retryImport(remainingRetries - 1).then(resolve).catch(reject);
           }, 1000);
         });
       }
       throw error;
-    })
-  );
+    });
+  };
+
+  return React.lazy(() => retryImport(retries));
 }

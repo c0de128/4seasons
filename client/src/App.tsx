@@ -55,6 +55,7 @@ function Router() {
         <Route path="/market-analysis" component={LazyRoutes.MarketAnalysis} />
         <Route path="/selling-costs" component={LazyRoutes.SellingCosts} />
         <Route path="/fsbo-vs-agent" component={LazyRoutes.FsboVsAgent} />
+        <Route path="/property-management" component={LazyRoutes.PropertyManagement} />
         <Route path="/city-guides" component={LazyRoutes.CityGuides} />
         
         {/* Dallas County City Guides */}

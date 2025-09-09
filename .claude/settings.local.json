@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(mv:*)",
+      "Bash(rmdir:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run check:*)",
+      "Bash(timeout 10s npm run dev)",
+      "Read(//c/Users/KevinMcKay/Downloads/**)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+// import propertyManagementHeroImage from "@/assets/images/hero-images/2101.jpg";
 import { 
   Shield,
   DollarSign,
@@ -33,22 +34,33 @@ export default function PropertyManagement() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="mb-6">
+              <span className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm font-medium">
+                <Shield className="w-4 h-4 mr-2" />
+                Property Management
+              </span>
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Professional Property
-              <span className="text-primary block">Management Services</span>
+              <span className="text-blue-400 block">Management Services</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+            
+            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
               Maximize your rental income and protect your investment with our comprehensive property management solutions in North Texas.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+              <Button className="px-8 py-4 text-lg font-semibold text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
                 Get Free Management Quote
               </Button>
-              <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
+              <Button 
+                variant="outline" 
+                className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900"
+              >
                 Schedule Consultation
               </Button>
             </div>

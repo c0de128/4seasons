@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
-import newConstructionHeroImage from "@/assets/images/north-texas.jpg";
+import newConstructionHeroImage from "@/assets/images/hero-images/762045.jpg";
 import modernHomeImage from "@/assets/images/personalized-service.webp";
 import customizationImage from "@/assets/images/negotiation-excellence.jpg";
 import energyEfficientImage from "@/assets/images/professionals.jpg";
@@ -59,14 +59,22 @@ export default function NewConstruction() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${newConstructionHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Build Your Dream Home in
-              <span className="text-primary block">North Texas</span>
+              <span className="text-yellow-400 block" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>North Texas</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
               Discover exceptional new construction opportunities in the DFW metroplex. 
               From move-in ready homes to custom builds, we'll guide you through every step 
               of creating your perfect home.
@@ -88,6 +96,9 @@ export default function NewConstruction() {
             </div>
           </div>
         </div>
+        
+        {/* Subtle transition gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-50 to-transparent pointer-events-none"></div>
       </section>
 
       {/* Why Choose New Construction */}

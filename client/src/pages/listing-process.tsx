@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import listingProcessHeroImage from "@/assets/images/hero-images/303750.jpg";
 import { 
   CheckCircle,
   Home,
@@ -239,14 +240,22 @@ export default function ListingProcess() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${listingProcessHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Your Complete Guide to
-              <span className="text-primary block">Listing Your Property</span>
+              <span className="text-yellow-400 block" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>Listing Your Property</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
               Navigate the home selling process with confidence. Our step-by-step guide covers everything 
               from preparation to closing, ensuring you get maximum value for your North Texas property.
             </p>
@@ -256,13 +265,16 @@ export default function ListingProcess() {
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Get Free Home Valuation
               </Button>
-              <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
+              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-transparent">
                 <Users className="w-5 h-5 mr-2" />
                 Schedule Consultation
               </Button>
             </div>
           </div>
         </div>
+        
+        {/* Subtle transition gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
       </section>
 
       {/* Timeline Overview */}

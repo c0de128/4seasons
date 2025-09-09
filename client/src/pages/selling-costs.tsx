@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import sellingCostsHeroImage from "@/assets/images/hero-images/2150062316.jpg";
 import { 
   Calculator,
   DollarSign,
@@ -335,22 +336,29 @@ export default function SellingCosts() {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-24 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section 
+          className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+          style={{ 
+            backgroundImage: `url(${sellingCostsHeroImage})`,
+            textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+          }}
+        >
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <div className="mb-6">
-                <span className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm font-medium">
+                <span className="inline-flex items-center px-4 py-2 bg-yellow-400/90 text-yellow-900 rounded-full text-sm font-medium">
                   <Calculator className="w-4 h-4 mr-2" />
                   Transparent Selling Costs
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
                 Know Your Home's
-                <span className="text-blue-400"> True Selling Costs</span>
+                <span className="text-yellow-400"> True Selling Costs</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed">
                 Get a complete breakdown of all expenses involved in selling your North Texas home. 
                 No surprises, just transparent information to help you make informed decisions.
               </p>
@@ -376,6 +384,9 @@ export default function SellingCosts() {
             </div>
           </div>
         </section>
+        
+        {/* Smooth Transition */}
+        <div className="h-8 bg-gradient-to-t from-gray-800 to-transparent"></div>
 
         {/* Animated Stats Banner */}
         <section ref={statsRef} className="py-16" style={{ backgroundColor: '#1f2937' }}>

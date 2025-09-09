@@ -72,6 +72,7 @@ export const HomeStaging = createLazyRoute(() => import('@/pages/home-staging'))
 export const MarketAnalysis = createLazyRoute(() => import('@/pages/market-analysis'));
 export const SellingCosts = createLazyRoute(() => import('@/pages/selling-costs'));
 export const FsboVsAgent = createLazyRoute(() => import('@/pages/fsbo-vs-agent'));
+export const PropertyManagement = createLazyRoute(() => import('@/pages/property-management'));
 export const FirstTimeBuyers = createLazyRoute(() => import('@/pages/first-time-buyers'));
 export const HomeAffordability = createLazyRoute(() => import('@/pages/home-affordability'));
 export const MortgageCalculator = createLazyRoute(() => import('@/pages/mortgage-calculator'));

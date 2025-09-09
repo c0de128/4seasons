@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import fsboVsAgentHeroImage from "@/assets/images/hero-images/102859.jpg";
 import { 
   Scale,
   DollarSign,
@@ -380,27 +381,45 @@ export default function FsboVsAgent() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0d0d33] via-blue-900 to-[#0d0d33] opacity-90"></div>
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        style={{ 
+          backgroundImage: `url(${fsboVsAgentHeroImage})`,
+          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            FSBO vs Real Estate Agent
+            FSBO vs Real Estate <span className="text-yellow-400">Agent</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
+          
+          <p className="text-xl md:text-2xl mb-8 text-white">
             Make an Informed Decision with Complete Cost & Success Analysis
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[#0d0d33] hover:bg-gray-100">
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              className="text-white px-8 py-4 text-lg font-semibold hover:opacity-90" 
+              style={{ backgroundColor: '#0d0d33' }}
+            >
               <Calculator className="mr-2 h-5 w-5" />
               Compare Costs
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-[#0d0d33]">
-              <Phone className="mr-2 h-5 w-5" />
-              Get Expert Advice
-            </Button>
+            <Link href="/contact">
+              <Button 
+                className="bg-yellow-400 text-yellow-900 px-8 py-4 text-lg font-semibold hover:bg-yellow-300"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Get Expert Advice
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
+      
+      {/* Smooth Transition */}
+      <div className="h-8 bg-gradient-to-t from-gray-800 to-transparent"></div>
 
       {/* Animated Stats Section */}
       <section ref={statsRef} className="py-16 bg-[#1f2937] text-white">

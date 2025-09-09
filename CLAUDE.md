@@ -18,7 +18,7 @@ npm start
 npm run check
 
 # Testing
-npm run test              # Run all tests
+npm run test              # Run all tests with Vitest
 npm run test:watch        # Run tests in watch mode
 npm run test:security     # Run security-specific tests
 
@@ -30,7 +30,7 @@ npm run security:scan     # Run security audit and tests
 npm run security:audit    # Run npm audit for vulnerabilities
 
 # Database operations
-npm run db:push           # Push schema changes to database
+npm run db:push           # Push schema changes to database (Drizzle Kit)
 ```
 
 ## Architecture Overview
@@ -97,7 +97,7 @@ This is a full-stack TypeScript monorepo with a React frontend and Express.js ba
 - Comprehensive audit logging and error tracking
 - Environment-based configuration with validation
 
-**Path Aliases:**
+**Path Aliases (configured in tsconfig.json and vite.config.ts):**
 - `@/*` maps to `client/src/*`
 - `@shared/*` maps to `shared/*`
 - `@assets/*` maps to `attached_assets/*`
@@ -140,7 +140,7 @@ Copy `.env.example` to `.env` and configure the following:
 ### Development Notes
 
 - **Module System:** ES modules throughout (`"type": "module"` in package.json)
-- **TypeScript Config:** Strict mode, ESNext target, bundler module resolution
+- **TypeScript Config:** Strict mode, ESNext target, bundler module resolution, `allowImportingTsExtensions` enabled
 - **Server Architecture:** Express serves both API routes (`/api` prefix) and static files
 - **Development Mode:** Uses tsx with hot reloading via `npm run dev`
 - **Production Build:** 
@@ -149,6 +149,7 @@ Copy `.env.example` to `.env` and configure the following:
 - **Database Migrations:** Schema changes require `npm run db:push` (Drizzle Kit)
 - **Cross-platform:** Uses `cross-env` for environment variables on Windows
 - **Path Resolution:** No need for `.js` extensions in imports due to `allowImportingTsExtensions`
+- **Asset Management:** Images and videos stored in `client/src/assets/` with organized subdirectories
 
 ### Security Notes
 
