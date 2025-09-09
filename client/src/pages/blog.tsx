@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Search, Calendar, User, ArrowRight, Tag, Clock, Eye } from "lucide-react";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { Link } from "wouter";
+import blogHeroImage from "@/assets/images/hero-images/20155.jpg";
 
 interface BlogPost {
   id: number;
@@ -399,12 +400,20 @@ export default function BlogPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            Real Estate Insights & Tips
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        style={{ 
+          backgroundImage: `url(${blogHeroImage})`,
+          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
+            Real Estate Insights &
+            <span className="text-yellow-400 block">Tips</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
             Expert advice, market insights, and practical tips for buying, selling, and managing 
             real estate in North Texas.
           </p>

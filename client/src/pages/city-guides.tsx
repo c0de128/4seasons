@@ -24,6 +24,7 @@ import {
   Star,
   ArrowRight
 } from "lucide-react";
+import cityGuidesHeroImage from "@/assets/images/hero-images/279.jpg";
 
 export default function CityGuides() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -250,14 +251,21 @@ export default function CityGuides() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        style={{ 
+          backgroundImage: `url(${cityGuidesHeroImage})`,
+          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Discover North Texas
-              <span className="text-primary block">Communities</span>
+              <span className="text-yellow-400 block">Communities</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-3xl mx-auto" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Your comprehensive guide to the Dallas-Fort Worth metroplex neighborhoods. 
               Explore diverse communities across 12 counties, from urban sophistication to suburban comfort.
             </p>
@@ -268,7 +276,7 @@ export default function CityGuides() {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <Input
                   placeholder="Search neighborhood guides (e.g., 'Allen', 'Plano', 'Highland Park')"
-                  className="pl-12 pr-4 py-4 text-lg border-2 border-slate-200 focus:border-primary"
+                  className="pl-12 pr-4 py-4 text-lg border-2 border-slate-200 focus:border-yellow-400 bg-white/95"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />

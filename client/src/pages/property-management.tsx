@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
-// import propertyManagementHeroImage from "@/assets/images/hero-images/2101.jpg";
+import propertyManagementHeroImage from "@/assets/images/hero-images/3918.jpg";
 import { 
   Shield,
   DollarSign,
@@ -34,22 +34,29 @@ export default function PropertyManagement() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        style={{ 
+          backgroundImage: `url(${propertyManagementHeroImage})`,
+          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center px-4 py-2 bg-yellow-400/90 text-yellow-900 rounded-full text-sm font-medium">
                 <Shield className="w-4 h-4 mr-2" />
                 Property Management
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Professional Property
-              <span className="text-blue-400 block">Management Services</span>
+              <span className="text-yellow-400 block">Management Services</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
               Maximize your rental income and protect your investment with our comprehensive property management solutions in North Texas.
             </p>
             
@@ -67,6 +74,9 @@ export default function PropertyManagement() {
           </div>
         </div>
       </section>
+      
+      {/* Smooth Transition */}
+      <div className="h-8 bg-gradient-to-t from-slate-100 to-transparent"></div>
 
       {/* Why Choose Our Management Services */}
       <section className="py-20 bg-slate-100">

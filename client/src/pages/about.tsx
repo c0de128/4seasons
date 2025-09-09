@@ -6,6 +6,7 @@ import { Award, Users, Home, Star, MapPin, Clock, CheckCircle, ChevronUp, Chevro
 import logoPath from "@/assets/images/logo.png";
 import amyPhoto from "@/assets/images/amy.jpg";
 import timPhoto from "@/assets/images/tim.jpg";
+import aboutHeroImage from "@/assets/images/hero-images/138509.jpg";
 
 export default function About() {
   const [showMoreTeam, setShowMoreTeam] = useState(false);
@@ -127,13 +128,21 @@ export default function About() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        style={{ 
+          backgroundImage: `url(${aboutHeroImage})`,
+          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              About 4Seasons Real Estate
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
+              About
+              <span className="text-yellow-400 block">4Seasons Real Estate</span>
             </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-white max-w-3xl mx-auto mb-8" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Your trusted partner in North Texas real estate since 2009. We combine local expertise 
               with innovative technology to deliver exceptional results for buyers, sellers, and investors.
             </p>

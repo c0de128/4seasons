@@ -6,6 +6,7 @@ import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { useEffect } from 'react';
+import contactHeroImage from "@/assets/images/hero-images/2806.jpg";
 
 export default function ContactPage() {
   // Fix for Leaflet default icon issues with Webpack
@@ -69,13 +70,20 @@ export default function ContactPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        style={{ 
+          backgroundImage: `url(${contactHeroImage})`,
+          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Contact Us
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
+              <span className="text-yellow-400">Contact Us</span>
             </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-white max-w-3xl mx-auto mb-8" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Ready to start your real estate journey? Our experienced team is here to help 
               with buying, selling, or managing your property in North Texas.
             </p>
