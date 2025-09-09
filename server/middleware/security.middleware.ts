@@ -16,13 +16,17 @@ const corsOptions: cors.CorsOptions = {
   maxAge: 86400, // 24 hours
 };
 
-// Rate limiting configurations
+// Rate limiting configurations (optimized for GoDaddy shared hosting)
+const isGoDaddyHosting = process.env.HOSTING_PROVIDER === 'godaddy';
+
 export const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  max: isGoDaddyHosting ? 50 : 100, // More restrictive on shared hosting
   message: 'Too many requests from this IP, please try again later.',
   standardHeaders: true,
   legacyHeaders: false,
+  // Use memory store on shared hosting to avoid external dependencies
+  store: isGoDaddyHosting ? undefined : undefined,
 });
 
 export const authLimiter = rateLimit({
@@ -68,18 +72,26 @@ export function applySecurityMiddleware(app: Express): void {
           "https://www.google-analytics.com",
           "https://api.4seasonsrealestate.com",
         ],
-        frameSrc: ["'none'"],
+        frameSrc: [
+          "'self'", 
+          "https://matrix.ntreis.net", 
+          "https://*.ntreis.net",
+          "https://ntreis.net",
+          "http://localhost:*"
+        ],
+        frameAncestors: ["'self'"],
         objectSrc: ["'none'"],
         upgradeInsecureRequests: process.env.NODE_ENV === 'production' ? [] : null,
       },
     },
-    crossOriginEmbedderPolicy: process.env.NODE_ENV === 'production',
+    crossOriginEmbedderPolicy: false, // Disable in development for iframe compatibility
+    crossOriginResourcePolicy: { policy: "cross-origin" },
   }));
 
   // CORS
   app.use(cors(corsOptions));
 
-  // Compression
+  // Compression (optimized for GoDaddy shared hosting)
   app.use(compression({
     filter: (req, res) => {
       if (req.headers['x-no-compression']) {
@@ -87,7 +99,12 @@ export function applySecurityMiddleware(app: Express): void {
       }
       return compression.filter(req, res);
     },
-    level: 6, // Balance between compression and CPU usage
+    // Lower compression level on shared hosting to reduce CPU usage
+    level: isGoDaddyHosting ? 4 : 6,
+    // Set compression threshold (only compress files larger than this)
+    threshold: 1024, // 1KB
+    // Memory limit for compression (important on shared hosting)
+    memLevel: isGoDaddyHosting ? 7 : 8, // Lower memory usage on shared hosting
   }));
 
   // General rate limiting
@@ -100,7 +117,7 @@ export function applySecurityMiddleware(app: Express): void {
   // Contact form rate limiting
   app.use('/api/contact', contactLimiter);
 
-  // Additional security headers
+  // Additional security headers (GoDaddy optimized)
   app.use((req, res, next) => {
     // Prevent clickjacking
     res.setHeader('X-Frame-Options', 'DENY');
@@ -117,11 +134,28 @@ export function applySecurityMiddleware(app: Express): void {
     // Permissions policy
     res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
     
+    // GoDaddy-specific optimizations
+    if (isGoDaddyHosting) {
+      // Trust proxy headers from GoDaddy's load balancer
+      res.setHeader('X-Forwarded-Proto', req.headers['x-forwarded-proto'] || 'https');
+      
+      // Optimize for shared hosting environment
+      res.setHeader('Server-Timing', 'cache;desc="GoDaddy Optimized"');
+      
+      // Enable keep-alive for better performance on shared hosting
+      res.setHeader('Connection', 'keep-alive');
+      res.setHeader('Keep-Alive', 'timeout=15, max=100');
+    }
+    
     // Cache control for security
     if (req.url.includes('/api/')) {
       res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
       res.setHeader('Pragma', 'no-cache');
       res.setHeader('Expires', '0');
+    } else if (req.url.includes('/assets/')) {
+      // Optimize static asset caching for GoDaddy
+      const cacheMaxAge = isGoDaddyHosting ? 86400 : 31536000; // 1 day vs 1 year
+      res.setHeader('Cache-Control', `public, max-age=${cacheMaxAge}, immutable`);
     }
     
     next();

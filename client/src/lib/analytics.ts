@@ -52,7 +52,7 @@ class Analytics {
     };
 
     // Configure Google Analytics
-    window.gtag('js', new Date());
+    window.gtag('js', new Date().toISOString());
     window.gtag('config', this.config.gaTrackingId, {
       page_title: document.title,
       page_location: window.location.href,
@@ -139,8 +139,8 @@ class Analytics {
     if (!this.isInitialized || typeof window === 'undefined') return;
 
     // Import Web Vitals dynamically to avoid bundle bloat
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS((metric) => {
+    import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
+      onCLS((metric: any) => {
         window.gtag('event', 'web_vitals', {
           event_category: 'Performance',
           event_label: 'CLS',
@@ -149,7 +149,7 @@ class Analytics {
         });
       });
 
-      getFID((metric) => {
+      onFID((metric: any) => {
         window.gtag('event', 'web_vitals', {
           event_category: 'Performance',
           event_label: 'FID',
@@ -158,7 +158,7 @@ class Analytics {
         });
       });
 
-      getFCP((metric) => {
+      onFCP((metric: any) => {
         window.gtag('event', 'web_vitals', {
           event_category: 'Performance',
           event_label: 'FCP',
@@ -167,7 +167,7 @@ class Analytics {
         });
       });
 
-      getLCP((metric) => {
+      onLCP((metric: any) => {
         window.gtag('event', 'web_vitals', {
           event_category: 'Performance',
           event_label: 'LCP',
@@ -176,7 +176,7 @@ class Analytics {
         });
       });
 
-      getTTFB((metric) => {
+      onTTFB((metric: any) => {
         window.gtag('event', 'web_vitals', {
           event_category: 'Performance',
           event_label: 'TTFB',

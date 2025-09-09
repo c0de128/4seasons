@@ -26,26 +26,42 @@ import heroBackgroundImage from "@/assets/images/hero-images/6016.jpg";
 export default function Buy() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [iframeError, setIframeError] = useState(false);
+  const [loadingTimeout, setLoadingTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Set a timeout to show error state if iframe doesn't load within 10 seconds
+    // Set a timeout to show error state if iframe doesn't load within 15 seconds
     const timeout = setTimeout(() => {
       if (!iframeLoaded) {
+        console.warn('Iframe failed to load within timeout period');
         setIframeError(true);
       }
-    }, 10000);
+    }, 15000);
 
-    return () => clearTimeout(timeout);
+    setLoadingTimeout(timeout);
+
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
   }, [iframeLoaded]);
 
   const handleIframeLoad = () => {
+    console.log('Iframe loaded successfully');
     setIframeLoaded(true);
     setIframeError(false);
+    if (loadingTimeout) {
+      clearTimeout(loadingTimeout);
+      setLoadingTimeout(null);
+    }
   };
 
-  const handleIframeError = () => {
+  const handleIframeError = (event?: any) => {
+    console.error('Iframe failed to load:', event);
     setIframeError(true);
     setIframeLoaded(false);
+    if (loadingTimeout) {
+      clearTimeout(loadingTimeout);
+      setLoadingTimeout(null);
+    }
   };
 
   return (
@@ -105,11 +121,11 @@ export default function Buy() {
         {/* Property Search iframe - Full width container with enhanced visibility */}
         <div className="w-full">
           <div className="mx-auto" style={{ maxWidth: '100%' }}>
-            <div className="bg-white border-2 border-blue-200 shadow-2xl relative overflow-hidden" style={{ minHeight: '900px' }}>
+            <div className="bg-white border-2 border-blue-200 shadow-2xl relative overflow-hidden rounded-lg">
               {/* Header bar to make iframe more visible */}
-              <div className="bg-[#0d0d33] text-white p-4 flex items-center justify-between">
+              <div className="bg-[#0d0d33] text-white p-4 flex items-center justify-between rounded-t-lg">
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                  <div className={`w-3 h-3 rounded-full ${!iframeLoaded && !iframeError ? 'bg-white animate-pulse' : iframeLoaded ? 'bg-green-400' : 'bg-red-400'}`}></div>
                   <span className="font-semibold">North Texas MLS Property Search</span>
                 </div>
                 <div className="text-sm bg-white/20 px-3 py-1 rounded flex items-center space-x-1">
@@ -118,10 +134,10 @@ export default function Buy() {
                     <div className="w-2 h-2 bg-white rounded-full animate-pulse ml-2"></div>
                   )}
                   {iframeLoaded && (
-                    <div className="w-2 h-2 bg-green-400 rounded-full ml-2"></div>
+                    <div className="w-2 h-2 bg-green-400 rounded-full ml-2" title="Connected"></div>
                   )}
                   {iframeError && (
-                    <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
+                    <div className="w-2 h-2 bg-red-400 rounded-full ml-2" title="Connection Failed"></div>
                   )}
                 </div>
               </div>
@@ -129,12 +145,12 @@ export default function Buy() {
               {/* Loading/Error States */}
               {!iframeLoaded && !iframeError && (
                 <div className="absolute inset-0 top-16 bg-gray-50 flex items-center justify-center z-10">
-                  <div className="max-w-md text-center">
-                    <div className="animate-spin w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+                  <div className="max-w-md text-center px-6">
+                    <div className="animate-spin w-12 h-12 border-4 border-[#0d0d33] border-t-transparent rounded-full mx-auto mb-4"></div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Loading Property Search</h3>
                     <p className="text-gray-600 mb-4">Connecting to North Texas MLS database...</p>
                     <div className="text-sm text-gray-500">
-                      <p>This may take a few moments to load.</p>
+                      <p>This may take a few moments to load the interactive search interface.</p>
                     </div>
                   </div>
                 </div>
@@ -142,27 +158,42 @@ export default function Buy() {
 
               {iframeError && (
                 <div className="absolute inset-0 top-16 bg-gray-50 flex items-center justify-center z-10">
-                  <div className="max-w-md text-center">
+                  <div className="max-w-md text-center px-6">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <ExternalLink className="w-6 h-6 text-red-600" />
                     </div>
-                    <h3 className="text-xl font-semibold text-red-600 mb-2">Property Search Unavailable</h3>
+                    <h3 className="text-xl font-semibold text-red-600 mb-2">Property Search Temporarily Unavailable</h3>
                     <p className="text-gray-600 mb-6">
-                      The MLS property search tool cannot be embedded directly. This is common with secure real estate platforms.
+                      Unable to load the embedded MLS search. This may be due to security restrictions or temporary server issues.
                     </p>
                     <div className="space-y-3">
                       <a 
                         href="https://matrix.ntreis.net/Matrix/Public/IDXMap.aspx?count=1&idx=2a47c86&pv=&or=" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-block bg-[#0d0d33] text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                        className="inline-block bg-[#0d0d33] text-white px-6 py-3 rounded-lg hover:bg-[#1a1a4d] transition-colors font-medium"
                       >
                         <ExternalLink className="w-4 h-4 inline mr-2" />
-                        Search Properties Directly
+                        Open Full MLS Search
                       </a>
-                      <div className="text-sm text-gray-500">
-                        <p>Opens in a new window with full MLS access</p>
+                      <div className="text-sm text-gray-500 mt-3">
+                        <p>Access the complete property database in a new window</p>
                       </div>
+                      <button 
+                        onClick={() => {
+                          setIframeError(false);
+                          setIframeLoaded(false);
+                          // Force iframe reload by changing src slightly
+                          const iframe = document.querySelector('iframe[title="Property Search - North Texas MLS"]') as HTMLIFrameElement;
+                          if (iframe) {
+                            const originalSrc = iframe.src;
+                            iframe.src = originalSrc + '&refresh=' + Date.now();
+                          }
+                        }}
+                        className="text-[#0d0d33] hover:text-[#1a1a4d] font-medium mt-2 block mx-auto"
+                      >
+                        Try Loading Again
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -171,17 +202,19 @@ export default function Buy() {
               {/* The actual iframe */}
               <iframe 
                 src="https://matrix.ntreis.net/Matrix/Public/IDXMap.aspx?count=1&idx=2a47c86&pv=&or="
-                className="w-full border-0"
+                className="w-full border-0 rounded-b-lg"
                 style={{ 
-                  minHeight: '800px', 
-                  height: '800px',
+                  minHeight: '850px', 
+                  height: '850px',
                   background: 'white',
                   display: iframeError ? 'none' : 'block'
                 }}
                 title="Property Search - North Texas MLS"
-                loading="lazy"
+                loading="eager"
                 onLoad={handleIframeLoad}
                 onError={handleIframeError}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
