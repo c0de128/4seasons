@@ -1,0 +1,758 @@
+import { useState, useEffect, useRef } from "react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { Contact } from "@/components/Contact";
+import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import { 
+  Camera,
+  Share2,
+  Globe,
+  Mail,
+  Megaphone,
+  Eye,
+  Users,
+  Home,
+  TrendingUp,
+  Calendar,
+  Clock,
+  CheckCircle,
+  ArrowRight,
+  ChevronDown,
+  ChevronUp,
+  Smartphone,
+  Monitor,
+  FileText,
+  MapPin,
+  Star,
+  Award,
+  Zap,
+  Shield,
+  Target,
+  BarChart3,
+  Video,
+  Image as ImageIcon,
+  Instagram,
+  Facebook,
+  Youtube,
+  Search,
+  DollarSign
+} from "lucide-react";
+
+export default function MarketingGuide() {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<string>("professional");
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState({
+    views: 0,
+    days: 0,
+    channels: 0,
+    success: 0
+  });
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  // Animation effect for stats
+  useEffect(() => {
+    const animateValue = (start: number, end: number, duration: number, setter: (value: number) => void) => {
+      const range = end - start;
+      const startTime = Date.now();
+      
+      const updateValue = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + range * easeOut);
+        
+        setter(current);
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateValue);
+        }
+      };
+      
+      updateValue();
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            animateValue(0, 5000, 2000, (val) => setAnimatedStats(prev => ({ ...prev, views: val })));
+            animateValue(0, 7, 1500, (val) => setAnimatedStats(prev => ({ ...prev, days: val })));
+            animateValue(0, 25, 1500, (val) => setAnimatedStats(prev => ({ ...prev, channels: val })));
+            animateValue(0, 96, 1500, (val) => setAnimatedStats(prev => ({ ...prev, success: val })));
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const marketingChannels = [
+    {
+      icon: Camera,
+      title: "Professional Photography",
+      description: "HDR photography that captures your home's best features",
+      features: [
+        "High-resolution HDR images",
+        "Twilight photography",
+        "Aerial/drone shots",
+        "Virtual staging options"
+      ],
+      impact: "87% of buyers say photos are most important"
+    },
+    {
+      icon: Video,
+      title: "Video Tours & Walkthroughs",
+      description: "Immersive video experiences that bring your listing to life",
+      features: [
+        "Professional video tours",
+        "3D virtual walkthroughs",
+        "Drone footage",
+        "Neighborhood highlights"
+      ],
+      impact: "Listings with video get 403% more inquiries"
+    },
+    {
+      icon: Globe,
+      title: "Online Marketing",
+      description: "Maximum exposure across all major real estate platforms",
+      features: [
+        "MLS syndication",
+        "Zillow, Realtor.com, Trulia",
+        "4Seasons website feature",
+        "SEO optimization"
+      ],
+      impact: "92% of buyers search online first"
+    },
+    {
+      icon: Share2,
+      title: "Social Media Marketing",
+      description: "Targeted campaigns across all social platforms",
+      features: [
+        "Facebook marketplace & ads",
+        "Instagram stories & posts",
+        "LinkedIn professional network",
+        "YouTube video hosting"
+      ],
+      impact: "Social media drives 3x more engagement"
+    },
+    {
+      icon: Mail,
+      title: "Email Marketing",
+      description: "Direct outreach to qualified buyer database",
+      features: [
+        "Buyer agent network",
+        "Pre-qualified buyer list",
+        "Neighborhood announcements",
+        "Weekly feature emails"
+      ],
+      impact: "Email has 4,400% ROI in real estate"
+    },
+    {
+      icon: Megaphone,
+      title: "Traditional Marketing",
+      description: "Proven offline strategies that still deliver results",
+      features: [
+        "Premium yard signage",
+        "Open houses",
+        "Print advertising",
+        "Direct mail campaigns"
+      ],
+      impact: "45% of buyers attend open houses"
+    }
+  ];
+
+  const marketingProcess = [
+    {
+      step: 1,
+      title: "Pre-Marketing Preparation",
+      description: "Strategic planning and property preparation",
+      duration: "3-5 days",
+      activities: [
+        "Market analysis and pricing strategy",
+        "Property staging consultation",
+        "Marketing plan customization",
+        "Pre-listing repairs and improvements"
+      ]
+    },
+    {
+      step: 2,
+      title: "Professional Media Creation",
+      description: "Capture stunning visuals that sell",
+      duration: "2-3 days",
+      activities: [
+        "Professional photography session",
+        "Video tour production",
+        "3D virtual tour creation",
+        "Marketing copy writing"
+      ]
+    },
+    {
+      step: 3,
+      title: "Multi-Channel Launch",
+      description: "Simultaneous launch across all platforms",
+      duration: "24 hours",
+      activities: [
+        "MLS listing activation",
+        "Website and portal publishing",
+        "Social media campaign launch",
+        "Email blast to buyer network"
+      ]
+    },
+    {
+      step: 4,
+      title: "Active Marketing Management",
+      description: "Continuous promotion and optimization",
+      duration: "Ongoing",
+      activities: [
+        "Daily social media posts",
+        "Targeted advertising campaigns",
+        "Open house events",
+        "Performance monitoring"
+      ]
+    },
+    {
+      step: 5,
+      title: "Buyer Engagement",
+      description: "Convert interest into offers",
+      duration: "As needed",
+      activities: [
+        "Showing coordination",
+        "Buyer feedback collection",
+        "Strategy adjustments",
+        "Offer negotiation"
+      ]
+    }
+  ];
+
+
+  const successStories = [
+    {
+      address: "Highland Park Estate",
+      soldIn: "3 days",
+      aboveAsking: "$50,000",
+      views: "8,500",
+      showings: "42",
+      offers: "7",
+      strategy: "Premium video tour and targeted social media campaign"
+    },
+    {
+      address: "Plano Family Home",
+      soldIn: "5 days",
+      aboveAsking: "$15,000",
+      views: "6,200",
+      showings: "28",
+      offers: "4",
+      strategy: "3D virtual tour and neighborhood-targeted email campaign"
+    },
+    {
+      address: "Frisco Townhouse",
+      soldIn: "7 days",
+      aboveAsking: "Full asking",
+      views: "4,800",
+      showings: "19",
+      offers: "3",
+      strategy: "Professional staging and Instagram marketing"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "What marketing channels are most effective for selling homes?",
+      answer: "The most effective approach combines multiple channels. Professional photography and online listings are essential, driving 87% of initial interest. Video tours increase inquiries by 403%, while social media expands reach by 3x. We use a data-driven mix of digital and traditional marketing tailored to your property and target buyers."
+    },
+    {
+      question: "How quickly will my home appear on major real estate websites?",
+      answer: "Once listed on MLS, your property typically appears on major sites like Zillow, Realtor.com, and Trulia within 24-48 hours. We also immediately feature it on our website, social media channels, and email it to our extensive buyer agent network for maximum initial exposure."
+    },
+    {
+      question: "Do you provide professional photography and staging?",
+      answer: "Yes! Professional HDR photography is included with every listing. We work with certified staging professionals who can provide consultations and full staging services. Studies show professionally photographed and staged homes sell 50% faster and for up to 10% more."
+    },
+    {
+      question: "How do you target the right buyers for my property?",
+      answer: "We use sophisticated targeting based on property type, price point, and buyer demographics. This includes geo-targeted social media ads, email campaigns to pre-qualified buyers, and strategic networking with buyer agents specializing in your area and price range."
+    },
+    {
+      question: "What makes your marketing different from other agents?",
+      answer: "Our comprehensive approach combines cutting-edge technology with proven traditional methods. We invest in premium marketing tools, maintain an extensive buyer network, and provide detailed analytics to track performance. Our average listing receives 5,000+ views and sells in just 7 days."
+    },
+    {
+      question: "How do you measure marketing effectiveness?",
+      answer: "We provide weekly performance reports showing online views, showing requests, social media engagement, and buyer feedback. This data helps us optimize strategy in real-time. We track everything from click-through rates to showing-to-offer conversion ratios."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      <SEO 
+        title="Home Marketing Guide - Maximum Exposure Strategy | 4Seasons Real Estate"
+        description="Comprehensive marketing strategies to sell your North Texas home faster. Professional photography, virtual tours, social media, and targeted advertising for maximum exposure."
+        keywords="home marketing Dallas, real estate marketing Fort Worth, property marketing strategy DFW, virtual tours North Texas, real estate photography, social media marketing, MLS listing Texas"
+        canonicalUrl={`${seoConfig.siteUrl}/marketing-guide`}
+        ogTitle="Complete Home Marketing Guide - Sell Faster with Strategic Exposure"
+        ogDescription="Discover our proven multi-channel marketing approach that gets North Texas homes sold quickly for top dollar. Professional media, targeted advertising, and maximum exposure."
+        ogImage={`${seoConfig.siteUrl}/images/marketing-guide.jpg`}
+        structuredData={generateStructuredData.service("Real Estate Marketing Services", "Comprehensive property marketing services including professional photography, virtual tours, social media marketing, and targeted advertising for residential real estate in North Texas.")}
+      />
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <TrendingUp className="w-4 h-4" />
+              Homes with Premium Marketing Sell 50% Faster
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+              Marketing That Delivers
+              <span className="text-primary block">Real Results</span>
+            </h1>
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+              Our comprehensive marketing strategy combines cutting-edge digital tools with proven 
+              traditional methods to ensure maximum exposure and quick sales at top dollar.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Link href="/contact">
+                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                  Get Your Marketing Plan
+                </Button>
+              </Link>
+              <Link href="#success-stories">
+                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white">
+                  View Success Stories
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Stats Banner - Home Page Style */}
+      <section ref={statsRef} className="py-12" style={{ backgroundColor: '#1f2937' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Our Marketing Performance
+            </h2>
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+              Data-driven results from our comprehensive marketing approach
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            {/* Average Views */}
+            <div className="group">
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+                {animatedStats.views.toLocaleString()}+
+              </div>
+              <div className="text-base font-medium text-white">
+                Average Property Views
+              </div>
+            </div>
+
+            {/* Days to Offer */}
+            <div className="group">
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+                {animatedStats.days}
+              </div>
+              <div className="text-base font-medium text-white">
+                Average Days to Offer
+              </div>
+            </div>
+
+            {/* Marketing Channels */}
+            <div className="group">
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+                {animatedStats.channels}+
+              </div>
+              <div className="text-base font-medium text-white">
+                Marketing Channels Used
+              </div>
+            </div>
+
+            {/* Success Rate */}
+            <div className="group">
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+                {animatedStats.success}%
+              </div>
+              <div className="text-base font-medium text-white">
+                Sale Success Rate
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Channels Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Multi-Channel Marketing Strategy
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              We leverage every effective channel to ensure your property reaches the right buyers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {marketingChannels.map((channel, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow border-slate-200">
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: '#0d0d33' }}>
+                      <channel.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl mb-2">{channel.title}</CardTitle>
+                  <p className="text-slate-600">{channel.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-4">
+                    {channel.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-slate-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-4 border-t border-slate-200">
+                    <p className="text-sm font-semibold text-blue-600">{channel.impact}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Process Timeline */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Marketing Process
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              A systematic approach to marketing your property for maximum impact
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-300 hidden md:block"></div>
+
+            <div className="space-y-8">
+              {marketingProcess.map((item, index) => (
+                <div key={index} className="relative flex items-start gap-6">
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-full bg-white border-4 border-slate-300 z-10">
+                    <span className="text-xl font-bold text-slate-900">{item.step}</span>
+                  </div>
+
+                  <Card className="flex-1 hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                          <p className="text-slate-600 mb-4">{item.description}</p>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-slate-500">
+                          <Clock className="w-4 h-4" />
+                          {item.duration}
+                        </div>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-2">
+                        {item.activities.map((activity, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                            <span className="text-sm text-slate-700">{activity}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Success Stories */}
+      <section id="success-stories" className="py-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Recent Marketing Success Stories
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Real results from our comprehensive marketing strategies
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {successStories.map((story, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-bold text-slate-900">{story.address}</h3>
+                    <Star className="w-5 h-5 text-yellow-500" />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <p className="text-sm text-slate-600">Sold In</p>
+                      <p className="text-xl font-bold text-green-600">{story.soldIn}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-slate-600">Above Asking</p>
+                      <p className="text-xl font-bold text-green-600">{story.aboveAsking}</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="space-y-2 mb-4">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-600">Total Views</span>
+                      <span className="font-semibold">{story.views}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-600">Showings</span>
+                      <span className="font-semibold">{story.showings}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-600">Offers Received</span>
+                      <span className="font-semibold">{story.offers}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-slate-200">
+                    <p className="text-sm text-slate-700">
+                      <span className="font-semibold">Strategy:</span> {story.strategy}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Digital vs Traditional Marketing */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              The Perfect Marketing Mix
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Combining digital innovation with proven traditional methods
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Digital Marketing */}
+            <Card className="border-slate-200">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-lg bg-blue-100">
+                    <Monitor className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Digital Marketing</h3>
+                </div>
+                <p className="text-slate-600">Reaching buyers where they search</p>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Search className="w-5 h-5 text-blue-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">SEO-Optimized Listings</h4>
+                      <p className="text-sm text-slate-600">Rank higher in search results</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Facebook className="w-5 h-5 text-blue-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Social Media Campaigns</h4>
+                      <p className="text-sm text-slate-600">Targeted ads on Facebook & Instagram</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Youtube className="w-5 h-5 text-blue-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Video Marketing</h4>
+                      <p className="text-sm text-slate-600">YouTube tours and virtual walkthroughs</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-blue-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Email Campaigns</h4>
+                      <p className="text-sm text-slate-600">Direct to qualified buyer database</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Traditional Marketing */}
+            <Card className="border-slate-200">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-lg bg-green-100">
+                    <Home className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Traditional Marketing</h3>
+                </div>
+                <p className="text-slate-600">Time-tested methods that deliver</p>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-green-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Premium Yard Signs</h4>
+                      <p className="text-sm text-slate-600">Eye-catching curb appeal marketing</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-green-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Open Houses</h4>
+                      <p className="text-sm text-slate-600">Welcoming events for serious buyers</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <FileText className="w-5 h-5 text-green-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Print Advertising</h4>
+                      <p className="text-sm text-slate-600">Local magazines and newspapers</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-green-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900">Direct Mail</h4>
+                      <p className="text-sm text-slate-600">Neighborhood postcards and flyers</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Marketing FAQs
+            </h2>
+            <p className="text-lg text-slate-600">
+              Common questions about our marketing strategies
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="border-slate-200">
+                <CardContent className="p-6">
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    className="w-full text-left flex items-start justify-between gap-4"
+                  >
+                    <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
+                    {expandedFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-slate-500 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
+                    )}
+                  </button>
+                  
+                  {expandedFaq === index && (
+                    <div className="mt-4 text-slate-700 leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#0d0d33' }}>
+              <Megaphone className="w-8 h-8 text-white" />
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Ready to Market Your Home?
+            </h2>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Let's create a customized marketing strategy that gets your property noticed 
+              by the right buyers and sold quickly for top dollar.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              <div className="flex items-center justify-center gap-2">
+                <Shield className="w-5 h-5 text-green-600" />
+                <span className="text-slate-700">No Upfront Costs</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <Zap className="w-5 h-5 text-green-600" />
+                <span className="text-slate-700">Launch in 48 Hours</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <Award className="w-5 h-5 text-green-600" />
+                <span className="text-slate-700">Premium Marketing</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Link href="/contact">
+                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                  Start Your Marketing Campaign
+                </Button>
+              </Link>
+              <Link href="/listing-process">
+                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white">
+                  View Full Listing Process
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Contact />
+      <Footer />
+      <BackToTop />
+    </div>
+  );
+}

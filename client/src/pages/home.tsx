@@ -523,54 +523,54 @@ export default function Home() {
       </section>
 
       {/* Success Stats Banner */}
-      <section ref={statsRef} className="py-20" style={{ backgroundColor: '#1f2937' }}>
+      <section ref={statsRef} className="py-12" style={{ backgroundColor: '#1f2937' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
               Our Success by the Numbers
             </h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               Trusted by hundreds of families across North Texas, our track record speaks for itself.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {/* Properties Sold */}
             <div className="group">
-              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 {animatedStats.properties}+
               </div>
-              <div className="text-lg font-medium text-white">
+              <div className="text-base font-medium text-white">
                 Properties Sold
               </div>
             </div>
 
             {/* Sales Volume */}
             <div className="group">
-              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 ${animatedStats.sales}M+
               </div>
-              <div className="text-lg font-medium text-white">
+              <div className="text-base font-medium text-white">
                 in Sales
               </div>
             </div>
 
             {/* Client Satisfaction */}
             <div className="group">
-              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 {animatedStats.satisfaction}%
               </div>
-              <div className="text-lg font-medium text-white">
+              <div className="text-base font-medium text-white">
                 Client Satisfaction
               </div>
             </div>
 
             {/* Years of Excellence */}
             <div className="group">
-              <div className={`text-4xl md:text-5xl font-bold text-white mb-2 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
+              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
                 {animatedStats.years}+
               </div>
-              <div className="text-lg font-medium text-white">
+              <div className="text-base font-medium text-white">
                 Years of Excellence
               </div>
             </div>

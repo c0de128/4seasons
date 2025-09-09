@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +23,30 @@ import firstHouseImage from "@/assets/images/first-house.jpg";
 import relocationAssistanceImage from "@/assets/images/relocation-assistance.jpg";
 
 export default function Buy() {
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+
+  useEffect(() => {
+    // Set a timeout to show error state if iframe doesn't load within 10 seconds
+    const timeout = setTimeout(() => {
+      if (!iframeLoaded) {
+        setIframeError(true);
+      }
+    }, 10000);
+
+    return () => clearTimeout(timeout);
+  }, [iframeLoaded]);
+
+  const handleIframeLoad = () => {
+    setIframeLoaded(true);
+    setIframeError(false);
+  };
+
+  const handleIframeError = () => {
+    setIframeError(true);
+    setIframeLoaded(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <SEO 
@@ -38,7 +62,7 @@ export default function Buy() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
+      <section className="pt-32 pb-20" style={{ backgroundColor: 'rgb(241, 245, 249)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
@@ -54,173 +78,6 @@ export default function Buy() {
         
       </section>
 
-      {/* Why Choose Us for Buying */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Why Buy with 4Seasons Real Estate?
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl">
-              At 4Seasons Real Estate, we believe buying a home should be exciting—not overwhelming. Our comprehensive approach is designed to give you clarity, confidence, and peace of mind throughout your journey. Whether you're a first-time buyer, relocating, or upgrading to your dream home, we're here to guide you every step of the way.
-            </p>
-          </div>
-
-          <div className="space-y-12">
-            {/* Local Market Expertise */}
-            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image - Left Side */}
-                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
-                  <img 
-                    src={northTexasImage} 
-                    alt="North Texas Market Expertise"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Content - Right Side */}
-                <div className="p-4 lg:p-6 bg-slate-100">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Local Market Expertise</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      We know North Texas inside and out. From the best school districts and commute routes to hidden neighborhood gems and upcoming developments, our agents provide hyper-local insights that help you make informed decisions. We stay ahead of market trends, so you'll know when and where to buy for the best value and long-term growth.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Personalized Service - Reversed Layout */}
-            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Content - Left Side */}
-                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Personalized Service</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      No two buyers are alike—and we treat your goals as uniquely as you are. Our team offers 24/7 availability, listens closely to your preferences, and delivers curated property recommendations that match your lifestyle, budget, and future plans. We're not just helping you find a house—we're helping you find your home.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
-                  <img 
-                    src={personalizedServiceImage} 
-                    alt="Personalized Service"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Negotiation Excellence */}
-            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image - Left Side */}
-                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
-                  <img 
-                    src={negotiationExcellenceImage} 
-                    alt="Negotiation Excellence"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Content - Right Side */}
-                <div className="p-4 lg:p-6 bg-slate-100">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Negotiation Excellence</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      Buying a home is one of the biggest financial decisions you'll make. Our skilled negotiators use market data, timing strategies, and experience to secure the best possible deal for you. Whether it's price, closing costs, or repairs, we advocate fiercely on your behalf to protect your investment.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Trusted Network - Reversed Layout */}
-            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Content - Left Side */}
-                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Trusted Network of Professionals</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      We've built strong relationships with top-tier lenders, inspectors, title companies, and contractors across North Texas. This means you'll have access to reliable professionals who help streamline the process, avoid delays, and ensure every detail is handled with care and integrity.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
-                  <img 
-                    src={professionalsImage} 
-                    alt="Trusted Network of Professionals"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* First-Time Buyer Support */}
-            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image - Left Side */}
-                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
-                  <img 
-                    src={firstHouseImage} 
-                    alt="First-Time Buyer Support"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Content - Right Side */}
-                <div className="p-4 lg:p-6 bg-slate-100">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">First-Time Buyer Support</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      If you're new to homeownership, we make the process simple and stress-free. We'll walk you through financing options, explain each step clearly, and provide resources to help you feel confident in your decisions. Our goal is to empower you—not overwhelm you.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Relocation Assistance - Reversed Layout */}
-            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Content - Left Side */}
-                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Relocation Assistance</h3>
-                  
-                  <div className="text-slate-600 leading-relaxed mb-6">
-                    <p>
-                      Moving to North Texas? We'll help you get oriented quickly. From neighborhood tours and school comparisons to local lifestyle tips, we make your transition smooth and enjoyable. Whether you're relocating for work, family, or a fresh start, we'll help you feel at home from day one.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Image - Right Side */}
-                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
-                  <img 
-                    src={relocationAssistanceImage} 
-                    alt="Relocation Assistance"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* Property Search Section */}
       <section id="search-properties" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -228,26 +85,99 @@ export default function Buy() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Search Available Properties
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Browse our comprehensive database of homes for sale in North Texas.
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Browse our comprehensive database of homes for sale across Dallas, Fort Worth, Allen, Plano, Frisco, McKinney, and surrounding North Texas communities. Search by location, price range, home features, and more to find your perfect property with real-time MLS data.
             </p>
           </div>
         </div>
         
-        {/* Property Search iframe - Full width container */}
-        <div className="w-full flex justify-center">
-          <div style={{ width: '80vw' }}>
-            <iframe 
-              src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
-              style={{ minHeight: '122vh', width: '100%' }} 
-              frameBorder={0} 
-              marginWidth={0} 
-              marginHeight={0}
-              title="Property Search"
-            />
+        {/* Property Search iframe - Full width container with enhanced visibility */}
+        <div className="w-full">
+          <div className="mx-auto" style={{ maxWidth: '100%' }}>
+            <div className="bg-white border-2 border-blue-200 shadow-2xl relative overflow-hidden" style={{ minHeight: '900px' }}>
+              {/* Header bar to make iframe more visible */}
+              <div className="bg-[#0d0d33] text-white p-4 flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                  <span className="font-semibold">North Texas MLS Property Search</span>
+                </div>
+                <div className="text-sm bg-white/20 px-3 py-1 rounded flex items-center space-x-1">
+                  <span>Powered by NTREIS</span>
+                  {!iframeLoaded && !iframeError && (
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse ml-2"></div>
+                  )}
+                  {iframeLoaded && (
+                    <div className="w-2 h-2 bg-green-400 rounded-full ml-2"></div>
+                  )}
+                  {iframeError && (
+                    <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
+                  )}
+                </div>
+              </div>
+              
+              {/* Loading/Error States */}
+              {!iframeLoaded && !iframeError && (
+                <div className="absolute inset-0 top-16 bg-gray-50 flex items-center justify-center z-10">
+                  <div className="max-w-md text-center">
+                    <div className="animate-spin w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Loading Property Search</h3>
+                    <p className="text-gray-600 mb-4">Connecting to North Texas MLS database...</p>
+                    <div className="text-sm text-gray-500">
+                      <p>This may take a few moments to load.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {iframeError && (
+                <div className="absolute inset-0 top-16 bg-gray-50 flex items-center justify-center z-10">
+                  <div className="max-w-md text-center">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <ExternalLink className="w-6 h-6 text-red-600" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-red-600 mb-2">Property Search Unavailable</h3>
+                    <p className="text-gray-600 mb-6">
+                      The MLS property search tool cannot be embedded directly. This is common with secure real estate platforms.
+                    </p>
+                    <div className="space-y-3">
+                      <a 
+                        href="https://matrix.ntreis.net/Matrix/Public/IDXMap.aspx?count=1&idx=2a47c86&pv=&or=" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-block bg-[#0d0d33] text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                      >
+                        <ExternalLink className="w-4 h-4 inline mr-2" />
+                        Search Properties Directly
+                      </a>
+                      <div className="text-sm text-gray-500">
+                        <p>Opens in a new window with full MLS access</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {/* The actual iframe */}
+              <iframe 
+                src="https://matrix.ntreis.net/Matrix/Public/IDXMap.aspx?count=1&idx=2a47c86&pv=&or="
+                className="w-full border-0"
+                style={{ 
+                  minHeight: '800px', 
+                  height: '800px',
+                  background: 'white',
+                  display: iframeError ? 'none' : 'block'
+                }}
+                title="Property Search - North Texas MLS"
+                loading="lazy"
+                onLoad={handleIframeLoad}
+                onError={handleIframeError}
+              />
+            </div>
           </div>
         </div>
       </section>
+
+
 
       {/* Popular Areas */}
       <section className="py-20 bg-slate-50">

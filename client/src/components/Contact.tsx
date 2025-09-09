@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Phone, Mail, MapPin, Clock, Twitter, Instagram, Linkedin, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -6,6 +7,70 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          propertyInterest: formData.subject
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setStatusMessage(result.message);
+        // Reset form
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        setStatusMessage(result.error || 'Failed to submit form');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,7 +185,27 @@ export function Contact() {
             
             <Card className="bg-white shadow-lg">
               <CardContent className="p-8">
-              <form className="space-y-6">
+                {/* Status Message */}
+                {submitStatus !== 'idle' && (
+                  <div className={`mb-6 p-4 rounded-lg flex items-center space-x-3 ${
+                    submitStatus === 'success' 
+                      ? 'bg-green-50 border border-green-200' 
+                      : 'bg-red-50 border border-red-200'
+                  }`}>
+                    {submitStatus === 'success' ? (
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    ) : (
+                      <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                    )}
+                    <p className={`text-sm ${
+                      submitStatus === 'success' ? 'text-green-800' : 'text-red-800'
+                    }`}>
+                      {statusMessage}
+                    </p>
+                  </div>
+                )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="fullName" className="text-sm font-medium text-slate-700 mb-2">Full Name</Label>
                   <Input 
@@ -128,6 +213,10 @@ export function Contact() {
                     type="text" 
                     placeholder="Your name" 
                     className="w-full"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -138,6 +227,10 @@ export function Contact() {
                     type="email" 
                     placeholder="Your email" 
                     className="w-full"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -148,6 +241,9 @@ export function Contact() {
                     type="tel" 
                     placeholder="Your phone" 
                     className="w-full"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -158,6 +254,9 @@ export function Contact() {
                     type="text" 
                     placeholder="Select a subject" 
                     className="w-full"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -168,14 +267,19 @@ export function Contact() {
                     placeholder="Your message..." 
                     rows={4} 
                     className="w-full"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-[#0d0d33] text-white py-3 text-lg font-medium hover:!bg-blue-700 transition-colors"
+                  className="w-full bg-[#0d0d33] text-white py-3 text-lg font-medium hover:!bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
                 >
-                  Submit Message
+                  {isSubmitting ? 'Sending...' : 'Submit Message'}
                 </Button>
                 
                 <p className="text-xs text-slate-500 mt-4">

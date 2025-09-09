@@ -586,3 +586,5 @@ export function UnderstandingPropertyTaxesNorthTexas() {
     </>
   );
 }
+
+export default UnderstandingPropertyTaxesNorthTexas;

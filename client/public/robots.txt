@@ -1,0 +1,42 @@
+# Robots.txt for 4Seasons Real Estate
+# https://4seasonsrealestate.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Allow all bots to access CSS, JS, and image files
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Block admin and private areas
+Disallow: /admin
+Disallow: /login
+Disallow: /api/
+Disallow: /private/
+
+# Block duplicate content
+Disallow: /*?
+Disallow: /*#
+Disallow: */search?*
+Disallow: */filter?*
+
+# Allow Google Image Bot
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# Allow Google Mobile Bot
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://4seasonsrealestate.com/sitemap.xml
+Sitemap: https://4seasonsrealestate.com/sitemap-cities.xml
+Sitemap: https://4seasonsrealestate.com/sitemap-blog.xml

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
@@ -5,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import { SEOBreadcrumb } from "@/components/seo-breadcrumb";
+import { OptimizedImage, imageOptimizations } from "@/components/ui/optimized-image";
 import { 
   MapPin,
   Users,
@@ -30,6 +33,10 @@ import {
 import allenHeroImage from "@/assets/images/allen.webp";
 
 export default function AllenCityGuide() {
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const demographics = [
     { label: "Population", value: "105,623", description: "Growing steadily since 2010" },
     { label: "Median Age", value: "37.2 years", description: "Young professional families" },
@@ -91,6 +98,29 @@ export default function AllenCityGuide() {
     { route: "Plano", time: "15 minutes", distance: "8 miles" }
   ];
 
+  // Enhanced structured data for local SEO
+  const cityStructuredData = generateStructuredData.cityGuideWithRealEstate(
+    "Allen", 
+    "Dallas", 
+    "$485,000",
+    { medianPrice: 485000, appreciation: 6.1, daysOnMarket: 28 }
+  );
+
+  const faqStructuredData = generateStructuredData.faqPage([
+    {
+      question: "What is the median home price in Allen, Texas?",
+      answer: "The median home price in Allen is $485,000, with a 6.1% year-over-year appreciation rate."
+    },
+    {
+      question: "How are the schools in Allen ISD?", 
+      answer: "Allen ISD is highly rated with Allen High School receiving a 9/10 rating and serving over 6,900 students."
+    },
+    {
+      question: "What amenities are available in Allen?",
+      answer: "Allen offers excellent amenities including Watters Creek shopping, Allen Station Park, The Fairways Golf Course, and top healthcare facilities."
+    }
+  ]);
+
   const futureDevelopments = [
     {
       name: "Allen Station Phase II",
@@ -116,26 +146,37 @@ export default function AllenCityGuide() {
     <div className="min-h-screen bg-white">
       <SEO 
         title="Allen, Texas City Guide - Real Estate, Schools & Neighborhoods | 4Seasons Real Estate"
-        description="Complete guide to Allen, Texas real estate. Discover top-rated schools, championship sports, luxury homes, and family-friendly neighborhoods in this premier North Texas community."
-        keywords="Allen Texas real estate, Allen TX homes for sale, Allen ISD schools, Allen High School football, Allen neighborhoods, Allen Texas homes, Eagle Stadium Allen, Watters Creek Allen"
+        description="Complete guide to Allen, Texas real estate. Discover top-rated schools, championship sports, luxury homes, and family-friendly neighborhoods in this premier North Texas community. Median home price $485,000."
+        keywords="Allen Texas real estate, Allen TX homes for sale, Allen ISD schools, Allen High School football, Allen neighborhoods, Eagle Stadium, Watters Creek, Dallas County homes"
         canonicalUrl={`${seoConfig.siteUrl}/allen-city-guide`}
         ogTitle="Allen, Texas City Guide - Premier North Texas Community"
         ogDescription="Discover why Allen is one of North Texas's most desirable communities. From top-rated schools to championship sports and vibrant community life."
         ogImage={`${seoConfig.siteUrl}/images/allen-texas-city-guide.jpg`}
-        structuredData={generateStructuredData.cityGuide("Allen", "Texas")}
+        structuredData={cityStructuredData}
       />
       <Navigation />
+      
+      {/* Breadcrumb Navigation */}
+      <div className="bg-gray-50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <SEOBreadcrumb 
+            items={[
+              { label: 'City Guides', href: '/city-guides' },
+              { label: 'Allen City Guide', isCurrentPage: true }
+            ]}
+          />
+        </div>
+      </div>
 
-      {/* Hero Section */}
-      <section 
-        className="pt-32 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${allenHeroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      {/* Hero Section with Optimized Image */}
+      <section className="relative pt-16 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 overflow-hidden">
+        <OptimizedImage
+          src={allenHeroImage}
+          alt="Allen, Texas cityscape featuring Eagle Stadium and modern suburban development in Dallas County"
+          {...imageOptimizations.cityGuideHero}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-slate-800/70"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">

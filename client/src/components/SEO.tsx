@@ -153,27 +153,103 @@ export const generateStructuredData = {
     "telephone": seoConfig.companyInfo.phone,
     "email": seoConfig.companyInfo.email,
     "url": seoConfig.siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${seoConfig.siteUrl}/images/4seasons-logo.jpg`,
+      "width": "300",
+      "height": "150"
+    },
     "address": {
       "@type": "PostalAddress",
       ...seoConfig.companyInfo.address
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.1031,
+      "longitude": -96.6706
+    },
     "areaServed": [
-      "Allen, TX",
-      "Plano, TX", 
-      "Frisco, TX",
-      "McKinney, TX",
-      "Richardson, TX",
-      "Carrollton, TX",
-      "Prosper, TX",
-      "Celina, TX",
-      "Wylie, TX",
-      "Highland Park, TX",
-      "University Park, TX",
-      "Addison, TX",
-      "Garland, TX"
+      {
+        "@type": "City",
+        "name": "Allen",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "City",
+        "name": "Plano",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "City",
+        "name": "Frisco",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "City",
+        "name": "McKinney",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "City",
+        "name": "Fort Worth",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "City",
+        "name": "Denton",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      }
     ],
     "priceRange": "$$",
-    "serviceType": ["Real Estate Sales", "Property Management", "Home Valuation"]
+    "serviceType": ["Real Estate Sales", "Property Management", "Home Valuation", "Buyer Representation", "Seller Representation"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Real Estate Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Home Buying Services",
+            "description": "Complete buyer representation services in North Texas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Home Selling Services",
+            "description": "Professional home selling and marketing services"
+          }
+        }
+      ]
+    },
+    "knowsAbout": [
+      "Dallas-Fort Worth Real Estate Market",
+      "North Texas Communities",
+      "Property Investment",
+      "Home Valuation",
+      "Market Analysis"
+    ],
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Client Review"
+      },
+      "reviewBody": "Excellent service and local market knowledge in the DFW area."
+    }
   }),
 
   localBusiness: () => ({
@@ -221,19 +297,81 @@ export const generateStructuredData = {
     "serviceType": serviceType
   }),
 
-  cityGuide: (cityName: string, state: string = "Texas") => ({
+  cityGuide: (cityName: string, county: string, demographics?: any, realEstate?: any) => ({
     "@context": "https://schema.org",
     "@type": "Place",
-    "name": `${cityName}, ${state}`,
-    "description": `Comprehensive city guide for ${cityName}, ${state} real estate, neighborhoods, schools, and amenities.`,
+    "name": `${cityName}, Texas`,
+    "description": `Comprehensive city guide for ${cityName}, Texas real estate, neighborhoods, schools, and amenities. Find homes for sale and local market insights.`,
+    "url": `${seoConfig.siteUrl}/${cityName.toLowerCase().replace(/\s+/g, '-')}-city-guide`,
     "geo": {
       "@type": "GeoCoordinates"
       // Coordinates would be specific to each city
     },
-    "containedInPlace": {
-      "@type": "State",
-      "name": state
-    }
+    "containedInPlace": [
+      {
+        "@type": "AdministrativeArea",
+        "name": `${county} County`,
+        "addressRegion": "TX"
+      },
+      {
+        "@type": "State",
+        "name": "Texas",
+        "addressCountry": "US"
+      }
+    ],
+    "touristType": "Home Buyers, Real Estate Investors, Families",
+    "knowsAbout": [
+      `${cityName} Real Estate`,
+      `${cityName} Schools`,
+      `${cityName} Neighborhoods`,
+      `${cityName} Market Trends`,
+      `${county} County Properties`
+    ],
+    ...(demographics && {
+      "population": demographics.population,
+      "medianAge": demographics.medianAge
+    }),
+    ...(realEstate && {
+      "mainEntity": {
+        "@type": "RealEstateAgent",
+        "name": seoConfig.companyInfo.name,
+        "areaServed": `${cityName}, TX`
+      }
+    })
+  }),
+
+  cityGuideWithRealEstate: (cityName: string, county: string, medianPrice: string, marketData?: any) => ({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Place",
+        "name": `${cityName}, Texas`,
+        "description": `${cityName} city guide with real estate market information, home prices, and neighborhood insights.`,
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Texas"
+        }
+      },
+      {
+        "@type": "RealEstateAgent",
+        "name": seoConfig.companyInfo.name,
+        "areaServed": `${cityName}, TX`,
+        "makesOffer": {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `${cityName} Real Estate Services`,
+            "description": `Professional real estate services in ${cityName}, Texas`
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": medianPrice,
+            "priceCurrency": "USD",
+            "valueAddedTaxIncluded": false
+          }
+        }
+      }
+    ]
   }),
 
   faqPage: (faqs: Array<{question: string, answer: string}>) => ({
@@ -249,27 +387,112 @@ export const generateStructuredData = {
     }))
   }),
 
-  article: (title: string, description: string, author: string, datePublished: string) => ({
+  article: (title: string, description: string, author: string, datePublished: string, url?: string, image?: string) => ({
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
     "description": description,
+    "articleBody": description,
     "author": {
       "@type": "Person",
-      "name": author
+      "name": author,
+      "url": seoConfig.siteUrl,
+      "knowsAbout": ["Real Estate", "North Texas Market", "Home Buying", "Home Selling"]
     },
     "publisher": {
       "@type": "Organization",
       "name": seoConfig.companyInfo.name,
       "logo": {
         "@type": "ImageObject",
-        "url": seoConfig.defaultImage
-      }
+        "url": `${seoConfig.siteUrl}/images/4seasons-logo.jpg`,
+        "width": 300,
+        "height": 150
+      },
+      "url": seoConfig.siteUrl,
+      "sameAs": [
+        "https://www.facebook.com/4SeasonsRealEstate",
+        "https://www.instagram.com/4SeasonsRealEstate",
+        "https://www.linkedin.com/company/4SeasonsRealEstate"
+      ]
     },
     "datePublished": datePublished,
+    "dateModified": datePublished,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": seoConfig.siteUrl
+      "@id": url || seoConfig.siteUrl
+    },
+    ...(image && {
+      "image": {
+        "@type": "ImageObject",
+        "url": image,
+        "width": 1200,
+        "height": 630
+      }
+    }),
+    "keywords": ["Real Estate", "North Texas", "DFW", "Home Buying", "Home Selling"],
+    "articleSection": "Real Estate",
+    "wordCount": Math.floor(description.length / 5), // Rough word count estimate
+    "inLanguage": "en-US",
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": seoConfig.companyInfo.name
     }
+  }),
+
+  webPage: (title: string, description: string, url: string, lastModified?: string) => ({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": url,
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": seoConfig.siteName,
+      "url": seoConfig.siteUrl,
+      "publisher": {
+        "@type": "Organization",
+        "name": seoConfig.companyInfo.name
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": seoConfig.siteUrl
+      }]
+    },
+    "potentialAction": {
+      "@type": "ReadAction",
+      "target": url
+    },
+    ...(lastModified && { "dateModified": lastModified })
+  }),
+
+  organization: () => ({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": seoConfig.companyInfo.name,
+    "url": seoConfig.siteUrl,
+    "logo": `${seoConfig.siteUrl}/images/4seasons-logo.jpg`,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": seoConfig.companyInfo.phone,
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.facebook.com/4SeasonsRealEstate",
+      "https://www.instagram.com/4SeasonsRealEstate",
+      "https://www.linkedin.com/company/4SeasonsRealEstate"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      ...seoConfig.companyInfo.address
+    },
+    "description": "Premier real estate services in Dallas-Fort Worth metroplex, specializing in residential sales, property management, and market analysis."
   })
 };

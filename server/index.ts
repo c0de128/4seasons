@@ -1,50 +1,90 @@
 import express, { type Request, Response, NextFunction } from "express";
+import dotenv from "dotenv";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import { setupVite, serveStatic } from "./vite";
+import { applySecurityMiddleware } from "./middleware/security.middleware";
+import { setupHttpLogging, logger, errorLogger } from "./logger";
+import { createSessionMiddleware } from "./middleware/session.middleware";
+import { redisService } from "./services/redis";
+import { performanceMonitor } from "./services/performance";
+import { backupService } from "./services/backup";
+
+// Load environment variables
+dotenv.config();
+
+// Validate critical environment variables
+if (process.env.NODE_ENV === "production") {
+  const requiredEnvVars = ["JWT_SECRET", "SESSION_SECRET"];
+  const missing = requiredEnvVars.filter(v => !process.env[v]);
+  if (missing.length > 0) {
+    logger.error(`Missing required environment variables: ${missing.join(", ")}`);
+    process.exit(1);
+  }
+}
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
+// Apply security middleware first
+applySecurityMiddleware(app);
 
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
+// Setup HTTP request logging
+setupHttpLogging(app);
 
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
+// Add performance monitoring middleware
+app.use(performanceMonitor.middleware());
 
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
+// Initialize session middleware (will be added after routes are registered)
+let sessionMiddleware: any = null;
 
-      log(logLine);
-    }
-  });
+// Body parsing middleware with limits
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: false, limit: "10mb" }));
 
-  next();
+// Health check endpoint (before rate limiting)
+app.get("/health", (req, res) => {
+  res.json({ status: "healthy", timestamp: new Date().toISOString() });
 });
 
 (async () => {
+  // Initialize session middleware first
+  try {
+    sessionMiddleware = await createSessionMiddleware();
+    app.use(sessionMiddleware);
+    logger.info('Session middleware initialized successfully');
+  } catch (error) {
+    logger.error('Failed to initialize session middleware', error);
+    if (process.env.NODE_ENV === 'production') {
+      process.exit(1);
+    }
+  }
+
   const server = await registerRoutes(app);
 
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
+  // Error logging middleware
+  app.use(errorLogger);
 
-    res.status(status).json({ message });
-    throw err;
+  // Error handling middleware
+  app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
+    const status = err.status || err.statusCode || 500;
+    const message = process.env.NODE_ENV === "production" 
+      ? "Internal Server Error" 
+      : err.message || "Internal Server Error";
+
+    // Log the error
+    logger.error("Unhandled error", {
+      error: err,
+      request: {
+        method: req.method,
+        url: req.url,
+        headers: req.headers,
+        body: req.body,
+      },
+    });
+
+    res.status(status).json({ 
+      error: message,
+      ...(process.env.NODE_ENV !== "production" && { stack: err.stack })
+    });
   });
 
   // importantly only setup vite in development and after
@@ -61,11 +101,40 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
+  const host = process.env.NODE_ENV === 'development' ? 'localhost' : '0.0.0.0';
+  
+  server.listen(port, host, () => {
+    logger.info(`Server started`, {
+      environment: process.env.NODE_ENV,
+      port,
+      host,
+      url: `http://${host}:${port}`,
+    });
+    console.log(`🚀 Server running at http://${host}:${port}`);
+    console.log(`🔒 Security middleware enabled`);
+    console.log(`📝 Logging to ./logs directory`);
+    
+    // Start backup scheduler in production
+    if (process.env.NODE_ENV === 'production') {
+      backupService.startScheduler();
+      console.log(`💾 Automated backup scheduler started`);
+    }
+  });
+
+  // Graceful shutdown
+  process.on("SIGTERM", () => {
+    logger.info("SIGTERM received, closing server gracefully");
+    server.close(() => {
+      logger.info("Server closed");
+      process.exit(0);
+    });
+  });
+
+  process.on("SIGINT", () => {
+    logger.info("SIGINT received, closing server gracefully");
+    server.close(() => {
+      logger.info("Server closed");
+      process.exit(0);
+    });
   });
 })();

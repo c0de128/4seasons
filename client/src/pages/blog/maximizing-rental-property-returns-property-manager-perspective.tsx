@@ -518,3 +518,5 @@ export function MaximizingRentalPropertyReturns() {
     </>
   );
 }
+
+export default MaximizingRentalPropertyReturns;

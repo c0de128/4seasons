@@ -430,3 +430,5 @@ export function FirstTimeBuyerGuide() {
     </>
   );
 }
+
+export default FirstTimeBuyerGuide;

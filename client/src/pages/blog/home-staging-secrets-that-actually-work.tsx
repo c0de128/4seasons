@@ -605,3 +605,5 @@ export function HomeStagingSecrets() {
     </>
   );
 }
+
+export default HomeStagingSecrets;

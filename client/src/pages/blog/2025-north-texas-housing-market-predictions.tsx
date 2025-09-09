@@ -504,3 +504,5 @@ export function NorthTexasMarketPredictions2025() {
     </>
   );
 }
+
+export default NorthTexasMarketPredictions2025;
