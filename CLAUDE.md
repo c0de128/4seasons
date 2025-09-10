@@ -25,12 +25,22 @@ npm run test:security     # Run security-specific tests
 # Run a specific test file
 npx vitest run path/to/test.ts
 
+# Run tests with coverage
+npx vitest run --coverage
+
 # Security & auditing
 npm run security:scan     # Run security audit and tests
 npm run security:audit    # Run npm audit for vulnerabilities
 
 # Database operations
 npm run db:push           # Push schema changes to database (Drizzle Kit)
+
+# Deployment (GoDaddy hosting)
+npm run generate-secrets    # Generate secure environment secrets
+npm run verify-build       # Verify build integrity before deployment
+npm run prepare-deployment  # Prepare deployment package
+npm run deploy:godaddy     # Full deployment pipeline for GoDaddy
+npm run start:godaddy      # Start application with GoDaddy-specific settings
 ```
 
 ## Architecture Overview
@@ -97,10 +107,11 @@ This is a full-stack TypeScript monorepo with a React frontend and Express.js ba
 - Comprehensive audit logging and error tracking
 - Environment-based configuration with validation
 
-**Path Aliases (configured in tsconfig.json and vite.config.ts):**
-- `@/*` maps to `client/src/*`
-- `@shared/*` maps to `shared/*`
-- `@assets/*` maps to `attached_assets/*`
+**Path Aliases:**
+- `@/*` maps to `client/src/*` (tsconfig.json and vite.config.ts)
+- `@shared/*` maps to `shared/*` (tsconfig.json and vite.config.ts)
+- `@assets/*` maps to `attached_assets/*` (vite.config.ts only)
+- `@server/*` maps to `server/*` (vitest.config.ts only)
 
 ### Brand Standards
 
@@ -120,7 +131,12 @@ Each city guide follows a consistent template with hero sections, demographics, 
 
 ### Environment Setup
 
-Copy `.env.example` to `.env` and configure the following:
+The project includes multiple environment configurations:
+- `.env.example` - Template for local development
+- `.env.godaddy.example` - Template for GoDaddy hosting deployment  
+- `.env.production` - Production environment template
+
+Copy the appropriate template to `.env` and configure the following:
 
 **Required environment variables:**
 - `DATABASE_URL` - PostgreSQL connection string (required for database operations)
@@ -144,8 +160,8 @@ Copy `.env.example` to `.env` and configure the following:
 - **Server Architecture:** Express serves both API routes (`/api` prefix) and static files
 - **Development Mode:** Uses tsx with hot reloading via `npm run dev`
 - **Production Build:** 
-  - Frontend: Vite builds to `dist/public`
-  - Backend: esbuild bundles server to `dist/index.js`
+  - Frontend: Vite builds to `server/public` for Express static serving
+  - Backend: esbuild bundles server to `server/dist/index.js`
 - **Database Migrations:** Schema changes require `npm run db:push` (Drizzle Kit)
 - **Cross-platform:** Uses `cross-env` for environment variables on Windows
 - **Path Resolution:** No need for `.js` extensions in imports due to `allowImportingTsExtensions`
@@ -170,3 +186,45 @@ Copy `.env.example` to `.env` and configure the following:
 - Security-specific tests in `server/tests/security.test.ts`
 - Test database operations before running `npm run db:push` in development
 - Authentication endpoints can be tested with curl commands (see SECURITY_IMPROVEMENTS.md)
+
+### Deployment Process
+
+The project supports deployment to GoDaddy hosting with automated scripts:
+
+- **Secrets Generation:** `generate-secrets.js` creates secure random secrets for environment variables
+- **Build Verification:** `verify-build.js` validates build output before deployment  
+- **Deployment Packaging:** `prepare-deployment.js` creates deployment-ready package
+- **GoDaddy Startup:** `start-godaddy.js` handles GoDaddy-specific server configuration
+
+**Deployment workflow:**
+1. Configure environment using `.env.godaddy.example` as template
+2. Run `npm run deploy:godaddy` for complete deployment pipeline
+3. Upload deployment package to GoDaddy hosting
+4. Use `npm run start:godaddy` as startup command
+
+See `GODADDY_DEPLOYMENT.md` for detailed GoDaddy hosting setup instructions.
+
+### Key Configuration Files
+
+- `components.json` - shadcn/ui configuration for component generation
+- `drizzle.config.ts` - Database configuration for Drizzle Kit migrations  
+- `tailwind.config.ts` - Tailwind CSS configuration with custom theme variables
+- `vercel.json` - Vercel deployment configuration (legacy)
+- Documentation references: `SECURITY_IMPROVEMENTS.md`, `SEO_IMPLEMENTATION_GUIDE.md`
+
+### Lint and Type Checking
+
+After making code changes, run these commands to ensure code quality:
+```bash
+# Type checking (required after changes)
+npm run check
+
+# Security scanning (recommended after security-related changes) 
+npm run security:scan
+```
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.

@@ -301,9 +301,8 @@ export default function Sell() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className="shadow-xl border border-slate-200">
-              <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="bg-slate-50 rounded-lg p-8">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Property Information */}
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
@@ -562,23 +561,22 @@ export default function Sell() {
                     </div>
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="text-center pt-6">
-                    <Button 
+                  <div className="md:col-span-2">
+                    <Button
                       type="submit"
-                      className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90"
-                      style={{ backgroundColor: '#0d0d33' }}
+                      className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
                     >
                       <Calculator className="w-5 h-5 mr-2" />
                       Get My Free Home Valuation
                     </Button>
-                    <p className="text-sm text-slate-500 mt-4">
-                      We'll contact you within 24 hours with your comprehensive property analysis.
+                    <p className="text-xs text-slate-500 mt-4 text-center">
+                      By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                      regarding your home valuation. We respect your privacy and will not share 
+                      your information with third parties.
                     </p>
                   </div>
-                </form>
-              </CardContent>
-            </Card>
+              </form>
+            </div>
           </div>
         </div>
       </section>

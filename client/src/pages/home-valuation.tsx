@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import homeValuationHeroImage from "@/assets/images/hero-images/2918.jpg";
@@ -43,6 +42,17 @@ export default function HomeValuation() {
     comments: ""
   });
 
+  const [valuationContactFormData, setValuationContactFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+    estimatedValue: '',
+    sellingTimeline: '',
+    valuationPurpose: '',
+    message: ''
+  });
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -51,6 +61,15 @@ export default function HomeValuation() {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle form submission here
+  };
+
+  const handleValuationContactChange = (field: string, value: string) => {
+    setValuationContactFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleValuationContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Valuation consultation form submitted:', valuationContactFormData);
   };
 
   return (
@@ -161,7 +180,7 @@ export default function HomeValuation() {
 
       {/* Valuation Form Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Free Home Valuation Request
@@ -171,9 +190,8 @@ export default function HomeValuation() {
             </p>
           </div>
 
-          <Card className="shadow-lg border border-slate-200">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-slate-50 rounded-lg p-8">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Property Information */}
                 <div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center">
@@ -319,7 +337,7 @@ export default function HomeValuation() {
                 </div>
 
                 {/* Contact Information */}
-                <div className="border-t border-slate-200 pt-6">
+                <div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center">
                     <FileText className="w-5 h-5 mr-2" style={{ color: '#0d0d33' }} />
                     Contact Information
@@ -401,16 +419,22 @@ export default function HomeValuation() {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full py-4 text-lg font-semibold text-white hover:opacity-90"
-                  style={{ backgroundColor: '#0d0d33' }}
-                >
-                  Get My Free Home Valuation
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                <div className="md:col-span-2">
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                  >
+                    <Calculator className="w-5 h-5 mr-2" />
+                    Get My Free Home Valuation
+                  </Button>
+                  <p className="text-xs text-slate-500 mt-4 text-center">
+                    By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                    regarding your home valuation. We respect your privacy and will not share 
+                    your information with third parties.
+                  </p>
+                </div>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -518,8 +542,149 @@ export default function HomeValuation() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <Contact />
+      {/* Valuation Consultation Form */}
+      <section id="contact" className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Get Expert Valuation Consultation
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Ready to take the next step with your property? Our valuation experts will provide personalized 
+              guidance on pricing strategy, market timing, and maximizing your home's value.
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <form onSubmit={handleValuationContactSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="valuation-name">Full Name *</Label>
+                  <Input
+                    id="valuation-name"
+                    type="text"
+                    value={valuationContactFormData.name}
+                    onChange={(e) => handleValuationContactChange('name', e.target.value)}
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="valuation-email">Email Address *</Label>
+                  <Input
+                    id="valuation-email"
+                    type="email"
+                    value={valuationContactFormData.email}
+                    onChange={(e) => handleValuationContactChange('email', e.target.value)}
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="valuation-phone">Phone Number *</Label>
+                  <Input
+                    id="valuation-phone"
+                    type="tel"
+                    value={valuationContactFormData.phone}
+                    onChange={(e) => handleValuationContactChange('phone', e.target.value)}
+                    placeholder="(555) 123-4567"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="valuation-address">Property Address</Label>
+                  <Input
+                    id="valuation-address"
+                    type="text"
+                    value={valuationContactFormData.propertyAddress}
+                    onChange={(e) => handleValuationContactChange('propertyAddress', e.target.value)}
+                    placeholder="123 Main St, City, TX"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="valuation-estimated">Current Estimated Value</Label>
+                  <Input
+                    id="valuation-estimated"
+                    type="text"
+                    value={valuationContactFormData.estimatedValue}
+                    onChange={(e) => handleValuationContactChange('estimatedValue', e.target.value)}
+                    placeholder="$450,000"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="valuation-timeline">Selling Timeline</Label>
+                  <Input
+                    id="valuation-timeline"
+                    type="text"
+                    value={valuationContactFormData.sellingTimeline}
+                    onChange={(e) => handleValuationContactChange('sellingTimeline', e.target.value)}
+                    placeholder="3-6 months, just exploring, etc."
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="valuation-purpose">Purpose of Valuation</Label>
+                <Input
+                  id="valuation-purpose"
+                  type="text"
+                  value={valuationContactFormData.valuationPurpose}
+                  onChange={(e) => handleValuationContactChange('valuationPurpose', e.target.value)}
+                  placeholder="Selling, refinancing, investment analysis, estate planning, etc."
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="valuation-message">Questions or Additional Information</Label>
+                <Textarea
+                  id="valuation-message"
+                  value={valuationContactFormData.message}
+                  onChange={(e) => handleValuationContactChange('message', e.target.value)}
+                  placeholder="Tell us about your property goals, specific questions about the valuation process, or any unique features of your home..."
+                  rows={4}
+                />
+              </div>
+
+              <Button 
+                type="submit"
+                className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+              >
+                <Calculator className="w-5 h-5 mr-2" />
+                Schedule My Valuation Consultation
+              </Button>
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Market Analysis</strong><br />Comprehensive pricing strategy</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <BarChart3 className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Value Optimization</strong><br />Maximize your property worth</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Clock className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Expert Timing</strong><br />Perfect market entry strategy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <Footer />

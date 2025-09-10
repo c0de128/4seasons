@@ -6,20 +6,40 @@ import authRoutes from "./routes/auth.routes";
 import performanceRoutes from "./routes/performance.routes";
 import backupRoutes from "./routes/backup.routes";
 import securityRoutes from "./routes/security.routes";
+import uploadRoutes from "./routes/upload.routes";
+import formsRoutes from "./routes/forms.routes";
+import emailTestRoutes from "./routes/email-test.routes";
 import { validateContactForm } from "./middleware/validation.middleware";
 import { contactLimiter } from "./middleware/security.middleware";
 import { logger } from "./logger";
 import { redisService } from "./services/redis";
 import { sessionHealthCheck } from "./middleware/session.middleware";
+import { setCSRFToken, verifyCSRFToken, getCSRFToken } from "./middleware/csrf.middleware";
 import { performanceMonitor } from "./services/performance";
 import { emailService } from "./services/email";
 import { backupService } from "./services/backup";
+import express from "express";
+import path from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup SEO-friendly sitemap routes
   setupSitemapRoutes(app);
 
   // API Routes
+  // CSRF token endpoint (before CSRF protection)
+  app.get("/api/csrf-token", setCSRFToken, (req, res) => {
+    getCSRFToken(req, res);
+  });
+  
+  // Apply CSRF protection to all API routes (except auth)
+  app.use("/api", setCSRFToken, (req, res, next) => {
+    // Skip CSRF verification for GET requests and specific routes
+    if (req.method === 'GET' || req.path.startsWith('/api/auth/') || req.path === '/api/health' || req.path === '/api/csrf-token') {
+      return next();
+    }
+    verifyCSRFToken(req, res, next);
+  });
+  
   // Authentication routes
   app.use("/api/auth", authRoutes);
   
@@ -31,6 +51,56 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Security testing routes (admin only)
   app.use("/api/security", securityRoutes);
+  
+  // File upload routes
+  app.use("/api/upload", uploadRoutes);
+  
+  // Form processing routes
+  app.use("/api/forms", formsRoutes);
+  
+  // Email testing routes (for GoDaddy SMTP configuration)
+  app.use("/api/email", emailTestRoutes);
+  
+  // Serve uploaded files with security middleware
+  app.use("/uploads", (req, res, next) => {
+    // Add security headers for file serving
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('Content-Security-Policy', "default-src 'none'; img-src 'self'; object-src 'none';");
+    
+    // Prevent direct access to sensitive file types
+    const fileExt = path.extname(req.path).toLowerCase();
+    const dangerousExts = ['.exe', '.bat', '.cmd', '.com', '.pif', '.scr', '.vbs', '.js', '.jar', '.php', '.asp', '.aspx'];
+    
+    if (dangerousExts.includes(fileExt)) {
+      logger.warn('Attempt to access dangerous file type blocked', {
+        path: req.path,
+        ext: fileExt,
+        ip: req.ip,
+        userAgent: req.get('User-Agent')
+      });
+      return res.status(403).json({ error: 'File type not allowed' });
+    }
+    
+    next();
+  }, express.static(path.join(process.cwd(), 'uploads'), {
+    maxAge: '1d', // Cache for 1 day
+    etag: true,
+    lastModified: true,
+    setHeaders: (res, filepath) => {
+      // Set appropriate MIME types and prevent execution
+      const ext = path.extname(filepath).toLowerCase();
+      
+      if (['.jpg', '.jpeg', '.png', '.gif', '.webp'].includes(ext)) {
+        res.setHeader('Content-Disposition', 'inline');
+      } else if (['.pdf'].includes(ext)) {
+        res.setHeader('Content-Disposition', 'inline');
+      } else {
+        // For other file types, force download
+        res.setHeader('Content-Disposition', 'attachment');
+      }
+    }
+  }));
 
   // Contact form endpoint
   app.post("/api/contact", contactLimiter, validateContactForm, async (req, res) => {

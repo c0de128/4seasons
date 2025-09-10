@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import listingProcessHeroImage from "@/assets/images/hero-images/303750.jpg";
@@ -19,8 +21,6 @@ import {
   HandshakeIcon,
   Search,
   Calendar,
-  ChevronDown,
-  ChevronUp,
   MapPin,
   Clock,
   AlertCircle,
@@ -28,7 +28,25 @@ import {
 } from "lucide-react";
 
 export default function ListingProcess() {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [listingContactFormData, setListingContactFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+    propertyType: '',
+    listingTimeline: '',
+    sellingReason: '',
+    message: ''
+  });
+
+  const handleListingContactChange = (field: string, value: string) => {
+    setListingContactFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleListingContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Listing consultation form submitted:', listingContactFormData);
+  };
   
   const listingSteps = [
     {
@@ -197,33 +215,6 @@ export default function ListingProcess() {
     "Property disclosure forms",
     "Lead paint disclosure (if built before 1978)"
   ];
-
-  const faqItems = [
-    {
-      question: "How long does the listing process typically take?",
-      answer: "The preparation and listing process usually takes 2-4 weeks. However, the time to sell varies based on market conditions, pricing, and property condition. In North Texas, well-priced homes typically sell within 30-60 days."
-    },
-    {
-      question: "What are the typical costs associated with selling my home?",
-      answer: "Selling costs typically range from 7-10% of the sale price, including real estate commission (5-6%), closing costs (1-2%), staging/preparation costs, and potential repairs. We'll provide a detailed cost breakdown during your consultation."
-    },
-    {
-      question: "Should I make repairs before listing?",
-      answer: "Focus on major repairs that affect safety or functionality. Cosmetic improvements should provide good return on investment. We'll help you prioritize which improvements will add the most value to your listing."
-    },
-    {
-      question: "How do you determine the right listing price?",
-      answer: "We conduct a Comparative Market Analysis (CMA) looking at recent sales of similar properties, current market conditions, your home's unique features, and neighborhood trends. Proper pricing is crucial for attracting qualified buyers quickly."
-    },
-    {
-      question: "What happens if my home doesn't sell?",
-      answer: "If your home doesn't sell within the expected timeframe, we'll analyze market feedback and adjust our strategy. This might include price adjustments, enhanced marketing, or property improvements to increase appeal."
-    }
-  ];
-
-  const toggleFaq = (index: number) => {
-    setExpandedFaq(expandedFaq === index ? null : index);
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -442,46 +433,150 @@ export default function ListingProcess() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-slate-50">
+      {/* Listing Consultation Form */}
+      <section id="contact" className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Frequently Asked Questions
+              Ready to List Your Property?
             </h2>
-            <p className="text-lg text-slate-600">
-              Get answers to common questions about the home listing process.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Let's start your listing journey! Our experienced team will guide you through each step of the process, 
+              from pricing strategy to closing, ensuring you get maximum value for your property.
             </p>
           </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <form onSubmit={handleListingContactSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="listing-name">Full Name *</Label>
+                  <Input
+                    id="listing-name"
+                    type="text"
+                    value={listingContactFormData.name}
+                    onChange={(e) => handleListingContactChange('name', e.target.value)}
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="listing-email">Email Address *</Label>
+                  <Input
+                    id="listing-email"
+                    type="email"
+                    value={listingContactFormData.email}
+                    onChange={(e) => handleListingContactChange('email', e.target.value)}
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+              </div>
 
-          <div className="space-y-4">
-            {faqItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full p-6 text-left hover:bg-slate-50 transition-colors"
-                >
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-slate-900 pr-4">{item.question}</h3>
-                    {expandedFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="listing-phone">Phone Number *</Label>
+                  <Input
+                    id="listing-phone"
+                    type="tel"
+                    value={listingContactFormData.phone}
+                    onChange={(e) => handleListingContactChange('phone', e.target.value)}
+                    placeholder="(555) 123-4567"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="listing-address">Property Address</Label>
+                  <Input
+                    id="listing-address"
+                    type="text"
+                    value={listingContactFormData.propertyAddress}
+                    onChange={(e) => handleListingContactChange('propertyAddress', e.target.value)}
+                    placeholder="123 Main St, City, TX"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="listing-type">Property Type</Label>
+                  <Input
+                    id="listing-type"
+                    type="text"
+                    value={listingContactFormData.propertyType}
+                    onChange={(e) => handleListingContactChange('propertyType', e.target.value)}
+                    placeholder="Single family, townhome, condo, etc."
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="listing-timeline">Listing Timeline</Label>
+                  <Input
+                    id="listing-timeline"
+                    type="text"
+                    value={listingContactFormData.listingTimeline}
+                    onChange={(e) => handleListingContactChange('listingTimeline', e.target.value)}
+                    placeholder="Immediately, 1-3 months, exploring options, etc."
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="listing-reason">Reason for Selling</Label>
+                <Input
+                  id="listing-reason"
+                  type="text"
+                  value={listingContactFormData.sellingReason}
+                  onChange={(e) => handleListingContactChange('sellingReason', e.target.value)}
+                  placeholder="Relocating, upsizing, downsizing, investment, etc."
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="listing-message">Questions or Additional Information</Label>
+                <Textarea
+                  id="listing-message"
+                  value={listingContactFormData.message}
+                  onChange={(e) => handleListingContactChange('message', e.target.value)}
+                  placeholder="Tell us about your property, any specific concerns about the listing process, or questions you have about selling in today's market..."
+                  rows={4}
+                />
+              </div>
+
+              <Button 
+                type="submit"
+                className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+              >
+                <TrendingUp className="w-5 h-5 mr-2" />
+                Start My Listing Consultation
+              </Button>
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <TrendingUp className="w-6 h-6 text-white" />
                   </div>
-                </button>
-                {expandedFaq === index && (
-                  <div className="px-6 pb-6">
-                    <p className="text-slate-600 leading-relaxed">{item.answer}</p>
+                  <p><strong>Market Analysis</strong><br />Professional pricing strategy</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Camera className="w-6 h-6 text-white" />
                   </div>
-                )}
-              </Card>
-            ))}
+                  <p><strong>Professional Marketing</strong><br />Maximum property exposure</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <HandshakeIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Expert Negotiation</strong><br />Best deal for your sale</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <Contact />
       <Footer />
       <BackToTop />
     </div>

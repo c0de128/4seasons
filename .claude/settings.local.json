@@ -11,7 +11,16 @@
       "Read(//c/Users/KevinMcKay/Downloads/**)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run generate-secrets:*)",
+      "Bash(npm run verify-build:*)",
+      "Bash(npm run prepare-deployment:*)",
+      "Bash(JWT_SECRET=localonly-jwt-key-abcdefghijklmnopqrstuvwxyz1234567890abcdef SESSION_SECRET=localonly-session-key-abcdefghijklmnopqrstuvwxyz1234567890 npm run dev)",
+      "Bash(taskkill:*)",
+      "Bash(timeout 15s npm start)",
+      "Bash(timeout 15s npm run dev)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

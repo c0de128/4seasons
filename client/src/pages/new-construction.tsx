@@ -11,8 +11,8 @@ import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import newConstructionHeroImage from "@/assets/images/hero-images/762045.jpg";
 import modernHomeImage from "@/assets/images/personalized-service.webp";
 import customizationImage from "@/assets/images/negotiation-excellence.jpg";
-import energyEfficientImage from "@/assets/images/professionals.jpg";
-import warrantyImage from "@/assets/images/first-house.jpg";
+import energyEfficientImage from "@/assets/images/11507.jpg";
+import warrantyImage from "@/assets/images/2149176715.jpg";
 import timelineImage from "@/assets/images/relocation-assistance.jpg";
 import planoImage from "@/assets/images/plano.jpg";
 import friscoImage from "@/assets/images/frisco.webp";
@@ -108,10 +108,23 @@ export default function NewConstruction() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Why Choose New Construction?
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl">
-              New construction homes offer unique advantages that you won't find with existing properties. 
-              From cutting-edge technology to personalized design choices, building new means building better.
-            </p>
+            <div className="max-w-4xl space-y-4">
+              <p className="text-lg text-slate-600">
+                New construction homes offer unique advantages that you won't find with existing properties. 
+                From cutting-edge technology to personalized design choices, building new means building better.
+              </p>
+              <p className="text-lg text-slate-600">
+                When you choose new construction, you're not just buying a house—you're investing in a home that's 
+                built specifically for modern living, designed with the latest innovations, and tailored to your 
+                exact specifications. Every system is brand new, every surface is pristine, and every detail 
+                can be customized to match your lifestyle and preferences.
+              </p>
+              <p className="text-lg text-slate-600">
+                Plus, with comprehensive warranties and energy-efficient features, you'll enjoy lower maintenance 
+                costs and monthly utility bills from the moment you move in. It's the smart choice for today's 
+                homebuyers who want the best in quality, efficiency, and peace of mind.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-12">
@@ -129,8 +142,7 @@ export default function NewConstruction() {
                 
                 {/* Content - Right Side */}
                 <div className="p-4 lg:p-6 bg-slate-100">
-                  <div className="flex items-center mb-4">
-                    <Home className="w-6 h-6 text-[#0d0d33] mr-3" />
+                  <div className="mb-4">
                     <h3 className="text-2xl font-bold text-slate-900">Modern Design & Technology</h3>
                   </div>
                   
@@ -165,8 +177,7 @@ export default function NewConstruction() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
-                  <div className="flex items-center mb-4">
-                    <Users className="w-6 h-6 text-[#0d0d33] mr-3" />
+                  <div className="mb-4">
                     <h3 className="text-2xl font-bold text-slate-900">Personalization & Customization</h3>
                   </div>
                   
@@ -219,8 +230,7 @@ export default function NewConstruction() {
                 
                 {/* Content - Right Side */}
                 <div className="p-4 lg:p-6 bg-slate-100">
-                  <div className="flex items-center mb-4">
-                    <DollarSign className="w-6 h-6 text-[#0d0d33] mr-3" />
+                  <div className="mb-4">
                     <h3 className="text-2xl font-bold text-slate-900">Energy Efficiency & Savings</h3>
                   </div>
                   
@@ -255,8 +265,7 @@ export default function NewConstruction() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Content - Left Side */}
                 <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
-                  <div className="flex items-center mb-4">
-                    <Shield className="w-6 h-6 text-[#0d0d33] mr-3" />
+                  <div className="mb-4">
                     <h3 className="text-2xl font-bold text-slate-900">Comprehensive Warranties</h3>
                   </div>
                   
@@ -374,7 +383,7 @@ export default function NewConstruction() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${friscoImage})` }}></div>
+              <div className="h-64 bg-cover bg-center" style={{ backgroundImage: `url(${friscoImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Frisco New Developments</h3>
                 <p className="text-slate-600 mb-4">
@@ -395,7 +404,7 @@ export default function NewConstruction() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${planoImage})` }}></div>
+              <div className="h-64 bg-cover bg-center" style={{ backgroundImage: `url(${planoImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Plano New Construction</h3>
                 <p className="text-slate-600 mb-4">
@@ -416,7 +425,7 @@ export default function NewConstruction() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${allenImage})` }}></div>
+              <div className="h-64 bg-cover bg-center" style={{ backgroundImage: `url(${allenImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Allen New Builds</h3>
                 <p className="text-slate-600 mb-4">
@@ -437,7 +446,7 @@ export default function NewConstruction() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${mckinneyImage})` }}></div>
+              <div className="h-64 bg-cover bg-center" style={{ backgroundImage: `url(${mckinneyImage})` }}></div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">McKinney New Homes</h3>
                 <p className="text-slate-600 mb-4">

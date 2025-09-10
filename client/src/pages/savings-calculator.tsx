@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { PiggyBank, Calculator, Clock, CheckCircle, AlertCircle, TrendingUp, DollarSign, Target, Home } from "lucide-react";
+import { PiggyBank, Calculator, Clock, CheckCircle, AlertCircle, TrendingUp, DollarSign, Target, Home, Plus, CreditCard, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import savingsCalculatorHeroImage from "@/assets/images/hero-images/70104.jpg";
@@ -18,6 +18,17 @@ export default function SavingsCalculator() {
     monthlyContribution: '',
     timeToGoal: 0,
     recommendedSavings: 120000
+  });
+
+  const [savingsContactFormData, setSavingsContactFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    currentSavings: '',
+    savingsGoal: '',
+    timeline: '',
+    challenges: '',
+    message: ''
   });
 
   // Calculate savings timeline
@@ -44,6 +55,15 @@ export default function SavingsCalculator() {
 
   const handleSavingsChange = (field: string, value: string) => {
     setSavingsGoal(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSavingsContactChange = (field: string, value: string) => {
+    setSavingsContactFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSavingsContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Savings consultation form submitted:', savingsContactFormData);
   };
 
   const formatCurrency = (amount: number) => {
@@ -372,21 +392,30 @@ export default function SavingsCalculator() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Smart Savings Strategies
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Proven tips to help you reach your homeownership goals faster.
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-6">
+              Research shows that strategic savers reach their down payment goals 40% faster than those who save randomly. 
+              These proven methods can accelerate your path to homeownership and help you build wealth along the way.
             </p>
+            <div className="bg-blue-50 p-4 rounded-lg max-w-2xl mx-auto">
+              <p className="text-sm text-blue-800">
+                <strong>Pro Tip:</strong> Implementing just 2-3 of these strategies can increase your monthly savings by $300-800 on average.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Automate Savings</h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 mb-4">
                   Set up automatic transfers to a dedicated home savings account. Pay yourself first before other expenses.
                 </p>
+                <div className="text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  <strong>Impact:</strong> Saves $200-500/month on average by eliminating impulse spending
+                </div>
               </CardContent>
             </Card>
 
@@ -396,9 +425,12 @@ export default function SavingsCalculator() {
                   <DollarSign className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Reduce Expenses</h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 mb-4">
                   Cut unnecessary subscriptions, eat out less, and find ways to reduce monthly bills to boost your savings rate.
                 </p>
+                <div className="text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  <strong>Impact:</strong> Average savings of $300-600/month through expense optimization
+                </div>
               </CardContent>
             </Card>
 
@@ -408,11 +440,139 @@ export default function SavingsCalculator() {
                   <Target className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">High-Yield Account</h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 mb-4">
                   Keep your home savings in a high-yield savings account to earn more interest while you save.
                 </p>
+                <div className="text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  <strong>Impact:</strong> Earn $1,000-3,000 extra annually with 4-5% APY vs. traditional savings
+                </div>
               </CardContent>
             </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Plus className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Generate Side Income</h3>
+                <p className="text-slate-600 mb-4">
+                  Freelance, part-time work, or monetize skills to accelerate your savings timeline significantly.
+                </p>
+                <div className="text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  <strong>Impact:</strong> Extra $500-2,000/month can cut savings timeline by 50-70%
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CreditCard className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Eliminate High-Interest Debt</h3>
+                <p className="text-slate-600 mb-4">
+                  Pay off credit cards and high-interest loans first to free up more money for home savings.
+                </p>
+                <div className="text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  <strong>Impact:</strong> Eliminating $5,000 credit card debt frees $200-400/month for savings
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Maximize Windfalls</h3>
+                <p className="text-slate-600 mb-4">
+                  Direct tax refunds, bonuses, raises, and gift money directly to your home savings fund.
+                </p>
+                <div className="text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  <strong>Impact:</strong> Average windfall of $3,000-8,000 annually can reduce timeline by 6-18 months
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Detailed Strategy Breakdown */}
+          <div className="bg-slate-50 p-8 rounded-lg">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+              Actionable Implementation Guide
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                  <TrendingUp className="w-5 h-5 mr-2 text-[#0d0d33]" />
+                  Quick Wins (Start This Week)
+                </h4>
+                <ul className="space-y-3 text-sm text-slate-600">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Set up automatic transfer:</strong> Schedule $500-2,000 to move to savings the day after payday</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Audit subscriptions:</strong> Cancel unused streaming services, gym memberships, and software subscriptions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Switch to high-yield account:</strong> Move savings to earn 4-5% APY instead of 0.1%</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Meal prep Sundays:</strong> Cook weekly meals to reduce dining out by $200-400/month</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                  <Target className="w-5 h-5 mr-2 text-[#0d0d33]" />
+                  Medium-Term Strategies (Next 3 Months)
+                </h4>
+                <ul className="space-y-3 text-sm text-slate-600">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Negotiate bills:</strong> Call providers to reduce insurance, phone, and utility costs by 10-30%</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Side hustle launch:</strong> Start freelancing, tutoring, or selling items online for extra income</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Debt avalanche:</strong> Pay minimums on all debts, extra payments on highest interest rate first</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#0d0d33] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>Housing hack:</strong> Consider getting a roommate or renting out parking/storage space</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-200">
+              <h4 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                <BarChart3 className="w-5 h-5 mr-2 text-[#0d0d33]" />
+                Track Your Progress
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="bg-white p-4 rounded border">
+                  <strong className="text-slate-900">Weekly Check-ins:</strong>
+                  <p className="text-slate-600 mt-1">Review spending, adjust budget, celebrate small wins</p>
+                </div>
+                <div className="bg-white p-4 rounded border">
+                  <strong className="text-slate-900">Monthly Reviews:</strong>
+                  <p className="text-slate-600 mt-1">Calculate savings rate, reassess timeline, optimize strategies</p>
+                </div>
+                <div className="bg-white p-4 rounded border">
+                  <strong className="text-slate-900">Quarterly Goals:</strong>
+                  <p className="text-slate-600 mt-1">Set milestone targets, reward progress, adjust savings goals</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -446,7 +606,150 @@ export default function SavingsCalculator() {
         </div>
       </section>
 
-      <Contact />
+      {/* Savings Consultation Form */}
+      <section id="contact" className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Get Expert Savings Strategy Consultation
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Ready to accelerate your path to homeownership? Our savings specialists will create a personalized 
+              strategy to help you reach your down payment goals faster and maximize your buying power.
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <form onSubmit={handleSavingsContactSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="savings-name">Full Name *</Label>
+                  <Input
+                    id="savings-name"
+                    type="text"
+                    value={savingsContactFormData.name}
+                    onChange={(e) => handleSavingsContactChange('name', e.target.value)}
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="savings-email">Email Address *</Label>
+                  <Input
+                    id="savings-email"
+                    type="email"
+                    value={savingsContactFormData.email}
+                    onChange={(e) => handleSavingsContactChange('email', e.target.value)}
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="savings-phone">Phone Number *</Label>
+                  <Input
+                    id="savings-phone"
+                    type="tel"
+                    value={savingsContactFormData.phone}
+                    onChange={(e) => handleSavingsContactChange('phone', e.target.value)}
+                    placeholder="(555) 123-4567"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="savings-current">Current Savings Amount</Label>
+                  <Input
+                    id="savings-current"
+                    type="text"
+                    value={savingsContactFormData.currentSavings}
+                    onChange={(e) => handleSavingsContactChange('currentSavings', e.target.value)}
+                    placeholder="$50,000"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="savings-goal-amount">Target Savings Goal</Label>
+                  <Input
+                    id="savings-goal-amount"
+                    type="text"
+                    value={savingsContactFormData.savingsGoal}
+                    onChange={(e) => handleSavingsContactChange('savingsGoal', e.target.value)}
+                    placeholder="$120,000"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="savings-timeline">Desired Timeline</Label>
+                  <Input
+                    id="savings-timeline"
+                    type="text"
+                    value={savingsContactFormData.timeline}
+                    onChange={(e) => handleSavingsContactChange('timeline', e.target.value)}
+                    placeholder="2-3 years"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="savings-challenges">Biggest Savings Challenges</Label>
+                <Input
+                  id="savings-challenges"
+                  type="text"
+                  value={savingsContactFormData.challenges}
+                  onChange={(e) => handleSavingsContactChange('challenges', e.target.value)}
+                  placeholder="High expenses, irregular income, debt payments, etc."
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="savings-message">Additional Questions or Goals</Label>
+                <Textarea
+                  id="savings-message"
+                  value={savingsContactFormData.message}
+                  onChange={(e) => handleSavingsContactChange('message', e.target.value)}
+                  placeholder="Tell us about your specific situation, any questions about savings strategies, or what you'd like to focus on during our consultation..."
+                  rows={4}
+                />
+              </div>
+
+              <Button 
+                type="submit"
+                className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+              >
+                <PiggyBank className="w-5 h-5 mr-2" />
+                Schedule My Savings Consultation
+              </Button>
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Calculator className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Custom Analysis</strong><br />Personalized savings roadmap</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Strategy Optimization</strong><br />Maximize your savings rate</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Home className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Home Buying Prep</strong><br />Get ready for success</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <BackToTop />
     </div>

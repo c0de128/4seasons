@@ -197,6 +197,70 @@ const faqData: FAQItem[] = [
     category: "property-management",
     question: "What insurance do I need for a rental property?",
     answer: "You'll need landlord insurance (different from homeowner's insurance) covering property damage, liability, and loss of rental income. We can recommend insurance providers who specialize in rental properties and understand the unique risks and coverage needs."
+  },
+  
+  // Listing Process FAQs
+  {
+    id: 31,
+    category: "sellers",
+    question: "How long does the listing process typically take?",
+    answer: "The preparation and listing process usually takes 2-4 weeks. However, the time to sell varies based on market conditions, pricing, and property condition. In North Texas, well-priced homes typically sell within 30-60 days."
+  },
+  {
+    id: 32,
+    category: "sellers",
+    question: "What are the typical costs associated with selling my home?",
+    answer: "Selling costs typically range from 7-10% of the sale price, including real estate commission (5-6%), closing costs (1-2%), staging/preparation costs, and potential repairs. We'll provide a detailed cost breakdown during your consultation."
+  },
+  {
+    id: 33,
+    category: "sellers",
+    question: "Should I make repairs before listing?",
+    answer: "Focus on major repairs that affect safety or functionality. Cosmetic improvements should provide good return on investment. We'll help you prioritize which improvements will add the most value to your listing."
+  },
+  {
+    id: 34,
+    category: "sellers",
+    question: "How do you determine the right listing price?",
+    answer: "We conduct a Comparative Market Analysis (CMA) looking at recent sales of similar properties, current market conditions, your home's unique features, and neighborhood trends. Proper pricing is crucial for attracting qualified buyers quickly."
+  },
+  {
+    id: 35,
+    category: "sellers",
+    question: "What happens if my home doesn't sell?",
+    answer: "If your home doesn't sell within the expected timeframe, we'll analyze market feedback and adjust our strategy. This might include price adjustments, enhanced marketing, or property improvements to increase appeal."
+  },
+
+  // Pricing Strategy FAQs
+  {
+    id: 36,
+    category: "sellers",
+    question: "Should I price high to leave room for negotiation?",
+    answer: "This is a common misconception. Overpricing can actually hurt your sale by reducing initial interest, causing your listing to become stale, and ultimately requiring larger price reductions. Strategic pricing attracts more buyers, creates competition, and often results in offers at or above list price."
+  },
+  {
+    id: 37,
+    category: "sellers",
+    question: "How often should we review and adjust pricing?",
+    answer: "We continuously monitor market response and recommend reviewing pricing strategy every 2-3 weeks initially. Key indicators include showing activity, online views, and buyer feedback. In hot markets, we may recommend holding firm, while slower markets might require strategic adjustments."
+  },
+  {
+    id: 38,
+    category: "sellers",
+    question: "What if my home is unique with few comparables?",
+    answer: "Unique properties require specialized pricing strategies. We expand our analysis to include similar luxury features, adjust for distinctive characteristics, and may recommend professional appraisal. We also leverage our network to identify buyers specifically seeking unique properties."
+  },
+  {
+    id: 39,
+    category: "sellers",
+    question: "How do online home estimates compare to professional pricing?",
+    answer: "Online estimates like Zillow's Zestimate provide a starting point but often miss crucial factors like property condition, recent updates, and hyperlocal market dynamics. Professional pricing includes physical inspection, local expertise, and strategic positioning that online algorithms cannot provide."
+  },
+  {
+    id: 40,
+    category: "sellers",
+    question: "What role does staging play in pricing strategy?",
+    answer: "Staged homes typically sell for 5-10% more than unstaged properties. Professional staging helps buyers visualize the property's potential, justifying higher pricing. We factor staging into our pricing strategy and can arrange professional staging services to maximize your return."
   }
 ];
 

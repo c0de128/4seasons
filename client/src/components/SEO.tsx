@@ -15,6 +15,17 @@ export interface SEOProps {
   robots?: string;
   author?: string;
   locale?: string;
+  alternateLanguages?: Array<{lang: string, url: string}>;
+  viewport?: string;
+  themeColor?: string;
+  applicationName?: string;
+  googleSiteVerification?: string;
+  bingSiteVerification?: string;
+  fbAppId?: string;
+  articleTags?: string[];
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
 }
 
 export function SEO({
@@ -31,7 +42,18 @@ export function SEO({
   structuredData,
   robots = 'index, follow',
   author = '4Seasons Real Estate',
-  locale = 'en_US'
+  locale = 'en_US',
+  alternateLanguages = [],
+  viewport = 'width=device-width, initial-scale=1.0, viewport-fit=cover',
+  themeColor = '#0d0d33',
+  applicationName = '4Seasons Real Estate',
+  googleSiteVerification,
+  bingSiteVerification,
+  fbAppId,
+  articleTags = [],
+  publishedTime,
+  modifiedTime,
+  section = 'Real Estate'
 }: SEOProps) {
   useEffect(() => {
     // Set document title
@@ -70,6 +92,35 @@ export function SEO({
     setMetaTag('author', author);
     setMetaTag('robots', robots);
     setMetaTag('language', locale);
+    setMetaTag('viewport', viewport);
+    setMetaTag('theme-color', themeColor);
+    setMetaTag('application-name', applicationName);
+    setMetaTag('mobile-web-app-capable', 'yes');
+    setMetaTag('apple-mobile-web-app-capable', 'yes');
+    setMetaTag('apple-mobile-web-app-status-bar-style', 'default');
+    setMetaTag('apple-mobile-web-app-title', applicationName);
+    setMetaTag('format-detection', 'telephone=no');
+    setMetaTag('msapplication-TileColor', themeColor);
+    setMetaTag('msapplication-config', '/browserconfig.xml');
+    
+    // Verification tags
+    if (googleSiteVerification) {
+      setMetaTag('google-site-verification', googleSiteVerification);
+    }
+    if (bingSiteVerification) {
+      setMetaTag('msvalidate.01', bingSiteVerification);
+    }
+    
+    // Article specific tags
+    if (ogType === 'article') {
+      if (publishedTime) setMetaTag('article:published_time', publishedTime, true);
+      if (modifiedTime) setMetaTag('article:modified_time', modifiedTime, true);
+      if (section) setMetaTag('article:section', section, true);
+      if (articleTags.length > 0) {
+        articleTags.forEach(tag => setMetaTag('article:tag', tag, true));
+      }
+      setMetaTag('article:author', author, true);
+    }
 
     // Open Graph tags
     setMetaTag('og:title', ogTitle || title, true);
@@ -96,11 +147,28 @@ export function SEO({
     setMetaTag('twitter:creator', twitterSite);
     setMetaTag('twitter:title', ogTitle || title);
     setMetaTag('twitter:description', ogDescription || description);
+    setMetaTag('twitter:domain', '4seasonsrealestate.com');
     
     if (ogImage) {
       setMetaTag('twitter:image', ogImage);
       setMetaTag('twitter:image:alt', ogTitle || title);
+      setMetaTag('twitter:image:width', '1200');
+      setMetaTag('twitter:image:height', '630');
     }
+    
+    // Facebook App ID
+    if (fbAppId) {
+      setMetaTag('fb:app_id', fbAppId, true);
+    }
+    
+    // Alternate language links
+    alternateLanguages.forEach(({ lang, url }) => {
+      setLinkTag('alternate', url);
+      const link = document.querySelector(`link[rel="alternate"][href="${url}"]`);
+      if (link) {
+        link.setAttribute('hreflang', lang);
+      }
+    });
 
     // Structured Data
     if (structuredData) {
@@ -439,37 +507,70 @@ export const generateStructuredData = {
     }
   }),
 
-  webPage: (title: string, description: string, url: string, lastModified?: string) => ({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": title,
-    "description": description,
-    "url": url,
-    "inLanguage": "en-US",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": seoConfig.siteName,
-      "url": seoConfig.siteUrl,
-      "publisher": {
-        "@type": "Organization",
-        "name": seoConfig.companyInfo.name
-      }
-    },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": seoConfig.siteUrl
-      }]
-    },
-    "potentialAction": {
-      "@type": "ReadAction",
-      "target": url
-    },
-    ...(lastModified && { "dateModified": lastModified })
-  }),
+  webPage: (title: string, description: string, url: string, breadcrumbs?: Array<{name: string, url: string}>, lastModified?: string) => {
+    const breadcrumbItems = [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": seoConfig.siteUrl
+    }];
+    
+    if (breadcrumbs) {
+      breadcrumbs.forEach((crumb, index) => {
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          "position": index + 2,
+          "name": crumb.name,
+          "item": `${seoConfig.siteUrl}${crumb.url}`
+        });
+      });
+    }
+    
+    return {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": url,
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": seoConfig.siteName,
+        "url": seoConfig.siteUrl,
+        "publisher": {
+          "@type": "Organization",
+          "name": seoConfig.companyInfo.name,
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${seoConfig.siteUrl}/images/4seasons-logo.jpg`
+          }
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${seoConfig.siteUrl}/search?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbItems
+      },
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": url
+      },
+      "mainEntity": {
+        "@type": "RealEstateAgent",
+        "name": seoConfig.companyInfo.name,
+        "url": seoConfig.siteUrl,
+        "telephone": seoConfig.companyInfo.phone
+      },
+      ...(lastModified && { "dateModified": lastModified })
+    };
+  },
 
   organization: () => ({
     "@context": "https://schema.org",
@@ -494,5 +595,91 @@ export const generateStructuredData = {
       ...seoConfig.companyInfo.address
     },
     "description": "Premier real estate services in Dallas-Fort Worth metroplex, specializing in residential sales, property management, and market analysis."
+  }),
+  
+  person: (name: string, role: string, description: string, image?: string, socialProfiles?: string[]) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": name,
+    "jobTitle": role,
+    "description": description,
+    "worksFor": {
+      "@type": "Organization",
+      "name": seoConfig.companyInfo.name,
+      "url": seoConfig.siteUrl
+    },
+    ...(image && { "image": image }),
+    ...(socialProfiles && socialProfiles.length > 0 && { "sameAs": socialProfiles }),
+    "knowsAbout": ["Real Estate", "North Texas Market", "Property Investment", "Home Valuation"],
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Real Estate Professional"
+    }
+  }),
+  
+  propertyListing: (property: {
+    name: string,
+    price: string,
+    address: string,
+    bedrooms: number,
+    bathrooms: number,
+    squareFeet: number,
+    description: string,
+    image?: string
+  }) => ({
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": property.name,
+    "description": property.description,
+    "offers": {
+      "@type": "Offer",
+      "price": property.price,
+      "priceCurrency": "USD"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": property.address
+    },
+    "numberOfRooms": property.bedrooms,
+    "numberOfBathroomsTotal": property.bathrooms,
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": property.squareFeet,
+      "unitCode": "FTK"
+    },
+    ...(property.image && { "image": property.image })
+  }),
+  
+  videoObject: (name: string, description: string, thumbnailUrl: string, uploadDate: string, duration: string, embedUrl: string) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": name,
+    "description": description,
+    "thumbnailUrl": thumbnailUrl,
+    "uploadDate": uploadDate,
+    "duration": duration,
+    "embedUrl": embedUrl,
+    "publisher": {
+      "@type": "Organization",
+      "name": seoConfig.companyInfo.name,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${seoConfig.siteUrl}/images/4seasons-logo.jpg`
+      }
+    }
+  }),
+  
+  howTo: (name: string, description: string, steps: Array<{name: string, text: string, image?: string}>) => ({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": name,
+    "description": description,
+    "step": steps.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "name": step.name,
+      "text": step.text,
+      ...(step.image && { "image": step.image })
+    }))
   })
 };

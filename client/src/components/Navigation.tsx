@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, Calculator, Map, Building2, DollarSign, FileText, HelpCircle, Shield, Phone, Mail, PiggyBank, Home, TrendingUp, Camera, ClipboardList, Users, Sparkles } from "lucide-react";
+import { Menu, X, ChevronDown, Map, Building2, FileText, HelpCircle, Shield, Phone, Mail, PiggyBank } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -233,32 +233,23 @@ export function Navigation() {
                           {/* Left Column - Primary Services */}
                           <div className="space-y-3">
                           <a href="/buy#search-properties" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Map className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Search Properties</h4>
-                                <p className="text-sm text-slate-600">Browse available homes and properties for sale.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Search Properties</h4>
+                              <p className="text-sm text-slate-600">Browse available homes and properties for sale.</p>
                             </div>
                           </a>
                           
                           <a href="/new-construction" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Building2 className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">New Construction</h4>
-                                <p className="text-sm text-slate-600">Explore brand new homes and developments.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">New Construction</h4>
+                              <p className="text-sm text-slate-600">Explore brand new homes and developments.</p>
                             </div>
                           </a>
                           
                           <a href="/first-time-buyers" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <FileText className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">First-Time Buyer Guide</h4>
-                                <p className="text-sm text-slate-600">Step-by-step guidance for first-time homebuyers.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">First-Time Buyer Guide</h4>
+                              <p className="text-sm text-slate-600">Step-by-step guidance for first-time homebuyers.</p>
                             </div>
                           </a>
                           </div>
@@ -267,32 +258,23 @@ export function Navigation() {
                           <div className="space-y-3">
                           
                           <a href="/home-affordability" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Calculator className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Home Affordability Calculator</h4>
-                                <p className="text-sm text-slate-600">Calculate what you can afford to buy.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Home Affordability Calculator</h4>
+                              <p className="text-sm text-slate-600">Calculate what you can afford to buy.</p>
                             </div>
                           </a>
                           
                           <a href="/mortgage-calculator" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <DollarSign className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Mortgage Payment Calculator</h4>
-                                <p className="text-sm text-slate-600">Calculate monthly payments and loan costs.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Mortgage Payment Calculator</h4>
+                              <p className="text-sm text-slate-600">Calculate monthly payments and loan costs.</p>
                             </div>
                           </a>
                           
                           <a href="/savings-calculator" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <PiggyBank className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Home Savings Calculator</h4>
-                                <p className="text-sm text-slate-600">Plan your down payment savings timeline.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Home Savings Calculator</h4>
+                              <p className="text-sm text-slate-600">Plan your down payment savings timeline.</p>
                             </div>
                           </a>
                           </div>
@@ -329,42 +311,30 @@ export function Navigation() {
                           {/* Left Column - Selling Process */}
                           <div className="space-y-3">
                           <a href="/home-valuation" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Home className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Home Valuation Tool</h4>
-                                <p className="text-sm text-slate-600">Get an instant estimate of your home's value.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Home Valuation Tool</h4>
+                              <p className="text-sm text-slate-600">Get an instant estimate of your home's value.</p>
                             </div>
                           </a>
                           
                           <a href="/listing-process" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <ClipboardList className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Listing Your Property</h4>
-                                <p className="text-sm text-slate-600">Step-by-step guide to listing your home.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Listing Your Property</h4>
+                              <p className="text-sm text-slate-600">Step-by-step guide to listing your home.</p>
                             </div>
                           </a>
                           
                           <a href="/pricing-strategy" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <DollarSign className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Pricing Strategy Guide</h4>
-                                <p className="text-sm text-slate-600">How to price your home competitively.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Pricing Strategy Guide</h4>
+                              <p className="text-sm text-slate-600">How to price your home competitively.</p>
                             </div>
                           </a>
                           
                           <a href="/marketing-guide" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Camera className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Marketing Your Home</h4>
-                                <p className="text-sm text-slate-600">Professional photography and marketing tips.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Marketing Your Home</h4>
+                              <p className="text-sm text-slate-600">Professional photography and marketing tips.</p>
                             </div>
                           </a>
                           </div>
@@ -373,42 +343,30 @@ export function Navigation() {
                           <div className="space-y-3">
                           
                           <a href="/home-staging" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Sparkles className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Home Staging Tips</h4>
-                                <p className="text-sm text-slate-600">Prepare your home for maximum appeal.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Home Staging Tips</h4>
+                              <p className="text-sm text-slate-600">Prepare your home for maximum appeal.</p>
                             </div>
                           </a>
                           
                           <a href="/market-analysis" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <TrendingUp className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Market Analysis</h4>
-                                <p className="text-sm text-slate-600">Current market trends and timing.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Market Analysis</h4>
+                              <p className="text-sm text-slate-600">Current market trends and timing.</p>
                             </div>
                           </a>
                           
                           <a href="/selling-costs" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Calculator className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">Selling Costs Calculator</h4>
-                                <p className="text-sm text-slate-600">Estimate your net proceeds.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">Selling Costs Calculator</h4>
+                              <p className="text-sm text-slate-600">Estimate your net proceeds.</p>
                             </div>
                           </a>
                           
                           <a href="/fsbo-vs-agent" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                            <div className="flex items-center">
-                              <Users className="h-5 w-5 text-[#0d0d33] mr-3" />
-                              <div>
-                                <h4 className="font-medium text-slate-900">FSBO vs Agent</h4>
-                                <p className="text-sm text-slate-600">Compare selling options and outcomes.</p>
-                              </div>
+                            <div>
+                              <h4 className="font-medium text-slate-900">FSBO vs Agent</h4>
+                              <p className="text-sm text-slate-600">Compare selling options and outcomes.</p>
                             </div>
                           </a>
                           </div>

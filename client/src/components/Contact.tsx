@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import { secureFetch } from "@/utils/csrf";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ export function Contact() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await secureFetch('/api/forms/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +43,9 @@ export function Contact() {
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
-          propertyInterest: formData.subject
+          subject: formData.subject,
+          propertyInterest: formData.subject,
+          honeypot: '' // Add honeypot field for security
         }),
       });
 

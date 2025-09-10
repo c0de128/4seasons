@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, ExternalLink, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -241,9 +241,17 @@ export default function Buy() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Plano</h3>
                 <p className="text-slate-600 mb-4">Excellent schools, family-friendly communities, and convenient shopping centers.</p>
-                <div className="flex justify-between items-center text-sm text-slate-500">
-                  <span>Median Price: $485K</span>
-                  <span>124 Available</span>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Median Price: $485K</span>
+                  <a 
+                    href="/plano-city-guide" 
+                    className="flex items-center space-x-1 font-medium transition-colors hover:opacity-80"
+                    style={{ color: '#0d0d33' }}
+                    aria-label="View Plano City Guide"
+                  >
+                    <span>City Guide</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -253,9 +261,17 @@ export default function Buy() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Frisco</h3>
                 <p className="text-slate-600 mb-4">Rapidly growing city with modern amenities and top-rated schools.</p>
-                <div className="flex justify-between items-center text-sm text-slate-500">
-                  <span>Median Price: $520K</span>
-                  <span>98 Available</span>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Median Price: $520K</span>
+                  <a 
+                    href="/frisco-city-guide" 
+                    className="flex items-center space-x-1 font-medium transition-colors hover:opacity-80"
+                    style={{ color: '#0d0d33' }}
+                    aria-label="View Frisco City Guide"
+                  >
+                    <span>City Guide</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -265,9 +281,17 @@ export default function Buy() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Allen</h3>
                 <p className="text-slate-600 mb-4">Strong community feel with excellent recreational facilities and schools.</p>
-                <div className="flex justify-between items-center text-sm text-slate-500">
-                  <span>Median Price: $465K</span>
-                  <span>76 Available</span>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Median Price: $465K</span>
+                  <a 
+                    href="/allen-city-guide" 
+                    className="flex items-center space-x-1 font-medium transition-colors hover:opacity-80"
+                    style={{ color: '#0d0d33' }}
+                    aria-label="View Allen City Guide"
+                  >
+                    <span>City Guide</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -277,9 +301,17 @@ export default function Buy() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">McKinney</h3>
                 <p className="text-slate-600 mb-4">Historic charm meets modern convenience in this fast-growing city.</p>
-                <div className="flex justify-between items-center text-sm text-slate-500">
-                  <span>Median Price: $445K</span>
-                  <span>112 Available</span>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Median Price: $445K</span>
+                  <a 
+                    href="/mckinney-city-guide" 
+                    className="flex items-center space-x-1 font-medium transition-colors hover:opacity-80"
+                    style={{ color: '#0d0d33' }}
+                    aria-label="View McKinney City Guide"
+                  >
+                    <span>City Guide</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -289,9 +321,17 @@ export default function Buy() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Richardson</h3>
                 <p className="text-slate-600 mb-4">Diverse community with great dining, shopping, and cultural attractions.</p>
-                <div className="flex justify-between items-center text-sm text-slate-500">
-                  <span>Median Price: $395K</span>
-                  <span>89 Available</span>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Median Price: $395K</span>
+                  <a 
+                    href="/richardson-city-guide" 
+                    className="flex items-center space-x-1 font-medium transition-colors hover:opacity-80"
+                    style={{ color: '#0d0d33' }}
+                    aria-label="View Richardson City Guide"
+                  >
+                    <span>City Guide</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -301,9 +341,17 @@ export default function Buy() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">Carrollton</h3>
                 <p className="text-slate-600 mb-4">Affordable family homes with easy access to Dallas and surrounding areas.</p>
-                <div className="flex justify-between items-center text-sm text-slate-500">
-                  <span>Median Price: $385K</span>
-                  <span>67 Available</span>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Median Price: $385K</span>
+                  <a 
+                    href="/carrollton-city-guide" 
+                    className="flex items-center space-x-1 font-medium transition-colors hover:opacity-80"
+                    style={{ color: '#0d0d33' }}
+                    aria-label="View Carrollton City Guide"
+                  >
+                    <span>City Guide</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>

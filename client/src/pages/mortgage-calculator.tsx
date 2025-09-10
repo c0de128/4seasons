@@ -3,6 +3,7 @@ import { Calculator, DollarSign, Home, TrendingUp, Shield, PiggyBank } from "luc
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -36,6 +37,26 @@ export default function MortgageCalculator() {
     totalInterest: 0,
     totalAmountPaid: 0
   });
+
+  const [contactFormData, setContactFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    budget: '',
+    timeline: '',
+    location: '',
+    message: ''
+  });
+
+  const handleContactInputChange = (field: string, value: string) => {
+    setContactFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Mortgage consultation form submitted:", contactFormData);
+    // Handle form submission here
+  };
 
   // Calculate mortgage details
   useEffect(() => {
@@ -419,7 +440,169 @@ export default function MortgageCalculator() {
         </div>
       </section>
 
-      <Contact />
+      {/* Mortgage Consultation Form */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Ready to Secure Your Mortgage?
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Our mortgage specialists can help you find the best loan options, secure competitive rates, 
+              and guide you through the pre-approval process. Let's turn your calculations into reality.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 rounded-lg p-8">
+            <form onSubmit={handleContactSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="mortgage-name" className="block text-sm font-medium text-slate-700 mb-2">
+                  Full Name *
+                </label>
+                <Input
+                  type="text"
+                  id="mortgage-name"
+                  name="name"
+                  value={contactFormData.name}
+                  onChange={(e) => handleContactInputChange('name', e.target.value)}
+                  required
+                  className="w-full"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="mortgage-email" className="block text-sm font-medium text-slate-700 mb-2">
+                  Email Address *
+                </label>
+                <Input
+                  type="email"
+                  id="mortgage-email"
+                  name="email"
+                  value={contactFormData.email}
+                  onChange={(e) => handleContactInputChange('email', e.target.value)}
+                  required
+                  className="w-full"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="mortgage-phone" className="block text-sm font-medium text-slate-700 mb-2">
+                  Phone Number
+                </label>
+                <Input
+                  type="tel"
+                  id="mortgage-phone"
+                  name="phone"
+                  value={contactFormData.phone}
+                  onChange={(e) => handleContactInputChange('phone', e.target.value)}
+                  className="w-full"
+                  placeholder="(214) 555-0123"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="mortgage-budget" className="block text-sm font-medium text-slate-700 mb-2">
+                  Home Price Range
+                </label>
+                <select
+                  id="mortgage-budget"
+                  name="budget"
+                  value={contactFormData.budget}
+                  onChange={(e) => handleContactInputChange('budget', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select price range</option>
+                  <option value="under-300k">Under $300K</option>
+                  <option value="300k-400k">$300K - $400K</option>
+                  <option value="400k-500k">$400K - $500K</option>
+                  <option value="500k-650k">$500K - $650K</option>
+                  <option value="650k-800k">$650K - $800K</option>
+                  <option value="800k-1m">$800K - $1M</option>
+                  <option value="over-1m">Over $1M</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="mortgage-timeline" className="block text-sm font-medium text-slate-700 mb-2">
+                  Timeline to Purchase
+                </label>
+                <select
+                  id="mortgage-timeline"
+                  name="timeline"
+                  value={contactFormData.timeline}
+                  onChange={(e) => handleContactInputChange('timeline', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select timeline</option>
+                  <option value="immediate">Ready to apply now</option>
+                  <option value="30-days">Within 30 days</option>
+                  <option value="60-days">Within 60 days</option>
+                  <option value="90-days">Within 90 days</option>
+                  <option value="exploring">Still exploring options</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="mortgage-location" className="block text-sm font-medium text-slate-700 mb-2">
+                  Property Location
+                </label>
+                <select
+                  id="mortgage-location"
+                  name="location"
+                  value={contactFormData.location}
+                  onChange={(e) => handleContactInputChange('location', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select area</option>
+                  <option value="frisco">Frisco</option>
+                  <option value="plano">Plano</option>
+                  <option value="allen">Allen</option>
+                  <option value="mckinney">McKinney</option>
+                  <option value="richardson">Richardson</option>
+                  <option value="prosper">Prosper</option>
+                  <option value="celina">Celina</option>
+                  <option value="little-elm">Little Elm</option>
+                  <option value="carrollton">Carrollton</option>
+                  <option value="open">Open to suggestions</option>
+                </select>
+              </div>
+
+              <div className="md:col-span-2">
+                <label htmlFor="mortgage-message" className="block text-sm font-medium text-slate-700 mb-2">
+                  Tell us about your mortgage needs
+                </label>
+                <Textarea
+                  id="mortgage-message"
+                  name="message"
+                  rows={4}
+                  value={contactFormData.message}
+                  onChange={(e) => handleContactInputChange('message', e.target.value)}
+                  className="w-full"
+                  placeholder="Tell us about your loan requirements, credit situation, down payment questions, or any specific mortgage concerns..."
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <Button
+                  type="submit"
+                  className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                >
+                  <Calculator className="w-5 h-5 mr-2" />
+                  Get My Mortgage Pre-Approval
+                </Button>
+                <p className="text-xs text-slate-500 mt-4 text-center">
+                  By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                  regarding mortgage and financing options. We respect your privacy and will not share 
+                  your information with third parties.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <BackToTop />
     </div>

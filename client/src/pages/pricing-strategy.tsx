@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import pricingStrategyHeroImage from "@/assets/images/hero-images/146253.jpg";
@@ -21,8 +23,6 @@ import {
   Users,
   MapPin,
   Calendar,
-  ChevronDown,
-  ChevronUp,
   ArrowRight,
   Zap,
   Shield,
@@ -32,59 +32,25 @@ import {
 } from "lucide-react";
 
 export default function PricingStrategy() {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({
-    days: 0,
-    price: 0,
-    ratio: 0,
-    inventory: 0
+  const [pricingContactFormData, setPricingContactFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+    propertyValue: '',
+    sellingTimeline: '',
+    pricingConcerns: '',
+    message: ''
   });
-  const statsRef = useRef<HTMLDivElement>(null);
 
-  // Animation effect for stats
-  useEffect(() => {
-    const animateValue = (start: number, end: number, duration: number, setter: (value: number) => void) => {
-      const range = end - start;
-      const startTime = Date.now();
-      
-      const updateValue = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(start + range * easeOut);
-        
-        setter(current);
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateValue);
-        }
-      };
-      
-      updateValue();
-    };
+  const handlePricingContactChange = (field: string, value: string) => {
+    setPricingContactFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateValue(0, 32, 1500, (val) => setAnimatedStats(prev => ({ ...prev, days: val })));
-            animateValue(0, 425, 1500, (val) => setAnimatedStats(prev => ({ ...prev, price: val })));
-            animateValue(0, 98, 1500, (val) => setAnimatedStats(prev => ({ ...prev, ratio: val })));
-            animateValue(0, 18, 1500, (val) => setAnimatedStats(prev => ({ ...prev, inventory: val })));
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
+  const handlePricingContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Pricing consultation form submitted:', pricingContactFormData);
+  };
   
   const pricingFactors = [
     {
@@ -215,32 +181,6 @@ export default function PricingStrategy() {
     }
   ];
 
-  const faqs = [
-    {
-      question: "How do you determine the right listing price?",
-      answer: "We use a comprehensive approach combining comparative market analysis (CMA), current market conditions, your property's unique features, and your selling timeline. Our proprietary pricing algorithm analyzes hundreds of data points to recommend an optimal price that attracts buyers while maximizing your return."
-    },
-    {
-      question: "Should I price high to leave room for negotiation?",
-      answer: "This is a common misconception. Overpricing can actually hurt your sale by reducing initial interest, causing your listing to become stale, and ultimately requiring larger price reductions. Strategic pricing attracts more buyers, creates competition, and often results in offers at or above list price."
-    },
-    {
-      question: "How often should we review and adjust pricing?",
-      answer: "We continuously monitor market response and recommend reviewing pricing strategy every 2-3 weeks initially. Key indicators include showing activity, online views, and buyer feedback. In hot markets, we may recommend holding firm, while slower markets might require strategic adjustments."
-    },
-    {
-      question: "What if my home is unique with few comparables?",
-      answer: "Unique properties require specialized pricing strategies. We expand our analysis to include similar luxury features, adjust for distinctive characteristics, and may recommend professional appraisal. We also leverage our network to identify buyers specifically seeking unique properties."
-    },
-    {
-      question: "How do online home estimates compare to professional pricing?",
-      answer: "Online estimates like Zillow's Zestimate provide a starting point but often miss crucial factors like property condition, recent updates, and hyperlocal market dynamics. Professional pricing includes physical inspection, local expertise, and strategic positioning that online algorithms cannot provide."
-    },
-    {
-      question: "What role does staging play in pricing strategy?",
-      answer: "Staged homes typically sell for 5-10% more than unstaged properties. Professional staging helps buyers visualize the property's potential, justifying higher pricing. We factor staging into our pricing strategy and can arrange professional staging services to maximize your return."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -268,11 +208,6 @@ export default function PricingStrategy() {
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 bg-green-100/90 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
-              <TrendingUp className="w-4 h-4" />
-              Homes Priced Right Sell 50% Faster
-            </div>
-            
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
               Strategic Pricing That
               <span className="text-yellow-400 block" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>Drives Results</span>
@@ -301,99 +236,108 @@ export default function PricingStrategy() {
         <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
       </section>
 
-      {/* Success Stats Banner - Home Page Style */}
-      <section ref={statsRef} className="py-12" style={{ backgroundColor: '#1f2937' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Current Market Performance
-            </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-              Real-time insights into the North Texas real estate market to guide your pricing strategy.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {/* Average Days on Market */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                {animatedStats.days}
-              </div>
-              <div className="text-base font-medium text-white">
-                Average Days on Market
-              </div>
-            </div>
-
-            {/* Median Sale Price */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                ${animatedStats.price}K
-              </div>
-              <div className="text-base font-medium text-white">
-                Median Sale Price
-              </div>
-            </div>
-
-            {/* List to Sale Ratio */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                {animatedStats.ratio}.5%
-              </div>
-              <div className="text-base font-medium text-white">
-                List to Sale Ratio
-              </div>
-            </div>
-
-            {/* Inventory Levels */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                1.{animatedStats.inventory} mo
-              </div>
-              <div className="text-base font-medium text-white">
-                Inventory Levels
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Pricing Factors Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Key Factors That Drive Your Home's Value
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Understanding these critical factors helps position your property competitively in the market
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-8">
+              Understanding these critical factors helps position your property competitively in the market. 
+              Each factor contributes differently to your home's final value.
             </p>
+            <div className="bg-blue-50 p-4 rounded-lg max-w-2xl mx-auto">
+              <p className="text-sm text-blue-800">
+                <strong>Impact Analysis:</strong> Based on North Texas market data and thousands of home sales
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pricingFactors.map((factor, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow border-slate-200">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 rounded-lg" style={{ backgroundColor: '#0d0d33' }}>
-                      <factor.icon className="w-6 h-6 text-white" />
+          {/* Major Factors - Top 2 with highest impact */}
+          <div className="space-y-6 mb-12">
+            {pricingFactors.slice(0, 2).map((factor, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-2 border-slate-100 hover:border-blue-200">
+                <CardContent className="p-8">
+                  <div className="grid lg:grid-cols-12 gap-6 items-center">
+                    {/* Impact Badge */}
+                    <div className="lg:col-span-2 text-center">
+                      <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-green-600 mb-3">
+                        <span className="text-2xl font-bold text-white">{factor.impact}</span>
+                      </div>
+                      <p className="text-xs text-slate-500 font-medium">IMPACT</p>
                     </div>
-                    <span className="text-2xl font-bold text-green-600">{factor.impact}</span>
+
+                    {/* Factor Content */}
+                    <div className="lg:col-span-6">
+                      <div className="mb-3">
+                        <h3 className="text-2xl font-bold text-slate-900 mb-2">{factor.title}</h3>
+                        <p className="text-slate-600">{factor.description}</p>
+                      </div>
+                    </div>
+
+                    {/* Details */}
+                    <div className="lg:col-span-4">
+                      <h4 className="font-semibold text-slate-900 mb-3">Key Considerations:</h4>
+                      <div className="grid grid-cols-1 gap-2">
+                        {factor.details.map((detail, idx) => (
+                          <div key={idx} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-slate-700">{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <CardTitle className="text-xl mb-2">{factor.title}</CardTitle>
-                  <p className="text-slate-600">{factor.description}</p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {factor.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-slate-700">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Secondary Factors - Remaining 3 in grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {pricingFactors.slice(2).map((factor, index) => (
+              <Card key={index + 2} className="hover:shadow-lg transition-shadow border-slate-200 relative">
+                <CardContent className="p-6">
+                  {/* Impact Badge - Top Right */}
+                  <div className="absolute top-4 right-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600">
+                      <span className="text-lg font-bold text-white">{factor.impact}</span>
+                    </div>
+                  </div>
+
+                  {/* Factor Header */}
+                  <div className="mb-4 pr-16">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{factor.title}</h3>
+                    <p className="text-slate-600 text-sm">{factor.description}</p>
+                  </div>
+
+                  {/* Details */}
+                  <div className="space-y-2">
+                    {factor.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="w-3 h-3 text-green-500 mt-1 flex-shrink-0" />
+                        <span className="text-xs text-slate-700">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Summary Section */}
+          <div className="mt-12 bg-gradient-to-r from-slate-50 to-blue-50 p-8 rounded-lg">
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                Strategic Pricing Insight
+              </h3>
+              <p className="text-slate-600 max-w-3xl mx-auto">
+                The top two factors (Location & Property Condition) account for <strong>60% of your home's value</strong>. 
+                While you can't change location, strategic improvements to property condition can significantly impact your sale price. 
+                Our pricing strategy considers all these factors to position your home competitively.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -454,47 +398,55 @@ export default function PricingStrategy() {
       {/* Common Mistakes Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Avoid These Costly Pricing Mistakes
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Learn from common errors that can cost you time and money
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-8">
+              These common pricing errors have cost sellers thousands of dollars and months of time. 
+              Learn how to avoid them and price strategically from the start.
             </p>
+            <div className="bg-slate-50 p-4 rounded-lg max-w-2xl mx-auto border border-slate-200">
+              <p className="text-sm text-slate-700">
+                <strong>Real Impact:</strong> Poor pricing can reduce your final sale price by 5-15% and add 60+ days to your selling timeline
+              </p>
+            </div>
           </div>
 
           <div className="grid gap-6">
             {pricingMistakes.map((item, index) => (
-              <Card key={index} className="border-l-4 border-red-500">
-                <CardContent className="p-6">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div>
-                      <div className="flex items-start gap-3 mb-3">
-                        <AlertCircle className="w-6 h-6 text-red-500 flex-shrink-0" />
-                        <div>
-                          <h3 className="font-bold text-slate-900">Mistake</h3>
-                          <p className="text-slate-700 mt-1">{item.mistake}</p>
-                        </div>
+              <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white">
+                <CardContent className="p-8">
+                  <div className="grid lg:grid-cols-12 gap-6 items-stretch">
+                    {/* Mistake Number */}
+                    <div className="lg:col-span-1 text-center flex flex-col justify-center">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-lg mb-2" style={{ backgroundColor: '#0d0d33' }}>
+                        {index + 1}
+                      </div>
+                      <p className="text-xs text-slate-500 font-medium">MISTAKE</p>
+                    </div>
+
+                    {/* Mistake Content */}
+                    <div className="lg:col-span-4">
+                      <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 h-full">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2">The Mistake</h3>
+                        <p className="text-slate-700 font-medium">{item.mistake}</p>
                       </div>
                     </div>
-                    
-                    <div>
-                      <div className="flex items-start gap-3 mb-3">
-                        <TrendingUp className="w-6 h-6 text-orange-500 flex-shrink-0" />
-                        <div>
-                          <h3 className="font-bold text-slate-900">Consequence</h3>
-                          <p className="text-slate-700 mt-1">{item.consequence}</p>
-                        </div>
+
+                    {/* Consequence */}
+                    <div className="lg:col-span-3">
+                      <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 h-full">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2">The Impact</h3>
+                        <p className="text-slate-700">{item.consequence}</p>
                       </div>
                     </div>
-                    
-                    <div>
-                      <div className="flex items-start gap-3">
-                        <Lightbulb className="w-6 h-6 text-green-500 flex-shrink-0" />
-                        <div>
-                          <h3 className="font-bold text-slate-900">Solution</h3>
-                          <p className="text-slate-700 mt-1">{item.solution}</p>
-                        </div>
+
+                    {/* Solution */}
+                    <div className="lg:col-span-4">
+                      <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 h-full">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2">The Solution</h3>
+                        <p className="text-slate-700 font-medium">{item.solution}</p>
                       </div>
                     </div>
                   </div>
@@ -502,49 +454,30 @@ export default function PricingStrategy() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
 
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Pricing Strategy FAQs
-            </h2>
-            <p className="text-lg text-slate-600">
-              Get answers to common questions about pricing your home
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="border-slate-200">
-                <CardContent className="p-6">
-                  <button
-                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                    className="w-full text-left flex items-start justify-between gap-4"
-                  >
-                    <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                    {expandedFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    )}
-                  </button>
-                  
-                  {expandedFaq === index && (
-                    <div className="mt-4 text-slate-700 leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+          {/* Action Section */}
+          <div className="mt-16 bg-gradient-to-r from-slate-50 to-blue-50 p-8 rounded-lg">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Strategic Pricing Guidance
+              </h3>
+              <p className="text-slate-600 max-w-3xl mx-auto mb-8">
+                Our pricing experts have seen these mistakes countless times. Let us help you avoid them 
+                with a data-driven pricing strategy that positions your home competitively from day one.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                  Get Expert Pricing Analysis
+                </Button>
+                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white">
+                  Schedule Consultation
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
@@ -593,7 +526,150 @@ export default function PricingStrategy() {
         </div>
       </section>
 
-      <Contact />
+      {/* Pricing Strategy Consultation Form */}
+      <section id="contact" className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Get Your Strategic Pricing Consultation
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Ready to price your home strategically? Our pricing experts will analyze your property and market conditions 
+              to create a data-driven pricing strategy that maximizes your return and minimizes time on market.
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <form onSubmit={handlePricingContactSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="pricing-name">Full Name *</Label>
+                  <Input
+                    id="pricing-name"
+                    type="text"
+                    value={pricingContactFormData.name}
+                    onChange={(e) => handlePricingContactChange('name', e.target.value)}
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="pricing-email">Email Address *</Label>
+                  <Input
+                    id="pricing-email"
+                    type="email"
+                    value={pricingContactFormData.email}
+                    onChange={(e) => handlePricingContactChange('email', e.target.value)}
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="pricing-phone">Phone Number *</Label>
+                  <Input
+                    id="pricing-phone"
+                    type="tel"
+                    value={pricingContactFormData.phone}
+                    onChange={(e) => handlePricingContactChange('phone', e.target.value)}
+                    placeholder="(555) 123-4567"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="pricing-address">Property Address</Label>
+                  <Input
+                    id="pricing-address"
+                    type="text"
+                    value={pricingContactFormData.propertyAddress}
+                    onChange={(e) => handlePricingContactChange('propertyAddress', e.target.value)}
+                    placeholder="123 Main St, City, TX"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="pricing-value">Expected Property Value</Label>
+                  <Input
+                    id="pricing-value"
+                    type="text"
+                    value={pricingContactFormData.propertyValue}
+                    onChange={(e) => handlePricingContactChange('propertyValue', e.target.value)}
+                    placeholder="$450,000"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="pricing-timeline">Selling Timeline</Label>
+                  <Input
+                    id="pricing-timeline"
+                    type="text"
+                    value={pricingContactFormData.sellingTimeline}
+                    onChange={(e) => handlePricingContactChange('sellingTimeline', e.target.value)}
+                    placeholder="3-6 months, ASAP, just exploring, etc."
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="pricing-concerns">Pricing Concerns or Goals</Label>
+                <Input
+                  id="pricing-concerns"
+                  type="text"
+                  value={pricingContactFormData.pricingConcerns}
+                  onChange={(e) => handlePricingContactChange('pricingConcerns', e.target.value)}
+                  placeholder="Maximize profit, sell quickly, competitive market, unique property, etc."
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="pricing-message">Additional Questions or Information</Label>
+                <Textarea
+                  id="pricing-message"
+                  value={pricingContactFormData.message}
+                  onChange={(e) => handlePricingContactChange('message', e.target.value)}
+                  placeholder="Tell us about your property, specific pricing concerns, market questions, or anything else that would help us provide the best pricing strategy..."
+                  rows={4}
+                />
+              </div>
+
+              <Button 
+                type="submit"
+                className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+              >
+                <Calculator className="w-5 h-5 mr-2" />
+                Get My Strategic Pricing Analysis
+              </Button>
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <BarChart3 className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Market Analysis</strong><br />Comprehensive CMA & trends</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Strategic Positioning</strong><br />Optimal price point</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Maximize Returns</strong><br />Data-driven pricing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <BackToTop />
     </div>

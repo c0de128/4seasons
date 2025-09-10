@@ -6,7 +6,7 @@ import { Award, Users, Home, Star, MapPin, Clock, CheckCircle, ChevronUp, Chevro
 import logoPath from "@/assets/images/logo.png";
 import amyPhoto from "@/assets/images/amy.jpg";
 import timPhoto from "@/assets/images/tim.jpg";
-import aboutHeroImage from "@/assets/images/hero-images/138509.jpg";
+import aboutHeroImage from "@/assets/images/hero-images/535.jpg";
 
 export default function About() {
   const [showMoreTeam, setShowMoreTeam] = useState(false);
@@ -129,25 +129,53 @@ export default function About() {
       
       {/* Hero Section */}
       <section 
-        className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+        className="min-h-screen flex items-center justify-center bg-cover bg-center relative overflow-hidden"
         style={{ 
           backgroundImage: `url(${aboutHeroImage})`,
-          textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+          backgroundAttachment: 'fixed'
         }}
       >
-        <div className="absolute inset-0 bg-black/20"></div>
+        {/* Enhanced overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+        
+        {/* Content container with improved positioning */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
-              About
-              <span className="text-yellow-400 block">4Seasons Real Estate</span>
+          <div className="text-center space-y-8">
+            {/* Main heading with enhanced text shadow */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+              <span 
+                className="block"
+                style={{ 
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.6)' 
+                }}
+              >
+                About
+              </span>
+              <span 
+                className="text-yellow-400 block mt-2"
+                style={{ 
+                  textShadow: '3px 3px 6px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.6)' 
+                }}
+              >
+                4Seasons Real Estate
+              </span>
             </h1>
-            <p className="text-xl text-white max-w-3xl mx-auto mb-8" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
+            
+            {/* Subtext with improved readability */}
+            <p 
+              className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed"
+              style={{ 
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.6)' 
+              }}
+            >
               Your trusted partner in North Texas real estate since 2009. We combine local expertise 
               with innovative technology to deliver exceptional results for buyers, sellers, and investors.
             </p>
           </div>
         </div>
+        
+        {/* Smooth transition element */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
       </section>
 
 

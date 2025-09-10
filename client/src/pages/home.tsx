@@ -194,14 +194,28 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="4Seasons Real Estate - Premier Dallas-Fort Worth Real Estate Services"
-        description="Expert real estate services in Dallas-Fort Worth metroplex. Buy, sell, and manage properties in Allen, Plano, Frisco, McKinney, and surrounding areas with trusted local experts."
-        keywords="Dallas real estate, Fort Worth real estate, DFW homes, Allen TX real estate, Plano homes, Frisco properties, McKinney real estate agent, Richardson homes, Garland real estate, Carrollton properties, real estate agent Dallas, home buying DFW, home selling Texas"
+        title="4Seasons Real Estate - Premier Dallas-Fort Worth Real Estate Services | Buy, Sell & Property Management"
+        description="Expert real estate services in Dallas-Fort Worth metroplex. Buy, sell, or manage properties in Allen, Plano, Frisco, McKinney with trusted local experts. 15+ years experience, 98% client satisfaction."
+        keywords="Dallas Fort Worth real estate, DFW homes for sale, Allen TX real estate agent, Plano homes, Frisco real estate, McKinney properties, North Texas property management, buy homes Dallas, sell house Fort Worth, real estate investment DFW"
         canonicalUrl={`${seoConfig.siteUrl}/`}
-        ogTitle="4Seasons Real Estate - Your Trusted DFW Real Estate Partner"
-        ogDescription="Discover exceptional properties in Dallas-Fort Worth with expert guidance from North Texas's most trusted real estate professionals. Buying, selling, and property management services."
+        ogTitle="4Seasons Real Estate - Your Trusted DFW Real Estate Partner Since 2009"
+        ogDescription="Discover exceptional properties in Dallas-Fort Worth with expert guidance from North Texas's most trusted real estate professionals. Buying, selling, and property management services with 15+ years experience."
         ogImage={`${seoConfig.siteUrl}/images/4seasons-home-og.jpg`}
-        structuredData={generateStructuredData.localBusiness()}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@graph": [
+            generateStructuredData.organization(),
+            generateStructuredData.localBusiness(),
+            generateStructuredData.webPage(
+              "4Seasons Real Estate - Dallas-Fort Worth Real Estate Services",
+              "Expert real estate services in Dallas-Fort Worth metroplex",
+              seoConfig.siteUrl
+            )
+          ]
+        }}
+        googleSiteVerification="YOUR_GOOGLE_VERIFICATION_CODE"
+        viewport="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        themeColor="#0d0d33"
       />
       <Navigation />
 

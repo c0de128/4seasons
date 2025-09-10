@@ -2,16 +2,56 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { type User, type InsertUser } from '@shared/schema';
 import { storage } from './storage';
+import dotenv from 'dotenv';
+
+// Ensure environment variables are loaded
+dotenv.config();
 
 // Configuration
-const JWT_SECRET = process.env.JWT_SECRET || 'development-secret-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
-const SALT_ROUNDS = 10;
+const SALT_ROUNDS = 12; // Increased from 10 for better security
 
-// Ensure JWT_SECRET is secure in production
-if (process.env.NODE_ENV === 'production' && JWT_SECRET === 'development-secret-change-in-production') {
-  throw new Error('JWT_SECRET must be set in production environment');
+// Comprehensive JWT secret validation
+function validateJWTSecret(secret: string | undefined): string {
+  if (!secret) {
+    throw new Error('JWT_SECRET environment variable is required');
+  }
+  
+  // Minimum length requirement
+  if (secret.length < 32) {
+    throw new Error('JWT_SECRET must be at least 32 characters long');
+  }
+  
+  // Check for common weak patterns
+  const weakPatterns = [
+    'password', 'secret', 'changeme', 'default', '123456', 
+    'development', 'test', 'admin', 'root', 'supersecret'
+  ];
+  
+  const lowerSecret = secret.toLowerCase();
+  for (const pattern of weakPatterns) {
+    if (lowerSecret.includes(pattern)) {
+      throw new Error(`JWT_SECRET contains weak pattern: ${pattern}`);
+    }
+  }
+  
+  // Check for sufficient complexity (should contain uppercase, lowercase, numbers, and symbols)
+  const hasUppercase = /[A-Z]/.test(secret);
+  const hasLowercase = /[a-z]/.test(secret);
+  const hasNumbers = /\d/.test(secret);
+  const hasSymbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(secret);
+  
+  const complexityCount = [hasUppercase, hasLowercase, hasNumbers, hasSymbols].filter(Boolean).length;
+  
+  if (complexityCount < 3) {
+    throw new Error('JWT_SECRET must contain at least 3 of: uppercase letters, lowercase letters, numbers, symbols');
+  }
+  
+  return secret;
 }
+
+const VALIDATED_JWT_SECRET = validateJWTSecret(JWT_SECRET);
 
 export interface AuthPayload {
   userId: string;
@@ -46,9 +86,11 @@ export class AuthService {
    * Generate a JWT token
    */
   generateToken(payload: AuthPayload): string {
-    return jwt.sign(payload, JWT_SECRET, {
+    return jwt.sign(payload, VALIDATED_JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
       algorithm: 'HS256',
+      issuer: '4seasons-realestate',
+      audience: 'api-users'
     });
   }
 
@@ -57,10 +99,20 @@ export class AuthService {
    */
   verifyToken(token: string): AuthPayload {
     try {
-      const decoded = jwt.verify(token, JWT_SECRET) as AuthPayload;
+      const decoded = jwt.verify(token, VALIDATED_JWT_SECRET, {
+        algorithms: ['HS256'],
+        issuer: '4seasons-realestate',
+        audience: 'api-users'
+      }) as AuthPayload;
       return decoded;
     } catch (error) {
-      throw new Error('Invalid or expired token');
+      if (error instanceof jwt.TokenExpiredError) {
+        throw new Error('Token has expired');
+      } else if (error instanceof jwt.JsonWebTokenError) {
+        throw new Error('Invalid token format');
+      } else {
+        throw new Error('Token verification failed');
+      }
     }
   }
 
