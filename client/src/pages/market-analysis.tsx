@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,8 +23,6 @@ import {
   Users,
   CheckCircle,
   ArrowRight,
-  ChevronDown,
-  ChevronUp,
   FileText,
   Search,
   Award,
@@ -42,59 +42,28 @@ import {
 } from "lucide-react";
 
 export default function MarketAnalysis() {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({
-    avgPrice: 0,
-    daysOnMarket: 0,
-    appreciation: 0,
-    inventory: 0
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+    analysisType: '',
+    propertyType: '',
+    timeline: '',
+    analysisGoal: '',
+    message: ''
   });
-  const statsRef = useRef<HTMLDivElement>(null);
 
-  // Animation effect for stats
-  useEffect(() => {
-    const animateValue = (start: number, end: number, duration: number, setter: (value: number) => void) => {
-      const range = end - start;
-      const startTime = Date.now();
-      
-      const updateValue = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(start + range * easeOut);
-        
-        setter(current);
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateValue);
-        }
-      };
-      
-      updateValue();
-    };
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateValue(0, 485, 1500, (val) => setAnimatedStats(prev => ({ ...prev, avgPrice: val })));
-            animateValue(0, 24, 1500, (val) => setAnimatedStats(prev => ({ ...prev, daysOnMarket: val })));
-            animateValue(0, 8, 1500, (val) => setAnimatedStats(prev => ({ ...prev, appreciation: val })));
-            animateValue(0, 3, 1500, (val) => setAnimatedStats(prev => ({ ...prev, inventory: val })));
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Market analysis consultation form submitted:", formData);
+    // Handle form submission here
+  };
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
 
   const analysisBenefits = [
     {
@@ -304,32 +273,6 @@ export default function MarketAnalysis() {
     }
   ];
 
-  const faqData = [
-    {
-      question: "What's included in a market analysis report?",
-      answer: "Our comprehensive market analysis includes comparable sales data, current market trends, pricing recommendations, neighborhood insights, and detailed property valuations. We also provide market timing advice and competitive positioning strategies."
-    },
-    {
-      question: "How often should I get a market analysis?",
-      answer: "We recommend quarterly market updates for active investors and sellers. For general homeowners, an annual analysis helps track property value changes and market conditions in your area."
-    },
-    {
-      question: "How accurate are your market valuations?",
-      answer: "Our market analyses typically achieve 95%+ accuracy within 5% of actual sale prices. We use multiple data sources including MLS, public records, and real-time market indicators to ensure precision."
-    },
-    {
-      question: "Do you provide market analysis for investment properties?",
-      answer: "Yes, we specialize in investment property analysis including rental yield calculations, cash flow projections, appreciation forecasts, and comparative investment opportunities in the North Texas market."
-    },
-    {
-      question: "Can I get market analysis for specific neighborhoods?",
-      answer: "Absolutely. We provide hyperlocal market analysis for specific neighborhoods, subdivisions, and even individual streets. Our analysis includes micro-market trends and neighborhood-specific factors."
-    },
-    {
-      question: "How long does it take to receive a market analysis?",
-      answer: "Standard market analysis reports are delivered within 24-48 hours. Rush reports for urgent decisions can be provided within 4-6 hours for an additional fee."
-    }
-  ];
 
   const currentUrl = `${seoConfig.siteUrl}/market-analysis`;
   const structuredData = generateStructuredData.service(
@@ -362,12 +305,6 @@ export default function MarketAnalysis() {
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="mb-6">
-                <span className="inline-flex items-center px-4 py-2 bg-yellow-400/90 text-yellow-900 rounded-full text-sm font-medium">
-                  <BarChart3 className="w-4 h-4 mr-2" />
-                  Professional Market Analysis
-                </span>
-              </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
                 Data-Driven Market Insights for
@@ -381,15 +318,16 @@ export default function MarketAnalysis() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
-                  <Button className="text-white px-8 py-4 text-lg font-semibold hover:opacity-90" 
-                          style={{ backgroundColor: '#0d0d33' }}>
+                  <Button className="text-white px-8 py-4 text-lg font-semibold hover:opacity-90 shadow-lg backdrop-blur-sm" 
+                          style={{ backgroundColor: '#0d0d33', textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}>
                     <Download className="w-5 h-5 mr-2" />
                     Get Free Market Analysis
                   </Button>
                 </Link>
                 <Button 
                   variant="outline" 
-                  className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900"
+                  className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-black/20 backdrop-blur-sm shadow-lg"
+                  style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}
                   onClick={() => document.getElementById('analysis-components')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Explore Our Reports
@@ -402,37 +340,6 @@ export default function MarketAnalysis() {
         {/* Smooth Transition */}
         <div className="h-8 bg-gradient-to-t from-gray-800 to-transparent"></div>
 
-        {/* Animated Stats Banner */}
-        <section ref={statsRef} className="py-16" style={{ backgroundColor: '#1f2937' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  ${animatedStats.avgPrice}K
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Average Home Price</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.daysOnMarket}
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Days on Market</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.appreciation}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Annual Appreciation</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.inventory}.{Math.floor((animatedStats.inventory % 1) * 10)}
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Months Inventory</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Market Analysis Benefits */}
         <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
@@ -451,11 +358,8 @@ export default function MarketAnalysis() {
               {analysisBenefits.map((benefit, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow border-slate-200">
                   <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      <div className={`p-3 rounded-lg bg-slate-100 ${benefit.color}`}>
-                        <benefit.icon className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-slate-900 ml-4">{benefit.title}</h3>
+                    <div className="mb-4">
+                      <h3 className="text-xl font-semibold text-slate-900">{benefit.title}</h3>
                     </div>
                     <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
                   </CardContent>
@@ -482,10 +386,7 @@ export default function MarketAnalysis() {
               {analysisComponents.map((component, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow border-slate-200">
                   <CardHeader>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
-                        <component.icon className="w-6 h-6" />
-                      </div>
+                    <div className="mb-3">
                       <CardTitle className="text-xl text-slate-900">{component.title}</CardTitle>
                     </div>
                     <p className="text-slate-600">{component.description}</p>
@@ -682,104 +583,227 @@ export default function MarketAnalysis() {
                 </Card>
               ))}
             </div>
-            
-            <div className="text-center mt-12">
-              <Link href="/contact">
-                <Button className="text-white px-8 py-3 text-lg font-semibold hover:opacity-90" 
-                        style={{ backgroundColor: '#0d0d33' }}>
-                  <Download className="w-5 h-5 mr-2" />
-                  Request Your Custom Market Report
-                </Button>
-              </Link>
-            </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-20 bg-white">
+
+
+        {/* Market Analysis Consultation Form */}
+        <section id="contact" className="py-20 bg-slate-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Frequently Asked Questions
+                Get Your Market Analysis Report
               </h2>
-              <p className="text-lg text-slate-600">
-                Common questions about our market analysis services and methodologies
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Request a comprehensive market analysis tailored to your property and investment goals. 
+                Our expert team will provide data-driven insights to help you make informed real estate decisions.
               </p>
             </div>
-            
-            <div className="space-y-4">
-              {faqData.map((faq, index) => (
-                <Card key={index} className="border-slate-200">
-                  <CardHeader 
-                    className="cursor-pointer hover:bg-slate-50 transition-colors"
-                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="analysis-name" className="block text-sm font-medium text-slate-700 mb-2">
+                    Full Name *
+                  </label>
+                  <Input
+                    type="text"
+                    id="analysis-name"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    required
+                    className="w-full"
+                    placeholder="Your full name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-email" className="block text-sm font-medium text-slate-700 mb-2">
+                    Email Address *
+                  </label>
+                  <Input
+                    type="email"
+                    id="analysis-email"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    required
+                    className="w-full"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-phone" className="block text-sm font-medium text-slate-700 mb-2">
+                    Phone Number
+                  </label>
+                  <Input
+                    type="tel"
+                    id="analysis-phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    className="w-full"
+                    placeholder="(214) 555-0123"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-address" className="block text-sm font-medium text-slate-700 mb-2">
+                    Property Address
+                  </label>
+                  <Input
+                    type="text"
+                    id="analysis-address"
+                    name="propertyAddress"
+                    value={formData.propertyAddress}
+                    onChange={(e) => handleInputChange('propertyAddress', e.target.value)}
+                    className="w-full"
+                    placeholder="123 Main St, City, TX"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-type" className="block text-sm font-medium text-slate-700 mb-2">
+                    Analysis Type
+                  </label>
+                  <select
+                    id="analysis-type"
+                    name="analysisType"
+                    value={formData.analysisType}
+                    onChange={(e) => handleInputChange('analysisType', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                      {expandedFaq === index ? (
-                        <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0" />
-                      )}
+                    <option value="">Select analysis type</option>
+                    <option value="cma">Comparative Market Analysis (CMA)</option>
+                    <option value="investment">Investment Property Analysis</option>
+                    <option value="neighborhood">Neighborhood Market Report</option>
+                    <option value="pricing">Pricing Strategy Analysis</option>
+                    <option value="comprehensive">Comprehensive Market Study</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-property-type" className="block text-sm font-medium text-slate-700 mb-2">
+                    Property Type
+                  </label>
+                  <select
+                    id="analysis-property-type"
+                    name="propertyType"
+                    value={formData.propertyType}
+                    onChange={(e) => handleInputChange('propertyType', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="townhome">Townhome</option>
+                    <option value="condo">Condominium</option>
+                    <option value="luxury">Luxury Property</option>
+                    <option value="investment">Investment Property</option>
+                    <option value="commercial">Commercial Property</option>
+                    <option value="land">Land/Lot</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-timeline" className="block text-sm font-medium text-slate-700 mb-2">
+                    Timeline
+                  </label>
+                  <select
+                    id="analysis-timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={(e) => handleInputChange('timeline', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    <option value="">Select timeline</option>
+                    <option value="rush">Rush (4-6 hours)</option>
+                    <option value="standard">Standard (24-48 hours)</option>
+                    <option value="detailed">Detailed (3-5 days)</option>
+                    <option value="no-rush">No rush, when convenient</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="analysis-goal" className="block text-sm font-medium text-slate-700 mb-2">
+                    Analysis Goal
+                  </label>
+                  <select
+                    id="analysis-goal"
+                    name="analysisGoal"
+                    value={formData.analysisGoal}
+                    onChange={(e) => handleInputChange('analysisGoal', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    <option value="">Select primary goal</option>
+                    <option value="selling">Preparing to sell property</option>
+                    <option value="buying">Considering property purchase</option>
+                    <option value="investment">Investment opportunity evaluation</option>
+                    <option value="refinancing">Refinancing considerations</option>
+                    <option value="market-timing">Market timing strategy</option>
+                    <option value="portfolio">Portfolio analysis</option>
+                  </select>
+                </div>
+
+                <div className="md:col-span-2">
+                  <label htmlFor="analysis-message" className="block text-sm font-medium text-slate-700 mb-2">
+                    Additional details about your analysis needs
+                  </label>
+                  <Textarea
+                    id="analysis-message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    className="w-full"
+                    placeholder="Tell us about your specific analysis requirements, comparable properties to consider, market concerns, investment criteria, or any other relevant details..."
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <Button
+                    type="submit"
+                    className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                  >
+                    <BarChart3 className="w-5 h-5 mr-2" />
+                    Request My Market Analysis
+                  </Button>
+                  <p className="text-xs text-slate-500 mt-4 text-center">
+                    By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                    regarding your market analysis request. We respect your privacy and will not share 
+                    your information with third parties.
+                  </p>
+                </div>
+              </form>
+
+              <div className="mt-8 pt-8 border-t border-slate-200">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Target className="w-6 h-6 text-white" />
                     </div>
-                  </CardHeader>
-                  {expandedFaq === index && (
-                    <CardContent>
-                      <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-                    </CardContent>
-                  )}
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Get Your Custom Market Analysis Today
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Make informed real estate decisions with professional market analysis 
-              tailored to your specific property and investment goals.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button className="bg-white text-blue-600 px-8 py-4 text-lg font-semibold hover:bg-blue-50">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Request Analysis
-                </Button>
-              </Link>
-              <Link href="/home-valuation">
-                <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-blue-600">
-                  Get Home Valuation
-                </Button>
-              </Link>
-            </div>
-            
-            <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <Gauge className="w-8 h-8 mx-auto mb-3 text-blue-200" />
-                <h3 className="font-semibold mb-2">95%+ Accuracy</h3>
-                <p className="text-sm text-blue-200">Our valuations are accurate within 5% of sale price</p>
-              </div>
-              <div>
-                <Clock className="w-8 h-8 mx-auto mb-3 text-blue-200" />
-                <h3 className="font-semibold mb-2">24-48 Hour Delivery</h3>
-                <p className="text-sm text-blue-200">Fast turnaround on comprehensive analysis reports</p>
-              </div>
-              <div>
-                <Award className="w-8 h-8 mx-auto mb-3 text-blue-200" />
-                <h3 className="font-semibold mb-2">Expert Analysis</h3>
-                <p className="text-sm text-blue-200">Professional insights from experienced market analysts</p>
+                    <p><strong>95%+ Accuracy</strong><br />Precise valuations you can trust</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <p><strong>Fast Delivery</strong><br />24-48 hour standard turnaround</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Database className="w-6 h-6 text-white" />
+                    </div>
+                    <p><strong>Comprehensive Data</strong><br />Multiple sources and methodologies</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <Contact />
         <Footer />
         <BackToTop />
       </div>

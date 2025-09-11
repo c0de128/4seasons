@@ -388,37 +388,6 @@ export default function SellingCosts() {
         {/* Smooth Transition */}
         <div className="h-8 bg-gradient-to-t from-gray-800 to-transparent"></div>
 
-        {/* Animated Stats Banner */}
-        <section ref={statsRef} className="py-16" style={{ backgroundColor: '#1f2937' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.avgCommission / 10}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Average Commission</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.closingCosts / 10}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Closing Costs</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.netProceeds}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Typical Net Proceeds</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.timeToSell}
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Days to Sell</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Cost Calculator */}
         <section id="cost-calculator" className="py-20 bg-gradient-to-br from-slate-50 to-white">
@@ -490,22 +459,22 @@ export default function SellingCosts() {
                             
                             <div className="space-y-4">
                               <h3 className="text-xl font-semibold text-slate-900">Summary</h3>
-                              <div className="p-6 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-lg">
+                              <div className="p-6 bg-white border-2 border-slate-200 rounded-lg">
                                 <div className="space-y-3">
                                   <div className="flex justify-between items-center">
-                                    <span>Home Value</span>
-                                    <span className="font-bold">${Number(homeValue).toLocaleString()}</span>
+                                    <span className="text-slate-700">Home Value</span>
+                                    <span className="font-bold text-slate-900">${Number(homeValue).toLocaleString()}</span>
                                   </div>
-                                  <div className="flex justify-between items-center text-red-300">
+                                  <div className="flex justify-between items-center text-red-600">
                                     <span>Total Costs</span>
                                     <span className="font-bold">-${costs.totalCosts.toLocaleString()}</span>
                                   </div>
-                                  <hr className="border-slate-600" />
-                                  <div className="flex justify-between items-center text-xl font-bold text-green-300">
-                                    <span>Net Proceeds</span>
+                                  <hr className="border-slate-200" />
+                                  <div className="flex justify-between items-center text-xl font-bold text-green-600">
+                                    <span className="text-slate-900">Net Proceeds</span>
                                     <span>${costs.netProceeds.toLocaleString()}</span>
                                   </div>
-                                  <div className="text-center text-sm text-slate-300 mt-4">
+                                  <div className="text-center text-sm text-slate-600 mt-4">
                                     {((costs.netProceeds / Number(homeValue)) * 100).toFixed(1)}% of home value
                                   </div>
                                 </div>
@@ -549,10 +518,7 @@ export default function SellingCosts() {
               {costCategories.map((category, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow border-slate-200">
                   <CardHeader>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className={`p-3 rounded-lg bg-slate-100 ${category.color}`}>
-                        <category.icon className="w-6 h-6" />
-                      </div>
+                    <div className="mb-3">
                       <div>
                         <CardTitle className="text-xl text-slate-900">{category.title}</CardTitle>
                         <span className="text-2xl font-bold text-slate-700">{category.percentage}</span>
