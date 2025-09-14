@@ -9,7 +9,7 @@ interface FAQItem {
   id: number;
   question: string;
   answer: string;
-  category: "buyers" | "sellers" | "property-management";
+  category: "buyers" | "sellers" | "property-management" | "marketing" | "staging" | "market-analysis";
 }
 
 const faqData: FAQItem[] = [
@@ -261,6 +261,120 @@ const faqData: FAQItem[] = [
     category: "sellers",
     question: "What role does staging play in pricing strategy?",
     answer: "Staged homes typically sell for 5-10% more than unstaged properties. Professional staging helps buyers visualize the property's potential, justifying higher pricing. We factor staging into our pricing strategy and can arrange professional staging services to maximize your return."
+  },
+
+  // Marketing FAQs
+  {
+    id: 41,
+    category: "marketing",
+    question: "What marketing channels are most effective for selling homes?",
+    answer: "The most effective approach combines multiple channels. Professional photography and online listings are essential, driving 87% of initial interest. Video tours increase inquiries by 403%, while social media expands reach by 3x. We use a data-driven mix of digital and traditional marketing tailored to your property and target buyers."
+  },
+  {
+    id: 42,
+    category: "marketing",
+    question: "How quickly will my home appear on major real estate websites?",
+    answer: "Once listed on MLS, your property typically appears on major sites like Zillow, Realtor.com, and Trulia within 24-48 hours. We also immediately feature it on our website, social media channels, and email it to our extensive buyer agent network for maximum initial exposure."
+  },
+  {
+    id: 43,
+    category: "marketing",
+    question: "Do you provide professional photography and staging?",
+    answer: "Yes! Professional HDR photography is included with every listing. We work with certified staging professionals who can provide consultations and full staging services. Studies show professionally photographed and staged homes sell 50% faster and for up to 10% more."
+  },
+  {
+    id: 44,
+    category: "marketing",
+    question: "How do you target the right buyers for my property?",
+    answer: "We use sophisticated targeting based on property type, price point, and buyer demographics. This includes geo-targeted social media ads, email campaigns to pre-qualified buyers, and strategic networking with buyer agents specializing in your area and price range."
+  },
+  {
+    id: 45,
+    category: "marketing",
+    question: "What makes your marketing different from other agents?",
+    answer: "Our comprehensive approach combines cutting-edge technology with proven traditional methods. We invest in premium marketing tools, maintain an extensive buyer network, and provide detailed analytics to track performance. Our average listing receives 5,000+ views and sells in just 7 days."
+  },
+  {
+    id: 46,
+    category: "marketing",
+    question: "How do you measure marketing effectiveness?",
+    answer: "We provide weekly performance reports showing online views, showing requests, social media engagement, and buyer feedback. This data helps us optimize strategy in real-time. We track everything from click-through rates to showing-to-offer conversion ratios."
+  },
+
+  // Home Staging FAQs
+  {
+    id: 47,
+    category: "staging",
+    question: "How much does professional home staging cost?",
+    answer: "Staging costs typically range from $2,000-$15,000 depending on home size and scope. Most homeowners see a 300-600% ROI on their staging investment."
+  },
+  {
+    id: 48,
+    category: "staging",
+    question: "How long does the staging process take?",
+    answer: "Initial staging typically takes 1-2 days to complete. We work efficiently to minimize disruption and get your home market-ready quickly."
+  },
+  {
+    id: 49,
+    category: "staging",
+    question: "Do you provide furniture and decor?",
+    answer: "Yes, we have an extensive inventory of contemporary furniture, artwork, and accessories. Everything is included in our staging package."
+  },
+  {
+    id: 50,
+    category: "staging",
+    question: "Can I stay in my home while it's staged?",
+    answer: "While possible, we recommend vacant staging for maximum impact. We can work with occupied homes but may have some limitations."
+  },
+  {
+    id: 51,
+    category: "staging",
+    question: "What happens to the staging items when my home sells?",
+    answer: "We schedule removal of all staging items after closing. This allows for seamless showings throughout the selling process."
+  },
+  {
+    id: 52,
+    category: "staging",
+    question: "Do you stage all rooms in the house?",
+    answer: "We focus on key areas that buyers care about most: living room, kitchen, master bedroom, and main bathrooms. Additional rooms can be added as needed."
+  },
+
+  // Market Analysis FAQs
+  {
+    id: 53,
+    category: "market-analysis",
+    question: "What's included in a market analysis report?",
+    answer: "Our comprehensive market analysis includes comparable sales data, current market trends, pricing recommendations, neighborhood insights, and detailed property valuations. We also provide market timing advice and competitive positioning strategies."
+  },
+  {
+    id: 54,
+    category: "market-analysis",
+    question: "How often should I get a market analysis?",
+    answer: "We recommend quarterly market updates for active investors and sellers. For general homeowners, an annual analysis helps track property value changes and market conditions in your area."
+  },
+  {
+    id: 55,
+    category: "market-analysis",
+    question: "How accurate are your market valuations?",
+    answer: "Our market analyses typically achieve 95%+ accuracy within 5% of actual sale prices. We use multiple data sources including MLS, public records, and real-time market indicators to ensure precision."
+  },
+  {
+    id: 56,
+    category: "market-analysis",
+    question: "Do you provide market analysis for investment properties?",
+    answer: "Yes, we specialize in investment property analysis including rental yield calculations, cash flow projections, appreciation forecasts, and comparative investment opportunities in the North Texas market."
+  },
+  {
+    id: 57,
+    category: "market-analysis",
+    question: "Can I get market analysis for specific neighborhoods?",
+    answer: "Absolutely. We provide hyperlocal market analysis for specific neighborhoods, subdivisions, and even individual streets. Our analysis includes micro-market trends and neighborhood-specific factors."
+  },
+  {
+    id: 58,
+    category: "market-analysis",
+    question: "How long does it take to receive a market analysis?",
+    answer: "Standard market analysis reports are delivered within 24-48 hours. Rush reports for urgent decisions can be provided within 4-6 hours for an additional fee."
   }
 ];
 
@@ -273,6 +387,9 @@ export function FAQPage() {
     { value: "all", label: "All Categories" },
     { value: "buyers", label: "Home Buyers" },
     { value: "sellers", label: "Home Sellers" },
+    { value: "marketing", label: "Marketing" },
+    { value: "staging", label: "Home Staging" },
+    { value: "market-analysis", label: "Market Analysis" },
     { value: "property-management", label: "Property Management" }
   ];
 
@@ -299,6 +416,9 @@ export function FAQPage() {
     switch (category) {
       case "buyers": return "Home Buyers";
       case "sellers": return "Home Sellers";
+      case "marketing": return "Marketing";
+      case "staging": return "Home Staging";
+      case "market-analysis": return "Market Analysis";
       case "property-management": return "Property Management";
       default: return "";
     }

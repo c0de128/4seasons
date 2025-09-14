@@ -351,7 +351,11 @@ export default function ListingProcess() {
                 We'll help you gather any missing documentation.
               </p>
               
-              <Button className="px-6 py-3 text-lg font-semibold text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+              <Button 
+                className="px-6 py-3 text-lg font-semibold text-white hover:opacity-90" 
+                style={{ backgroundColor: '#0d0d33' }}
+                onClick={() => window.open('/pdfs/home-listing-process-checklist.pdf', '_blank')}
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 Download Checklist PDF
               </Button>
@@ -425,11 +429,6 @@ export default function ListingProcess() {
             </Card>
           </div>
 
-          <div className="text-center mt-8">
-            <Button variant="outline" className="border-2 border-[#0d0d33] text-[#0d0d33] px-6 py-3 text-lg font-semibold hover:bg-[#0d0d33] hover:text-white">
-              Get Personalized Cost Analysis
-            </Button>
-          </div>
         </div>
       </section>
 

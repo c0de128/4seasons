@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import homeStagingHeroImage from "@/assets/images/hero-images/3983.jpg";
@@ -21,8 +22,6 @@ import {
   Shield,
   CheckCircle,
   ArrowRight,
-  ChevronDown,
-  ChevronUp,
   Sofa,
   Utensils,
   Bed,
@@ -40,59 +39,28 @@ import {
 } from "lucide-react";
 
 export default function HomeStaging() {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({
-    faster: 0,
-    price: 0,
-    roi: 0,
-    success: 0
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+    propertyType: '',
+    stagingGoal: '',
+    timeline: '',
+    propertyCondition: '',
+    message: ''
   });
-  const statsRef = useRef<HTMLDivElement>(null);
 
-  // Animation effect for stats
-  useEffect(() => {
-    const animateValue = (start: number, end: number, duration: number, setter: (value: number) => void) => {
-      const range = end - start;
-      const startTime = Date.now();
-      
-      const updateValue = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(start + range * easeOut);
-        
-        setter(current);
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateValue);
-        }
-      };
-      
-      updateValue();
-    };
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateValue(0, 73, 1500, (val) => setAnimatedStats(prev => ({ ...prev, faster: val })));
-            animateValue(0, 20, 1500, (val) => setAnimatedStats(prev => ({ ...prev, price: val })));
-            animateValue(0, 586, 1500, (val) => setAnimatedStats(prev => ({ ...prev, roi: val })));
-            animateValue(0, 95, 1500, (val) => setAnimatedStats(prev => ({ ...prev, success: val })));
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Home staging consultation form submitted:", formData);
+    // Handle form submission here
+  };
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
 
   const stagingBenefits = [
     {
@@ -292,62 +260,30 @@ export default function HomeStaging() {
   const commonMistakes = [
     {
       mistake: "Over-Personalizing Spaces",
-      solution: "Keep decor neutral and allow buyers to envision their own belongings",
-      icon: Users
+      solution: "Keep decor neutral and allow buyers to envision their own belongings"
     },
     {
       mistake: "Poor Lighting",
-      solution: "Maximize natural light and add warm artificial lighting throughout",
-      icon: Lightbulb
+      solution: "Maximize natural light and add warm artificial lighting throughout"
     },
     {
       mistake: "Cluttered Surfaces",
-      solution: "Follow the 'rule of three' - no more than three items per surface",
-      icon: AlertCircle
+      solution: "Follow the 'rule of three' - no more than three items per surface"
     },
     {
       mistake: "Ignoring Curb Appeal",
-      solution: "First impressions matter - ensure exterior staging matches interior quality",
-      icon: TreePine
+      solution: "First impressions matter - ensure exterior staging matches interior quality"
     },
     {
       mistake: "Wrong Furniture Scale",
-      solution: "Use appropriately sized furniture that makes rooms feel spacious",
-      icon: Home
+      solution: "Use appropriately sized furniture that makes rooms feel spacious"
     },
     {
       mistake: "Neglecting Scent",
-      solution: "Ensure homes smell fresh and clean - avoid strong fragrances",
-      icon: Sparkles
+      solution: "Ensure homes smell fresh and clean - avoid strong fragrances"
     }
   ];
 
-  const faqData = [
-    {
-      question: "How much does professional home staging cost?",
-      answer: "Staging costs typically range from $2,000-$15,000 depending on home size and scope. Most homeowners see a 300-600% ROI on their staging investment."
-    },
-    {
-      question: "How long does the staging process take?",
-      answer: "Initial staging typically takes 1-2 days to complete. We work efficiently to minimize disruption and get your home market-ready quickly."
-    },
-    {
-      question: "Do you provide furniture and decor?",
-      answer: "Yes, we have an extensive inventory of contemporary furniture, artwork, and accessories. Everything is included in our staging package."
-    },
-    {
-      question: "Can I stay in my home while it's staged?",
-      answer: "While possible, we recommend vacant staging for maximum impact. We can work with occupied homes but may have some limitations."
-    },
-    {
-      question: "What happens to the staging items when my home sells?",
-      answer: "We schedule removal of all staging items after closing. This allows for seamless showings throughout the selling process."
-    },
-    {
-      question: "Do you stage all rooms in the house?",
-      answer: "We focus on key areas that buyers care about most: living room, kitchen, master bedroom, and main bathrooms. Additional rooms can be added as needed."
-    }
-  ];
 
   const currentUrl = `${seoConfig.siteUrl}/home-staging`;
   const structuredData = generateStructuredData.service(
@@ -421,37 +357,6 @@ export default function HomeStaging() {
           <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-800 to-transparent pointer-events-none"></div>
         </section>
 
-        {/* Animated Stats Banner */}
-        <section ref={statsRef} className="py-16" style={{ backgroundColor: '#1f2937' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.faster}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Faster Sale Time</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.price}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Higher Sale Price</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.roi}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Average ROI</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {animatedStats.success}%
-                </div>
-                <p className="text-slate-300 text-sm md:text-base">Client Satisfaction</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Staging Benefits */}
         <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
@@ -500,7 +405,7 @@ export default function HomeStaging() {
             <div className="space-y-8">
               {stagingProcess.map((process, index) => (
                 <div key={index} className="flex flex-col lg:flex-row items-start lg:items-center gap-6 p-6 bg-slate-50 rounded-xl">
-                  <div className="flex-shrink-0 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                  <div className="flex-shrink-0 w-16 h-16 text-white rounded-full flex items-center justify-center text-2xl font-bold" style={{ backgroundColor: '#0d0d33' }}>
                     {process.step}
                   </div>
                   
@@ -635,11 +540,8 @@ export default function HomeStaging() {
               {commonMistakes.map((item, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow border-slate-200">
                   <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      <div className="p-3 bg-red-100 text-red-600 rounded-lg">
-                        <item.icon className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-slate-900 ml-4">{item.mistake}</h3>
+                    <div className="mb-4">
+                      <h3 className="text-lg font-semibold text-slate-900">{item.mistake}</h3>
                     </div>
                     <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded">
                       <p className="text-sm text-slate-700">
@@ -653,91 +555,223 @@ export default function HomeStaging() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-20 bg-white">
+
+
+        {/* Home Staging Consultation Form */}
+        <section id="contact" className="py-20 bg-slate-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Frequently Asked Questions
+                Ready to Stage Your Home?
               </h2>
-              <p className="text-lg text-slate-600">
-                Get answers to common questions about our home staging services
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Get a free staging consultation from our professional design team. We'll create a customized 
+                staging plan to showcase your property's full potential and maximize your sale price.
               </p>
             </div>
-            
-            <div className="space-y-4">
-              {faqData.map((faq, index) => (
-                <Card key={index} className="border-slate-200">
-                  <CardHeader 
-                    className="cursor-pointer hover:bg-slate-50 transition-colors"
-                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="staging-name" className="block text-sm font-medium text-slate-700 mb-2">
+                    Full Name *
+                  </label>
+                  <Input
+                    type="text"
+                    id="staging-name"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    required
+                    className="w-full"
+                    placeholder="Your full name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="staging-email" className="block text-sm font-medium text-slate-700 mb-2">
+                    Email Address *
+                  </label>
+                  <Input
+                    type="email"
+                    id="staging-email"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    required
+                    className="w-full"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="staging-phone" className="block text-sm font-medium text-slate-700 mb-2">
+                    Phone Number
+                  </label>
+                  <Input
+                    type="tel"
+                    id="staging-phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    className="w-full"
+                    placeholder="(214) 555-0123"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="staging-address" className="block text-sm font-medium text-slate-700 mb-2">
+                    Property Address
+                  </label>
+                  <Input
+                    type="text"
+                    id="staging-address"
+                    name="propertyAddress"
+                    value={formData.propertyAddress}
+                    onChange={(e) => handleInputChange('propertyAddress', e.target.value)}
+                    className="w-full"
+                    placeholder="123 Main St, City, TX"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="staging-property-type" className="block text-sm font-medium text-slate-700 mb-2">
+                    Property Type
+                  </label>
+                  <select
+                    id="staging-property-type"
+                    name="propertyType"
+                    value={formData.propertyType}
+                    onChange={(e) => handleInputChange('propertyType', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                      {expandedFaq === index ? (
-                        <ChevronUp className="w-5 h-5 text-slate-600 flex-shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0" />
-                      )}
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="townhome">Townhome</option>
+                    <option value="condo">Condominium</option>
+                    <option value="luxury">Luxury Property</option>
+                    <option value="investment">Investment Property</option>
+                    <option value="vacant">Vacant Property</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="staging-goal" className="block text-sm font-medium text-slate-700 mb-2">
+                    Staging Goal
+                  </label>
+                  <select
+                    id="staging-goal"
+                    name="stagingGoal"
+                    value={formData.stagingGoal}
+                    onChange={(e) => handleInputChange('stagingGoal', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    <option value="">Select primary goal</option>
+                    <option value="sell-faster">Sell faster</option>
+                    <option value="maximize-price">Maximize sale price</option>
+                    <option value="stand-out">Stand out from competition</option>
+                    <option value="improve-photos">Better marketing photos</option>
+                    <option value="full-staging">Complete home transformation</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="staging-timeline" className="block text-sm font-medium text-slate-700 mb-2">
+                    Timeline
+                  </label>
+                  <select
+                    id="staging-timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={(e) => handleInputChange('timeline', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    <option value="">Select timeline</option>
+                    <option value="immediate">Ready to stage immediately</option>
+                    <option value="1-week">Within 1 week</option>
+                    <option value="2-weeks">Within 2 weeks</option>
+                    <option value="1-month">Within 1 month</option>
+                    <option value="exploring">Just exploring options</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="staging-condition" className="block text-sm font-medium text-slate-700 mb-2">
+                    Property Condition
+                  </label>
+                  <select
+                    id="staging-condition"
+                    name="propertyCondition"
+                    value={formData.propertyCondition}
+                    onChange={(e) => handleInputChange('propertyCondition', e.target.value)}
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    <option value="">Select condition</option>
+                    <option value="move-in-ready">Move-in ready</option>
+                    <option value="minor-updates">Needs minor updates</option>
+                    <option value="major-updates">Needs major updates</option>
+                    <option value="vacant">Vacant property</option>
+                    <option value="occupied">Currently occupied</option>
+                  </select>
+                </div>
+
+                <div className="md:col-span-2">
+                  <label htmlFor="staging-message" className="block text-sm font-medium text-slate-700 mb-2">
+                    Tell us about your property and staging needs
+                  </label>
+                  <Textarea
+                    id="staging-message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    className="w-full"
+                    placeholder="Describe your property, any specific rooms you'd like to focus on, budget considerations, or questions about our staging process..."
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <Button
+                    type="submit"
+                    className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                  >
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    Get My Free Staging Consultation
+                  </Button>
+                  <p className="text-xs text-slate-500 mt-4 text-center">
+                    By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                    regarding your staging consultation. We respect your privacy and will not share 
+                    your information with third parties.
+                  </p>
+                </div>
+              </form>
+
+              <div className="mt-8 pt-8 border-t border-slate-200">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                      <CalendarCheck className="w-6 h-6 text-white" />
                     </div>
-                  </CardHeader>
-                  {expandedFaq === index && (
-                    <CardContent>
-                      <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-                    </CardContent>
-                  )}
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Transform Your Home?
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Get a free staging consultation and discover how professional staging 
-              can maximize your home's sale potential.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button className="bg-white text-blue-600 px-8 py-4 text-lg font-semibold hover:bg-blue-50">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Schedule Free Consultation
-                </Button>
-              </Link>
-              <Link href="/home-valuation">
-                <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-blue-600">
-                  Get Home Valuation
-                </Button>
-              </Link>
-            </div>
-            
-            <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <Award className="w-8 h-8 mx-auto mb-3 text-blue-200" />
-                <h3 className="font-semibold mb-2">Expert Design Team</h3>
-                <p className="text-sm text-blue-200">Certified staging professionals with years of experience</p>
-              </div>
-              <div>
-                <Shield className="w-8 h-8 mx-auto mb-3 text-blue-200" />
-                <h3 className="font-semibold mb-2">Full Insurance</h3>
-                <p className="text-sm text-blue-200">Complete protection for your property and belongings</p>
-              </div>
-              <div>
-                <Zap className="w-8 h-8 mx-auto mb-3 text-blue-200" />
-                <h3 className="font-semibold mb-2">Quick Turnaround</h3>
-                <p className="text-sm text-blue-200">Fast staging completion to get your home market-ready</p>
+                    <p><strong>Free Consultation</strong><br />No cost, no obligation</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <p><strong>Quick Staging</strong><br />1-2 days to complete</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                      <DollarSign className="w-6 h-6 text-white" />
+                    </div>
+                    <p><strong>Great ROI</strong><br />300-600% return typical</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <Contact />
         <Footer />
         <BackToTop />
       </div>

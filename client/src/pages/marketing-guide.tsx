@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import marketingGuideHeroImage from "@/assets/images/hero-images/26524237.jpg";
@@ -22,8 +23,6 @@ import {
   Clock,
   CheckCircle,
   ArrowRight,
-  ChevronDown,
-  ChevronUp,
   Smartphone,
   Monitor,
   FileText,
@@ -44,60 +43,27 @@ import {
 } from "lucide-react";
 
 export default function MarketingGuide() {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [selectedPackage, setSelectedPackage] = useState<string>("professional");
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({
-    views: 0,
-    days: 0,
-    channels: 0,
-    success: 0
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+    propertyType: '',
+    listingTimeline: '',
+    marketingGoals: '',
+    message: ''
   });
-  const statsRef = useRef<HTMLDivElement>(null);
 
-  // Animation effect for stats
-  useEffect(() => {
-    const animateValue = (start: number, end: number, duration: number, setter: (value: number) => void) => {
-      const range = end - start;
-      const startTime = Date.now();
-      
-      const updateValue = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(start + range * easeOut);
-        
-        setter(current);
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateValue);
-        }
-      };
-      
-      updateValue();
-    };
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateValue(0, 5000, 2000, (val) => setAnimatedStats(prev => ({ ...prev, views: val })));
-            animateValue(0, 7, 1500, (val) => setAnimatedStats(prev => ({ ...prev, days: val })));
-            animateValue(0, 25, 1500, (val) => setAnimatedStats(prev => ({ ...prev, channels: val })));
-            animateValue(0, 96, 1500, (val) => setAnimatedStats(prev => ({ ...prev, success: val })));
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Marketing consultation form submitted:", formData);
+    // Handle form submission here
+  };
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
 
   const marketingChannels = [
     {
@@ -268,32 +234,6 @@ export default function MarketingGuide() {
     }
   ];
 
-  const faqs = [
-    {
-      question: "What marketing channels are most effective for selling homes?",
-      answer: "The most effective approach combines multiple channels. Professional photography and online listings are essential, driving 87% of initial interest. Video tours increase inquiries by 403%, while social media expands reach by 3x. We use a data-driven mix of digital and traditional marketing tailored to your property and target buyers."
-    },
-    {
-      question: "How quickly will my home appear on major real estate websites?",
-      answer: "Once listed on MLS, your property typically appears on major sites like Zillow, Realtor.com, and Trulia within 24-48 hours. We also immediately feature it on our website, social media channels, and email it to our extensive buyer agent network for maximum initial exposure."
-    },
-    {
-      question: "Do you provide professional photography and staging?",
-      answer: "Yes! Professional HDR photography is included with every listing. We work with certified staging professionals who can provide consultations and full staging services. Studies show professionally photographed and staged homes sell 50% faster and for up to 10% more."
-    },
-    {
-      question: "How do you target the right buyers for my property?",
-      answer: "We use sophisticated targeting based on property type, price point, and buyer demographics. This includes geo-targeted social media ads, email campaigns to pre-qualified buyers, and strategic networking with buyer agents specializing in your area and price range."
-    },
-    {
-      question: "What makes your marketing different from other agents?",
-      answer: "Our comprehensive approach combines cutting-edge technology with proven traditional methods. We invest in premium marketing tools, maintain an extensive buyer network, and provide detailed analytics to track performance. Our average listing receives 5,000+ views and sells in just 7 days."
-    },
-    {
-      question: "How do you measure marketing effectiveness?",
-      answer: "We provide weekly performance reports showing online views, showing requests, social media engagement, and buyer feedback. This data helps us optimize strategy in real-time. We track everything from click-through rates to showing-to-offer conversion ratios."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -354,61 +294,6 @@ export default function MarketingGuide() {
         <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
       </section>
 
-      {/* Marketing Stats Banner - Home Page Style */}
-      <section ref={statsRef} className="py-12" style={{ backgroundColor: '#1f2937' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Our Marketing Performance
-            </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-              Data-driven results from our comprehensive marketing approach
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {/* Average Views */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                {animatedStats.views.toLocaleString()}+
-              </div>
-              <div className="text-base font-medium text-white">
-                Average Property Views
-              </div>
-            </div>
-
-            {/* Days to Offer */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                {animatedStats.days}
-              </div>
-              <div className="text-base font-medium text-white">
-                Average Days to Offer
-              </div>
-            </div>
-
-            {/* Marketing Channels */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                {animatedStats.channels}+
-              </div>
-              <div className="text-base font-medium text-white">
-                Marketing Channels Used
-              </div>
-            </div>
-
-            {/* Success Rate */}
-            <div className="group">
-              <div className={`text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-1000 ${hasAnimated ? 'scale-100' : 'scale-95'}`}>
-                {animatedStats.success}%
-              </div>
-              <div className="text-base font-medium text-white">
-                Sale Success Rate
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Marketing Channels Section */}
       <section className="py-20 bg-white">
@@ -675,94 +560,203 @@ export default function MarketingGuide() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+
+
+      {/* Marketing Consultation Form */}
+      <section id="contact" className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Marketing FAQs
+              Ready to Market Your Property?
             </h2>
-            <p className="text-lg text-slate-600">
-              Common questions about our marketing strategies
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Let our marketing experts create a customized strategy that gets your property noticed 
+              by the right buyers and sold quickly for top dollar. Tell us about your property and goals.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="border-slate-200">
-                <CardContent className="p-6">
-                  <button
-                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                    className="w-full text-left flex items-start justify-between gap-4"
-                  >
-                    <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                    {expandedFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    )}
-                  </button>
-                  
-                  {expandedFaq === index && (
-                    <div className="mt-4 text-slate-700 leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+          <div className="bg-white rounded-lg p-8 shadow-lg">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="marketing-name" className="block text-sm font-medium text-slate-700 mb-2">
+                  Full Name *
+                </label>
+                <Input
+                  type="text"
+                  id="marketing-name"
+                  name="name"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  required
+                  className="w-full"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="marketing-email" className="block text-sm font-medium text-slate-700 mb-2">
+                  Email Address *
+                </label>
+                <Input
+                  type="email"
+                  id="marketing-email"
+                  name="email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  required
+                  className="w-full"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="marketing-phone" className="block text-sm font-medium text-slate-700 mb-2">
+                  Phone Number
+                </label>
+                <Input
+                  type="tel"
+                  id="marketing-phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  className="w-full"
+                  placeholder="(214) 555-0123"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="marketing-address" className="block text-sm font-medium text-slate-700 mb-2">
+                  Property Address
+                </label>
+                <Input
+                  type="text"
+                  id="marketing-address"
+                  name="propertyAddress"
+                  value={formData.propertyAddress}
+                  onChange={(e) => handleInputChange('propertyAddress', e.target.value)}
+                  className="w-full"
+                  placeholder="123 Main St, City, TX"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="marketing-property-type" className="block text-sm font-medium text-slate-700 mb-2">
+                  Property Type
+                </label>
+                <select
+                  id="marketing-property-type"
+                  name="propertyType"
+                  value={formData.propertyType}
+                  onChange={(e) => handleInputChange('propertyType', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select property type</option>
+                  <option value="single-family">Single Family Home</option>
+                  <option value="townhome">Townhome</option>
+                  <option value="condo">Condominium</option>
+                  <option value="luxury">Luxury Property</option>
+                  <option value="investment">Investment Property</option>
+                  <option value="land">Land/Lot</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="marketing-timeline" className="block text-sm font-medium text-slate-700 mb-2">
+                  Listing Timeline
+                </label>
+                <select
+                  id="marketing-timeline"
+                  name="listingTimeline"
+                  value={formData.listingTimeline}
+                  onChange={(e) => handleInputChange('listingTimeline', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select timeline</option>
+                  <option value="immediate">Ready to list immediately</option>
+                  <option value="1-month">Within 1 month</option>
+                  <option value="3-months">Within 3 months</option>
+                  <option value="6-months">Within 6 months</option>
+                  <option value="exploring">Just exploring options</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="marketing-goals" className="block text-sm font-medium text-slate-700 mb-2">
+                  Marketing Goals
+                </label>
+                <select
+                  id="marketing-goals"
+                  name="marketingGoals"
+                  value={formData.marketingGoals}
+                  onChange={(e) => handleInputChange('marketingGoals', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select primary goal</option>
+                  <option value="maximize-price">Maximize sale price</option>
+                  <option value="sell-quickly">Sell as quickly as possible</option>
+                  <option value="premium-exposure">Premium marketing exposure</option>
+                  <option value="competitive-market">Stand out in competitive market</option>
+                  <option value="unique-property">Market unique/luxury property</option>
+                </select>
+              </div>
+
+              <div className="md:col-span-2">
+                <label htmlFor="marketing-message" className="block text-sm font-medium text-slate-700 mb-2">
+                  Tell us about your property and marketing needs
+                </label>
+                <Textarea
+                  id="marketing-message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  className="w-full"
+                  placeholder="Describe your property, any unique features, marketing challenges you're facing, or specific marketing strategies you're interested in..."
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <Button
+                  type="submit"
+                  className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                >
+                  <Megaphone className="w-5 h-5 mr-2" />
+                  Get My Custom Marketing Strategy
+                </Button>
+                <p className="text-xs text-slate-500 mt-4 text-center">
+                  By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                  regarding your property marketing consultation. We respect your privacy and will not share 
+                  your information with third parties.
+                </p>
+              </div>
+            </form>
+
+            <div className="mt-8 pt-8 border-t border-slate-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Camera className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Professional Media</strong><br />Photography & video tours</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Maximum Exposure</strong><br />25+ marketing channels</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-[#0d0d33] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <p><strong>Proven Results</strong><br />Average 7 days to sell</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#0d0d33' }}>
-              <Megaphone className="w-8 h-8 text-white" />
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Ready to Market Your Home?
-            </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-              Let's create a customized marketing strategy that gets your property noticed 
-              by the right buyers and sold quickly for top dollar.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="flex items-center justify-center gap-2">
-                <Shield className="w-5 h-5 text-green-600" />
-                <span className="text-slate-700">No Upfront Costs</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Zap className="w-5 h-5 text-green-600" />
-                <span className="text-slate-700">Launch in 48 Hours</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Award className="w-5 h-5 text-green-600" />
-                <span className="text-slate-700">Premium Marketing</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Link href="/contact">
-                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
-                  Start Your Marketing Campaign
-                </Button>
-              </Link>
-              <Link href="/listing-process">
-                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white">
-                  View Full Listing Process
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Contact />
       <Footer />
       <BackToTop />
     </div>

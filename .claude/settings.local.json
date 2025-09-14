@@ -20,7 +20,8 @@
       "Bash(taskkill:*)",
       "Bash(timeout 15s npm start)",
       "Bash(timeout 15s npm run dev)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

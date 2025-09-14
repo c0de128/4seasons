@@ -262,7 +262,7 @@ export default function PricingStrategy() {
                   <div className="grid lg:grid-cols-12 gap-6 items-center">
                     {/* Impact Badge */}
                     <div className="lg:col-span-2 text-center">
-                      <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-green-600 mb-3">
+                      <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-3" style={{ backgroundColor: '#0d0d33' }}>
                         <span className="text-2xl font-bold text-white">{factor.impact}</span>
                       </div>
                       <p className="text-xs text-slate-500 font-medium">IMPACT</p>
@@ -301,7 +301,7 @@ export default function PricingStrategy() {
                 <CardContent className="p-6">
                   {/* Impact Badge - Top Right */}
                   <div className="absolute top-4 right-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full" style={{ backgroundColor: '#0d0d33' }}>
                       <span className="text-lg font-bold text-white">{factor.impact}</span>
                     </div>
                   </div>
@@ -455,76 +455,10 @@ export default function PricingStrategy() {
             ))}
           </div>
 
-          {/* Action Section */}
-          <div className="mt-16 bg-gradient-to-r from-slate-50 to-blue-50 p-8 rounded-lg">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                Strategic Pricing Guidance
-              </h3>
-              <p className="text-slate-600 max-w-3xl mx-auto mb-8">
-                Our pricing experts have seen these mistakes countless times. Let us help you avoid them 
-                with a data-driven pricing strategy that positions your home competitively from day one.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
-                  Get Expert Pricing Analysis
-                </Button>
-                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white">
-                  Schedule Consultation
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ backgroundColor: '#0d0d33' }}>
-              <Calculator className="w-8 h-8 text-white" />
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Ready to Price Your Home Strategically?
-            </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-              Get a comprehensive pricing analysis from our expert team. We'll help you find the 
-              perfect price point that attracts buyers and maximizes your return.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="flex items-center justify-center gap-2">
-                <Shield className="w-5 h-5 text-green-600" />
-                <span className="text-slate-700">100% Free Analysis</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Zap className="w-5 h-5 text-green-600" />
-                <span className="text-slate-700">Results in 24 Hours</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Award className="w-5 h-5 text-green-600" />
-                <span className="text-slate-700">Expert Guidance</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Link href="/home-valuation">
-                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
-                  Start Your Pricing Analysis
-                </Button>
-              </Link>
-              <Link href="/listing-process">
-                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white">
-                  View Full Listing Process
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Pricing Strategy Consultation Form */}
       <section id="contact" className="py-20 bg-slate-50">
