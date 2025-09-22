@@ -1,0 +1,16 @@
+name: Codestral Assistant
+version: 1.0.0
+schema: v1
+models:
+  - name: codestral
+    provider: mistral
+    model: codestral-latest  # or codestral-25.01, depending on the exact model name
+    apiKey: 7nIbu8F2xqZROcbtNaLAV7CaxSu9MHXV
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase

@@ -1,0 +1,127 @@
+# Robots.txt for 4Seasons Real Estate
+# https://4seasonsrealestate.com/robots.txt
+# Last modified: 2025-01-09
+
+# Default crawler rules
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.gif$
+Allow: /*.woff$
+Allow: /*.woff2$
+Disallow: /admin/
+Disallow: /admin-login
+Disallow: /login
+Disallow: /api/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?page=
+Disallow: /*&sort=
+Disallow: /*&filter=
+Disallow: /*&page=
+Disallow: /search?
+Disallow: /*#
+Crawl-delay: 1
+
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/private/
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/images/
+Disallow: /admin/
+
+# Google Mobile Bot
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /admin/
+
+# Bingbot specific rules
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/private/
+Crawl-delay: 1
+
+# Slurp (Yahoo) specific rules
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Facebook crawler
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 0
+
+# Twitter bot
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 0
+
+# LinkedIn bot
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 0
+
+# WhatsApp crawler
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 0
+
+# AhrefsBot (SEO tool)
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+# SEMrush Bot
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
+
+# Moz Bot
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: GPTBot
+Allow: /blog/
+Disallow: /admin/
+Crawl-delay: 10
+
+# Sitemap locations
+Sitemap: https://4seasonsrealestate.com/sitemap.xml
+Sitemap: https://4seasonsrealestate.com/sitemap-main.xml
+Sitemap: https://4seasonsrealestate.com/sitemap-cities.xml
+Sitemap: https://4seasonsrealestate.com/sitemap-blog.xml
+
+# Host directive (for Yandex)
+Host: https://4seasonsrealestate.com

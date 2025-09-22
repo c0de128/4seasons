@@ -1,0 +1,592 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { Contact } from "@/components/Contact";
+import { BackToTop } from "@/components/ui/back-to-top";
+import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
+import { 
+  Home,
+  TrendingUp,
+  Users,
+  CheckCircle,
+  Calculator,
+  MapPin,
+  Calendar
+} from "lucide-react";
+import mapImage from "../assets/images/map.png";
+import dedicatedSupportImage from "../assets/images/dedicated-support.jpg";
+import marketPricingImage from "../assets/images/market-pricing.jpg";
+import marketingImage from "../assets/images/marketing.jpg";
+import negotiationImage from "../assets/images/negotiation.jpg";
+
+export default function Sell() {
+  const [formData, setFormData] = useState({
+    address: "",
+    city: "",
+    zipCode: "",
+    propertyType: "",
+    bedrooms: "",
+    bathrooms: "",
+    squareFootage: "",
+    lotSize: "",
+    yearBuilt: "",
+    propertyCondition: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    timeline: "",
+    comments: ""
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Home valuation form submitted:", formData);
+    // Handle form submission here
+  };
+
+  return (
+    <div className="min-h-screen">
+      <SEO 
+        title="Sell Your Home for Maximum Value - Dallas-Fort Worth | 4Seasons Real Estate"
+        description="Get top dollar for your property with expert marketing strategies and proven track record in North Texas. Free home valuation and comprehensive selling services."
+        keywords="sell home Dallas, DFW home selling, home valuation Allen, sell house Plano, Frisco real estate agent, McKinney home values, Richardson property selling, home selling tips Texas, real estate market analysis"
+        canonicalUrl={`${seoConfig.siteUrl}/sell`}
+        ogTitle="Sell Your Property for Maximum Value - 4Seasons Real Estate"
+        ogDescription="Get top dollar for your property with our expert marketing strategies and proven track record in North Texas real estate."
+        ogImage={`${seoConfig.siteUrl}/images/sell-home-dfw.jpg`}
+        structuredData={generateStructuredData.service("Home Selling Services", "Professional home selling services including market analysis, pricing strategy, marketing, and negotiation in Dallas-Fort Worth area.")}
+      />
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+              Sell Your Property for
+              <span className="text-primary block">Maximum Value</span>
+            </h1>
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+              Get top dollar for your property with our expert marketing strategies and proven track record in North Texas real estate.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Link href="/home-valuation">
+                <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
+                  Get Free Home Valuation
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" className="border-2 border-slate-900 text-slate-900 px-8 py-4 text-lg font-semibold hover:bg-slate-900 hover:text-white bg-transparent">
+                  Schedule Consultation
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Sell With Us Section */}
+      <section className="py-20 bg-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Why Sell With 4Seasons Real Estate?
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl">
+              At 4Seasons Real Estate, we don't just list your property—we position it to sell quickly and for top dollar. Our proven, data-driven approach combines local market expertise, innovative marketing, and personalized service to deliver real results.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+
+            {/* North Texas Market Expertise - Reversed Layout */}
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">North Texas Market Expertise</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      With deep roots in North Texas, we leverage proven strategies alongside hyper-local market knowledge to give your property a competitive edge. From neighborhood dynamics and pricing trends to buyer behavior and demand shifts, we provide real-time insights that help you price, position, and promote your home effectively—maximizing both visibility and value.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
+                  <img 
+                    src={mapImage} 
+                    alt="North Texas Market Map"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Dedicated Support */}
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
+                  <img 
+                    src={dedicatedSupportImage} 
+                    alt="Dedicated Support Team"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="p-4 lg:p-6 bg-slate-100">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Dedicated Support</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      We provide personal attention from our experienced team throughout the entire selling process. From initial consultation to closing and beyond, we ensure no detail is overlooked in your real estate journey. Our dedicated approach means you have a trusted partner every step of the way.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Strategic Pricing - Reversed Layout */}
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Strategic Pricing</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      We use real-time market data and neighborhood insights to price your home competitively—attracting serious buyers while maximizing your return. Our comprehensive pricing strategy combines current market trends, comparable sales analysis, and local demand patterns to position your property at the optimal price point.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
+                  <img 
+                    src={marketPricingImage} 
+                    alt="Strategic Market Pricing"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* High-Impact Marketing */}
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto">
+                  <img 
+                    src={marketingImage} 
+                    alt="High-Impact Marketing Campaigns"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="p-4 lg:p-6 bg-slate-100">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">High-Impact Marketing</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      From professional photography and virtual tours to targeted digital campaigns, we ensure your property stands out across all major platforms. Our comprehensive marketing approach maximizes exposure through strategic online advertising, social media promotion, and premium listing placements to reach qualified buyers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Expert Negotiation - Reversed Layout */}
+            <div className="bg-white shadow-lg overflow-hidden max-w-4xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Content - Left Side */}
+                <div className="p-4 lg:p-6 order-2 lg:order-1 bg-slate-100">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Expert Negotiation</h3>
+                  
+                  <div className="text-slate-600 leading-relaxed mb-6">
+                    <p>
+                      Our experienced agents advocate for your best interests, helping you navigate offers and close with confidence. We leverage our negotiation expertise and market knowledge to secure the best possible terms, handle counteroffers strategically, and guide you through complex contract details to ensure a successful transaction.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image - Right Side */}
+                <div className="bg-slate-200 aspect-[3/4] lg:aspect-auto order-1 lg:order-2">
+                  <img 
+                    src={negotiationImage} 
+                    alt="Expert Negotiation Services"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Selling Process Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Proven Selling Process
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              We've streamlined the selling process to be as smooth and profitable as possible for you.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Property Evaluation",
+                description: "Comprehensive market analysis and professional home valuation to determine optimal pricing strategy."
+              },
+              {
+                step: "02", 
+                title: "Marketing Strategy",
+                description: "Professional photography, staging consultation, and multi-platform marketing campaign launch."
+              },
+              {
+                step: "03",
+                title: "Show & Negotiate",
+                description: "Coordinate showings, handle inquiries, and negotiate offers to get you the best possible deal."
+              },
+              {
+                step: "04",
+                title: "Close the Sale",
+                description: "Manage all paperwork, inspections, and closing details for a smooth transaction completion."
+              }
+            ].map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center text-white font-bold text-xl" style={{ backgroundColor: '#1f2937' }}>
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Home Valuation Form Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Get Your Free Home Valuation
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Start your selling journey with an accurate property valuation. Fill out our detailed form to receive a comprehensive market analysis.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-slate-50 rounded-lg p-8">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Property Information */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                      <Home className="w-5 h-5 mr-2" style={{ color: '#0d0d33' }} />
+                      Property Information
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="address" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Property Address *
+                        </Label>
+                        <Input
+                          id="address"
+                          value={formData.address}
+                          onChange={(e) => handleInputChange('address', e.target.value)}
+                          placeholder="123 Main Street"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="city" className="text-sm font-medium text-slate-700 mb-2 block">
+                          City *
+                        </Label>
+                        <Input
+                          id="city"
+                          value={formData.city}
+                          onChange={(e) => handleInputChange('city', e.target.value)}
+                          placeholder="Allen"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="zipCode" className="text-sm font-medium text-slate-700 mb-2 block">
+                          ZIP Code *
+                        </Label>
+                        <Input
+                          id="zipCode"
+                          value={formData.zipCode}
+                          onChange={(e) => handleInputChange('zipCode', e.target.value)}
+                          placeholder="75013"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="propertyType" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Property Type *
+                        </Label>
+                        <Select value={formData.propertyType} onValueChange={(value) => handleInputChange('propertyType', value)}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select property type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="single-family">Single Family Home</SelectItem>
+                            <SelectItem value="townhouse">Townhouse</SelectItem>
+                            <SelectItem value="condo">Condominium</SelectItem>
+                            <SelectItem value="duplex">Duplex</SelectItem>
+                            <SelectItem value="land">Land/Lot</SelectItem>
+                            <SelectItem value="commercial">Commercial Property</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="bedrooms" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Bedrooms
+                        </Label>
+                        <Select value={formData.bedrooms} onValueChange={(value) => handleInputChange('bedrooms', value)}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Number of bedrooms" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="1">1 Bedroom</SelectItem>
+                            <SelectItem value="2">2 Bedrooms</SelectItem>
+                            <SelectItem value="3">3 Bedrooms</SelectItem>
+                            <SelectItem value="4">4 Bedrooms</SelectItem>
+                            <SelectItem value="5">5+ Bedrooms</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="bathrooms" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Bathrooms
+                        </Label>
+                        <Select value={formData.bathrooms} onValueChange={(value) => handleInputChange('bathrooms', value)}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Number of bathrooms" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="1">1 Bathroom</SelectItem>
+                            <SelectItem value="1.5">1.5 Bathrooms</SelectItem>
+                            <SelectItem value="2">2 Bathrooms</SelectItem>
+                            <SelectItem value="2.5">2.5 Bathrooms</SelectItem>
+                            <SelectItem value="3">3 Bathrooms</SelectItem>
+                            <SelectItem value="3.5">3.5 Bathrooms</SelectItem>
+                            <SelectItem value="4">4+ Bathrooms</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="squareFootage" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Square Footage
+                        </Label>
+                        <Input
+                          id="squareFootage"
+                          value={formData.squareFootage}
+                          onChange={(e) => handleInputChange('squareFootage', e.target.value)}
+                          placeholder="2,000"
+                          className="w-full"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lotSize" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Lot Size
+                        </Label>
+                        <Input
+                          id="lotSize"
+                          value={formData.lotSize}
+                          onChange={(e) => handleInputChange('lotSize', e.target.value)}
+                          placeholder="0.25 acres"
+                          className="w-full"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="yearBuilt" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Year Built
+                        </Label>
+                        <Input
+                          id="yearBuilt"
+                          value={formData.yearBuilt}
+                          onChange={(e) => handleInputChange('yearBuilt', e.target.value)}
+                          placeholder="2010"
+                          className="w-full"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="propertyCondition" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Property Condition
+                        </Label>
+                        <Select value={formData.propertyCondition} onValueChange={(value) => handleInputChange('propertyCondition', value)}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select condition" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="excellent">Excellent</SelectItem>
+                            <SelectItem value="good">Good</SelectItem>
+                            <SelectItem value="fair">Fair</SelectItem>
+                            <SelectItem value="needs-work">Needs Work</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Contact Information */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                      <Users className="w-5 h-5 mr-2" style={{ color: '#0d0d33' }} />
+                      Contact Information
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="firstName" className="text-sm font-medium text-slate-700 mb-2 block">
+                          First Name *
+                        </Label>
+                        <Input
+                          id="firstName"
+                          value={formData.firstName}
+                          onChange={(e) => handleInputChange('firstName', e.target.value)}
+                          placeholder="John"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lastName" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Last Name *
+                        </Label>
+                        <Input
+                          id="lastName"
+                          value={formData.lastName}
+                          onChange={(e) => handleInputChange('lastName', e.target.value)}
+                          placeholder="Smith"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="email" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Email Address *
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => handleInputChange('email', e.target.value)}
+                          placeholder="john@example.com"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="phone" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Phone Number *
+                        </Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => handleInputChange('phone', e.target.value)}
+                          placeholder="(555) 123-4567"
+                          className="w-full"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Selling Timeline */}
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                      <Calendar className="w-5 h-5 mr-2" style={{ color: '#0d0d33' }} />
+                      Selling Timeline
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="timeline" className="text-sm font-medium text-slate-700 mb-2 block">
+                          When are you planning to sell?
+                        </Label>
+                        <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
+                          <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select timeline" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="immediately">Immediately</SelectItem>
+                            <SelectItem value="1-3-months">1-3 Months</SelectItem>
+                            <SelectItem value="3-6-months">3-6 Months</SelectItem>
+                            <SelectItem value="6-12-months">6-12 Months</SelectItem>
+                            <SelectItem value="just-curious">Just Curious About Value</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="comments" className="text-sm font-medium text-slate-700 mb-2 block">
+                          Additional Comments
+                        </Label>
+                        <Textarea
+                          id="comments"
+                          value={formData.comments}
+                          onChange={(e) => handleInputChange('comments', e.target.value)}
+                          placeholder="Any additional information about your property or selling goals..."
+                          className="w-full h-24"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <Button
+                      type="submit"
+                      className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                    >
+                      <Calculator className="w-5 h-5 mr-2" />
+                      Get My Free Home Valuation
+                    </Button>
+                    <p className="text-xs text-slate-500 mt-4 text-center">
+                      By submitting this form, you agree to receive communications from 4Seasons Real Estate 
+                      regarding your home valuation. We respect your privacy and will not share 
+                      your information with third parties.
+                    </p>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Contact />
+
+      <Footer />
+      
+      {/* Back to Top Button */}
+      <BackToTop />
+    </div>
+  );
+}
