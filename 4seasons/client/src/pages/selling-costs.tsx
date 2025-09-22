@@ -509,6 +509,7 @@ export default function SellingCosts() {
               </CardContent>
             </Card>
           </div>
+        </div>
         </section>
 
         {/* Cost Categories */}

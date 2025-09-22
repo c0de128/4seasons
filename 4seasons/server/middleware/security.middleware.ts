@@ -123,6 +123,8 @@ export function applySecurityMiddleware(app: Express): void {
             ],
         scriptSrcAttr: [
               "'unsafe-hashes'",
+              // NOTE: 'unsafe-inline' below will be ignored by browsers when nonce/hash sources are present
+              // This is CORRECT security behavior - browsers will show a warning but use the more secure options
               "'unsafe-inline'",
               "'sha256-YII3g0mxKW4fLePjm5RTFdzQFCd3xjyxjDra07L6Snc='",
               "'sha256-MMVuWs7THTh9xev3rCcF4h9A6GqJa4CpxZj2IN/M8gg='",

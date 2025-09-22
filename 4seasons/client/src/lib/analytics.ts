@@ -155,8 +155,17 @@ class Analytics {
       // Add error handling for each metric
       const handleMetric = (metricName: string, metricHandler: Function) => {
         try {
+          // Check if metricHandler is actually a function
+          if (typeof metricHandler !== 'function') {
+            if (this.config.debug) {
+              console.warn(`${metricName} handler is not a function:`, typeof metricHandler);
+            }
+            return;
+          }
+
+          // Call the web-vitals function with our callback
           metricHandler((metric: any) => {
-            if (this.isInitialized && window.gtag) {
+            if (this.isInitialized && window.gtag && metric) {
               window.gtag('event', 'web_vitals', {
                 event_category: 'Performance',
                 event_label: metricName,
@@ -175,11 +184,12 @@ class Analytics {
         }
       };
 
-      handleMetric('CLS', onCLS);
-      handleMetric('FID', onFID);
-      handleMetric('FCP', onFCP);
-      handleMetric('LCP', onLCP);
-      handleMetric('TTFB', onTTFB);
+      // Only call handleMetric if the web vitals function exists
+      if (onCLS) handleMetric('CLS', onCLS);
+      if (onFID) handleMetric('FID', onFID);
+      if (onFCP) handleMetric('FCP', onFCP);
+      if (onLCP) handleMetric('LCP', onLCP);
+      if (onTTFB) handleMetric('TTFB', onTTFB);
     }).catch(() => {
       // Web Vitals library not available, skip tracking
       if (this.config.debug) {

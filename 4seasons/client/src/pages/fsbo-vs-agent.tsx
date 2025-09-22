@@ -463,12 +463,25 @@ export default function FsboVsAgent() {
 
       {/* Side-by-Side Comparison */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Complete Side-by-Side Comparison</h2>
-            <p className="text-xl text-gray-600">
-              Understand the real differences between FSBO and using an agent
-            </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-left">
+              Complete Side-by-Side Comparison
+            </h2>
+            <div className="space-y-4">
+              <p className="text-lg text-slate-600 text-left">
+                Understand the real differences between FSBO and using an agent to make the best decision for your situation.
+                This comprehensive comparison breaks down every aspect of the selling process.
+              </p>
+              <p className="text-lg text-slate-600 text-left">
+                From marketing reach and legal protection to time investment and final sale price,
+                see exactly how each approach affects your bottom line and selling experience.
+              </p>
+              <p className="text-lg text-slate-600 text-left">
+                The data shows clear patterns in outcomes, costs, and seller satisfaction between
+                these two approaches. Use this information to choose the path that aligns with your goals.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-8">

@@ -7,7 +7,7 @@ import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { SEOBreadcrumb } from "@/components/seo-breadcrumb";
-import { OptimizedImage, imageOptimizations } from "@/components/ui/optimized-image";
+// import { OptimizedImage, imageOptimizations } from "@/components/ui/optimized-image"; // Temporarily removed for hero image fix
 import { 
   MapPin,
   Users,
@@ -168,13 +168,13 @@ export default function AllenCityGuide() {
         </div>
       </div>
 
-      {/* Hero Section with Optimized Image */}
+      {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 overflow-hidden">
-        <OptimizedImage
+        <img
           src={allenHeroImage}
           alt="Allen, Texas cityscape featuring Eagle Stadium and modern suburban development in Dallas County"
-          {...imageOptimizations.cityGuideHero}
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-slate-800/70"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

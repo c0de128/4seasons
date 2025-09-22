@@ -8,7 +8,7 @@ import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import { SEOBreadcrumb } from "@/components/seo-breadcrumb";
-import { OptimizedImage } from "@/components/ui/optimized-image";
+// import { OptimizedImage, imageOptimizations } from "@/components/ui/optimized-image"; // Removed for consistency
 import { 
   MapPin,
   Users,
@@ -35,7 +35,7 @@ import {
   Train,
   Plane
 } from "lucide-react";
-import planoHeroImage from "@/assets/images/plano.jpg";
+import planoHeroImage from "@/assets/images/hero-images/2175.jpg";
 
 export default function PlanoCityGuide() {
   // Scroll to top on page load
@@ -202,14 +202,12 @@ export default function PlanoCityGuide() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <OptimizedImage
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 overflow-hidden">
+        <img
           src={planoHeroImage}
-          alt="Plano Texas cityscape with Legacy West development and modern architecture"
-          priority
-          width={1200}
-          height={600}
+          alt="Plano, Texas - corporate hub with Legacy West development and modern suburban architecture"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/70 to-slate-800/70"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

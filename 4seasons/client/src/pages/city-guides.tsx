@@ -294,26 +294,16 @@ export default function CityGuides() {
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 The Dallas-Fort Worth Metroplex
               </h2>
-              <div className="prose prose-lg text-slate-600 mb-8">
+              <div className="prose prose-lg text-slate-600">
                 <p>
-                  The Dallas-Fort Worth metroplex stands as the fourth-largest metropolitan area in the United States, 
-                  encompassing over 9,000 square miles across 12 counties and home to more than 7.6 million residents. 
+                  The Dallas-Fort Worth metroplex stands as the fourth-largest metropolitan area in the United States,
+                  encompassing over 9,000 square miles across 12 counties and home to more than 7.6 million residents.
                   This dynamic region represents one of the nation's most diverse and economically robust markets.
                 </p>
                 <p>
-                  From the cosmopolitan energy of downtown Dallas and Fort Worth to the family-oriented communities 
+                  From the cosmopolitan energy of downtown Dallas and Fort Worth to the family-oriented communities
                   of Plano, Allen, Frisco, and McKinney, the region provides exceptional options for every lifestyle and budget.
                 </p>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-6">
-                {marketInsights.map((insight, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-primary mb-1">{insight.metric}</div>
-                    <div className="font-semibold text-slate-900 mb-1">{insight.label}</div>
-                    <div className="text-sm text-slate-600">{insight.description}</div>
-                  </div>
-                ))}
               </div>
             </div>
             
@@ -333,6 +323,19 @@ export default function CityGuides() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Market Insights */}
+          <div className="mt-16">
+            <div className="grid grid-cols-4 gap-6">
+              {marketInsights.map((insight, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-2xl font-bold text-primary mb-1">{insight.metric}</div>
+                  <div className="font-semibold text-slate-900 mb-1">{insight.label}</div>
+                  <div className="text-sm text-slate-600">{insight.description}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

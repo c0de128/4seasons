@@ -298,7 +298,7 @@ function NavigationComponent() {
                               <p className="text-sm text-slate-600">Get an instant estimate of your home's value.</p>
                             </div>
                           </a>
-                          
+
                           <a href="/listing-process" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                             <div>
                               <h4 className="font-medium text-slate-900">Listing Your Property</h4>
@@ -387,10 +387,6 @@ function NavigationComponent() {
                           {/* Column 1 */}
                           <div>
                             <div className="space-y-3">
-                              <a href="/home-valuation" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-                                <h4 className="font-medium text-slate-900">Home Valuation</h4>
-                                <p className="text-sm text-slate-600">Get an accurate estimate of your property's current market value.</p>
-                              </a>
                               
                               <a href="/city-guides" className="block p-3 rounded-lg hover:bg-slate-50 transition-colors group">
                                 <h4 className="font-medium text-slate-900">City Guides</h4>
@@ -477,7 +473,6 @@ function NavigationComponent() {
               <div className="border-t border-slate-100 pt-3 mt-3">
                 <p className="text-sm font-medium text-slate-500 mb-2">Resources</p>
                 <div className="pl-4 space-y-2">
-                  <a href="/home-valuation" className="block text-slate-600 hover:text-primary text-sm">Home Valuation</a>
                   <a href="/city-guides" className="block text-slate-600 hover:text-primary text-sm">City Guides</a>
                   <a href="#property-investment" className="block text-slate-600 hover:text-primary text-sm">Property Investment</a>
                   <a href="/blog" className="block text-slate-600 hover:text-primary text-sm">Blog</a>

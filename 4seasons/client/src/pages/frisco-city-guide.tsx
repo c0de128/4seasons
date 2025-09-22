@@ -5,6 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
+// import { OptimizedImage, imageOptimizations } from "@/components/ui/optimized-image"; // Removed for consistency
 import { 
   MapPin,
   Users,
@@ -32,7 +33,7 @@ import {
   Gamepad2,
   Trophy
 } from "lucide-react";
-import friscoHeroImage from "@/assets/images/frisco.webp";
+import friscoHeroImage from "@/assets/images/hero-images/10895.jpg";
 
 export default function FriscoCityGuide() {
   const demographics = [
@@ -159,15 +160,14 @@ export default function FriscoCityGuide() {
       <Navigation />
 
       {/* Hero Section */}
-      <section 
-        className="pt-32 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${friscoHeroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-slate-800 overflow-hidden">
+        <img
+          src={friscoHeroImage}
+          alt="Frisco, Texas - fast-growing city with sports venues, shopping, and modern developments"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-slate-800/70"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">

@@ -132,13 +132,11 @@ export function SEOBreadcrumb({
             <BreadcrumbItem>
               {item.href ? (
                 <BreadcrumbLink asChild>
-                  <Link href={item.href}>
-                    <a className="inline-flex items-center space-x-1">
-                      {index === 0 && showHome && (
-                        <Home size={14} className="mr-1" />
-                      )}
-                      <span>{item.label}</span>
-                    </a>
+                  <Link href={item.href} className="inline-flex items-center space-x-1">
+                    {index === 0 && showHome && (
+                      <Home size={14} className="mr-1" />
+                    )}
+                    <span>{item.label}</span>
                   </Link>
                 </BreadcrumbLink>
               ) : (

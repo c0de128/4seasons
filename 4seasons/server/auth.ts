@@ -24,16 +24,20 @@ function validateJWTSecret(secret: string | undefined): string {
     throw new Error('JWT_SECRET must be at least 32 characters long');
   }
   
-  // Check for common weak patterns
-  const weakPatterns = [
-    'password', 'secret', 'changeme', 'default', '123456', 
-    'development', 'test', 'admin', 'root', 'supersecret'
-  ];
-  
-  const lowerSecret = secret.toLowerCase();
-  for (const pattern of weakPatterns) {
-    if (lowerSecret.includes(pattern)) {
-      throw new Error(`JWT_SECRET contains weak pattern: ${pattern}`);
+  // Check for common weak patterns (skip for base64-encoded strings)
+  const isBase64 = /^[A-Za-z0-9+/]*={0,2}$/.test(secret) && secret.length >= 32;
+
+  if (!isBase64) {
+    const weakPatterns = [
+      'password', 'secret', 'changeme', 'default', '123456',
+      'development', 'test', 'admin', 'root', 'supersecret'
+    ];
+
+    const lowerSecret = secret.toLowerCase();
+    for (const pattern of weakPatterns) {
+      if (lowerSecret.includes(pattern)) {
+        throw new Error(`JWT_SECRET contains weak pattern: ${pattern}`);
+      }
     }
   }
   

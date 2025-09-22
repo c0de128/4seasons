@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Contact } from "@/components/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { SEO, seoConfig, generateStructuredData } from "@/components/SEO";
 import propertyManagementHeroImage from "@/assets/images/hero-images/3918.jpg";
-import { 
+import {
   Shield,
   DollarSign,
   Users,
@@ -15,10 +17,31 @@ import {
   TrendingUp,
   Clock,
   CheckCircle,
-  Phone
+  Phone,
+  Building
 } from "lucide-react";
 
 export default function PropertyManagement() {
+  const [contactFormData, setContactFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyType: '',
+    propertyLocation: '',
+    timeline: '',
+    message: ''
+  });
+
+  const handleContactInputChange = (field: string, value: string) => {
+    setContactFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Property management consultation form submitted:", contactFormData);
+    // Handle form submission here
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <SEO 
@@ -44,12 +67,6 @@ export default function PropertyManagement() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 bg-yellow-400/90 text-yellow-900 rounded-full text-sm font-medium">
-                <Shield className="w-4 h-4 mr-2" />
-                Property Management
-              </span>
-            </div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Professional Property
@@ -64,9 +81,9 @@ export default function PropertyManagement() {
               <Button className="px-8 py-4 text-lg font-semibold text-white hover:opacity-90" style={{ backgroundColor: '#0d0d33' }}>
                 Get Free Management Quote
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900"
+              <Button
+                variant="outline"
+                className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-black/20 backdrop-blur-sm"
               >
                 Schedule Consultation
               </Button>
@@ -81,13 +98,27 @@ export default function PropertyManagement() {
       {/* Why Choose Our Management Services */}
       <section className="py-20 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-left">
               Why Choose 4Seasons Property Management?
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              We handle every aspect of property management so you can enjoy passive income without the stress.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg text-slate-600 text-left">
+                We handle every aspect of property management so you can enjoy passive income without the stress.
+                Our comprehensive approach ensures your investment property performs at its maximum potential while
+                protecting your asset value for the long term.
+              </p>
+              <p className="text-lg text-slate-600 text-left">
+                From tenant screening and rent collection to maintenance coordination and market analysis,
+                our experienced team manages all the details that make the difference between a profitable
+                rental property and a financial burden.
+              </p>
+              <p className="text-lg text-slate-600 text-left">
+                With decades of experience in North Texas real estate, we understand the local market dynamics
+                and regulatory requirements that impact your rental property success. Let us maximize your returns
+                while minimizing your involvement and stress.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -457,30 +488,168 @@ export default function PropertyManagement() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Maximize Your Rental Income?
-          </h2>
-          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Let our experienced team handle your property while you enjoy the benefits of passive income.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Button className="px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-slate-900 bg-white hover:bg-slate-100">
-              <Phone className="w-5 h-5 mr-2" />
-              Call (972) 555-0123
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-slate-900 bg-transparent">
-              Schedule Free Consultation
-            </Button>
+      {/* Property Management Consultation Form */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Ready to Maximize Your Rental Income?
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Get a free property management consultation and learn how our comprehensive services
+              can increase your rental income while reducing your workload. Let's discuss your property's potential.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 rounded-lg p-8">
+            <form onSubmit={handleContactSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="property-name" className="block text-sm font-medium text-slate-700 mb-2">
+                  Full Name *
+                </label>
+                <Input
+                  type="text"
+                  id="property-name"
+                  name="name"
+                  value={contactFormData.name}
+                  onChange={(e) => handleContactInputChange('name', e.target.value)}
+                  required
+                  className="w-full"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="property-email" className="block text-sm font-medium text-slate-700 mb-2">
+                  Email Address *
+                </label>
+                <Input
+                  type="email"
+                  id="property-email"
+                  name="email"
+                  value={contactFormData.email}
+                  onChange={(e) => handleContactInputChange('email', e.target.value)}
+                  required
+                  className="w-full"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="property-phone" className="block text-sm font-medium text-slate-700 mb-2">
+                  Phone Number
+                </label>
+                <Input
+                  type="tel"
+                  id="property-phone"
+                  name="phone"
+                  value={contactFormData.phone}
+                  onChange={(e) => handleContactInputChange('phone', e.target.value)}
+                  className="w-full"
+                  placeholder="(972) 555-0123"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="property-type" className="block text-sm font-medium text-slate-700 mb-2">
+                  Property Type
+                </label>
+                <select
+                  id="property-type"
+                  name="propertyType"
+                  value={contactFormData.propertyType}
+                  onChange={(e) => handleContactInputChange('propertyType', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select property type</option>
+                  <option value="single-family">Single Family Home</option>
+                  <option value="townhome">Townhome</option>
+                  <option value="condo">Condominium</option>
+                  <option value="duplex">Duplex</option>
+                  <option value="multi-family">Multi-Family (3+ units)</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="property-location" className="block text-sm font-medium text-slate-700 mb-2">
+                  Property Location
+                </label>
+                <select
+                  id="property-location"
+                  name="propertyLocation"
+                  value={contactFormData.propertyLocation}
+                  onChange={(e) => handleContactInputChange('propertyLocation', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select location</option>
+                  <option value="allen">Allen</option>
+                  <option value="frisco">Frisco</option>
+                  <option value="plano">Plano</option>
+                  <option value="mckinney">McKinney</option>
+                  <option value="prosper">Prosper</option>
+                  <option value="celina">Celina</option>
+                  <option value="richardson">Richardson</option>
+                  <option value="carrollton">Carrollton</option>
+                  <option value="lewisville">Lewisville</option>
+                  <option value="other-dfw">Other DFW Area</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="property-timeline" className="block text-sm font-medium text-slate-700 mb-2">
+                  When to Start Management
+                </label>
+                <select
+                  id="property-timeline"
+                  name="timeline"
+                  value={contactFormData.timeline}
+                  onChange={(e) => handleContactInputChange('timeline', e.target.value)}
+                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">Select timeline</option>
+                  <option value="immediate">Immediately</option>
+                  <option value="30-days">Within 30 days</option>
+                  <option value="60-days">Within 60 days</option>
+                  <option value="90-days">Within 90 days</option>
+                  <option value="future">Future planning</option>
+                  <option value="exploring">Just exploring options</option>
+                </select>
+              </div>
+
+              <div className="md:col-span-2">
+                <label htmlFor="property-message" className="block text-sm font-medium text-slate-700 mb-2">
+                  Tell Us About Your Property & Goals
+                </label>
+                <Textarea
+                  id="property-message"
+                  name="message"
+                  rows={4}
+                  value={contactFormData.message}
+                  onChange={(e) => handleContactInputChange('message', e.target.value)}
+                  className="w-full"
+                  placeholder="Describe your property, current rental situation, management goals, specific concerns, or questions about our services..."
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <Button
+                  type="submit"
+                  className="w-full bg-[#0d0d33] text-white hover:bg-blue-700 transition-colors py-3 text-lg font-medium"
+                >
+                  <Building className="w-5 h-5 mr-2" />
+                  Get My Free Property Management Quote
+                </Button>
+                <p className="text-xs text-slate-500 mt-4 text-center">
+                  By submitting this form, you agree to receive communications from 4Seasons Real Estate.
+                  We respect your privacy and will never share your information.
+                </p>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <Contact />
 
       {/* Footer */}
       <Footer />
