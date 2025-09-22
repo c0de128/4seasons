@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(npm audit:*)",
+      "Bash(taskkill:*)",
+      "Bash(cross-env:*)",
+      "Bash(cmd /c:*)",
+      "Bash(netstat:*)",
+      "Bash(npm run check:*)",
+      "Bash(powershell:*)",
+      "Read(c:\\Users\\kevin\\Downloads/**)",
+      "Read(c:\\Users\\kevin\\Downloads/**)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npm run:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(dir:*)",
+      "Bash(npm update:*)",
+      "Bash(npm ls:*)",
+      "Bash(npx tsc:*)",
+      "WebSearch",
+      "Bash(node:*)",
+      "Bash(findstr:*)",
+      "Read(//c/Users/kevin/Downloads/**)",
+      "Bash(git init:*)",
+      "Bash(git rm:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
