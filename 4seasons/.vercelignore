@@ -1,63 +1,39 @@
-# Development and cache directories
+# Vercel-specific ignore file for build-from-source deployments
+# Only exclude files that are truly not needed for building or running the app
+
+# Development cache directories
 .git/
 .github/
 .vscode/
 .claude/
+.continue/
 .cache/
-.tmp/
-tmp/
-temp/
-logs/
-backups/
-deployment-package/
+node_modules/.cache/
 
-# Test files and databases
+# Test files (not needed for production build)
 server/tests/
-server/database/
 *.test.ts
 *.test.js
+coverage/
+
+# Development databases (use production DB)
 *.db
 *.sqlite
 *.sqlite3
-vitest.config.ts
-coverage/
-
-# Source files (only built dist is needed)
-client/src/
-server/*.ts
-!server/dist/
-shared/*.ts
-
-# Build artifacts not needed
-server/public/
-dist/stats.html
+dev.db
 
 # Development environment files
-.env
 .env.local
 .env.development
 .env.test
-.env*.local
 
-# Documentation
+# Documentation (reduces upload size)
 *.md
-!VERCEL_DEPLOYMENT.md
 docs/
 
-# Config files not needed in production
-tsconfig.json
-vite.config.ts
-tailwind.config.ts
-postcss.config.js
-eslint.config.js
-drizzle.config.ts
-components.json
-
-# Scripts not needed in production
-scripts/generate-secrets.js
-scripts/verify-build.js
-scripts/prepare-deployment.js
-start-godaddy.js
+# Deployment artifacts from other platforms
+deployment-package/
+backups/
 
 # OS and IDE files
 .DS_Store
@@ -67,6 +43,6 @@ Thumbs.db
 *~
 *.backup
 
-# Large duplicate assets
+# Duplicate large assets
 client/src/assets/images/hero-images/home-with-driveway-that-has-driveway-that-has-driveway-that-leads-driveway.jpg
 client/src/assets/images/hero-images/home-with-driveway-that-has-driveway-that-has-driveway-that-leads-driveway (1).jpg
