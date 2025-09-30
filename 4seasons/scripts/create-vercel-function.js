@@ -38,39 +38,7 @@ try {
 
 console.log('🔧 Building server for Vercel...');
 
-// Build the server TypeScript files with proper externals
-const externals = [
-  '--external:@neondatabase/serverless',
-  '--external:express',
-  '--external:express-session',
-  '--external:express-validator',
-  '--external:express-rate-limit',
-  '--external:connect-pg-simple',
-  '--external:connect-redis',
-  '--external:ioredis',
-  '--external:redis',
-  '--external:nodemailer',
-  '--external:bcryptjs',
-  '--external:better-sqlite3',
-  '--external:drizzle-orm',
-  '--external:drizzle-zod',
-  '--external:zod',
-  '--external:zod-validation-error',
-  '--external:sharp',
-  '--external:puppeteer',
-  '--external:helmet',
-  '--external:cors',
-  '--external:compression',
-  '--external:morgan',
-  '--external:jsonwebtoken',
-  '--external:passport',
-  '--external:passport-local',
-  '--external:multer',
-  '--external:dotenv',
-  '--external:ws',
-  '--external:memorystore'
-].join(' ');
-
+// Build the server TypeScript files using --packages=external to exclude all node_modules
 try {
   execSync(`npx esbuild server/vercel.ts --platform=node --bundle --format=esm --outdir=server/dist --packages=external`,
     { cwd: projectRoot, stdio: 'inherit' });

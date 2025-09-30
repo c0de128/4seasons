@@ -6,7 +6,8 @@
   "functions": {
     "api/**/*.js": {
       "maxDuration": 30,
-      "memory": 1024
+      "memory": 1024,
+      "excludeFiles": "{client/**,server/!(dist)/**,attached_assets/**,scripts/**,*.test.ts,*.test.js,coverage/**,*.md,docs/**}"
     }
   },
   "headers": [
