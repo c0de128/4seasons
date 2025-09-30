@@ -1,12 +1,40 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process';
-import { writeFileSync, mkdirSync, existsSync, copyFileSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, copyFileSync, rmSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
+
+// Post-build: Move index.html from dist/client to dist root for Vercel SPA routing
+console.log('📦 Fixing output structure for Vercel...');
+
+try {
+  const clientDir = join(projectRoot, 'dist', 'client');
+  const distRoot = join(projectRoot, 'dist');
+
+  if (existsSync(clientDir)) {
+    // Move index.html to dist root
+    const indexHtml = join(clientDir, 'index.html');
+    if (existsSync(indexHtml)) {
+      copyFileSync(indexHtml, join(distRoot, 'index.html'));
+      console.log('✅ Moved index.html to dist root');
+    }
+
+    // Clean up empty client directory
+    try {
+      rmSync(clientDir, { recursive: true, force: true });
+      console.log('✅ Cleaned up client subdirectory');
+    } catch(e) {
+      console.warn('⚠️  Could not remove client subdirectory:', e.message);
+    }
+  }
+} catch(error) {
+  console.error('❌ Failed to fix output structure:', error.message);
+  process.exit(1);
+}
 
 console.log('🔧 Building server for Vercel...');
 

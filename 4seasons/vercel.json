@@ -70,7 +70,7 @@
       "destination": "/api/index"
     },
     {
-      "source": "/:path((?!api).*)",
+      "source": "/((?!api|assets).*)",
       "destination": "/index.html"
     }
   ]
