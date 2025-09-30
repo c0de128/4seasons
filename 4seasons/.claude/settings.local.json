@@ -21,7 +21,12 @@
       "Bash(timeout 15s npm start)",
       "Bash(timeout 15s npm run dev)",
       "Bash(curl:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(vercel)",
+      "Bash(npx vercel:*)",
+      "WebFetch(domain:4seasons-ax2rdz2zv-kevinmckay128-6631s-projects.vercel.app)",
+      "WebFetch(domain:4seasons-8uvl40536-kevinmckay128-6631s-projects.vercel.app)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,0 +1,78 @@
+# CRITICAL: Exclude large directories from serverless function
+node_modules
+deployment-package/
+logs/
+backups/
+client/
+shared/
+
+# Keep only essential server files
+!server/dist/
+!server/public/
+
+# Exclude source files - we only need the built version
+server/index.ts
+server/*.ts
+server/routes/
+server/middleware/
+server/services/
+server/tests/
+server/database/
+
+# Development files
+.env*
+!.env.production.temp
+
+# Testing files
+*.test.ts
+*.test.js
+
+# Documentation
+*.md
+docs/
+
+# Development tools
+.vscode/
+.git/
+.github/
+scripts/
+
+# Cache directories
+.cache/
+.tmp/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Backup files
+*.backup
+
+# Temporary files
+tmp/
+temp/
+
+# Build configuration files (not needed in function)
+vite.config.ts
+vitest.config.ts
+tailwind.config.ts
+eslint.config.js
+postcss.config.js
+components.json
+drizzle.config.ts
+tsconfig.json
+package-lock.json
+
+# Exclude heavy assets from function
+client/src/assets/images/
+client/src/assets/videos/
