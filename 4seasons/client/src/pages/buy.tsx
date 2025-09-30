@@ -170,7 +170,7 @@ export default function Buy() {
               {/* Enhanced iframe with auto-resize */}
               <iframe
                 ref={iframeRef}
-                src="/api/mls/proxy?url=https%3A//matrix.ntreis.net/Matrix/public/IDX.aspx%3Fidx%3D2a47c86"
+                src="https://matrix.ntreis.net/Matrix/public/IDX.aspx?idx=2a47c86"
                 style={{
                   height: `${height}px`,
                   width: "100%",
