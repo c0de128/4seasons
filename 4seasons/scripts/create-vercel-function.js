@@ -72,7 +72,7 @@ const externals = [
 ].join(' ');
 
 try {
-  execSync(`npx esbuild server/vercel.ts --platform=node --bundle --format=esm --outdir=server/dist --packages=external ${externals}`,
+  execSync(`npx esbuild server/vercel.ts --platform=node --bundle --format=esm --outdir=server/dist --packages=external`,
     { cwd: projectRoot, stdio: 'inherit' });
   console.log('✅ Server code compiled');
 } catch (error) {
