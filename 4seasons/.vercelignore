@@ -1,78 +1,72 @@
-# CRITICAL: Exclude large directories from serverless function
-node_modules
-deployment-package/
-logs/
-backups/
-client/
-shared/
-
-# Keep only essential server files
-!server/dist/
-!server/public/
-
-# Exclude source files - we only need the built version
-server/index.ts
-server/*.ts
-server/routes/
-server/middleware/
-server/services/
-server/tests/
-server/database/
-
-# Development files
-.env*
-!.env.production.temp
-
-# Testing files
-*.test.ts
-*.test.js
-
-# Documentation
-*.md
-docs/
-
-# Development tools
-.vscode/
+# Development and cache directories
 .git/
 .github/
-scripts/
-
-# Cache directories
+.vscode/
+.claude/
 .cache/
 .tmp/
+tmp/
+temp/
+logs/
+backups/
+deployment-package/
 
-# Database files
+# Test files and databases
+server/tests/
+server/database/
+*.test.ts
+*.test.js
 *.db
 *.sqlite
 *.sqlite3
+vitest.config.ts
+coverage/
 
-# OS files
+# Source files (only built dist is needed)
+client/src/
+server/*.ts
+!server/dist/
+shared/*.ts
+
+# Build artifacts not needed
+server/public/
+dist/stats.html
+
+# Development environment files
+.env
+.env.local
+.env.development
+.env.test
+.env*.local
+
+# Documentation
+*.md
+!VERCEL_DEPLOYMENT.md
+docs/
+
+# Config files not needed in production
+tsconfig.json
+vite.config.ts
+tailwind.config.ts
+postcss.config.js
+eslint.config.js
+drizzle.config.ts
+components.json
+
+# Scripts not needed in production
+scripts/generate-secrets.js
+scripts/verify-build.js
+scripts/prepare-deployment.js
+start-godaddy.js
+
+# OS and IDE files
 .DS_Store
 Thumbs.db
-
-# IDE files
 *.swp
 *.swo
 *~
-
-# Backup files
 *.backup
 
-# Temporary files
-tmp/
-temp/
-
-# Build configuration files (not needed in function)
-vite.config.ts
-vitest.config.ts
-tailwind.config.ts
-eslint.config.js
-postcss.config.js
-components.json
-drizzle.config.ts
-tsconfig.json
-package-lock.json
-
-# Exclude heavy assets from function
-client/src/assets/images/
-client/src/assets/videos/
+# Large duplicate assets
+client/src/assets/images/hero-images/home-with-driveway-that-has-driveway-that-has-driveway-that-leads-driveway.jpg
+client/src/assets/images/hero-images/home-with-driveway-that-has-driveway-that-has-driveway-that-leads-driveway (1).jpg

@@ -1,13 +1,13 @@
-// Vercel serverless function handler for API routes
+// Vercel serverless function for the 4seasons real estate application
+import { createServer } from '../server/dist/vercel.js';
+
 let app;
 
 export default async function handler(req, res) {
   try {
     // Initialize the app only once
     if (!app) {
-      // Import the Vercel-specific app initializer
-      const { default: getApp } = await import('../server/dist/vercel.js');
-      app = await getApp();
+      app = await createServer();
     }
 
     // Handle the request with the Express app

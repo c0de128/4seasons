@@ -47,7 +47,7 @@ export default defineConfig({
   },
   publicDir: path.resolve(__dirname, "client", "public"),
   build: {
-    outDir: path.resolve(__dirname, "server/public"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
     target: 'esnext',
     minify: 'esbuild',
@@ -55,17 +55,41 @@ export default defineConfig({
     rollupOptions: {
       input: path.resolve(__dirname, "client", "index.html"),
       output: {
-        manualChunks: {
-          // Vendor chunk for third-party dependencies
-          vendor: ['react', 'react-dom'],
-          // UI components chunk
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-toast'],
-          // Router chunk
-          router: ['wouter'],
-          // Query chunk
-          query: ['@tanstack/react-query'],
-          // Lucide icons chunk
-          icons: ['lucide-react'],
+        manualChunks: (id) => {
+          // Split node_modules into smaller chunks for better caching
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('@radix-ui')) {
+              return 'vendor-radix';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+            if (id.includes('@tanstack')) {
+              return 'vendor-query';
+            }
+            if (id.includes('wouter')) {
+              return 'vendor-router';
+            }
+            // Other large dependencies
+            if (id.includes('framer-motion') || id.includes('recharts')) {
+              return 'vendor-animations';
+            }
+            // Smaller utility libraries
+            return 'vendor-utils';
+          }
+          // Split large page components
+          if (id.includes('src/pages/city-guides/')) {
+            return 'pages-city-guides';
+          }
+          if (id.includes('src/pages/blog/')) {
+            return 'pages-blog';
+          }
+          if (id.includes('src/components/ui/')) {
+            return 'components-ui';
+          }
         },
         chunkFileNames: (chunkInfo) => {
           const facadeModuleId = chunkInfo.facadeModuleId

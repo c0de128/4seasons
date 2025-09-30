@@ -1,90 +1,90 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import { registerRoutes } from "./routes";
-import { applySecurityMiddleware } from "./middleware/security.middleware";
-import { applyPerformanceMiddleware } from "./middleware/performance.middleware";
-import { setupHttpLogging, errorLogger } from "./logger";
-import { createSessionMiddleware, validateSessionMiddleware } from "./middleware/session.middleware";
-import { apiCache, staticCache, cityGuideCache, homePageCache } from "./middleware/cache.middleware";
+import { registerRoutes } from "./routes.js";
+import { applySecurityMiddleware } from "./middleware/security.middleware.js";
+import { createSessionMiddleware } from "./middleware/session.middleware.js";
 
 // Load environment variables
 dotenv.config();
 
-// Create Express app
-const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Apply security middleware first
-applySecurityMiddleware(app);
+export async function createServer() {
+  const app = express();
 
-// Performance middleware
-applyPerformanceMiddleware(app);
+  // Apply security middleware
+  applySecurityMiddleware(app);
 
-// Setup HTTP logging
-setupHttpLogging(app);
+  // JSON and URL encoded body parsing
+  app.use(express.json({ limit: '50mb' }));
+  app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// Initialize the app asynchronously
-async function initializeApp() {
+  // Session middleware (with fallback for serverless)
   try {
-    // Initialize session middleware
     const sessionMiddleware = await createSessionMiddleware();
     app.use(sessionMiddleware);
-    app.use(validateSessionMiddleware);
+  } catch (error) {
+    console.warn('Session middleware initialization failed in serverless environment');
+  }
 
-    // Apply cache middleware for different routes
-    app.use('/api/city-guides', cityGuideCache);
-    app.use(/.*city-guide.*/, cityGuideCache);
-    app.use('/', homePageCache);
-    app.use('/api', apiCache);
+  // Static file serving - serve from dist in Vercel
+  const staticPath = process.env.VERCEL
+    ? path.join(process.cwd(), 'dist')
+    : path.resolve('./dist');
 
-    // Register all routes
-    await registerRoutes(app);
+  app.use(express.static(staticPath, {
+    maxAge: '1y',
+    etag: false,
+    index: false
+  }));
 
-    // Error logging middleware
-    app.use(errorLogger);
+  // Register all routes
+  await registerRoutes(app);
 
-    // Error handling middleware
-    app.use((err: any, req: any, res: any, _next: any) => {
-      const status = err.status || err.statusCode || 500;
+  // SPA fallback - serve index.html for all non-API routes
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(staticPath, 'index.html'));
+    } else {
+      res.status(404).json({ error: 'API endpoint not found' });
+    }
+  });
 
-      // Sanitize error message
-      const sanitizeErrorMessage = (message: string): string => {
-        if (!message) return "Internal Server Error";
-        return message
-          .replace(/postgres:\/\/[^@]*@[^\s]*/g, 'postgres://[REDACTED]')
-          .replace(/mysql:\/\/[^@]*@[^\s]*/g, 'mysql://[REDACTED]')
-          .replace(/password[=:][^\s]*/gi, 'password=[REDACTED]');
-      };
+  // Error handling middleware
+  app.use((err: any, req: any, res: any, _next: any) => {
+    const status = err.status || err.statusCode || 500;
 
-      const clientErrorMessage = status < 500
-        ? sanitizeErrorMessage(err.message)
-        : "Internal Server Error";
+    // Sanitize error message for security
+    const sanitizeErrorMessage = (message: string): string => {
+      if (!message) return "Internal Server Error";
+      return message
+        .replace(/postgres:\/\/[^@]*@[^\s]*/g, 'postgres://[REDACTED]')
+        .replace(/mysql:\/\/[^@]*@[^\s]*/g, 'mysql://[REDACTED]')
+        .replace(/password[=:][^\s]*/gi, 'password=[REDACTED]');
+    };
 
-      console.error(`Error ${status}:`, {
-        message: err.message,
-        stack: err.stack,
-        url: req.url,
-        method: req.method,
-        userAgent: req.get('User-Agent')
-      });
+    const clientErrorMessage = status < 500
+      ? sanitizeErrorMessage(err.message)
+      : "Internal Server Error";
 
-      if (!res.headersSent) {
-        res.status(status).json({ error: clientErrorMessage });
-      }
+    console.error(`Error ${status}:`, {
+      message: err.message,
+      stack: err.stack,
+      url: req.url,
+      method: req.method,
+      userAgent: req.get('User-Agent')
     });
 
-    return app;
-  } catch (error) {
-    console.error('Failed to initialize app:', error);
-    throw error;
-  }
+    if (!res.headersSent) {
+      res.status(status).json({ error: clientErrorMessage });
+    }
+  });
+
+  return app;
 }
 
-// Initialize the app and export it
-let initializedApp: express.Application | null = null;
-
-export default async function getApp() {
-  if (!initializedApp) {
-    initializedApp = await initializeApp();
-  }
-  return initializedApp;
-}
+// Legacy export for compatibility
+export default createServer;
