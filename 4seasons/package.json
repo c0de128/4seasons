@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=server/dist && esbuild server/vercel.ts --platform=node --packages=external --bundle --format=esm --outdir=server/dist",
+    "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outdir=server/dist --external:@neondatabase/serverless --external:ioredis --external:nodemailer --external:@babel/preset-typescript/package.json --external:lightningcss --external:@shared/schema --external:../vite.config --external:./database/security && esbuild server/vercel.ts --platform=node --bundle --format=esm --outdir=server/dist --external:@neondatabase/serverless --external:ioredis --external:nodemailer --external:@babel/preset-typescript/package.json --external:lightningcss --external:@shared/schema --external:../vite.config --external:./database/security",
+    "build:vercel": "vite build --outDir=dist && node scripts/create-vercel-function.js",
     "build:vite": "vite build",
-    "build:server": "esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=server/dist && esbuild server/vercel.ts --platform=node --packages=external --bundle --format=esm --outdir=server/dist",
+    "build:server": "esbuild server/index.ts --platform=node --bundle --format=esm --outdir=server/dist --external:@neondatabase/serverless --external:ioredis --external:nodemailer && esbuild server/vercel.ts --platform=node --bundle --format=esm --outdir=server/dist --external:@neondatabase/serverless --external:ioredis --external:nodemailer",
     "start": "cross-env NODE_ENV=production node server/dist/index.js",
     "start:godaddy": "node start-godaddy.js",
     "generate-secrets": "node generate-secrets.js",
@@ -158,5 +159,8 @@
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
